@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS parte 2</title>
+</head>
+
+<body>
+
+    <h2>ARRAYS</h2>
+
+    <p id="demo"></p>
+
+    <script>
+        const cars = ["Saab", "Volvo", "BMW"];
+        document.getElementById("demo").innerHTML = cars;
+
+        /*También puede crearse así
+        const cars = [];
+        cars[0]= "Saab";
+        cars[1]= "Volvo";
+        cars[2]= "BMW";*/
+    </script>
+
+    <p>JavaScript array elements are accessed using numeric indexes (starting from 0).</p>
+
+    <p id="demo1"></p>
+
+    <script>
+        const cars1 = ["Saab", "Volvo", "BMW"];
+        document.getElementById("demo1").innerHTML = cars1[0];
+    </script>
+
+    <p>JavaScript array elements are accessed using numeric indexes (starting from 0). Y para cambiar un elemento</p>
+
+    <p id="demo2"></p>
+
+    <script>
+        const cars2 = ["Saab", "Volvo", "BMW"];
+        cars2[0] = "Opel";
+        document.getElementById("demo2").innerHTML = cars2;
+    </script>
+
+    <h3>Propiedades de los arrays</h3>
+
+    <p>The length property returns the length of an array.</p>
+
+    <p id="demo3"></p>
+
+    <script>
+        const fruits = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo3").innerHTML = fruits.length;
+    </script>
+
+    <p>JavaScript array elements are accesses using numeric indexes (starting from 0).</p>
+
+    <p id="demo4"></p>
+
+    <script>
+        const fruits4 = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo4").innerHTML = fruits4[0];
+    </script>
+
+    <p>Accesing the last array element</p>
+
+    <p id="demo5"></p>
+
+    <script>
+        var fruits5 = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo5").innerHTML = fruits5[fruits5.length - 1];
+    </script>
+
+    <p>The best way to loop through an array is using a standard for loop:</p>
+
+    <p id="demo6"></p>
+
+    <script>
+        const fruits6 = ["Banana", "Orange", "Apple", "Mango"];
+        let fLen = fruits6.length;
+
+        let text6 = "<ul>";
+        for (let i = 0; i < fLen; i++) {
+            text6 += "<li>" + fruits6[i] + "</li>";
+        }
+        text6 += "</ul>";
+
+        document.getElementById("demo6").innerHTML = text6;
+    </script>
+
+    <p>Array.forEach() calls a function for each array element.</p>
+
+    <p id="demo7"></p>
+
+    <script>
+        const fruits7 = ["Banana", "Orange", "Apple", "Mango"];
+
+        let text7 = "<ul>";
+        fruits7.forEach(myFunction);
+        text7 += "</ul>";
+        document.getElementById("demo7").innerHTML = text7;
+
+        function myFunction(value) {
+            text7 += "<li>" + value + "</li>";
+        } 
+    </script>
+
+    <p>The push method appends a new element to an array.</p>
+
+    <button onclick="myFunctionAdd()">Try it</button>
+
+    <p id="demo8"></p>
+
+    <script>
+        const fruits8 = ["Banana", "Orange", "Apple"];
+        document.getElementById("demo8").innerHTML = fruits8;
+
+        function myFunctionAdd() {
+            fruits8.push("Lemon");
+            document.getElementById("demo8").innerHTML = fruits8;
+        }
+    </script>
+
+    <p>The length property provides an easy way to append new elements to an array without using the push() method.</p>
+
+    <button onclick="myFunctionAddWithLength()">Try it</button>
+
+    <p id="demo9"></p>
+
+    <script>
+        const fruits9 = ["Banana", "Orange", "Apple"];
+        document.getElementById("demo9").innerHTML = fruits9;
+
+        function myFunctionAddWithLength() {
+            fruits9[fruits9.length] = "Lemon";
+            document.getElementById("demo9").innerHTML = fruits9;
+        }
+    </script>
+
+    <p>Para saber si es un array uso Array.isArray()</p>
+
+    <p id="demo10"></p>
+
+    <script>
+        const fruits10 = ["Banana", "Orange", "Apple"];
+        document.getElementById("demo10").innerHTML = Array.isArray(fruits10);
+    </script>
+
+    <p>Otra forma...The instanceof operator returns true when used on an array:</p>
+
+    <p id="demo11"></p>
+
+    <script>
+        var fruits11 = ["Banana", "Orange", "Apple"];
+        document.getElementById("demo11").innerHTML = fruits11 instanceof Array;
+    </script>
+
+    <h3>Array methods</h3>
+
+    <p>The toString() method returns an array as a comma separated string:</p>
+
+    <p id="demo12"></p>
+
+    <script>
+        const fruits12 = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo12").innerHTML = fruits12.toString();
+    </script>
+
+    <p>The join() method joins array elements into a string.</p>
+    <p>It this example we have used " * " as a separator between the elements:</p>
+
+    <p id="demo13"></p>
+
+    <script>
+        const fruits13 = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo13").innerHTML = fruits13.join(" * ");
+    </script>
+
+    <p>The pop() method removes the last element from an array.</p>
+
+    <p id="demo14a"></p>
+    <p id="demo14b"></p>
+
+    <script>
+        const fruits14 = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo14a").innerHTML = fruits14;
+        fruits14.pop();
+        document.getElementById("demo14b").innerHTML = fruits14;
+    </script>
+
+    <p>The push() method appends a new element to an array:</p>
+
+    <p id="demo15a"></p>
+    <p id="demo15b"></p>
+
+    <script>
+        const fruits15 = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo15a").innerHTML = fruits15;
+        fruits15.push("Kiwi");
+        document.getElementById("demo15b").innerHTML = fruits15;
+    </script>
+
+    <p>The push() method returns the new array length:</p>
+
+    <p id="demo16a"></p>
+    <p id="demo16b"></p>
+
+    <script>
+        const fruits16 = ["Banana", "Orange", "Apple", "Mango"];
+
+        document.getElementById("demo16a").innerHTML = fruits16.push("Kiwi"); //para mostrar la nueva length, en cambio si es .pop() me muestra sólo el elemento eliminado
+        document.getElementById("demo16b").innerHTML = fruits16;
+    </script>
+
+    <p>The shift() method removes the first element of an array (and "shifts" the other elements to the left):</p>
+
+    <p id="demo17a"></p>
+    <p id="demo17b"></p>
+
+    <script>
+        const fruits17 = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo17a").innerHTML = fruits17;
+        fruits17.shift();
+        document.getElementById("demo17b").innerHTML = fruits17;
+    </script>
+
+    <p>The shift() method returns the element that was shifted out.</p>
+
+    <p id="demo18a"></p>
+    <p id="demo18b"></p>
+
+    <script>
+        const fruits18 = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo18a").innerHTML = fruits18.shift();
+        document.getElementById("demo18b").innerHTML = fruits18;
+    </script>
+
+    <p>The unshift() method adds new elements to the beginning of an array:</p>
+
+    <p id="demo19a"></p>
+    <p id="demo19b"></p>
+
+    <script>
+        const fruits19 = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo19a").innerHTML = fruits19;
+        fruits19.unshift("Lemon");
+        document.getElementById("demo19b").innerHTML = fruits19;
+    </script>
+
+    <p>The unshift() method returns the length of the new array:</p>
+
+    <p id="demo20a"></p>
+    <p id="demo20b"></p>
+
+    <script>
+        const fruits20 = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo20a").innerHTML = fruits20.unshift("Lemon");
+        document.getElementById("demo20b").innerHTML = fruits20;
+    </script>
+
+    <p>Cambiar un elemento</p>
+    <p>Array elements are accessed using their index number:</p>
+
+    <p id="demo21a"></p>
+    <p id="demo21b"></p>
+
+    <script>
+        const fruits21 = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo21a").innerHTML = fruits21;
+        fruits21[0] = "Kiwi";
+        document.getElementById("demo21b").innerHTML = fruits21;
+    </script>
+
+    <p>The length property provides an easy way to append new elements to an array without using the push() method:</p>
+
+    <p id="demo22a"></p>
+    <p id="demo22b"></p>
+
+    <script>
+        const fruits22 = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo22a").innerHTML = fruits22;
+        fruits22[fruits22.length] = "Kiwi";
+        document.getElementById("demo22b").innerHTML = fruits22;
+    </script>
+
+    <p>The concat() method merges (concatenates) arrays:</p>
+
+    <p id="demo23"></p>
+
+    <script>
+        const array23a = ["Cecilie", "Lone"];
+        const array23b = ["Emil", "Tobias", "Linus"];
+        const array23c = ["Robin", "Morgan"];
+
+        const myChildren23 = array23a.concat(array23b, array23c);
+
+        document.getElementById("demo23").innerHTML = myChildren23;
+    </script>
+
+    <p>The concat() method can merge string values to arrays:</p>
+
+    <p id="demo24"></p>
+
+    <script>
+        const myArray24 = ["Emil", "Tobias", "Linus"];
+        const myChildren24 = myArray24.concat("Peter");
+        document.getElementById("demo24").innerHTML = myChildren24;
+    </script>
+
+    <p>The splice() method adds new elements to an array:</p>
+
+    <p id="demo25a"></p>
+    <p id="demo25b"></p>
+
+    <script>
+        const fruits25 = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo25a").innerHTML = fruits25;
+
+        fruits25.splice(2, 0, "Lemon", "Kiwi");
+        document.getElementById("demo25b").innerHTML = fruits25;
+    </script>
+
+    <p>The splice() method adds new elements to an array, and returns an array with the deleted elements (if any):</p>
+
+    <p id="demo26a"></p>
+    <p id="demo26b"></p>
+    <p id="demo26c"></p>
+
+    <script>
+        const fruits26 = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo26a").innerHTML = "Original Array:<br> " + fruits26;
+        let removed = fruits26.splice(2, 2, "Lemon", "Kiwi");
+        document.getElementById("demo26b").innerHTML = "New Array:<br>" + fruits26;
+        document.getElementById("demo26c").innerHTML = "Removed Items:<br> " + removed; 
+    </script>
+
+    <p>The splice() methods can be used to remove array elements:</p>
+
+    <p id="demo27a"></p>
+    <p id="demo27b"></p>
+
+    <script>
+        const fruits27 = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo27a").innerHTML = fruits27;
+        fruits27.splice(0, 1);
+        document.getElementById("demo27b").innerHTML = fruits27;
+    </script>
+
+    <p>Slice() This example slices out a part of an array starting from array element 1 ("Orange"):</p>
+
+    <p id="demo28"></p>
+
+    <script>
+        const fruits28 = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+        const citrus28 = fruits28.slice(1); //Posición 2
+        document.getElementById("demo28").innerHTML = fruits28 + "<br><br>" + citrus28;
+    </script>
+
+    <p>This example slices out a part of an array starting from array element 3 ("Apple")</p>
+
+    <p id="demo29"></p>
+
+    <script>
+        const fruits29 = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+        const citrus29 = fruits29.slice(3);
+        document.getElementById("demo29").innerHTML = fruits29 + "<br><br>" + citrus29;
+    </script>
+
+    <p>When the slice() method is given two arguments, it selects array elements from the start argument, and up to (but
+        not included) the end argument:</p>
+
+    <p id="demo30"></p>
+
+    <script>
+        const fruits30 = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+        const citrus30 = fruits30.slice(1, 3);
+        document.getElementById("demo30").innerHTML = fruits30 + "<br><br>" + citrus30;
+    </script>
+
+
+</body>
+
+</html>

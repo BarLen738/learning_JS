@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS parte 1</title>
+</head>
+
+<body>
+    <!--Usando innerHTML-->
+    <h2>innerHTML</h2>
+
+    <p id="demo0"></p>
+
+    <script>
+        document.getElementById("demo0").innerHTML = 5 + 6;
+    </script>
+
+    <!--Usando document.write()-->
+    <h2>document.write()</h2>
+
+    <p>Never call document.write after the document has finished loading.
+        It will overwrite the whole document.</p>
+
+    <script>
+        document.write(5 + 6);
+    </script>
+
+    <!--Usando window.alert()-->
+
+    <script>
+        window.alert(5 + 6);
+    </script>
+
+    <!--Usando window.print()-->
+    <h2>The window.print() Method</h2>
+
+    <p>Click the button to print the current page.</p>
+
+    <button onclick="window.print()">Print this page</button>
+
+    <hr>
+
+    <h2>Statements</h2>
+
+    <p>
+        Se separan con punto y coma. <br> Pueden declararse uno debajo del otro o en una sola línea.
+    </p>
+
+    <p id="demo1"></p>
+
+    <script>
+        let a, b, c; // Declare 3 variables
+        a = 5; // Assign the value 5 to a
+        b = 6; // Assign the value 6 to b
+        c = a + b; // Assign the sum of a and b to c
+        document.getElementById("demo1").innerHTML = c;
+    </script>
+
+    <p id="demo2"></p>
+
+    <script>
+        let d, e, f;
+        d = 5; e = 6; f = d + e;
+        document.getElementById("demo2").innerHTML = f;
+    </script>
+
+    <h2>Sintaxis</h2>
+
+    <code>
+        <p>
+        // How to create variables: 
+        var x;
+        let y;
+        </p>
+        <p>
+        // How to use variables:
+        x = 5;
+        y = 6;
+        let z = x + y;
+        </p>
+    </code>
+
+    <h2>JavaScript Functions</h2>
+
+    <p>This example calls a function to convert from Fahrenheit to Celsius:</p>
+    <p id="demo3"></p>
+
+    <script>
+        function toCelsius(f) {
+            return (5 / 9) * (f - 32);
+        }
+        document.getElementById("demo3").innerHTML = toCelsius(77);
+    </script>
+
+    <h2>JavaScript Objects</h2>
+
+    <p id="demo4"></p>
+
+    <script>
+        // Create an object:
+        const car = { type: "Fiat", model: "500", color: "white" };
+
+        // Display some data from the object:
+        document.getElementById("demo4").innerHTML = "The car type is " + car.type;
+    </script>
+
+    <p>Extraer información de un objeto</p>
+
+
+    <script>
+        const person = {
+            firstName: "John",
+            lastName: "Doe"
+        };
+
+        alert(
+            person.firstName
+        );
+
+    </script>
+
+    <h2>JS Events</h2>
+
+    <button onclick="document.getElementById('demo5').innerHTML=Date()">The time is?</button>
+
+    <p id="demo5"></p>
+
+    <button onclick="this.innerHTML=Date()">The time is?</button>
+
+    <button onclick="displayDate()">The time is?</button>
+
+    <br>
+
+    <p id="demo6"></p>
+
+    <script>
+        function displayDate() {
+            document.getElementById("demo6").innerHTML = Date();
+        }
+    </script>
+
+
+
+    <h2>Strings</h2>
+
+    <p>The length property returns the length of a string:</p>
+
+    <p id="demo7"></p>
+
+    <script>
+        let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        document.getElementById("demo7").innerHTML = text.length;
+    </script>
+
+    <p>The escape sequence \" inserts a double quote in a string.</p>
+
+    <p id="demo8"></p>
+
+    <script>
+        let texto = "We are the so-called \"Vikings\" from the north.";
+        document.getElementById("demo8").innerHTML = texto; 
+    </script>
+
+
+
+    <h2>JavaScript String Methods</h2>
+
+    <p>The <strong>slice() method</strong> extract a part of a string
+        and returns the extracted parts in a new string:</p>
+
+    <!--Números positivos-->
+    <p id="demo9"></p>
+
+    <script>
+        let str = "Apple, Banana, Kiwi";
+        document.getElementById("demo9").innerHTML = str.slice(7, 13); 
+    </script>
+
+    <!--Números negativos-->
+    <p id="demo10"></p>
+
+    <script>
+        let str2 = "Apple, Banana, Kiwi";
+        document.getElementById("demo10").innerHTML = str2.slice(-12, -6); //si omito el segundo número cuenta hasta el final del string
+    </script>
+
+    <p><strong>The substring() method</strong> extract a part of a string and returns the extracted parts in a new
+        string:</p>
+
+    <p id="demo11"></p>
+
+    <script>
+        let str3 = "Apple, Banana, Kiwi";
+        document.getElementById("demo11").innerHTML = str3.substring(7, 13);
+    </script>
+
+    <p>The <strong>substr() method</strong> extract a part of a string and returns the extracted parts in a new string.
+        If you omit the second parameter, substr() will slice out the rest of the string.If the first parameter is
+        negative, the position counts from the end of the string.</p>
+
+    <p id="demo12"></p>
+
+    <script>
+        let str4 = "Apple, Banana, Kiwi";
+        document.getElementById("demo12").innerHTML = str4.substr(7, 6);
+    </script>
+
+    <p id="demo13"></p>
+
+    <script>
+        let str5 = "Apple, Banana, Kiwi";
+        document.getElementById("demo13").innerHTML = str5.substr(-4);
+    </script>
+
+    <p>Replace "Microsoft" with "W3Schools" in the paragraph below. Replace sólo funciona con la primer coincidencia que
+        encuentra y es case sensitive.</p>
+
+    <button onclick="myFunctionW3()">Try it</button>
+
+    <p id="demo14">Please visit Microsoft and Microsoft!</p>
+
+    <script>
+        function myFunctionW3() {
+            let text = document.getElementById("demo14").innerHTML;
+            document.getElementById("demo14").innerHTML =
+                text.replace("Microsoft", "W3Schools");
+        }
+    </script>
+
+    <p>To replace case insensitive, use a regular expression with an /i flag (insensitive):</p>
+
+    <button onclick="myFunctionI()">Try it</button>
+
+    <p id="demo15">Please visit Microsoft!</p>
+
+    <script>
+        function myFunctionI() {
+            let text = document.getElementById("demo15").innerHTML;
+            document.getElementById("demo15").innerHTML =
+                text.replace(/MICROSOFT/i, "W3Schools");
+        }
+    </script>
+
+    <p>To replace all matches, use a regular expression with a /g flag (global match):</p>
+
+    <button onclick="myFunctionAll()">Try it</button>
+
+    <p id="demo16">Please visit Microsoft and Microsoft!</p>
+
+    <script>
+        function myFunctionAll() {
+            let text = document.getElementById("demo16").innerHTML;
+            document.getElementById("demo16").innerHTML =
+                text.replace(/Microsoft/g, "W3Schools");
+        }
+    </script>
+
+    <p><strong>To Upper and Lower Case</strong><br>A string is converted to upper case with toUpperCase(). <br>A string
+        is converted to lower case with toLowerCase():</p>
+
+    <button onclick="myFunctionUC()">Try it</button>
+
+    <p id="demo17">Hello World!</p>
+
+    <script>
+        function myFunctionUC() {
+            let text = document.getElementById("demo17").innerHTML;
+            document.getElementById("demo17").innerHTML =
+                text.toUpperCase();
+        }
+    </script>
+
+    <button onclick="myFunctionLC()">Try it</button>
+
+    <p id="demo18">Hello World!</p>
+
+    <script>
+        function myFunctionLC() {
+            let text = document.getElementById("demo18").innerHTML;
+            document.getElementById("demo18").innerHTML =
+                text.toLowerCase();
+        }
+    </script>
+
+    <p><strong>JavaScript String concat()</strong> <br> concat() joins two or more strings:</p>
+
+
+    <p id="demo19"></p>
+
+    <script>
+        let text1 = "Hello";
+        let text2 = "World!";
+        let text3 = text1.concat(" ", text2);
+        document.getElementById("demo19").innerHTML = text3;
+    </script>
+
+    <p><strong>JavaScript String trim()</strong> <br> The trim() method removes whitespace from both sides of a string:
+    </p>
+
+    <p id="demo20"></p>
+
+    <script>
+        let text4 = "     Hello World!     ";
+        let text5 = text4.trim();
+
+        document.getElementById("demo20").innerHTML =
+            "Length text1=" + text4.length + "<br>Length2 text2=" + text5.length;
+    </script>
+
+    <p><strong>JavaScript String padStart()</strong> <br> The padStart() method pads a string with another string:</p>
+
+    <p id="demo21"></p>
+
+    <script>
+        let text6 = "5"; //funciona con string, si se quiere hacer pad con un número -como acá- se lo convierte en string poniéndole comillas o usando .toString()
+        document.getElementById("demo21").innerHTML = text6.padStart(4, "x");
+    </script>
+
+    <p><strong>JavaScript String padEnd()</strong> <br> The padEnd() method pads a string with another string:</p>
+
+    <p id="demo22"></p>
+
+    <script>
+        let text7 = "5"; //funciona con string, si se quiere hacer pad con un número -como acá- se lo convierte en string poniéndole comillas o usando .toString()
+        document.getElementById("demo22").innerHTML = text7.padEnd(4, "0");
+    </script>
+
+    <p><strong>Extracting String Characters</strong> <br>There are 3 methods for extracting string characters: <br>
+        charAt(position) <br> charCodeAt(position) <br> Property access [ ]</p>
+
+    <p>The charAt() method returns the character at a given position in a string:</p>
+
+    <p id="demo23"></p>
+
+    <script>
+        var text8 = "HELLO WORLD";
+        document.getElementById("demo23").innerHTML = text8.charAt(0);
+    </script>
+
+    <p>The charCodeAt() method returns the unicode of the character at a given position in a string:</p>
+
+    <p id="demo24"></p>
+
+    <script>
+        let text9 = "HELLO WORLD";
+        document.getElementById("demo24").innerHTML = text9.charCodeAt(0);
+    </script>
+
+    <p>ECMAScript 5 allows property access on strings:</p>
+
+    <p id="demo25"></p>
+
+    <script>
+        var str10 = "HELLO WORLD";
+        document.getElementById("demo25").innerHTML = str10[0];
+    </script>
+
+    <p>A string can be converted to an array with the split() method:</p>
+
+    <p id="demo26"></p>
+
+    <script>
+        let text10 = "a,b,c,d,e,f";
+        const myArray = text10.split(",");
+        document.getElementById("demo26").innerHTML = myArray[0]; //devolviendo el primer elemento después de convertir el string en array con split
+    </script>
+
+    <h2>JS Search Methods</h2>
+
+    <p>The indexOf() method returns the position of the first occurrence of a specified text:</p>
+
+    <p id="demo27"></p>
+
+    <script>
+        let str11 = "Please locate where 'locate' occurs!";
+        document.getElementById("demo27").innerHTML = str11.indexOf("locate");
+    </script>
+
+    <p>The lastIndexOf() method returns the position of the last occurrence of a specified text:</p>
+
+    <!--Encuentra la última ocurrencia (palabra) y devuelve la posición de la primera letra-->
+
+    <p id="demo28"></p>
+
+    <script>
+        let str12 = "Please locate where 'locate' occurs!";
+        document.getElementById("demo28").innerHTML = str12.lastIndexOf("locate");
+    </script>
+
+    <p>Both indexOf(), and lastIndexOf() return -1 if the text is not found:</p>
+
+    <p id="demo29"></p>
+
+    <script>
+        let str13 = "Please locate where 'locate' occurs!";
+        document.getElementById("demo29").innerHTML = str13.indexOf("John");
+    </script>
+
+    <p>The indexOf() method accepts a second parameter as the starting position for the search:</p>
+
+    <p id="demo30"></p>
+
+    <script>
+        let str14 = "Please locate where 'locate' occurs!";
+        document.getElementById("demo30").innerHTML = str14.indexOf("locate", 15);
+    </script>
+
+    <p>The lastIndexOf() method accepts a second parameter as the starting position for the search.</p>
+    <p>Remember that the lastIndexOf() method searches backwards, so position 15 means start the search at position 15,
+        and search to the beginning.</p>
+    <p>Position 15 is position 15 from the beginning.</p>
+
+    <p id="demo31"></p>
+
+    <script>
+        let str15 = "Please locate where 'locate' occurs!";
+        document.getElementById("demo31").innerHTML = str15.lastIndexOf("locate", 15);
+    </script>
+
+    <p>The search() method returns the position of the first occurrence of a specified text in a string:</p>
+    <p>Es parecido a indexOf() pero no puede tomar un segundo parámetro. Sí trabaja con regular expressions.</p>
+
+    <p id="demo32"></p>
+
+    <script>
+        let str16 = "Please locate where 'locate' occurs!";
+        document.getElementById("demo32").innerHTML = str16.search("locate");
+    </script>
+
+    <p>The match() method searches a string for a match against a regular expression, and returns the matches, as an
+        Array object. Es case sensitive.</p>
+    <p>If a regular expression does not include the g modifier (to perform a global search), the match() method will
+        return only the first match in the string.</p>
+    <p>Si uso /gi detrás de la expresión que busco devuelve todas las coincidencias, incluso las mayúsculas.</p>
+
+    <p>Search a string for "ain":</p>
+
+    <p id="demo33"></p>
+
+    <script>
+        let text11 = "The rain in SPAIN stays mainly in the plain";
+        document.getElementById("demo33").innerHTML = text11.match(/ain/g);
+    </script>
+
+    <p>Perform a global, case-insensitive search for "ain":</p>
+
+    <p id="demo34"></p>
+
+    <script>
+        let text12 = "The rain in SPAIN stays mainly in the plain";
+        document.getElementById("demo34").innerHTML = text12.match(/ain/gi);
+    </script>
+
+    <p>JavaScript String includes(). <br> The includes() method returns true if a string contains a specified value.</p>
+
+    <p>Check if a string includes "world":</p>
+
+    <p id="demo35"></p>
+
+    <p>The includes() method is not supported in Internet Explorer.</p>
+
+    <script>
+        let text13 = "Hello world, welcome to the universe.";
+        document.getElementById("demo35").innerHTML = text13.includes("world");
+    </script>
+
+    <p>Check if a string includes "world". Usando parámetro de inicio.</p>
+
+    <p id="demo36"></p>
+
+    <p>The includes() method is not supported in Internet Explorer.</p>
+
+    <script>
+        let text14 = "Hello world, welcome to the universe.";
+        document.getElementById("demo36").innerHTML = text14.includes("world", 12);
+    </script>
+
+    <p>JavaScript String startsWith() <br> The startsWith() method returns true if a string begins with a specified
+        value, otherwise false. Se puede usar parámetro de inicio -opcional, por default es cero-. Es case sensitive.
+    </p>
+
+    <p id="demo37"></p>
+
+    <p id="demo38"></p>
+
+    <p>The startsWith() method is not supported in Internet Explorer.</p>
+
+    <script>
+        let text15 = "Hello world, welcome to the universe.";
+        document.getElementById("demo37").innerHTML = text15.startsWith("world", 6);
+    </script>
+</body>
+
+<script>
+    let text16 = "Hello world, welcome to the universe.";
+    document.getElementById("demo38").innerHTML = text16.startsWith("world", 5);
+</script>
+
+<p>JavaScript String endsWith() <br> The endsWith() method returns true if a string ends with a specified value,
+    otherwise false. Puede usarse el parámetro opcional length para acotar la longitud en la que se hace la búsqueda.
+</p>
+
+<p>Check if a string ends with "Doe":</p>
+
+<p id="demo39"></p>
+
+<p>The endsWith() method is not supported in Internet Explorer.</p>
+
+<script>
+    let text17 = "John Doe";
+    document.getElementById("demo39").innerHTML = text17.endsWith("Doe");
+</script>
+
+<p>Check in the 11 first characters of a string ends with "world":</p>
+
+<p id="demo40"></p>
+
+<p>The endsWith() method is not supported in Internet Explorer.</p>
+
+<script>
+    let text18 = "Hello world, welcome to the universe.";
+    document.getElementById("demo40").innerHTML = text18.endsWith("world", 11);
+</script>
+
+<h2>JavaScript Template Literals</h2>
+
+<p>Back-Tics Syntax <br>Template Literals use back-ticks (``) rather than the quotes ("") to define a string. <br> With
+    template literals, you can use both single and double quotes inside a string.</p>
+
+<p id="demo41"></p>
+
+<p>Template literals are not supported in Internet Explorer.</p>
+
+<script>
+    let text19 = `He's often called "Johnny"`;
+    document.getElementById("demo41").innerHTML = text19;
+</script>
+
+<p>Variable Substitutions. <br> Template literals allows variables in strings:</p>
+
+<p id="demo42"></p>
+
+<p>Template literals are not supported in Internet Explorer.</p>
+
+<script>
+    let firstName = "Barbara";
+    let lastName = "Lencinas";
+
+    let text20 = `Welcome ${firstName}, ${lastName}!`;
+
+    document.getElementById("demo42").innerHTML = text20;
+</script>
+
+<p> Variable Substitutions <br> Template literals allows variables in strings:</p>
+
+<p id="demo43"></p>
+
+<p>Template literals are not supported in Internet Explorer.</p>
+
+<script>
+    let price = 10;
+    let VAT = 0.25;
+    let total = `Total: ${(price * (1 + VAT)).toFixed(2)}`;
+
+    document.getElementById("demo43").innerHTML = total;
+</script>
+
+<hr>
+
+<h2>JavaScript Numbers</h2>
+
+<p>Numbers can be written with or without decimals:</p>
+
+<p id="demo44"></p>
+
+<script>
+    let x = 3.14;
+    let y = 3;
+    document.getElementById("demo44").innerHTML = x + "<br>" + y; //+ concatena
+</script>
+
+<p>Extra large or extra small numbers can be written with scientific (exponent) notation:</p>
+
+<p id="demo45"></p>
+
+<script>
+    let x1 = 123e5;
+    let y1 = 123e-5;
+    document.getElementById("demo45").innerHTML = x1 + "<br>" + y1;
+</script>
+
+<p>Floating point arithmetic is not always 100% accurate:</p>
+<p id="demo46"></p>
+
+<p>But it helps to multiply and divide:</p>
+
+<p id="demo47"></p>
+
+<script>
+    let x2 = 0.2 + 0.1;
+    document.getElementById("demo46").innerHTML = "0.2 + 0.1 = " + x2;
+    let y2 = (0.2 * 10 + 0.1 * 10) / 10;
+    document.getElementById("demo47").innerHTML = "0.2 + 0.1 = " + y2;
+</script>
+
+<p>Infinity is returned if you calculate a number outside the largest possible number:</p>
+
+<p id="demo48"></p>
+
+<script>
+    let myNumber = 2;
+    let txtI = "";
+    while (myNumber != Infinity) {
+        myNumber = myNumber * myNumber;
+        txtI = txtI + myNumber + "<br>";
+    }
+    document.getElementById("demo48").innerHTML = txtI;
+</script>
+
+<h2>JS Number methods</h2>
+
+<p>The toString() Method <br> The toString() method returns a number as a string.All number methods can be used on any
+    type of numbers (literals, variables, or expressions):</p>
+
+<p id="demo49"></p>
+
+<script>
+    let x3 = 123;
+    document.getElementById("demo49").innerHTML =
+        x3.toString() + "<br>" +
+        (123).toString() + "<br>" +
+        (100 + 23).toString();
+</script>
+
+<p>The toExponential() method returns a string, with the number rounded and written using exponential notation.</p>
+
+<p>An optional parameter defines the number of digits behind the decimal point. The parameter is optional. If you don't
+    specify it, JavaScript will not round the number.</p>
+
+<p id="demo50"></p>
+
+<script>
+    let x4 = 9.656;
+    document.getElementById("demo50").innerHTML =
+        x4.toExponential() + "<br>" +
+        x4.toExponential(2) + "<br>" +
+        x4.toExponential(4) + "<br>" +
+        x4.toExponential(6);
+</script>
+
+<p>The toFixed() method rounds a number to a given number of digits.</p>
+<p>For working with money, toFixed(2) is perfect.</p>
+
+<p id="demo51"></p>
+
+<script>
+    let x5 = 9.656;
+    document.getElementById("demo51").innerHTML =
+        x5.toFixed(0) + "<br>" +
+        x5.toFixed(2) + "<br>" +
+        x5.toFixed(4) + "<br>" +
+        x5.toFixed(6);
+</script>
+
+<p>The toPrecision() method returns a string, with a number written with a specified length:</p>
+
+<p id="demo52"></p>
+
+<script>
+    let x6 = 9.656;
+    document.getElementById("demo52").innerHTML =
+        x6.toPrecision() + "<br>" +
+        x6.toPrecision(2) + "<br>" +
+        x6.toPrecision(4) + "<br>" +
+        x6.toPrecision(6);  
+</script>
+
+<h2>JavaScript Global Methods</h2>
+
+<p>The Number() method converts variables to numbers:</p>
+
+<p id="demo53"></p>
+
+<script>
+    document.getElementById("demo53").innerHTML =
+        Number(true) + "<br>" +
+        Number(false) + "<br>" +
+        Number("10") + "<br>" +
+        Number("  10") + "<br>" +
+        Number("10  ") + "<br>" +
+        Number(" 10  ") + "<br>" +
+        Number("10.33") + "<br>" +
+        Number("10,33") + "<br>" +
+        Number("10 33") + "<br>" +
+        Number("John");
+</script>
+
+<p>The Number() method can convert a date to a number:</p>
+
+<p id="demo54"></p>
+
+<script>
+    let x7 = new Date("1970-01-01");
+    document.getElementById("demo54").innerHTML = Number(x7); 
+</script>
+
+<p>The number of milliseconds between 1970-01-02 and 1970-01-01 is 86400000:</p>
+
+<p id="demo55"></p>
+
+<script>
+    let x8 = new Date("1970-01-02");
+    document.getElementById("demo55").innerHTML = Number(x8); 
+</script>
+
+<p>The global JavaScript function parseInt() converts strings to numbers:</p>
+
+<p id="demo56"></p>
+
+<script>
+    document.getElementById("demo56").innerHTML =
+        parseInt("-10") + "<br>" +
+        parseInt("-10.33") + "<br>" +
+        parseInt("10") + "<br>" +
+        parseInt("10.33") + "<br>" +
+        parseInt("10 6") + "<br>" +
+        parseInt("10 years") + "<br>" +
+        parseInt("years 10");  
+</script>
+
+<p>The parseFloat() method converts strings to numbers:</p>
+
+<p id="demo57"></p>
+
+<script>
+    document.getElementById("demo57").innerHTML =
+        parseFloat("10") + "<br>" +
+        parseFloat("10.33") + "<br>" +
+        parseFloat("10 6") + "<br>" +
+        parseFloat("10 years") + "<br>" +
+        parseFloat("years 10");    
+</script>
+
+<h2>Number properties</h2>
+
+<ul>
+    <li>MAX_VALUE</li>
+    <li>MIN_VALUE</li>
+    <li>POSITIVE_INFINITY</li>
+    <li>NEGATIVE_INFINITY</li>
+    <li>NaN</li>
+</ul>
+
+<p>MAX_VALUE returns the largest possible number in JavaScript.</p>
+
+<p id="demo58"></p>
+
+<script>
+    let x9 = Number.MAX_VALUE;
+    document.getElementById("demo58").innerHTML = x9;
+</script>
+
+<p>MIN_VALUE returns the smallest number possible in JavaScript.</p>
+
+<p id="demo59"></p>
+
+<script>
+    let x10 = Number.MIN_VALUE;
+    document.getElementById("demo59").innerHTML = x10;
+</script>
+
+<p>POSITIVE_INFINITY</p>
+
+<p id="demo60"></p>
+
+<script>
+    let x11 = Number.POSITIVE_INFINITY;
+    document.getElementById("demo60").innerHTML = x11;
+</script>
+
+<p>POSITIVE_INFINITY is returned on overflow:</p>
+
+<p id="demo61"></p>
+
+<script>
+    let x12 = 1 / 0;
+    document.getElementById("demo61").innerHTML = x12;
+</script>
+
+<p>NEGATIVE_INFINITY</p>
+
+<p id="demo62"></p>
+
+<script>
+    let x13 = Number.NEGATIVE_INFINITY;
+    document.getElementById("demo62").innerHTML = x13;
+</script>
+
+<p id="demo63"></p>
+
+<script>
+    let x14 = -1 / 0;
+    document.getElementById("demo63").innerHTML = x14;
+</script>
+
+<p>A number divided by a non-numeric string becomes NaN (Not a Number):</p>
+
+<p id="demo64"></p>
+
+<script>
+    document.getElementById("demo64").innerHTML = 100 / "Apple";
+</script>
+
+<p><strong>Number Properties Cannot be Used on Variables</strong>
+    Number properties belongs to the JavaScript's number object wrapper called Number. These properties can only be
+    accessed as Number.MAX_VALUE. <br> Using myNumber.MAX_VALUE, where myNumber is a variable, expression, or value,
+    will return undefined:</p>
+
+<p id="demo65"></p>
+
+<script>
+    let x15 = 6;
+    document.getElementById("demo65").innerHTML = x15.MAX_VALUE;
+</script>
+
+<hr>
+
+</body>
+
+</html>

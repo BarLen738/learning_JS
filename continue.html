@@ -463,156 +463,408 @@
         }
     </script>
 
-<h3>The Fisher Yates Method</h3>
-<p>Click the button (again and again) to sort the array in random order.</p>
+    <h3>The Fisher Yates Method</h3>
+    <p>Click the button (again and again) to sort the array in random order.</p>
 
-<button onclick="myFunctionFY()">Try it</button>
-<p id="demo36"></p>
+    <button onclick="myFunctionFY()">Try it</button>
+    <p id="demo36"></p>
+
+    <script>
+        const points36 = [40, 100, 1, 5, 25, 10];
+        document.getElementById("demo36").innerHTML = points36;
+
+        function myFunctionFY() {
+            for (let i = points36.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * i)
+                let k = points36[i]
+                points36[i] = points36[j]
+                points36[j] = k
+            }
+            document.getElementById("demo36").innerHTML = points36;
+        }
+    </script>
+
+    <p>Encontrando el menor valor. The lowest number is <span id="demo37"></span>.</p>
+
+    <script>
+        const points37 = [40, 100, 1, 5, 25, 10];
+        points37.sort(function (a, b) { return a - b }); //points37[0] tiene el valor mínimo y points37.[points37.length - 1] tiene el valor más alto
+        document.getElementById("demo37").innerHTML = points37[0];
+    </script>
+
+    <p>Encontrando el mayor valor. The highest number is <span id="demo38"></span>.</p>
+
+    <script>
+        const points38 = [40, 100, 1, 5, 25, 10];
+        points38.sort(function (a, b) { return b - a }); //points37[0] tiene el valor más alto y points37.[points37.length - 1] tiene el valor más bajo
+        document.getElementById("demo38").innerHTML = points38[0];
+    </script>
+
+    <p>The highest number is <span id="demo39"></span>.</p>
+
+    <script>
+        const points39 = [40, 100, 1, 5, 25, 10];
+        document.getElementById("demo39").innerHTML = myArrayMax(points39);
+
+        function myArrayMax(arr) {
+            return Math.max.apply(null, arr);
+        }
+    </script>
+
+    <p>The lowest number is <span id="demo40"></span>.</p>
+
+    <script>
+        const points40 = [40, 100, 1, 5, 25, 10];
+        document.getElementById("demo40").innerHTML = myArrayMin(points40);
+
+        function myArrayMin(arr) {
+            return Math.min.apply(null, arr);
+        }
+    </script>
+
+    <p>Función pre-armada. Para encontrar el valor máximo. The highest number is <span id="demo41"></span>.</p>
+
+    <script>
+        const points41 = [40, 100, 1, 5, 25, 10];
+        document.getElementById("demo41").innerHTML = myArrayMax(points41);
+
+        function myArrayMax(arr) {
+            let len = arr.length;
+            let max = -Infinity;
+            while (len--) {
+                if (arr[len] > max) {
+                    max = arr[len];
+                }
+            }
+            return max;
+        }
+    </script>
+
+    <p>Función pre-armada. Para encontrar el valor mínimo. The lowest number is <span id="demo42"></span>.</p>
+
+    <script>
+        const points42 = [40, 100, 1, 5, 25, 10];
+        document.getElementById("demo42").innerHTML = myArrayMin(points42);
+
+        function myArrayMin(arr) {
+            let len = arr.length;
+            let min = Infinity;
+            while (len--) {
+                if (arr[len] < min) {
+                    min = arr[len];
+                }
+            }
+            return min;
+        }
+    </script>
+
+    <p>Ordenando objetos dentro de un array. NÚMEROS. Sort car objects on age:</p>
+
+    <p id="demo43"></p>
+
+    <script>
+        const cars43 = [
+            { type: "Volvo", year: 2016 },
+            { type: "Saab", year: 2001 },
+            { type: "BMW", year: 2010 }
+        ];
+
+        displayCars43();
+
+        cars43.sort(function (a, b) { return a.year - b.year });
+        displayCars43();
+
+        function displayCars43() {
+            document.getElementById("demo43").innerHTML =
+                cars43[0].type + " " + cars43[0].year + "<br>" +
+                cars43[1].type + " " + cars43[1].year + "<br>" +
+                cars43[2].type + " " + cars43[2].year;
+        }
+    </script>
+
+    <p>Ordenando objetos dentro de un array. STRINGS. Click the buttons to sort car objects on type.</p>
+
+    <button onclick="myFunctionSS()">Sort</button>
+    <p id="demo44"></p>
+
+    <script>
+        const cars44 = [
+            { type: "Volvo", year: 2016 },
+            { type: "Saab", year: 2001 },
+            { type: "BMW", year: 2010 }
+        ];
+
+        displayCars44();
+
+        function myFunctionSS() {
+            cars44.sort(function (a, b) {
+                let x = a.type.toLowerCase();
+                let y = b.type.toLowerCase();
+                if (x < y) { return -1; }
+                if (x > y) { return 1; }
+                return 0;
+            });
+            displayCars44();
+        }
+
+        function displayCars44() {
+            document.getElementById("demo44").innerHTML =
+                cars44[0].type + " " + cars44[0].year + "<br>" +
+                cars44[1].type + " " + cars44[1].year + "<br>" +
+                cars44[2].type + " " + cars44[2].year;
+        }
+    </script>
+
+    <h2>JS Array iteration</h2>
+
+    <h3>JavaScript Array.forEach()</h3>
+    <p>Calls a function once for each array element.</p>
+
+    <p id="demo45"></p>
+
+    <script>
+        const numbers45 = [45, 4, 9, 16, 25];
+
+        let txt45 = "";
+        numbers45.forEach(myFunction45);
+        document.getElementById("demo45").innerHTML = txt45;
+
+        function myFunction45(value) {
+            txt45 += value + "<br>";
+        }
+    </script>
+
+    <h3>JavaScript Array.map()</h3>
+    <p>Creates a new array by performing a function on each array element.</p>
+
+    <p id="demo46"></p>
+
+    <script>
+        const numbers46a = [45, 4, 9, 16, 25];
+        const numbers46b = numbers46a.map(myFunction46);
+
+        document.getElementById("demo46").innerHTML = numbers46b;
+
+        function myFunction46(value) {
+            return value * 2;
+        }
+    </script>
+
+    <h3>JavaScript Array.filter()</h3>
+    <p>Creates a new array with all array elements that passes a test.</p>
+
+    <p id="demo47"></p>
+
+    <script>
+        const numbers47 = [45, 4, 9, 16, 25];
+        const over18 = numbers47.filter(myFunction47);
+
+        document.getElementById("demo47").innerHTML = over18;
+
+        function myFunction47(value) {
+            return value > 18;
+        }
+    </script>
+
+    <h3>JavaScript Array.reduce()</h3>
+    <p>This example finds the sum of all numbers in an array:</p>
+
+    <p id="demo48"></p>
+
+    <script>
+        const numbers48 = [45, 4, 9, 16, 25];
+        let sum48 = numbers48.reduce(myFunction48, 100); //el segundo parámetro, si está definido, indica a partir de qué valor empieza la reducción
+
+        document.getElementById("demo48").innerHTML = "The sum is " + sum48;
+
+        function myFunction48(total, value) {
+            return total + value;
+        }
+    </script>
+
+    <h3>JavaScript Array.reduceRight()</h3>
+    <p>Igual que la anterior pero arranca por la derecha. This example finds the sum of all numbers in an array:</p>
+
+    <p id="demo49"></p>
+
+    <script>
+        const numbers49 = [45, 4, 9, 16, 25];
+        let sum49 = numbers49.reduceRight(myFunction49);
+
+        document.getElementById("demo49").innerHTML = "The sum is " + sum49;
+
+        function myFunction49(total, value) {
+            return total + value;
+        }
+    </script>
+
+    <h3>JavaScript Array.every()</h3>
+    <p>The every() method checks if all array values pass a test.</p>
+
+    <p id="demo50"></p>
+
+    <script>
+        const numbers50 = [45, 4, 9, 16, 25];
+        let allOver18 = numbers50.every(myFunction50);
+
+        document.getElementById("demo50").innerHTML = "All over 18 is " + allOver18;
+
+        function myFunction50(value) {
+            return value > 18;
+        }
+    </script>
+
+    <h3>JavaScript Array.some()</h3>
+    <p>The some() method checks if some array values pass a test.</p>
+
+    <p id="demo51"></p>
+
+    <script>
+        const numbers51 = [45, 4, 9, 16, 25];
+        let someOver18 = numbers51.some(myFunction51);
+
+        document.getElementById("demo51").innerHTML = "Some over 18 is " + someOver18;
+
+        function myFunction51(value, index, array) {
+            return value > 18;
+        }
+    </script>
+
+    <h3>JavaScript Array.indexOf()</h3>
+
+    <p id="demo52"></p>
+
+    <script>
+        const fruits52 = ["Apple", "Orange", "Apple", "Mango"];
+        let position52 = fruits52.indexOf("Apple") + 1;
+
+        document.getElementById("demo52").innerHTML = "Apple is found in position " + position52;
+    </script>
+
+    <h3>JavaScript Array.lastIndexOf()</h3>
+    <p id="demo53"></p>
+
+    <script>
+        const fruits53 = ["Apple", "Orange", "Apple", "Mango"];
+        let position53 = fruits53.lastIndexOf("Apple") + 1;
+
+        document.getElementById("demo53").innerHTML = "Apple is found in position " + position53;
+    </script>
+
+    <h3>JavaScript Array.find()</h3>
+    <p id="demo54"></p>
+
+    <script>
+        const numbers54 = [4, 9, 16, 25, 29];
+        let first54 = numbers54.find(myFunction54);
+
+        document.getElementById("demo54").innerHTML = "First number over 18 is " + first54;
+
+        function myFunction54(value, index, array) {
+            return value > 18;
+        }
+    </script>
+
+<h2>JavaScript Array.findIndex()</h2>
+<p id="demo55"></p>
 
 <script>
-const points36 = [40, 100, 1, 5, 25, 10];
-document.getElementById("demo36").innerHTML = points36;  
+const numbers55 = [4, 9, 16, 25, 29];
 
-function myFunctionFY() {
-  for (let i = points36.length -1; i > 0; i--) {
-    let j = Math.floor(Math.random() * i)
-    let k = points36[i]
-    points36[i] = points36[j]
-    points36[j] = k
-  }
-  document.getElementById("demo36").innerHTML = points36;
+document.getElementById("demo55").innerHTML = "First number over 18 has index " + numbers55.findIndex(myFunction55);
+
+function myFunction55(value, index, array) {
+  return value > 18;
 }
 </script>
 
-<p>Encontrando el menor valor. The lowest number is <span id="demo37"></span>.</p>
+<h3>JavaScript Arrays</h3>
+
+<p>The Array.from() method returns an Array object from any object with a length property or any iterable object.</p>
+
+<p id="demo56"></p>
 
 <script>
-const points37 = [40, 100, 1, 5, 25, 10];
-points37.sort(function(a, b){return a-b}); //points37[0] tiene el valor mínimo y points37.[points37.length - 1] tiene el valor más alto
-document.getElementById("demo37").innerHTML = points37[0];
+const myArr56 = Array.from("ABCDEFG");
+document.getElementById("demo56").innerHTML = myArr56;
 </script>
 
-<p>Encontrando el mayor valor. The highest number is <span id="demo38"></span>.</p>
+<p>The Array.keys() method returns an Array Iterator object with the keys of the array.</p>
+
+<p id="demo57"></p>
 
 <script>
-const points38 = [40, 100, 1, 5, 25, 10];
-points38.sort(function(a, b){return b-a}); //points37[0] tiene el valor más alto y points37.[points37.length - 1] tiene el valor más bajo
-document.getElementById("demo38").innerHTML = points38[0];
+const fruits57 = ["Banana", "Orange", "Apple", "Mango"];
+const keys57 = fruits57.keys();
+
+let text57 = "";
+for (let x of keys57) {
+  text57 += x + "<br>";
+}
+
+document.getElementById("demo57").innerHTML = text57;
 </script>
 
-<p>The highest number is <span id="demo39"></span>.</p>
+<h4>The entries() method</h4>
+
+<p>entries() returns an Array Iterator object with key/value pairs:</p>
+
+<p id="demo58"></p>
 
 <script>
-const points39 = [40, 100, 1, 5, 25, 10];
-document.getElementById("demo39").innerHTML = myArrayMax(points39);
+const fruits58 = ["Banana", "Orange", "Apple", "Mango"];
+const f58 = fruits58.entries();
 
-function myArrayMax(arr) {
-  return Math.max.apply(null, arr);
+for (let x of f58) {
+  document.getElementById("demo58").innerHTML += x + "<br>";
 }
 </script>
 
-<p>The lowest number is <span id="demo40"></span>.</p>
+<h>Array includes()</h3>
+
+<p>Check if the fruit array contains "Mango":</p>
+
+<p id="demo59"></p>
+
+<p><strong>Note:</strong> The includes method is not supported in Edge 13 (and earlier versions).</p>
 
 <script>
-const points40 = [40, 100, 1, 5, 25, 10];
-document.getElementById("demo40").innerHTML = myArrayMin(points40);
-
-function myArrayMin(arr) {
-  return Math.min.apply(null, arr);
-}
+const fruits59 = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo59").innerHTML = fruits59.includes("Mango");
 </script>
 
-<p>Función pre-armada. Para encontrar el valor máximo. The highest number is <span id="demo41"></span>.</p>
+<h2>JS Array Const</h2>
+
+<h2>Declaring an Array Using const</h2>
+
+<p>An array declared with const has Block Scope. <br> An array declared in a block is not the same as an array declared outside the block:</p>
+
+<p id="demo60"></p>
 
 <script>
-const points41 = [40, 100, 1, 5, 25, 10];
-document.getElementById("demo41").innerHTML = myArrayMax(points41);
-
-function myArrayMax(arr) {
-  let len = arr.length;
-  let max = -Infinity;
-  while (len--) {
-    if (arr[len] > max) {
-      max = arr[len];
-    }
-  }
-  return max;
+const cars60 = ["Saab", "Volvo", "BMW"];
+// Here cars[0] is "Saab"
+{  
+  const cars60 = ["Toyota", "Volvo", "BMW"]; 
+  // Here cars[0] is "Toyota"
 }
+// Here cars[0] is "Saab"
+document.getElementById("demo60").innerHTML = cars60[0];
 </script>
 
-<p>Función pre-armada. Para encontrar el valor mínimo. The lowest number is <span id="demo42"></span>.</p>
+<p>An array declared with var does not have block scope:</p>
+
+<p id="demo61"></p>
 
 <script>
-const points42 = [40, 100, 1, 5, 25, 10];
-document.getElementById("demo42").innerHTML = myArrayMin(points42);
-
-function myArrayMin(arr) {
-  let len = arr.length;
-  let min = Infinity;
-  while (len--) {
-    if (arr[len] < min) {
-      min = arr[len];
-    }
-  }
-  return min;
+var cars61 = ["Saab", "Volvo", "BMW"];
+// Here cars[0] is "Saab"
+{  
+  var cars61 = ["Toyota", "Volvo", "BMW"]; 
+  // Here cars[0] is "Toyota"
 }
-</script>
-
-<p>Ordenando objetos dentro de un array. NÚMEROS. Sort car objects on age:</p>
-
-<p id="demo43"></p>
-
-<script>
-const cars43 = [
-  {type:"Volvo", year:2016},
-  {type:"Saab", year:2001},
-  {type:"BMW", year:2010}
-];
-
-displayCars43();
-
-cars43.sort(function(a, b){return a.year - b.year});
-displayCars43();
-
-function displayCars43() {
-  document.getElementById("demo43").innerHTML =
-  cars43[0].type + " " + cars43[0].year + "<br>" +
-  cars43[1].type + " " + cars43[1].year + "<br>" +
-  cars43[2].type + " " + cars43[2].year;
-}
-</script>
-
-<p>Ordenando objetos dentro de un array. STRINGS. Click the buttons to sort car objects on type.</p>
-
-<button onclick="myFunctionSS()">Sort</button>
-<p id="demo44"></p>
-
-<script>
-const cars44 = [
-  {type:"Volvo", year:2016},
-  {type:"Saab", year:2001},
-  {type:"BMW", year:2010}
-];
-
-displayCars44();
-
-function myFunctionSS() {
-  cars44.sort(function(a, b){
-    let x = a.type.toLowerCase();
-    let y = b.type.toLowerCase();
-    if (x < y) {return -1;}
-    if (x > y) {return 1;}
-    return 0;
-  });
-  displayCars44();
-}
-
-function displayCars44() {
-  document.getElementById("demo44").innerHTML =
-  cars44[0].type + " " + cars44[0].year + "<br>" +
-  cars44[1].type + " " + cars44[1].year + "<br>" +
-  cars44[2].type + " " + cars44[2].year;
-}
+// Here cars[0] is "Toyota"
+document.getElementById("demo61").innerHTML = cars61[0];
 </script>
 
 

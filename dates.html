@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Dates</title>
+</head>
+
+<body>
+
+    <h2>JavaScript new Date()</h2>
+
+    <p>Las 4 maneras de crear una fecha</p>
+    <code>new Date() <br>
+        new Date(year, month, day, hours, minutes, seconds, milliseconds) <br>
+        new Date(milliseconds) <br>
+        new Date(date string) <br> 
+    </code>
+
+    <h3>JavaScript new Date()</h3>
+    <p>Using new Date(), creates a new date object with the <strong> current date and time </strong>. Date objects are static. The computer time is ticking, but date objects are not.</p>
+
+    <p id="demo1"></p>
+
+    <script>
+        const d1 = new Date();
+        document.getElementById("demo1").innerHTML = d1;
+    </script>
+
+<p>Using new Date(7 numbers), creates a new date object with the <strong> specified date and time </strong>:</p>
+
+<p id="demo2"></p>
+
+<script>
+const d2 = new Date(2018, 11, 24, 10, 33, 30, 0);
+document.getElementById("demo2").innerHTML = d2;
+</script>
+
+<p>Note: JavaScript counts months from 0 to 11: January = 0; December = 11. <br> Specifying a month higher than 11, will not result in an error but add the overflow to the next year. Lo mismo con los días.</p>
+
+<p>6 numbers specify year, month, day, hour, minute and second:</p>
+
+<p id="demo3"></p>
+
+<script>
+const d3 = new Date(2018, 11, 24, 10, 33, 30);
+document.getElementById("demo3").innerHTML = d3;
+</script>
+
+<p>5 numbers specify year, month, day, hour, and minute:</p>
+
+<p id="demo4"></p>
+
+<script>
+const d4 = new Date(2018, 11, 24, 10, 33);
+document.getElementById("demo4").innerHTML = d4;
+</script>
+
+<p>4 numbers specify year, month, day, and hour:</p>
+
+<p id="demo5"></p>
+
+<script>
+const d5= new Date(2018, 11, 24, 10);
+document.getElementById("demo5").innerHTML = d5;
+</script>
+
+<p>3 numbers specify year, month, and day:</p>
+
+<p id="demo6"></p>
+
+<script>
+const d6 = new Date(2018, 11, 24);
+document.getElementById("demo6").innerHTML = d6;
+</script>
+
+<p>2 numbers specify year and  month:</p>
+
+<p id="demo7"></p>
+
+<script>
+const d7 = new Date(2018, 11);
+document.getElementById("demo7").innerHTML = d7;
+</script>
+
+<p>One parameter will be interpreted as new Date(milliseconds).</p>
+
+<p id="demo8"></p>
+
+<script>
+const d8 = new Date(2018);
+document.getElementById("demo8").innerHTML = d8;
+</script>
+
+<p>Two digit years will be interpreted as 19xx:</p>
+
+<p id="demo9"></p>
+
+<script>
+const d9 = new Date(99, 11, 24);
+document.getElementById("demo9").innerHTML = d9;
+</script>
+
+<p>Using new Date(milliseconds), creates a new date object as January 1, 1970, 00:00:00 Universal Time (UTC) plus the milliseconds:</p>
+
+<p id="demo10"></p>
+
+<script>
+const d10 = new Date(0);
+document.getElementById("demo10").innerHTML = d10;
+</script>
+
+<p>100000000000 milliseconds from Jan 1, 1970, is approximately Mar 3, 1973:</p>
+
+<p id="demo11"></p>
+
+<script>
+const d11 = new Date(100000000000);
+document.getElementById("demo11").innerHTML = d11;
+</script>
+
+<p>100000000000 milliseconds from Jan 1, 1970, is approximately Oct 31, 1966:</p>
+
+<p id="demo12"></p>
+
+<script>
+const d12 = new Date(-100000000000);
+document.getElementById("demo12").innerHTML = d12;
+</script>
+
+<p>The toString() method converts a date to a string:</p>
+
+<p id="demo13"></p>
+
+<script>
+const d13 = new Date();
+document.getElementById("demo13").innerHTML = d13.toString();
+
+</script>
+
+<h3>JS Date formats</h3>
+
+<p>Independent of input format, JavaScript will (by default) output dates in full text string format:</p>
+
+<code>Sun May 22 2022 11:58:46 GMT-0300 (hora estándar de Argentina)</code>
+
+<p>ISO 8601 is the international standard for the representation of dates and times. <br> The ISO 8601 syntax (YYYY-MM-DD) is also the preferred JavaScript date format:</p>
+
+<p id="demo14"></p>
+
+<script>
+const d14 = new Date("2015-03-25");
+document.getElementById("demo14").innerHTML = d14;
+</script>
+
+<p>ISO dates can be written without specifying the day (YYYY-MM). No es exacto.</p>
+
+<p id="demo15"></p>
+
+<script>
+const d15 = new Date("2015-03"); 
+document.getElementById("demo15").innerHTML = d15;
+</script>
+
+<p>ISO dates can be written without month and day (YYYY):</p>
+
+<p id="demo16"></p>
+
+<script>
+const d16 = new Date("2015");
+document.getElementById("demo16").innerHTML = d16;
+</script>
+
+<p>ISO dates can be written with added hours, minutes, and seconds (YYYY-MM-DDTHH:MM:SSZ):</p>
+
+<p>Separate date and time with a capital T.</p>
+<p>Indicate UTC time with a capital Z.</p>
+
+<p id="demo17"></p>
+
+<script>
+const d17 = new Date("2015-03-25T12:00:00Z");
+document.getElementById("demo17").innerHTML = d17;
+</script>
+
+<p>UTC (Universal Time Coordinated) is the same as GMT (Greenwich Mean Time). <br> If a date/time is created in GMT (Greenwich Mean Time), the date/time will be converted to CDT (Central US Daylight Time) if a user browses from central US.</p>
+
+<h3>JS long dates</h3>
+
+<p>Long dates are most often written with a "MMM DD YYYY" syntax. Month and day can be in any order. And, month can be written in full (January), or abbreviated (Jan). Commas are ignored. Names are case insensitive.</p>
+
+<p id="demo18"></p>
+
+<script>
+const d18 = new Date("Mar 25 2015");
+document.getElementById("demo18").innerHTML = d18;
+</script>
+
+<h3>JavaScript Date.parse()</h3>
+<p>Date.parse() returns the number of milliseconds between the date and January 1, 1970.</p>
+
+<p id="demo19"></p>
+
+<script>
+const msec19 = Date.parse("March 21, 2012");
+document.getElementById("demo19").innerHTML = msec19;
+</script>
+
+<p>You can use the return value to convert the string to a date object:</p>
+
+<p id="demo20"></p>
+
+<script>
+let msec20 = Date.parse("March 21, 2012");
+const d20 = new Date(msec20);
+document.getElementById("demo20").innerHTML = d20;
+</script>
+
+<h2>JS Get Date Methods</h2>
+
+<p>The internal clock in JavaScript counts from midnight January 1, 1970.</p>
+<p>The getTime() function returns the number of milliseconds since then:</p>
+
+<p id="demo21"></p>
+
+<script>
+const d21 = new Date();
+document.getElementById("demo21").innerHTML = d21.getTime();
+</script>
+
+<p>The getFullYear() method returns the full year of a date:</p>
+
+<p id="demo22"></p>
+
+<script>
+const d22 = new Date();
+document.getElementById("demo22").innerHTML = d22.getFullYear();
+</script>
+
+<p>The getMonth() method returns the month of a date as a number from 0 to 11.</p>
+<p>To get the correct month, you must add 1:</p>
+
+<p id="demo23"></p>
+
+<script>
+const d23 = new Date();
+document.getElementById("demo23").innerHTML = d23.getMonth() + 1; //más uno para enganchar bien el mes
+</script>
+
+<p>You can use an array to display the name of the month:</p>
+
+<p id="demo24"></p>
+
+<script>
+const months24 = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+const d24 = new Date();
+let month24 = months24[d24.getMonth()];
+document.getElementById("demo24").innerHTML = month24;
+</script>
+
+<p>The getDate() method returns the day of a date as a number (1-31):</p>
+
+<p id="demo25"></p>
+
+<script>
+const d25 = new Date();
+document.getElementById("demo25").innerHTML = d25.getDate();
+</script>
+
+<p>The getHours() method returns the hours of a date as a number (0-23):</p>
+
+<p id="demo26"></p>
+
+<script>
+const d26 = new Date();
+document.getElementById("demo26").innerHTML = d26.getHours();
+</script>
+
+<p>The getMinutes() method returns the minutes of a date as a number (0-59):</p>
+
+<p id="demo27"></p>
+
+<script>
+const d27 = new Date();
+document.getElementById("demo27").innerHTML = d27.getMinutes();
+</script>
+
+<p>The getSeconds() method returns the seconds of a date as a number (0-59):</p>
+
+<p id="demo28"></p>
+
+<script>
+const d28 = new Date();
+document.getElementById("demo28").innerHTML = d28.getSeconds();
+</script>
+
+<p>The getMilliseconds() method returns the milliseconds of a date as a number (0-999):</p>
+
+<p id="demo29"></p>
+
+<script>
+const d29 = new Date();
+document.getElementById("demo29").innerHTML = d29.getMilliseconds();
+</script>
+
+<p>The getDay() method returns the weekday as a number:</p>
+
+<p id="demo30"></p>
+
+<script>
+const d30 = new Date();
+document.getElementById("demo30").innerHTML = d30.getDay();
+</script>
+
+<p>You can use an array to display the name of the weekday:</p>
+
+<p id="demo31"></p>
+
+<script>
+const days31 = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+
+const d31 = new Date();
+let day31 = days31[d31.getDay()];
+document.getElementById("demo31").innerHTML = day31;
+</script>
+
+<h2>JS Date Set Methods</h2>
+
+<p>Set Date methods let you set date values (years, months, days, hours, minutes, seconds, milliseconds) for a Date Object.</p>
+
+<p>The setFullYear() method sets the year of a date object. In this example to 2020:</p>
+
+<p id="demo32"></p>
+
+<script>
+const d32 = new Date();
+d32.setFullYear(2020);
+document.getElementById("demo32").innerHTML = d32;
+</script>
+
+<p>The setFullYear() method can optionally set month and day:</p>
+
+<p>Please note that month counts from 0. December is month 11:</p>
+
+<p id="demo33"></p>
+
+<script>
+const d33 = new Date();
+d33.setFullYear(2020, 11, 3);
+document.getElementById("demo33").innerHTML = d33;
+</script>
+
+<p>The setMonth() method sets the mont of a date object.</p>
+<p>Note that months count from 0. December is month 11:</p>
+
+<p id="demo34"></p>
+
+<script>
+const d34 = new Date();
+d34.setMonth(11);
+document.getElementById("demo34").innerHTML = d34;
+</script>
+
+<p>The setDate() method sets the day of a date object:</p>
+
+<p id="demo35"></p>
+
+<script>
+const d35 = new Date();
+d35.setDate(15);
+document.getElementById("demo35").innerHTML = d35;
+</script>
+
+<p>The setDate() method can be used to add days to a date. <br>If adding days shifts the month or year, the changes are handled automatically by the Date object.</p>
+
+<p id="demo36"></p>
+
+<script>
+const d36 = new Date();
+d36.setDate(d36.getDate() + 50);
+document.getElementById("demo36").innerHTML = d36;
+</script>
+
+<p>The setHours() method sets the hours of a date object:</p>
+
+<p id="demo37"></p>
+
+<script>
+const d37 = new Date();
+d37.setHours(22);
+document.getElementById("demo37").innerHTML = d37;
+</script>
+
+<p>The setMinutes() method sets the minutes of a date object (0-59):</p>
+
+<p id="demo38"></p>
+
+<script>
+const d38 = new Date();
+d38.setMinutes(30);
+document.getElementById("demo38").innerHTML = d38;
+</script>
+
+<p>The setSeconds() method sets the seconds of a date object (0-59):</p>
+
+<p id="demo39"></p>
+
+<script>
+const d39 = new Date();
+d39.setSeconds(30);
+document.getElementById("demo39").innerHTML = d39;
+</script>
+
+<p>Dates can easily be compared. <br> The following example compares today's date with January 14, 2100:</p>
+
+<p id="demo40"></p>
+
+<script>
+let text40;
+const today40 = new Date();
+const someday40 = new Date();
+someday40.setFullYear(2100, 0, 14);
+
+if (someday40 > today40) {
+  text40 = "Today is before January 14, 2100.";
+} else {
+  text40 = "Today is after January 14, 2100.";
+}
+
+document.getElementById("demo40").innerHTML = text40;
+</script>
+
+
+
+
+
+
+</body>
+
+</html>

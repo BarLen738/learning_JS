@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Math</title>
+</head>
+
+<body>
+
+    <h2>Math properties/constants</h2>
+
+    <code>Math.E  <br>      // returns Euler's number
+        Math.PI   <br>    // returns PI
+        Math.SQRT2 <br>   // returns the square root of 2
+        Math.SQRT1_2 <br>  // returns the square root of 1/2
+        Math.LN2  <br>    // returns the natural logarithm of 2
+        Math.LN10  <br>    // returns the natural logarithm of 10
+        Math.LOG2E  <br>   // returns base 2 logarithm of E
+        Math.LOG10E  <br>   // returns base 10 logarithm of E
+    </code>
+
+    <h2>Math methods</h2>
+
+    <p>The syntax for Math any methods is : Math.method(number)</p>
+
+    <h3>Number to integer</h3>
+
+    <ul>
+        <li>Math.round(x)</li>
+        <li>Math.ceil(x)</li>
+        <li>Math.floor(x)</li>
+        <li>Math.trunc(x)</li>
+    </ul>
+
+    <p>Math.round(x) returns the value of x rounded to its nearest integer:</p>
+
+    <p id="demo1"></p>
+
+    <script>
+        document.getElementById("demo1").innerHTML = Math.round(4.6);
+    </script>
+
+    <p id="demo2"></p>
+
+    <script>
+        document.getElementById("demo2").innerHTML = Math.round(4.5);
+    </script>
+
+    <p id="demo3"></p>
+
+    <script>
+        document.getElementById("demo3").innerHTML = Math.round(4.4);
+    </script>
+
+    <p>Math.ceil() rounds a number <strong>up</strong> to its nearest integer:</p>
+
+    <p id="demo4"></p>
+
+    <script>
+        document.getElementById("demo4").innerHTML = Math.ceil(4.4);
+    </script>
+
+    <p id="demo5"></p>
+
+    <script>
+        document.getElementById("demo5").innerHTML = Math.ceil(-4.4);
+    </script>
+
+    <p>Math.floor(x) returns the value of x rounded <strong>down</strong> to its nearest integer:</p>
+
+    <p id="demo6"></p>
+
+    <script>
+        document.getElementById("demo6").innerHTML = Math.floor(4.7);
+    </script>
+
+    <p id="demo7"></p>
+
+    <script>
+        document.getElementById("demo7").innerHTML = Math.floor(-4.7);
+    </script>
+
+    <p>Math.trunc(x) returns the integer part of x:</p>
+
+    <p id="demo8"></p>
+
+    <script>
+        document.getElementById("demo8").innerHTML = Math.trunc(4.7);
+    </script>
+
+    <p id="demo9"></p>
+
+    <script>
+        document.getElementById("demo9").innerHTML = Math.trunc(-4.7);
+    </script>
+
+    <p>Math.sign(x) returns if x is negative, null or positive:</p>
+
+    <p id="demo10"></p>
+
+    <script>
+        document.getElementById("demo10").innerHTML = Math.sign(4);
+    </script>
+
+    <p id="demo11"></p>
+
+    <script>
+        document.getElementById("demo11").innerHTML = Math.sign(-4);
+    </script>
+
+    <p id="demo12"></p>
+
+    <script>
+        document.getElementById("demo12").innerHTML = Math.sign(0);
+    </script>
+
+    <p>Math.pow(x,y) returns the value of x to the power of y:</p>
+
+    <p id="demo13"></p>
+
+    <script>
+        document.getElementById("demo13").innerHTML = Math.pow(8, 2);
+    </script>
+
+    <p>Math.sqrt(x) returns the square root of x:</p>
+
+    <p id="demo14"></p>
+
+    <script>
+        document.getElementById("demo14").innerHTML = Math.sqrt(64);
+    </script>
+
+    <p>Math.abs(x) returns the absolute (positive) value of x:</p>
+
+    <p id="demo15"></p>
+
+    <script>
+        document.getElementById("demo15").innerHTML = Math.abs(-4.7);
+    </script>
+
+    <p>Math.sin(x) returns the sin of x (given in radians):</p>
+    <p>Angle in radians = (angle in degrees) * PI / 180.</p>
+
+    <p id="demo16"></p>
+
+    <script>
+        document.getElementById("demo16").innerHTML =
+            "The sine value of 90 degrees is " + Math.sin(90 * Math.PI / 180);
+    </script>
+
+    <p>Math.cos(x) returns the cosine of x (given in radians):</p>
+    <p>Angle in radians = (angle in degrees) * PI / 180.</p>
+
+    <p id="demo17"></p>
+
+    <script>
+        document.getElementById("demo17").innerHTML =
+            "The cosine value of 0 degrees is " + Math.cos(0 * Math.PI / 180);
+    </script>
+
+    <p>Math.min() returns the lowest value in a list of arguments:</p>
+
+    <p id="demo18"></p>
+
+    <script>
+        document.getElementById("demo18").innerHTML =
+            Math.min(0, 150, 30, 20, -8, -200);
+    </script>
+
+    <p>Math.max() returns the highest value in a list of arguments.</p>
+
+    <p id="demo19"></p>
+
+    <script>
+        document.getElementById("demo19").innerHTML =
+            Math.max(0, 150, 30, 20, -8, -200);
+    </script>
+
+    <p>Math.random() returns a random number between 0 and 1:</p>
+
+    <p id="demo20"></p>
+
+    <p>Tip: Click F5 several times.</p>
+
+    <script>
+        document.getElementById("demo20").innerHTML = Math.random();
+    </script>
+
+    <p>Math.log() returns the natural logarithm of a number:</p>
+
+    <p id="demo21"></p>
+
+    <script>
+        document.getElementById("demo21").innerHTML = Math.log(1);
+    </script>
+
+    <p id="demo22"></p>
+
+    <script>
+        document.getElementById("demo22").innerHTML = Math.log(2);
+    </script>
+
+    <p>Math.log2() returns the base 2 logarithm of a number.</p>
+    <p>How many times must we multiply 2 to get 8?</p>
+
+    <p id="demo23"></p>
+
+    <script>
+        document.getElementById("demo23").innerHTML = Math.log2(8);
+    </script>
+
+    <p>Math.log10() returns the base 10 logarithm of a number.</p>
+    <p>How many times must we multiply 10 to get 1000?</p>
+
+    <p id="demo24"></p>
+
+    <script>
+        document.getElementById("demo24").innerHTML = Math.log10(1000);
+    </script>
+
+    <p>Math.random() returns a random number between 0 (included) and 1 (excluded):</p>
+
+    <p id="demo25"></p>
+
+    <script>
+        document.getElementById("demo25").innerHTML = Math.random();
+    </script>
+
+    <p>Math.random() used with Math.floor() can be used to return random integers.</p>
+
+    <p>Math.floor(Math.random() * 10) returns a random integer between 0 and 9 (both included):</p>
+
+    <p id="demo26"></p>
+
+    <script>
+        document.getElementById("demo26").innerHTML =
+            Math.floor(Math.random() * 10); //10 para que sea entre 0 y 9
+    </script>
+
+    <p>Math.floor(Math.random() * 11) returns a random integer between 0 and 10 (both included):</p>
+
+    <p id="demo27"></p>
+
+    <script>
+        document.getElementById("demo27").innerHTML =
+            Math.floor(Math.random() * 11); //11 para que sea entre 0 y 10
+    </script>
+
+    <p>Math.floor(Math.random() * 10) + 1) returns a random integer between 1 and 10 (both included):</p>
+
+    <p id="demo28"></p>
+
+    <script>
+        document.getElementById("demo28").innerHTML =
+            Math.floor(Math.random() * 10) + 1;
+    </script>
+
+    <p><strong>This JavaScript function always returns a random number between min (included) and max
+            (excluded):</strong></p>
+
+    <p>Every time you click the button, getRndInteger(min, max) returns a random number between 0 and 9 (both included):
+    </p>
+
+    <button onclick="document.getElementById('demo29').innerHTML = getRndInteger(0,10)">Click Me</button>
+
+    <p id="demo29"></p>
+
+    <script>
+        function getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+    </script>
+
+    <p><strong>This JavaScript function always returns a random number between min and max (both included):</strong></p>
+
+    <p>Every time you click the button, getRndInteger(min, max) returns a random number between 1 and 10 (both
+        included):</p>
+
+    <button onclick="document.getElementById('demo30').innerHTML = getRndInteger(1,10)">Click Me</button>
+
+    <p id="demo30"></p>
+
+    <script>
+        function getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    </script>
+
+    <h2>Booleans</h2>
+
+    <p>For this, JavaScript has a Boolean data type. It can only take the values true or false.</p>
+
+    <p>Display the value of Boolean(10 > 9):</p>
+
+    <p id="demo31"></p>
+
+    <script>
+        document.getElementById("demo31").innerHTML = Boolean(10 > 9);
+    </script>
+
+    <p id="demo32"></p>
+
+    <script>
+        document.getElementById("demo32").innerHTML = 9 > 10;
+    </script>
+
+    <p><strong> Everything With a "Value" is True </strong></p>
+
+    <p id="demo33"></p>
+
+    <script>
+        document.getElementById("demo33").innerHTML =
+            "100 is " + Boolean(100) + "<br>" +
+            "3.14 is " + Boolean(3.14) + "<br>" +
+            "-15 is " + Boolean(-15) + "<br>" +
+            "Any (not empty) string is " + Boolean("Hello") + "<br>" +
+            "Even the string 'false' is " + Boolean('false') + "<br>" +
+            "Any expression (except zero) is " + Boolean(1 + 7 + 3.14);
+    </script>
+
+    <p><strong> Everything Without a "Value" is False</strong></p>
+
+    <p>Display the Boolean value of 0:</p>
+
+    <p id="demo34"></p>
+
+    <script>
+        let x = 0;
+        document.getElementById("demo34").innerHTML = Boolean(x);
+    </script>
+
+    <p>Display the Boolean value of -0:</p>
+
+    <p id="demo35"></p>
+
+    <script>
+        let x1 = -0;
+        document.getElementById("demo35").innerHTML = Boolean(x1);
+    </script>
+
+    <p>Display the Boolean value of "":</p>
+
+    <p id="demo36"></p>
+
+    <script>
+        let x2 = "";
+        document.getElementById("demo36").innerHTML = Boolean("");
+    </script>
+
+    <p>Display the Boolean value of undefined:</p>
+
+    <p id="demo37"></p>
+
+    <script>
+        let x3;
+        document.getElementById("demo37").innerHTML = Boolean(x3);
+    </script>
+
+    <p>Display the Boolean value of null:</p>
+
+    <p id="demo38"></p>
+
+    <script>
+        let x4 = null;
+        document.getElementById("demo38").innerHTML = Boolean(x4);
+    </script>
+
+    <p>Display the Boolean value of false:</p>
+
+    <p id="demo39"></p>
+
+    <script>
+        let x5 = false;
+        document.getElementById("demo39").innerHTML = Boolean(x5);
+    </script>
+
+    <p>Display the Boolean value of NaN:</p>
+
+    <p id="demo40"></p>
+
+    <script>
+        let x6 = 10 / "Hello";
+        document.getElementById("demo40").innerHTML = Boolean(x6);
+    </script>
+
+    <h3>Booleans as objects</h3>
+
+    <p>Booleans can also be defined as objects with the keyword new:</p>
+
+    <p>Booleans and Boolean objects cannot be safely compared:</p>
+
+    <p>Comparing two JavaScript objects always return false.</p>
+
+    <h2>JS Comparisons</h2>
+
+    <h3>Comparison operators</h3>
+
+    <ul>
+        <li>Igual a == </li>
+        <li>Igual valor y tipo === </li>
+        <li>No igual != </li>
+        <li>No igual valor ni tipo !== </li>
+        <li>Mayor > </li>
+        <li>Menor < </li>
+        <li>Mayor e igual >= </li>
+        <li>Menor e igual <= </li>
+    </ul>
+
+    <h3>Logical operators</h3>
+
+    <ul>
+        <li>Y && </li>
+        <li>O || </li>
+        <li>No ! </li>
+    </ul>
+
+    <h3>Conditionar (ternary) operator</h3>
+
+    <p>JavaScript also contains a conditional operator that assigns a value to a variable based on some condition.</p>
+
+    <p>variablename = (condition) ? value1:value2 </p>
+
+    <code>
+        let voteable = (age < 18) ? "Too young":"Old enough"; <!--Si la edad es menos que 18 tira el primer valor, al revés tira el segundo-->
+    </code>
+
+    <p>Comparing different types... <br> Comparing data of different types may give unexpected results. <br> When
+        comparing a string with a number, JavaScript will convert the string to a number when doing the comparison. An
+        empty string converts to 0. A non-numeric string converts to NaN which is always false.</p>
+
+    <p>When comparing two strings, "2" will be greater than "12", because (alphabetically) 1 is less than 2. To secure a
+        proper result, variables should be converted to the proper type before comparison:</p>
+
+    <p>Input your age and click the button:</p>
+
+    <input id="age" value="18" />
+
+    <button onclick="myFunction41()">Try it</button>
+
+    <p id="demo41"></p>
+
+    <script>
+        function myFunction41() {
+            let voteable;
+            let age = Number(document.getElementById("age").value);
+            if (isNaN(age)) {
+                voteable = "Input is not a number";
+            } else {
+                voteable = (age < 18) ? "Too young" : "Old enough";
+            }
+            document.getElementById("demo41").innerHTML = voteable + " to vote";
+        }
+    </script>
+
+    <h2>JavaScript if, else, and else if</h2>
+
+    <p>Conditional statements are used to perform different actions based on different conditions.</p>
+
+    <ul>
+        <li>Use if to specify a block of code to be executed, if a specified condition is true</li>
+        <li>Use else to specify a block of code to be executed, if the same condition is false</li>
+        <li>Use else if to specify a new condition to test, if the first condition is false</li>
+        <li>Use switch to specify many alternative blocks of code to be executed</li>
+    </ul>
+
+    <h3>If</h3>
+
+    <p>Display "Good day!" if the hour is less than 18:00:</p>
+
+    <p id="demo42">Good Evening!</p>
+
+    <script>
+        if (new Date().getHours42() < 18) {
+            document.getElementById("demo42").innerHTML = "Good day!";
+        }
+    </script>
+
+    <h3>Else</h3>
+
+    <p>A time-based greeting:</p>
+
+    <p id="demo43"></p>
+
+    <script>
+        const hour43 = new Date().getHours();
+        let greeting43;
+
+        if (hour43 < 18) {
+            greeting43 = "Good day";
+        } else {
+            greeting43 = "Good evening";
+        }
+
+        document.getElementById("demo43").innerHTML = greeting43;
+    </script>
+
+    <h3>If... Else</h3>
+
+    <p>A time-based greeting:</p>
+
+    <p id="demo44"></p>
+
+    <script>
+        const time44 = new Date().getHours();
+        let greeting44;
+        if (time44 < 10) {
+            greeting44 = "Good morning";
+        } else if (time44 < 20) {
+            greeting44 = "Good day";
+        } else {
+            greeting44 = "Good evening";
+        }
+        document.getElementById("demo44").innerHTML = greeting44;
+    </script>
+
+    <h3>Switch</h3>
+
+    <p>The switch expression is evaluated once. <br> The value of the expression is compared with the values of each
+        case. <br> If there is a match, the <strong> associated block of code </strong> is executed. <br> If there is no
+        match, the <strong> default code block </strong> is executed (al final de todo).</p>
+
+    <p>Cada caso debe separarse con la palabra "break" porque es lo que acota el código a ejecutar si se cumple la
+        condición.</p>
+
+    <p id="demo45"></p>
+
+    <script>
+        let day45;
+        switch (new Date().getDay()) {
+            case 0:
+                day45 = "Sunday";
+                break;
+            case 1:
+                day45 = "Monday";
+                break;
+            case 2:
+                day45 = "Tuesday";
+                break;
+            case 3:
+                day45 = "Wednesday";
+                break;
+            case 4:
+                day45 = "Thursday";
+                break;
+            case 5:
+                day45 = "Friday";
+                break;
+            case 6:
+                day45 = "Saturday";
+        }
+        document.getElementById("demo45").innerHTML = "Today is " + day45;
+    </script>
+
+    <h4>Default keyword</h4>
+
+    <p>The default keyword specifies the code to run if there is no case match:</p>
+
+    <p>If default is not the last case in the switch block, remember to end the default case with a break.</p>
+
+    <p id="demo46"></p>
+
+    <script>
+        let text46;
+        switch (new Date().getDay()) {
+            case 6:
+                text46 = "Today is Saturday";
+                break;
+            case 0:
+                text46 = "Today is Sunday";
+                break;
+            default:
+                text46 = "Looking forward to the Weekend";
+        }
+        document.getElementById("demo46").innerHTML = text46;
+    </script>
+
+    <h4>Common Code Blocks</h4>
+
+    <p>Sometimes you will want different switch cases to use the same code. <br> In this example case 4 and 5 share the
+        same code block, and 0 and 6 share another code block:</p>
+
+    <p id="demo47"></p>
+
+    <script>
+        let text47;
+        switch (new Date().getDay()) {
+            case 4:
+            case 5:
+                text47 = "Soon it is Weekend";
+                break;
+            case 0:
+            case 6:
+                text47 = "It is Weekend";
+                break;
+            default:
+                text47 = "Looking forward to the Weekend";
+        }
+        document.getElementById("demo47").innerHTML = text47;
+    </script>
+
+    <p>If multiple cases matches a case value, the first case is selected. <br> If no matching cases are found, the
+        program continues to the default label. <br> If no default label is found, the program continues to the
+        statement(s) after the switch.</p>
+
+    <p> Switch cases use <strong> strict comparison (===)</strong>. <br> The values must be of the same type to match.
+        <br> A strict comparison can only be true if the operands are of the same type.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

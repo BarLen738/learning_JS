@@ -606,20 +606,252 @@
         statement(s) after the switch.</p>
 
     <p> Switch cases use <strong> strict comparison (===)</strong>. <br> The values must be of the same type to match.
-        <br> A strict comparison can only be true if the operands are of the same type.</p>
+        <br> A strict comparison can only be true if the operands are of the same type.
+    </p>
 
+    <h2>JS For Loop</h2>
 
+    <p>Loops can execute a block of code a number of times.</p>
+    <p>Loops are handy, if you want to run the same code over and over again, each time with a different value. Often
+        this is the case when working with arrays:</p>
 
+    <p id="demo48"></p>
 
+    <script>
+        const cars48 = ["BMW", "Volvo", "Saab", "Ford", "Fiat", "Audi"];
 
+        let text48 = "";
+        for (let i48 = 0; i48 < cars48.length; i48++) {
+            text48 += cars48[i48] + "<br>";
+        }
 
+        document.getElementById("demo48").innerHTML = text48;
+    </script>
 
+    <h3>Different Kinds of Loops</h3>
 
+    <p>JavaScript supports different kinds of loops: <br>
+    <ul>
+        <li> for - loops through a block of code a number of times </li>
+        <li> for/in - loops through the properties of an object </li>
+        <li> for/of - loops through the values of an iterable object </li>
+        <li> while - loops through a block of code while a specified condition is true </li>
+        <li> do/while - also loops through a block of code while a specified condition is true </li>
+    </ul>
+    </p>
 
+    <h3>The For Loop</h3>
 
+    <p>The for loop has the following syntax:</p>
 
+    <p>for (statement 1; statement 2; statement 3) { <br>
+        // code block to be executed
+        }</p>
 
+    <p> <strong> Statement 1 </strong> is executed (one time) before the execution of the code block. <br>
+        <strong> Statement 2 </strong> defines the condition for executing the code block. <br>
+        <strong> Statement 3 </strong> is executed (every time) after the code block has been executed.
+    </p>
 
+    <p id="demo49"></p>
+
+    <script>
+        let text49 = "";
+
+        for (let i49 = 0; i49 < 5; i49++) { //st1 fija la variable al comienzo, st2 la condición -mientras sea menor que 5- y st3 incremento
+            text49 += "The number is " + i49 + "<br>";
+        }
+
+        document.getElementById("demo49").innerHTML = text49;
+    </script>
+
+    <h4>Statement 1</h4>
+
+    <p>Normally you will use statement 1 to initialize the variable used in the loop (let i = 0). <br> You can initiate
+        many values in statement 1 (separated by comma): </p>
+
+    <p id="demo50"></p>
+
+    <script>
+        const cars50 = ["BMW", "Volvo", "Saab", "Ford"];
+        let i50, len50, text50;
+        for (i50 = 0, len50 = cars50.length, text50 = ""; i50 < len50; i50++) {
+            text50 += cars50[i50] + "<br>";
+        }
+        document.getElementById("demo50").innerHTML = text50;
+    </script>
+
+    <p>And you can omit statement 1 (like when your values are set before the loop starts):</p>
+
+    <p id="demo51"></p>
+
+    <script>
+        const cars51 = ["BMW", "Volvo", "Saab", "Ford"];
+        let i51 = 2;
+        let len51 = cars51.length;
+        let text51 = "";
+
+        for (; i51 < len51; i51++) {
+            text51 += cars51[i51] + "<br>";
+        }
+
+        document.getElementById("demo51").innerHTML = text51;
+    </script>
+
+    <h4>Statement 2</h4>
+
+    <p>Often statement 2 is used to evaluate the condition of the initial variable. <br> If statement 2 returns true,
+        the loop will start over again, if it returns false, the loop will end. <br> If you omit statement 2, you must
+        provide a break inside the loop. Otherwise the loop will never end. This will crash your browser. </p>
+
+    <h4>Statement 3</h4>
+
+    <p>Often statement 3 increments the value of the initial variable. <br> Statement 3 can do anything like negative
+        increment (i--), positive increment (i = i + 15), or anything else. <br> Statement 3 can also be omitted (like
+        when you increment your values inside the loop):</p>
+
+    <p id="demo52"></p>
+
+    <script>
+        const cars52 = ["BMW", "Volvo", "Saab", "Ford"];
+
+        let i52 = 0;
+        let len52 = cars52.length;
+        let text52 = "";
+
+        for (; i52 < len52;) {
+            text52 += cars52[i52] + "<br>";
+            i52++;
+        }
+        document.getElementById("demo52").innerHTML = text52;
+    </script>
+
+    <h4>Using var in a loop</h4>
+
+    <p id="demo53"></p>
+
+    <script>
+        var i53 = 5;
+        for (var i53 = 0; i53 < 10; i53++) {
+            // some statements
+        }
+        document.getElementById("demo53").innerHTML = i53; //se redeclara la variable -cambia su valor-
+    </script>
+
+    <h4>Using let in a loop</h4>
+
+    <p id="demo54"></p>
+
+    <script>
+        let i54 = 5;
+        for (let i54 = 0; i54 < 10; i54++) {
+            // some statements
+        }
+        document.getElementById("demo54").innerHTML = i54; //no redeclara la variable fuera del loop
+    </script>
+
+    <h3>The For In loop</h3>
+
+    <p>The JavaScript for in statement loops through the properties of an Object.</p>
+
+    <p>for (key in object) { <br>
+        // code block to be executed
+        }</p>
+
+    <p>
+    <ul>
+        <li> The for in loop iterates over a person object</li>
+        <li>Each iteration returns a key (x)</li>
+        <li>The key is used to access the value of the key</li>
+        <li>The value of the key is person[x]</li>
+    </ul>
+    </p>
+
+    <p id="demo55"></p>
+
+    <script>
+        const person55 = { fname55: "John", lname55: "Doe", age55: 25 };
+
+        let txt55 = "";
+        for (let x55 in person55) {
+            txt55 += person55[x55] + " ";
+        }
+
+        document.getElementById("demo55").innerHTML = txt55;
+    </script>
+
+    <p>The JavaScript for in statement can also loop over the properties of an Array. <br> Do not use for in over an
+        Array if the index order is important. <br> The index order is implementation-dependent, and array values may
+        not be accessed in the order you expect. <br> It is better to use a for loop, a for of loop, or Array.forEach()
+        when the order is important.</p>
+
+    <p id="demo56"></p>
+
+    <script>
+        const numbers56 = [45, 4, 9, 16, 25];
+
+        let txt56 = "";
+        for (let x56 in numbers56) {
+            txt56 += numbers56[x56] + "<br>";
+        }
+
+        document.getElementById("demo56").innerHTML = txt56;
+    </script>
+
+    <h4>Array.forEach()</h4>
+
+    <p>The forEach() method calls a function (a callback function) once for each array element.</p>
+
+    <p id="demo57"></p>
+
+    <script>
+        const numbers57 = [45, 4, 9, 16, 25];
+
+        let txt57 = "";
+        numbers57.forEach(myFunction57);
+        document.getElementById("demo57").innerHTML = txt57;
+
+        function myFunction57(value57) {
+            txt57 += value57 + "<br>";
+        }
+    </script>
+
+    <h3>The For Of loop</h3>
+
+    <p>The JavaScript for of statement loops through the values of an iterable object.</p>
+
+    <p>
+    <ul>
+        <li> <strong> variable </strong>- For every iteration the value of the next property is assigned to the variable. Variable can be declared with const, let, or var.</li>
+        <li> <strong> iterable </strong>- An object that has iterable properties.</li>
+    </ul>
+    </p>
+
+    <p id="demo58"></p>
+
+<script>
+const cars58 = ["BMW", "Volvo", "Mini"]; //for of en un array
+
+let text58 = "";
+for (let x58 of cars58) {
+  text58 += x58 + "<br>";
+}
+
+document.getElementById("demo58").innerHTML = text58;
+</script>
+
+<p id="demo59"></p>
+
+<script>
+let language59 = "JavaScript"; //for of en un string
+
+let text59 = "";
+for (let x59 of language59) {
+  text59 += x59 + "<br>";
+}
+
+document.getElementById("demo59").innerHTML = text59;
+</script>
 
 
 

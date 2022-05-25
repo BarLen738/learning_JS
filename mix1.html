@@ -822,36 +822,278 @@
 
     <p>
     <ul>
-        <li> <strong> variable </strong>- For every iteration the value of the next property is assigned to the variable. Variable can be declared with const, let, or var.</li>
+        <li> <strong> variable </strong>- For every iteration the value of the next property is assigned to the
+            variable. Variable can be declared with const, let, or var.</li>
         <li> <strong> iterable </strong>- An object that has iterable properties.</li>
     </ul>
     </p>
 
     <p id="demo58"></p>
 
-<script>
-const cars58 = ["BMW", "Volvo", "Mini"]; //for of en un array
+    <script>
+        const cars58 = ["BMW", "Volvo", "Mini"]; //for of en un array
 
-let text58 = "";
-for (let x58 of cars58) {
-  text58 += x58 + "<br>";
-}
+        let text58 = "";
+        for (let x58 of cars58) {
+            text58 += x58 + "<br>";
+        }
 
-document.getElementById("demo58").innerHTML = text58;
-</script>
+        document.getElementById("demo58").innerHTML = text58;
+    </script>
 
-<p id="demo59"></p>
+    <p id="demo59"></p>
 
-<script>
-let language59 = "JavaScript"; //for of en un string
+    <script>
+        let language59 = "JavaScript"; //for of en un string
 
-let text59 = "";
-for (let x59 of language59) {
-  text59 += x59 + "<br>";
-}
+        let text59 = "";
+        for (let x59 of language59) {
+            text59 += x59 + "<br>";
+        }
 
-document.getElementById("demo59").innerHTML = text59;
-</script>
+        document.getElementById("demo59").innerHTML = text59;
+    </script>
+
+    <h2>The While Loop</h2>
+
+    <p>The while loop loops through a block of code as long as a specified condition is true.</p>
+
+    <p>while (condition) { <br>
+        // code block to be executed
+        }</p>
+
+    <p id="demo60"></p>
+
+    <script>
+        let text60 = "";
+        let i60 = 0; //arranca de cero
+        while (i60 < 10) { //condición, que i sea menor que 10
+            text60 += "<br>The number is " + i60;
+            i60++; //incremento
+        }
+        document.getElementById("demo60").innerHTML = text60;
+    </script>
+
+    <h2>The Do While Loop</h2>
+
+    <p>The do while loop is a variant of the while loop. This loop will execute the code block once, before checking if
+        the condition is true, then it will repeat the loop as long as the condition is true.</p>
+
+    <p>do { <br>
+        // code block to be executed
+        } <br>
+        while (condition);</p>
+
+    <p id="demo61"></p>
+
+    <script>
+        let text61 = ""
+        let i61 = 0; //arranca de cero
+
+        do {
+            text61 += "<br>The number is " + i61;
+            i61++; //que se incremente
+        }
+        while (i61 < 10); //condición hasta que i sea menor que 10 
+
+        document.getElementById("demo61").innerHTML = text61;
+    </script>
+
+    <h2>Comparing For and While</h2>
+
+    <p>If you have read the previous chapter, about the for loop, you will discover that a while loop is much the same
+        as a for loop, with statement 1 and statement 3 omitted.</p>
+
+    <p>The loop in this example uses a for loop to collect the car names from the cars array:</p>
+
+    <p id="demo62"></p>
+
+    <script>
+        const cars62 = ["BMW", "Volvo", "Saab", "Ford"];
+
+        let i62 = 0;
+        let text62 = "";
+        for (; cars62[i62];) { //omite st1 y st3
+            text62 += cars62[i62] + "<br>";
+            i62++;
+        }
+
+        document.getElementById("demo62").innerHTML = text62;
+    </script>
+
+    <p>The loop in this example uses a while loop to collect the car names from the cars array:</p>
+
+    <p id="demo63"></p>
+
+    <script>
+        const cars63 = ["BMW", "Volvo", "Saab", "Ford"];
+
+        let i63 = 0;
+        let text63 = "";
+        while (cars63[i63]) {
+            text63 += cars63[i63] + "<br>";
+            i63++;
+        }
+
+        document.getElementById("demo63").innerHTML = text63;
+    </script>
+
+    <h2>The Break Statement</h2>
+
+    <p>El break se usa para cortar un switch y también para cortar un loop.</p>
+
+    <p>A loop with a <b>break</b> statement.</p>
+
+    <p id="demo64"></p>
+
+    <script>
+        let text64 = "";
+        for (let i64 = 0; i64 < 10; i64++) { //arranca de 0, hasta que sea menor a diez, incremento de a uno
+            if (i64 === 3) { break; } //corte en igual a 3
+            text64 += "The number is " + i64 + "<br>";
+        }
+
+        document.getElementById("demo64").innerHTML = text64;
+    </script>
+
+    <h2>The Continue Statement</h2>
+
+    <p>The continue statement breaks one iteration (in the loop), if a specified condition occurs, and continues with
+        the next iteration in the loop.</p>
+
+    <p>A loop with a <b>continue</b> statement.</p>
+
+    <p>A loop which will skip the step where i = 3.</p>
+
+    <p id="demo65"></p>
+
+    <script>
+        let text65 = "";
+        for (let i65 = 0; i65 < 10; i65++) {
+            if (i65 === 3) { continue; } //saltea i=3
+            text65 += "The number is " + i65 + "<br>";
+        }
+        document.getElementById("demo65").innerHTML = text65;
+    </script>
+
+    <p>The continue statement (with or without a label reference) can only be used to skip one loop iteration. <br> The
+        break statement, without a label reference, can only be used to jump out of a loop or a switch. <br> With a
+        label reference, the break statement can be used to jump out of any code block:</p>
+
+    <p id="demo66"></p>
+
+    <script>
+        const cars66 = ["BMW", "Volvo", "Saab", "Ford"];
+        let text66 = "";
+
+        list: { //label reference
+            text66 += cars66[0] + "<br>";
+            text66 += cars66[1] + "<br>";
+            break list; //label reference
+            text66 += cars66[2] + "<br>";
+            text66 += cars66[3] + "<br>";
+        }
+
+        document.getElementById("demo66").innerHTML = text66;
+    </script>
+
+    <h2>JavaScript Iterables</h2>
+
+    <p>Iterating is easy to understand. <br> It simply means looping over a sequence of elements.</p>
+
+    <h3>Iterating Over a String</h3>
+
+    <p>You can use a for..of loop to iterate over the elements of a string:</p>
+
+    <p id="demo67"></p>
+
+    <script>
+        // Create a String
+        const name67 = "W3Schools";
+
+        // List all Elements
+        let text67 = ""
+        for (const x67 of name67) {
+            text67 += x67 + "<br>";
+        }
+
+        document.getElementById("demo67").innerHTML = text67;
+    </script>
+
+    <h3>Iterating Over an Array</h3>
+
+    <p>You can use a for..of loop to iterate over the elements of an Array:</p>
+
+    <p id="demo68"></p>
+
+    <script>
+        // Create aa Array
+        const letters68 = ["a", "b", "c"];
+
+        // List all Elements
+        let text68 = "";
+        for (const x68 of letters68) {
+            text68 += x68 + "<br>";
+        }
+
+        document.getElementById("demo68").innerHTML = text68;
+    </script>
+
+    <h3>Iterating Over a Set</h3>
+
+    <p>You can use a for..of loop to iterate over the elements of a Set:</p>
+
+    <p id="demo69"></p>
+
+    <script>
+        // Create a Set
+        const letters69 = new Set(["a", "b", "c"]);
+
+        // List all Elements
+        let text69 = "";
+        for (const x69 of letters69) {
+            text69 += x69 + "<br>";
+        }
+
+        document.getElementById("demo69").innerHTML = text69;
+    </script>
+
+    <h3>Iterating Over a Map</h3>
+
+    <p>You can use a for..of loop to iterate over the elements of a Map:</p>
+
+    <p id="demo70"></p>
+
+    <script>
+        // Create a Map
+        const fruits70 = new Map([
+            ["apples", 500],
+            ["bananas", 300],
+            ["oranges", 200]
+        ]);
+
+        // List all entries
+        let text70 = "";
+        for (const x70 of fruits70) {
+            text70 += x70 + "<br>";
+        }
+
+        document.getElementById("demo70").innerHTML = text70;
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

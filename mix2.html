@@ -503,109 +503,307 @@
 
     <p id="demo22"></p>
 
-<script>
-let y22 = "5";
-let x22 = + y22; //uso + enfrente de la variable para transformarla a número
-document.getElementById("demo22").innerHTML = typeof y22 + "<br>" + typeof x22;
-</script>
+    <script>
+        let y22 = "5";
+        let x22 = + y22; //uso + enfrente de la variable para transformarla a número
+        document.getElementById("demo22").innerHTML = typeof y22 + "<br>" + typeof x22;
+    </script>
 
-<p>If the variable cannot be converted, it will still become a number, but with the value NaN (Not a Number):</p>
+    <p>If the variable cannot be converted, it will still become a number, but with the value NaN (Not a Number):</p>
 
-<p id="demo23"></p>
+    <p id="demo23"></p>
 
-<script>
-let y23 = "John";
-let x23 = + y23; //Nan, tipo number
-document.getElementById("demo23").innerHTML = typeof y23 + "<br>" + typeof x23;
-</script>
+    <script>
+        let y23 = "John";
+        let x23 = + y23; //Nan, tipo number
+        document.getElementById("demo23").innerHTML = typeof y23 + "<br>" + typeof x23;
+    </script>
 
-<h3>Converting Numbers to Strings</h3>
+    <h3>Converting Numbers to Strings</h3>
 
-<p>The global method String() can convert numbers to strings. <br> It can be used on any type of numbers, literals, variables, or expressions:</p>
+    <p>The global method String() can convert numbers to strings. <br> It can be used on any type of numbers, literals,
+        variables, or expressions:</p>
 
-<code>
+    <code>
     String(x)         // returns a string from a number variable x <br> String(123)       // returns a string from a number literal 123 <br> String(100 + 23)  // returns a string from a number from an expression
 </code>
 
-<p id="demo24"></p>
+    <p id="demo24"></p>
 
-<script>
-let x24 = 123;
-document.getElementById("demo24").innerHTML =
-  String(x24) + "<br>" +
-  String(123) + "<br>" +
-  String(100 + 23);
-</script>
+    <script>
+        let x24 = 123;
+        document.getElementById("demo24").innerHTML =
+            String(x24) + "<br>" +
+            String(123) + "<br>" +
+            String(100 + 23);
+    </script>
 
-<p>The toString() method converts a number to a string.</p>
+    <p>The toString() method converts a number to a string.</p>
 
-<p id="demo25"></p>
+    <p id="demo25"></p>
 
-<script>
-let x25 = 123;
-document.getElementById("demo25").innerHTML =
-  x25.toString() + "<br>" +
-   (123).toString() + "<br>" +
-   (100 + 23).toString();
-</script>
+    <script>
+        let x25 = 123;
+        document.getElementById("demo25").innerHTML =
+            x25.toString() + "<br>" +
+            (123).toString() + "<br>" +
+            (100 + 23).toString();
+    </script>
 
-<h4>Converting Dates to Numbers</h4>
+    <h4>Converting Dates to Numbers</h4>
 
-<p>The global method Number() can be used to convert dates to numbers.</p>
+    <p>The global method Number() can be used to convert dates to numbers.</p>
 
-<code>
+    <code>
     d = new Date(); <br> Number(d)          // returns 1404568027739
 </code>
 
-<p>The date method getTime() does the same.</p>
+    <p>The date method getTime() does the same.</p>
 
-<code>
+    <code>
     d = new Date(); <br> d.getTime()        // returns 1404568027739
 </code>
 
-<h4>Converting Dates to Strings</h4>
+    <h4>Converting Dates to Strings</h4>
 
-<p>The global method String() can convert dates to strings.</p>
+    <p>The global method String() can convert dates to strings.</p>
 
-<code>
+    <code>
     String(Date())  // returns "Thu Jul 17 2014 15:38:19 GMT+0200 (W. Europe Daylight Time)"
 </code>
 
-<p>The Date method toString() does the same.</p>
+    <p>The Date method toString() does the same.</p>
 
-<code>
+    <code>
     Date().toString()  // returns "Thu Jul 17 2014 15:38:19 GMT+0200 (W. Europe Daylight Time)"
 </code>
 
-<h4>Converting Booleans to Numbers</h4>
+    <h4>Converting Booleans to Numbers</h4>
 
-<p>The global method Number() can also convert booleans to numbers.</p>
+    <p>The global method Number() can also convert booleans to numbers.</p>
 
-<code>
+    <code>
     Number(false)     // returns 0 <br> Number(true)      // returns 1
 </code>
 
-<h4>Converting Booleans to Strings</h4>
+    <h4>Converting Booleans to Strings</h4>
 
-<p>The global method String() can convert booleans to strings.</p>
+    <p>The global method String() can convert booleans to strings.</p>
 
-<code>
+    <code>
     String(false)      // returns "false" <br> String(true)       // returns "true"
 </code>
 
-<p>The Boolean method toString() does the same.</p>
+    <p>The Boolean method toString() does the same.</p>
 
-<code>
+    <code>
     false.toString()   // returns "false" <br> true.toString()    // returns "true"
 </code>
 
-<h4>Automatic Type Conversion</h4>
+    <h4>Automatic Type Conversion</h4>
 
-<p>When JavaScript tries to operate on a "wrong" data type, it will try to convert the value to a "right" type. <br> The result is not always what you expect:</p>
+    <p>When JavaScript tries to operate on a "wrong" data type, it will try to convert the value to a "right" type. <br>
+        The result is not always what you expect:</p>
 
-<code>
+    <code>
     5 + null    // returns 5         because null is converted to 0 <br> "5" + null  // returns "5null"   because null is converted to "null" <br> "5" + 2     // returns "52"      because 2 is converted to "2" <br> "5" - 2     // returns 3         because "5" is converted to 5 <br> "5" * "2"   // returns 10        because "5" and "2" are converted to 5 and 2
 </code>
+
+    <h2>JavaScript Bitwise Operators</h2>
+
+    <ul>
+        <li>& AND Sets each bit to 1 if both bits are 1</li>
+        <li>| OR Sets each bit to 1 if one of two bits is 1</li>
+        <li>^ XOR Sets each bit to 1 if only one of two bits is 1</li>
+        <li>~ NOT Inverts all the bits</li>
+        <li>
+            << Zero fill left shift Shifts left by pushing zeros in from the right and let the leftmost bits fall
+                off</li>
+        <li>>> Signed right shift Shifts right by pushing copies of the leftmost bit in from the left, and let the
+            rightmost bits fall off</li>
+        <li>>>> Zero fill right shift Shifts right by pushing zeros in from the left, and let the rightmost bits fall
+            off</li>
+    </ul>
+
+    <h3>Bitwise AND</h3>
+
+    <p>Devuelve 1 si los dos son 1</p>
+
+    <h3>Bitwise OR</h3>
+
+    <p>Devuelve 1 si uno es 1</p>
+
+    <h3>Bitwise XOR</h3>
+
+    <p>Devuelve 1 si son diferentes</p>
+
+    <h3>Converting Decimal to Binary</h3>
+
+    <p id="demo26"></p>
+
+    <script>
+        document.getElementById("demo26").innerHTML = dec2bin(-5); //saca -5 en binario
+        function dec2bin(dec26) {
+            return (dec26 >>> 0).toString(2);
+        }
+    </script>
+
+    <h3>Converting Binary to Decimal</h3>
+
+    <p id="demo27"></p>
+
+    <script>
+        document.getElementById("demo27").innerHTML = bin2dec(101); //saca 101 en decimal
+        function bin2dec(bin27) {
+            return parseInt(bin27, 2).toString(10);
+        }
+    </script>
+
+    <h2>JavaScript Regular Expressions</h2>
+
+    <p>A regular expression is a sequence of characters that forms a search pattern. <br> When you search for data in a
+        text, you can use this search pattern to describe what you are searching for. <br> A regular expression can be a
+        single character, or a more complicated pattern. <br> Regular expressions can be used to perform all types of
+        text search and text replace operations.</p>
+
+    <p>La sintaxis es <strong>/pattern/modifiers;</strong></p> <!--Por ejemplo /w3schools/i;-->
+
+    <h3>Regular Expression Modifiers</h3>
+
+    <ul>
+        <li>/i case insensitive</li>
+        <li>/g global match (all of them, porque por default marca sólo la primer coincidencia)</li>
+        <li>/m multiline matching</li>
+    </ul>
+
+    <h3>Regular Expression Patterns</h3>
+
+    <p>Brackets are used to find a range of characters:</p>
+
+    <ul>
+        <li>[abc] encuentra cualquier caracter en la expresión que coincida con lo que hay dentro de los corchetes</li>
+        <li>[0-9] encuentra cualquier dígito en la expresión que coincida con lo que hay dentro de los corchetes</li>
+        <li>(x|y) encuentra en la expresión cualquiera de las alternativas dentro del paréntesis separadas or |</li>
+    </ul>
+
+    <p>Metacharacters are characters with a special meaning:</p>
+
+    <ul>
+        <li>\d encuentra un dígito</li>
+        <li>\s encuentra un espacio</li>
+        <li>\b encuentra una coincidencia al principio o al final, por ejemplo \bWORD o WORD\b </li>
+        <li>\uxxxx encuentra el dígito especificado en el número hexadecimal xxxx</li>
+    </ul>
+
+    <p>Quantifiers define quantities:</p>
+
+    <ul>
+        <li>n+ encuentra cualquier string que contenga al menos una n </li>
+        <li>n* encuentra cualquier string que contenga 0 o más ocurrencias de n</li>
+        <li>n? encuentra cualquier string que contenga 0 o una ocurrencia de n</li>
+    </ul>
+
+    <h3>Using String Methods</h3>
+
+    <p>In JavaScript, regular expressions are often used with the two string methods: search() and replace(). <br> The search() method uses an expression to search for a match, and returns the position of the match. <br> The replace() method returns a modified string where the pattern is replaced.</p>
+
+    <h3>Using String search() With a String</h3>
+
+    <p>The search() method searches a string for a specified value and returns the position of the match:</p>
+
+    <p id="demo28"></p>
+
+<script>
+let text28 = "Visit W3Schools!"; 
+let n28 = text28.search("W3Schools");
+document.getElementById("demo28").innerHTML = n28;
+</script>
+
+<h3>Using String search() With a Regular Expression</h3>
+
+<p id="demo29"></p>
+
+<script>
+let text29 = "Visit W3Schools!"; 
+let n29 = text29.search(/w3Schools/i); //la expresión va entre // y detrás el modifier
+document.getElementById("demo29").innerHTML = n29;
+</script>
+
+<h3>Using String replace() With a String</h3>
+
+<p>The replace() method replaces a specified value with another value in a string:</p>
+
+<p>Replace "Microsoft" with "W3Schools" in the paragraph below:</p>
+
+<button onclick="myFunction30()">Try it</button>
+
+<p id="demo30">Please visit Microsoft!</p>
+
+<script>
+function myFunction30() {
+  let text30 = document.getElementById("demo30").innerHTML;
+  document.getElementById("demo30").innerHTML =
+  text30.replace("Microsoft","W3Schools");
+}
+</script>
+
+<h3>Use String replace() With a Regular Expression</h3>
+
+<p>Replace "Microsoft" with "W3Schools" in the paragraph below:</p>
+
+<button onclick="myFunction31()">Try it</button>
+
+<p id="demo31">Please visit Microsoft!</p>
+
+<script>
+function myFunction31() {
+  let text31 = document.getElementById("demo31").innerHTML;
+  document.getElementById("demo31").innerHTML =
+  text31.replace(/microsoft/i, "W3Schools");
+}
+</script>
+
+<h3>Por qué regular expressions??</h3>
+
+<p>Regular expression arguments (instead of string arguments) can be used in the methods above. <br> Regular expressions can make your search much more powerful (case insensitive for example).</p>
+
+<h3>Using test()</h3>
+
+<p>The test() method is a RegExp expression method. <br> It searches a string for a pattern, and returns true or false, depending on the result. <br> The following example searches a string for the character "e":</p>
+
+<p>Search for an "e" in the next paragraph:</p>
+
+<p id="p01">The best things in life are free!</p>
+
+<p id="demo32"></p>
+
+<script>
+let text32 = document.getElementById("p01").innerHTML;
+const pattern32 = /e/; ///e/.test("The best things in life are free!"); forma abreviada
+document.getElementById("demo32").innerHTML = pattern32.test(text32);
+</script>
+
+<h3>Using exec()</h3>
+
+<p>The exec() method is a RegExp expression method. <br> It searches a string for a specified pattern, and returns the found text as an object. <br> If no match is found, it returns an empty (null) object. <br> The following example searches a string for the character "e":</p>
+
+<p id="demo33"></p>
+
+<script>
+const obj33 = /e/.exec("The best things in life are free!");
+document.getElementById("demo33").innerHTML =
+"Found " + obj33[0] + " in position " + obj33.index + " in the text: " + obj33.input;
+</script>
+
+
+
+
+
+
+
+
+
+
 
 
 

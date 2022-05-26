@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mix 2</title>
+</head>
+
+<body>
+
+    <h2>JavaScript Sets</h2>
+
+    <p>A JavaScript Set is a collection of unique values. <br> Each value can only occur once in a Set.</p>
+
+    <h3>How to Create a Set</h3>
+
+    <p>You can create a JavaScript Set by:
+
+    <ul>
+        <li>Passing an Array to new Set()</li>
+        <li>Create a new Set and use add() to add values</li>
+        <li>Create a new Set and use add() to add variables</li>
+    </ul>
+    </p>
+
+    <h3>The new Set() Method</h3>
+
+    <p>Pass an Array to the new Set() constructor:</p>
+
+    <p id="demo1"></p>
+
+    <script>
+        // Create a Set
+        const letters1 = new Set(["a", "b", "c"]);
+
+        // Display set.size
+        document.getElementById("demo1").innerHTML = letters1.size;
+    </script>
+
+    <p>Add values to a Set:</p>
+
+    <p id="demo2"></p>
+
+    <script>
+        // Create a Set
+        const letters2 = new Set();
+
+        // Add Values to the Set
+        letters2.add("a");
+        letters2.add("b");
+        letters2.add("c");
+
+        // Display set.size
+        document.getElementById("demo2").innerHTML = letters2.size;
+    </script>
+
+    <p>Add variables to a Set:</p>
+
+    <p id="demo3"></p>
+
+    <script>
+        // Create a Set
+        const letters3 = new Set();
+
+        // Create Variables
+        const a3 = "a";
+        const b3 = "b";
+        const c3 = "c";
+
+        // Add the Variables to the Set
+        letters3.add(a3);
+        letters3.add(b3);
+        letters3.add(c3);
+
+        // Display set.size
+        document.getElementById("demo3").innerHTML = letters3.size;
+    </script>
+
+    <p>Adding new elements to a Set (sumados a los que ya están):</p>
+
+    <p id="demo4"></p>
+
+    <script>
+        // Create a new Set
+        const letters4 = new Set(["a", "b", "c"]);
+
+        // Add a new Element
+        letters4.add("d");
+        letters4.add("e");
+        letters4.add("e"); //como es igual al elemento anterior no lo cuenta -solamente puede tener elementos únicos, no puede haber uno igual a otro
+
+        // Display set.size
+        document.getElementById("demo4").innerHTML = letters4.size;
+    </script>
+
+    <p>forEach() calls a function for each element:</p>
+
+    <p id="demo5"></p>
+
+    <script>
+        // Create a Set
+        const letters5 = new Set(["a", "b", "c"]);
+
+        // List all Elements
+        let text5 = "";
+        letters5.forEach(function (value5) { //función para listar cada elemento
+            text5 += value5 + "<br>";
+        })
+
+        document.getElementById("demo5").innerHTML = text5;
+    </script>
+
+    <p>Set.values() returns a Set Iterator and then you can use the Iterator object to access the elements:</p>
+
+    <p id="demo6"></p>
+
+    <script>
+        // Create a Set
+        const letters6 = new Set(["a", "b", "c"]);
+
+        // Display set.size
+        document.getElementById("demo6").innerHTML = letters6.values(); //set iterator object
+    </script>
+
+    <p id="demo7"></p>
+
+    <script>
+        // Create a Set
+        const letters7 = new Set(["a", "b", "c"]);
+
+        // List all Elements
+        let text7 = "";
+        for (const x7 of letters7.values()) {
+            text7 += x7 + "<br>";
+        }
+
+        document.getElementById("demo7").innerHTML = text7;
+    </script>
+
+    <h2>Maps</h2>
+
+    <p>A Map holds key-value pairs where the keys can be any datatype. <br> A Map remembers the original insertion order
+        of the keys.</p>
+
+    <h3>How to Create a Map</h3>
+
+    <p>You can create a JavaScript Map by:
+    <ul>
+        <li>Passing an Array to new Map()</li>
+        <li>Create a Map and use Map.set()</li>
+    </ul>
+    </p>
+
+    <h3>The new Map() Method</h3>
+
+    <p>You can create a Map by passing an Array to the new Map() constructor:</p>
+
+    <p>Creating a Map from an Array:</p>
+
+    <p id="demo8"></p>
+
+    <script>
+        // Create a Map
+        const fruits8 = new Map([
+            ["apples", 500],
+            ["bananas", 300],
+            ["oranges", 200]
+        ]);
+
+        document.getElementById("demo8").innerHTML = fruits8.get("apples"); //gets the value for a key in a map
+    </script>
+
+    <h3>The set() Method</h3>
+
+    <p>You can add elements to a Map with the set() method:</p>
+
+    <p>Using Map.set():</p>
+
+    <p id="demo9"></p>
+
+    <script>
+        // Create a Map
+        const fruits9 = new Map();
+
+        // Set Map Values
+        fruits9.set("apples", 500);
+        fruits9.set("bananas", 300);
+        fruits9.set("oranges", 200);
+
+        document.getElementById("demo9").innerHTML = fruits9.get("bananas");
+    </script>
+
+    <p>The set() method can also be used to change existing Map values:</p>
+
+    <p id="demo10"></p>
+
+    <script>
+        // Create a Map
+        const fruits10 = new Map([
+            ["apples", 500],
+            ["bananas", 300],
+            ["oranges", 200]
+        ]);
+
+        fruits10.set("apples", 200);
+
+        document.getElementById("demo10").innerHTML = fruits10.get("apples");
+    </script>
+
+    <h3>The get() Method</h3>
+
+    <p>The get() method gets the value of a key in a Map:</p>
+
+    <p>Using Map.get():</p>
+
+    <p id="demo11"></p>
+
+    <script>
+        // Create a Map
+        const fruits11 = new Map([
+            ["apples", 500],
+            ["bananas", 300],
+            ["oranges", 200]
+        ]);
+
+        document.getElementById("demo11").innerHTML = fruits11.get("oranges");
+    </script>
+
+    <h3>The size Property</h3>
+
+    <p>The size property returns the number of elements in a Map:</p>
+
+    <p>Using Map.size:</p>
+
+    <p id="demo12"></p>
+
+    <script>
+        // Create a Map
+        const fruits12 = new Map([
+            ["apples", 500],
+            ["bananas", 300],
+            ["oranges", 200]
+        ]);
+
+        document.getElementById("demo12").innerHTML = fruits12.size;
+    </script>
+
+    <h3>The delete() Method</h3>
+
+    <p>The delete() method removes a Map element:</p>
+
+    <p>Deleting Map elements:</p>
+
+    <p id="demo13"></p>
+
+    <script>
+        // Create a Map
+        const fruits13 = new Map([
+            ["apples", 500],
+            ["bananas", 300],
+            ["oranges", 200]
+        ]);
+
+        // Delete an Element
+        fruits13.delete("apples");
+
+        document.getElementById("demo13").innerHTML = fruits13.size;
+    </script>
+
+    <h3>The has() Method</h3>
+
+    <p>The has() method returns true if a key exists in a Map:</p>
+
+    <p>Using Map.has():</p>
+
+    <p id="demo14"></p>
+    <p id="demo15"></p>
+
+    <script>
+        // Create a Map
+        const fruits14 = new Map([
+            ["apples", 500],
+            ["bananas", 300],
+            ["oranges", 200]
+        ]);
+
+        document.getElementById("demo14").innerHTML = fruits14.has("apples");
+
+        document.getElementById("demo15").innerHTML = fruits14.has("kiwis");
+    </script>
+
+    <h3>The forEach() Method</h3>
+
+    <p>The forEach() method calls a function for each key/value pair in a Map:</p>
+
+    <p>Using Map.forEach():</p>
+
+    <p id="demo16"></p>
+
+    <script>
+        // Create a Map
+        const fruits16 = new Map([
+            ["apples", 500],
+            ["bananas", 300],
+            ["oranges", 200]
+        ]);
+
+        let text16 = "";
+        fruits16.forEach(function (value16, key16) {
+            text16 += key16 + ' = ' + value16 + "<br>"
+        })
+
+        document.getElementById("demo16").innerHTML = text16;
+    </script>
+
+    <h3>The entries() Method</h3>
+
+    <p>The entries() method returns an iterator object with the [key, values] in a Map:</p>
+
+    <p>Using Map.entries():</p>
+
+    <p id="demo17"></p>
+
+    <script>
+        // Create a Map
+        const fruits17 = new Map([
+            ["apples", 500],
+            ["bananas", 300],
+            ["oranges", 200]
+        ]);
+
+        let text17 = "";
+        for (const x17 of fruits17.entries()) {
+            text17 += x17 + "<br>";
+        }
+
+        document.getElementById("demo17").innerHTML = text17;
+    </script>
+
+    <h2>JS TypeOf</h2>
+
+    <p>In JavaScript there are 5 different data types that can contain values:</p>
+
+    <ul>
+        <li>string</li>
+        <li>number</li>
+        <li>boolean</li>
+        <li>object</li>
+        <li>function</li>
+    </ul>
+
+    <p>There are 6 types of objects:</p>
+
+    <ul>
+        <li>object</li>
+        <li>date</li>
+        <li>array</li>
+        <li>string</li>
+        <li>number</li>
+        <li>boolean</li>
+    </ul>
+
+    <p>And 2 data types that cannot contain values:</p>
+
+    <ul>
+        <li>null</li>
+        <li>undefined</li>
+    </ul>
+
+    <h3>The typeof Operator</h3>
+
+    <p>You can use the typeof operator to find the data type of a JavaScript variable.</p>
+
+    <p>The typeof operator returns the type of a variable, object, function or expression.</p>
+
+    <p id="demo18"></p>
+
+    <script>
+        document.getElementById("demo18").innerHTML =
+            typeof "john" + "<br>" +
+            typeof 3.14 + "<br>" +
+            typeof NaN + "<br>" +
+            typeof false + "<br>" +
+            typeof [1, 2, 3, 4] + "<br>" +
+            typeof { name: 'john', age: 34 } + "<br>" +
+            typeof new Date() + "<br>" +
+            typeof function () { } + "<br>" +
+            typeof myCar + "<br>" +
+            typeof null;
+    </script>
+
+    <h4>Primitive Data</h4>
+
+    <p>A primitive data value is a single simple data value with no additional properties and methods. <br> The typeof
+        operator can return one of these primitive types:</p>
+
+    <ul>
+        <li>string</li>
+        <li>number</li>
+        <li>boolean</li>
+        <li>undefined</li>
+    </ul>
+
+    <h4>Complex Data</h4>
+
+    <p>The typeof operator can return one of two complex types:</p>
+
+    <ul>
+        <li>object</li>
+        <li>function</li>
+    </ul>
+
+    <p>The typeof operator returns "object" for objects, arrays, and null. <br> The typeof operator does not return
+        "object" for functions.</p>
+
+    <h4>The constructor Property</h4>
+
+    <p> you can check if the object is an Array function:</p>
+
+    <p>This "home made" isArray() function returns true when used on an array:</p>
+
+    <p id="demo19"></p>
+
+    <script>
+        const fruits19 = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo19").innerHTML = isArray(fruits19);
+
+        function isArray(myArray) {
+            return myArray.constructor === Array;
+        }
+    </script>
+
+    <p>you can check if the object is a Date function:</p>
+
+    <p>This "home made" isDate() function returns true when used on an date:</p>
+
+    <p id="demo20"></p>
+
+    <script>
+        const myDate20 = new Date();
+        document.getElementById("demo20").innerHTML = isDate(myDate20);
+
+        function isDate(myDate20) {
+            return myDate20.constructor === Date;
+        }
+    </script>
+
+    <h4>Undefined</h4>
+
+    <p>In JavaScript, a variable without a value, has the value undefined. The type is also undefined.</p>
+
+    <code>let car;    // Value is undefined, type is undefined</code>
+
+    <p>Any variable can be emptied, by setting the value to undefined. The type will also be undefined.</p>
+
+    <code>car = undefined;    // Value is undefined, type is undefined</code>
+
+    <h4>Empty Values</h4>
+
+    <p>An empty value has nothing to do with undefined. <br> An empty string has both a legal value and a type.</p>
+
+    <code>let car = "";    // The value is "", the typeof is "string"</code>
+
+    <h4>Null</h4>
+
+    <p>In JavaScript null is "nothing". It is supposed to be something that doesn't exist. <br> Unfortunately, in
+        JavaScript, the data type of null is an object.</p>
+
+    <p>You can empty an object by setting it to null:</p>
+
+    <code>let person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"}; <br>
+    person = null;    // Now value is null, but type is still an object</code>
+
+    <p>You can also empty an object by setting it to undefined:</p>
+
+    <code>let person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"}; <br>
+    person = undefined;   // Now both value and type is undefined</code>
+
+    <p id="demo21"></p>
+
+    <script>
+        let person21 = { firstName21: "John", lastName21: "Doe", age21: 50, eyeColor21: "blue" };
+        person21 = undefined;
+        document.getElementById("demo21").innerHTML = person21;
+    </script>
+
+    <h2>JavaScript Type Conversion</h2>
+
+    <h3>Converting Strings to Numbers</h3>
+
+    <p>The global method Number() can convert strings to numbers. <br> Strings containing numbers (like "3.14") convert
+        to numbers (like 3.14). <br> Empty strings convert to 0. <br> Anything else converts to NaN (Not a Number).</p>
+
+    <code>
+        Number("3.14")    // returns 3.14 <br> Number(" ")       // returns 0 <br> Number("")        // returns 0 <br> Number("99 88")   // returns NaN
+    </code>
+
+    <h3>The Unary + Operator</h3>
+
+    <p>The unary + operator can be used to convert a variable to a number:</p>
+
+    <p id="demo22"></p>
+
+<script>
+let y22 = "5";
+let x22 = + y22; //uso + enfrente de la variable para transformarla a número
+document.getElementById("demo22").innerHTML = typeof y22 + "<br>" + typeof x22;
+</script>
+
+<p>If the variable cannot be converted, it will still become a number, but with the value NaN (Not a Number):</p>
+
+<p id="demo23"></p>
+
+<script>
+let y23 = "John";
+let x23 = + y23; //Nan, tipo number
+document.getElementById("demo23").innerHTML = typeof y23 + "<br>" + typeof x23;
+</script>
+
+<h3>Converting Numbers to Strings</h3>
+
+<p>The global method String() can convert numbers to strings. <br> It can be used on any type of numbers, literals, variables, or expressions:</p>
+
+<code>
+    String(x)         // returns a string from a number variable x <br> String(123)       // returns a string from a number literal 123 <br> String(100 + 23)  // returns a string from a number from an expression
+</code>
+
+<p id="demo24"></p>
+
+<script>
+let x24 = 123;
+document.getElementById("demo24").innerHTML =
+  String(x24) + "<br>" +
+  String(123) + "<br>" +
+  String(100 + 23);
+</script>
+
+<p>The toString() method converts a number to a string.</p>
+
+<p id="demo25"></p>
+
+<script>
+let x25 = 123;
+document.getElementById("demo25").innerHTML =
+  x25.toString() + "<br>" +
+   (123).toString() + "<br>" +
+   (100 + 23).toString();
+</script>
+
+<h4>Converting Dates to Numbers</h4>
+
+<p>The global method Number() can be used to convert dates to numbers.</p>
+
+<code>
+    d = new Date(); <br> Number(d)          // returns 1404568027739
+</code>
+
+<p>The date method getTime() does the same.</p>
+
+<code>
+    d = new Date(); <br> d.getTime()        // returns 1404568027739
+</code>
+
+<h4>Converting Dates to Strings</h4>
+
+<p>The global method String() can convert dates to strings.</p>
+
+<code>
+    String(Date())  // returns "Thu Jul 17 2014 15:38:19 GMT+0200 (W. Europe Daylight Time)"
+</code>
+
+<p>The Date method toString() does the same.</p>
+
+<code>
+    Date().toString()  // returns "Thu Jul 17 2014 15:38:19 GMT+0200 (W. Europe Daylight Time)"
+</code>
+
+<h4>Converting Booleans to Numbers</h4>
+
+<p>The global method Number() can also convert booleans to numbers.</p>
+
+<code>
+    Number(false)     // returns 0 <br> Number(true)      // returns 1
+</code>
+
+<h4>Converting Booleans to Strings</h4>
+
+<p>The global method String() can convert booleans to strings.</p>
+
+<code>
+    String(false)      // returns "false" <br> String(true)       // returns "true"
+</code>
+
+<p>The Boolean method toString() does the same.</p>
+
+<code>
+    false.toString()   // returns "false" <br> true.toString()    // returns "true"
+</code>
+
+<h4>Automatic Type Conversion</h4>
+
+<p>When JavaScript tries to operate on a "wrong" data type, it will try to convert the value to a "right" type. <br> The result is not always what you expect:</p>
+
+<code>
+    5 + null    // returns 5         because null is converted to 0 <br> "5" + null  // returns "5null"   because null is converted to "null" <br> "5" + 2     // returns "52"      because 2 is converted to "2" <br> "5" - 2     // returns 3         because "5" is converted to 5 <br> "5" * "2"   // returns 10        because "5" and "2" are converted to 5 and 2
+</code>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

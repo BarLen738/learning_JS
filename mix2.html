@@ -666,7 +666,8 @@
         single character, or a more complicated pattern. <br> Regular expressions can be used to perform all types of
         text search and text replace operations.</p>
 
-    <p>La sintaxis es <strong>/pattern/modifiers;</strong></p> <!--Por ejemplo /w3schools/i;-->
+    <p>La sintaxis es <strong>/pattern/modifiers;</strong></p>
+    <!--Por ejemplo /w3schools/i;-->
 
     <h3>Regular Expression Modifiers</h3>
 
@@ -705,7 +706,9 @@
 
     <h3>Using String Methods</h3>
 
-    <p>In JavaScript, regular expressions are often used with the two string methods: search() and replace(). <br> The search() method uses an expression to search for a match, and returns the position of the match. <br> The replace() method returns a modified string where the pattern is replaced.</p>
+    <p>In JavaScript, regular expressions are often used with the two string methods: search() and replace(). <br> The
+        search() method uses an expression to search for a match, and returns the position of the match. <br> The
+        replace() method returns a modified string where the pattern is replaced.</p>
 
     <h3>Using String search() With a String</h3>
 
@@ -713,87 +716,183 @@
 
     <p id="demo28"></p>
 
-<script>
-let text28 = "Visit W3Schools!"; 
-let n28 = text28.search("W3Schools");
-document.getElementById("demo28").innerHTML = n28;
-</script>
+    <script>
+        let text28 = "Visit W3Schools!";
+        let n28 = text28.search("W3Schools");
+        document.getElementById("demo28").innerHTML = n28;
+    </script>
 
-<h3>Using String search() With a Regular Expression</h3>
+    <h3>Using String search() With a Regular Expression</h3>
 
-<p id="demo29"></p>
+    <p id="demo29"></p>
 
-<script>
-let text29 = "Visit W3Schools!"; 
-let n29 = text29.search(/w3Schools/i); //la expresión va entre // y detrás el modifier
-document.getElementById("demo29").innerHTML = n29;
-</script>
+    <script>
+        let text29 = "Visit W3Schools!";
+        let n29 = text29.search(/w3Schools/i); //la expresión va entre // y detrás el modifier
+        document.getElementById("demo29").innerHTML = n29;
+    </script>
 
-<h3>Using String replace() With a String</h3>
+    <h3>Using String replace() With a String</h3>
 
-<p>The replace() method replaces a specified value with another value in a string:</p>
+    <p>The replace() method replaces a specified value with another value in a string:</p>
 
-<p>Replace "Microsoft" with "W3Schools" in the paragraph below:</p>
+    <p>Replace "Microsoft" with "W3Schools" in the paragraph below:</p>
 
-<button onclick="myFunction30()">Try it</button>
+    <button onclick="myFunction30()">Try it</button>
 
-<p id="demo30">Please visit Microsoft!</p>
+    <p id="demo30">Please visit Microsoft!</p>
 
-<script>
-function myFunction30() {
-  let text30 = document.getElementById("demo30").innerHTML;
-  document.getElementById("demo30").innerHTML =
-  text30.replace("Microsoft","W3Schools");
-}
-</script>
+    <script>
+        function myFunction30() {
+            let text30 = document.getElementById("demo30").innerHTML;
+            document.getElementById("demo30").innerHTML =
+                text30.replace("Microsoft", "W3Schools");
+        }
+    </script>
 
-<h3>Use String replace() With a Regular Expression</h3>
+    <h3>Use String replace() With a Regular Expression</h3>
 
-<p>Replace "Microsoft" with "W3Schools" in the paragraph below:</p>
+    <p>Replace "Microsoft" with "W3Schools" in the paragraph below:</p>
 
-<button onclick="myFunction31()">Try it</button>
+    <button onclick="myFunction31()">Try it</button>
 
-<p id="demo31">Please visit Microsoft!</p>
+    <p id="demo31">Please visit Microsoft!</p>
 
-<script>
-function myFunction31() {
-  let text31 = document.getElementById("demo31").innerHTML;
-  document.getElementById("demo31").innerHTML =
-  text31.replace(/microsoft/i, "W3Schools");
-}
-</script>
+    <script>
+        function myFunction31() {
+            let text31 = document.getElementById("demo31").innerHTML;
+            document.getElementById("demo31").innerHTML =
+                text31.replace(/microsoft/i, "W3Schools");
+        }
+    </script>
 
-<h3>Por qué regular expressions??</h3>
+    <h3>Por qué regular expressions??</h3>
 
-<p>Regular expression arguments (instead of string arguments) can be used in the methods above. <br> Regular expressions can make your search much more powerful (case insensitive for example).</p>
+    <p>Regular expression arguments (instead of string arguments) can be used in the methods above. <br> Regular
+        expressions can make your search much more powerful (case insensitive for example).</p>
 
-<h3>Using test()</h3>
+    <h3>Using test()</h3>
 
-<p>The test() method is a RegExp expression method. <br> It searches a string for a pattern, and returns true or false, depending on the result. <br> The following example searches a string for the character "e":</p>
+    <p>The test() method is a RegExp expression method. <br> It searches a string for a pattern, and returns true or
+        false, depending on the result. <br> The following example searches a string for the character "e":</p>
 
-<p>Search for an "e" in the next paragraph:</p>
+    <p>Search for an "e" in the next paragraph:</p>
 
-<p id="p01">The best things in life are free!</p>
+    <p id="p01">The best things in life are free!</p>
 
-<p id="demo32"></p>
+    <p id="demo32"></p>
 
-<script>
-let text32 = document.getElementById("p01").innerHTML;
-const pattern32 = /e/; ///e/.test("The best things in life are free!"); forma abreviada
-document.getElementById("demo32").innerHTML = pattern32.test(text32);
-</script>
+    <script>
+        let text32 = document.getElementById("p01").innerHTML;
+        const pattern32 = /e/; ///e/.test("The best things in life are free!"); forma abreviada
+        document.getElementById("demo32").innerHTML = pattern32.test(text32);
+    </script>
 
-<h3>Using exec()</h3>
+    <h3>Using exec()</h3>
 
-<p>The exec() method is a RegExp expression method. <br> It searches a string for a specified pattern, and returns the found text as an object. <br> If no match is found, it returns an empty (null) object. <br> The following example searches a string for the character "e":</p>
+    <p>The exec() method is a RegExp expression method. <br> It searches a string for a specified pattern, and returns
+        the found text as an object. <br> If no match is found, it returns an empty (null) object. <br> The following
+        example searches a string for the character "e":</p>
 
-<p id="demo33"></p>
+    <p id="demo33"></p>
 
-<script>
-const obj33 = /e/.exec("The best things in life are free!");
-document.getElementById("demo33").innerHTML =
-"Found " + obj33[0] + " in position " + obj33.index + " in the text: " + obj33.input;
-</script>
+    <script>
+        const obj33 = /e/.exec("The best things in life are free!");
+        document.getElementById("demo33").innerHTML =
+            "Found " + obj33[0] + " in position " + obj33.index + " in the text: " + obj33.input;
+    </script>
+
+    <h2>JavaScript Errors</h2>
+
+    <h3>JavaScript Throws Errors</h3>
+
+    <p>Por default, cuando encuentra un error JS se detiene y genera un objeto error con 2 propiedades: nombre y
+        mensaje. <br> Existen 6 tipos:</p>
+
+    <ul>
+        <li>EvalError, error en la función</li>
+        <li>RangeError, valor fuera de rango</li>
+        <li>ReferenceError, variable no declarada</li>
+        <li>SyntaxError, error de sintaxis</li>
+        <li>TypeError, valor fuera del rango esperado</li>
+        <li>URIError</li>
+    </ul>
+
+    <h3>JavaScript try and catch</h3>
+
+    <p>Personalizando los errores. <br> The try statement allows you to define a block of code <strong> to be tested
+        </strong> for errors while it is being executed. <br> The catch statement allows you to define a block of code
+        <strong> to be executed </strong>, if an error occurs in the try block. <br> The JavaScript statements try and
+        catch come in pairs:</p>
+
+    <code>try { <br> Block of code to try <br> } <br> catch(err) { <br> Block of code to handle errors <br> }</code>
+
+    <h3>The throw Statement</h3>
+
+    <p>The throw statement allows you to create a custom error. <br> Technically you can throw an exception (throw an
+        error). <br> The exception can be a JavaScript String, a Number, a Boolean or an Object:</p>
+
+    <p>If you use throw together with try and catch, you can control program flow and generate custom error messages.
+    </p>
+
+    <p>Please input a number between 5 and 10:</p>
+
+    <input id="demo34" type="text34">
+    <button type="button34" onclick="myFunction34()">Test Input</button>
+    <p id="p0134"></p>
+
+    <script>
+        function myFunction34() {
+            const message34 = document.getElementById("p0134");
+            message34.innerHTML = "";
+            let x34 = document.getElementById("demo34").value;
+            try { //usamos try
+                if (x34 == "") throw "empty"; //usamos throw
+                if (isNaN(x34)) throw "not a number";
+                x34 = Number(x34);
+                if (x34 < 5) throw "too low";
+                if (x34 > 10) throw "too high";
+            }
+            catch (err34) { //usamos catch
+                message34.innerHTML = "Input is " + err34;
+            }
+        }
+    </script>
+
+    <h3>The finally Statement</h3>
+
+    <p>The finally statement lets you execute code, after try and catch, regardless of the result:</p>
+
+    <code>try { <br> Block of code to try <br> } <br> catch(err) { <br> Block of code to handle errors <br> } <br> finally { <br> Block of code to be executed regardless of the try / catch result <br> }</code>
+
+    <p>Please input a number between 5 and 10:</p>
+
+    <input id="demo35" type="text35">
+    <button type="button35" onclick="myFunction35()">Test Input</button>
+
+    <p id="p0135"></p>
+
+    <script>
+        function myFunction35() {
+            const message35 = document.getElementById("p0135");
+            message35.innerHTML = "";
+            let x35 = document.getElementById("demo35").value;
+            try {
+                if (x35 == "") throw "is empty";
+                if (isNaN(x35)) throw "is not a number";
+                x35 = Number(x35);
+                if (x35 > 10) throw "is too high";
+                if (x35 < 5) throw "is too low";
+            }
+            catch (err35) {
+                message35.innerHTML = "Input " + err35;
+            }
+            finally {
+                document.getElementById("demo35").value = "";
+            }
+        }
+    </script>
+
 
 
 

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS MIX 3</title>
+</head>
+
+<body>
+
+    <h2>JavaScript Scope</h2>
+
+    <p>Scope determines the accessibility (visibility) of variables. <br> JavaScript has 3 types of scope:</p>
+
+    <ul>
+        <li>Block scope</li>
+        <li>Function scope</li>
+        <li>Global scope</li>
+    </ul>
+
+    <h3>Block Scope</h3>
+
+    <p>These two keywords (const - let) provide Block Scope in JavaScript. <br> Variables declared inside a { } block
+        cannot be accessed from outside the block:</p>
+
+    <code>{ <br>
+        let x = 2; <br>
+      } <br>
+      // x can NOT be used here</code>
+
+    <p>Variables declared with the var keyword can NOT have block scope. <br> Variables declared inside a { } block can
+        be accessed from outside the block.</p>
+
+    <code>{ <br>
+        var x = 2; <br>
+      } <br>
+      // x CAN be used here</code>
+
+    <h3>Local -Function- Scope</h3>
+
+    <p>Variables declared within a JavaScript function, become LOCAL to the function.</p>
+
+    <code>// code here can NOT use carName <br>
+        <br>
+        function myFunction() { <br>
+          let carName = "Volvo"; <br>
+          // code here CAN use carName br
+        } <br>
+        <br>
+        // code here can NOT use carName</code>
+
+    <p>Local variables have Function Scope: they can only be accessed from within the function.</p>
+
+    <p>Since local variables are only recognized inside their functions, variables with the same name can be used in
+        different functions. <br> Local variables are created when a function starts, and deleted when the function is
+        completed.</p>
+
+    <h3>Function Scope</h3>
+
+    <p>Variables declared with var, let and const are quite similar when declared inside a function. <br> They all have
+        Function Scope:</p>
+
+    <code>function myFunction() {
+        var/let/const carName = "Volvo";   // Function Scope
+      }</code>
+
+    <h3>Global JavaScript Variables</h3>
+
+    <p>A variable declared outside a function, becomes GLOBAL. <br> A global variable has Global Scope, All scripts and
+        functions on a web page can access it. </p>
+
+    <code>let carName = "Volvo"; <br>
+        // code here can use carName 
+        <br>
+        function myFunction() { <br>
+        // code here can also use carName
+        }</code>
+
+    <p id="demo1"></p>
+
+    <script>
+        let carName1 = "Volvo";
+        myFunction1();
+
+        function myFunction1() {
+            document.getElementById("demo1").innerHTML = "I can display " + carName1;
+        }
+    </script>
+
+    <p>Variables declared with var, let and const are quite similar when declared outside a block.</p>
+
+    <code>var x = 2;       // Global scope <br>
+        let x = 2;       // Global scope <br>
+        const x = 2;       // Global scope <br></code>
+
+
+    <h3>JavaScript Variables</h3>
+
+    <p>In JavaScript, objects and functions are also variables. <br> Scope determines the accessibility of variables, objects, and functions from different parts of the code.</p>
+
+    <h3>Automatically Global</h3>
+
+    <p>If you assign a value to a variable that has not been declared, it will automatically become a GLOBAL variable. <br> This code example will declare a global variable carName, even if the value is assigned inside a function.</p>
+
+    <p id="demo2"></p>
+
+<script>
+myFunction2(); //la llama primero
+// code here can use carName as a global variable
+document.getElementById("demo2").innerHTML = "I can display " + carName2;
+
+function myFunction2() { //después la define
+  carName2 = "Volvo";
+}
+</script>
+
+<h2>JS Hoisting</h2>
+
+<p>Buena práctica, siempre declarar las variables y luego asignarles un valor. <br> De lo contrario puede causar errores como ReferenceError o SyntaxError o undefined.</p>
+
+<p>JS hace hoisting -mueve las declaraciones de variables arriba de todo-. Pero si no son declaradas primero, JS sabe que existen pero no puede inicializarlas. </p>
+
+<p id="demo3"></p>
+
+<script>
+var x3; // Declare x
+x3 = 5; // Assign 5 to x
+
+elem = document.getElementById("demo3"); // Find an element 
+elem.innerHTML = x3;           // Display x in the element
+</script>
+
+<h2>JS "use strict"</h2>
+
+<p>Si se declara "use strict" debe hacerse al principio del código o de la función. <br> Es una manera de escribir código JS en forma segura porque toma todos los errores de sintaxis (en variables, propiedades u objetos) como verdaderos errores y traba el código. <br> Por ejemplo, te prohíbe tipear mal el nombre de una variable porque lo toma como si quisieras usar una variable que aún no fue declarada.</p>
+
+<p>Para ver todas las restricciones, ir a <a href="https://www.w3schools.com/js/js_strict.asp" target="_blank">JS Strict Mode - W3Schools</a>.</p>
+
+
+
+
+
+</body>
+
+</html>

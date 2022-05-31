@@ -98,50 +98,907 @@
 
     <h3>JavaScript Variables</h3>
 
-    <p>In JavaScript, objects and functions are also variables. <br> Scope determines the accessibility of variables, objects, and functions from different parts of the code.</p>
+    <p>In JavaScript, objects and functions are also variables. <br> Scope determines the accessibility of variables,
+        objects, and functions from different parts of the code.</p>
 
     <h3>Automatically Global</h3>
 
-    <p>If you assign a value to a variable that has not been declared, it will automatically become a GLOBAL variable. <br> This code example will declare a global variable carName, even if the value is assigned inside a function.</p>
+    <p>If you assign a value to a variable that has not been declared, it will automatically become a GLOBAL variable.
+        <br> This code example will declare a global variable carName, even if the value is assigned inside a function.
+    </p>
 
     <p id="demo2"></p>
 
-<script>
-myFunction2(); //la llama primero
-// code here can use carName as a global variable
-document.getElementById("demo2").innerHTML = "I can display " + carName2;
+    <script>
+        myFunction2(); //la llama primero
+        // code here can use carName as a global variable
+        document.getElementById("demo2").innerHTML = "I can display " + carName2;
 
-function myFunction2() { //después la define
-  carName2 = "Volvo";
-}
-</script>
+        function myFunction2() { //después la define
+            carName2 = "Volvo";
+        }
+    </script>
 
-<h2>JS Hoisting</h2>
+    <h2>JS Hoisting</h2>
 
-<p>Buena práctica, siempre declarar las variables y luego asignarles un valor. <br> De lo contrario puede causar errores como ReferenceError o SyntaxError o undefined.</p>
+    <p>Buena práctica, siempre declarar las variables y luego asignarles un valor. <br> De lo contrario puede causar
+        errores como ReferenceError o SyntaxError o undefined.</p>
 
-<p>JS hace hoisting -mueve las declaraciones de variables arriba de todo-. Pero si no son declaradas primero, JS sabe que existen pero no puede inicializarlas. </p>
+    <p>JS hace hoisting -mueve las declaraciones de variables arriba de todo-. Pero si no son declaradas primero, JS
+        sabe que existen pero no puede inicializarlas. </p>
 
-<p id="demo3"></p>
+    <p id="demo3"></p>
 
-<script>
-var x3; // Declare x
-x3 = 5; // Assign 5 to x
+    <script>
+        var x3; // Declare x
+        x3 = 5; // Assign 5 to x
 
-elem = document.getElementById("demo3"); // Find an element 
-elem.innerHTML = x3;           // Display x in the element
-</script>
+        elem = document.getElementById("demo3"); // Find an element 
+        elem.innerHTML = x3;           // Display x in the element
+    </script>
 
-<h2>JS "use strict"</h2>
+    <h2>JS "use strict"</h2>
 
-<p>Si se declara "use strict" debe hacerse al principio del código o de la función. <br> Es una manera de escribir código JS en forma segura porque toma todos los errores de sintaxis (en variables, propiedades u objetos) como verdaderos errores y traba el código. <br> Por ejemplo, te prohíbe tipear mal el nombre de una variable porque lo toma como si quisieras usar una variable que aún no fue declarada.</p>
+    <p>Si se declara "use strict" debe hacerse al principio del código o de la función. <br> Es una manera de escribir
+        código JS en forma segura porque toma todos los errores de sintaxis (en variables, propiedades u objetos) como
+        verdaderos errores y traba el código. <br> Por ejemplo, te prohíbe tipear mal el nombre de una variable porque
+        lo toma como si quisieras usar una variable que aún no fue declarada.</p>
 
-<p>Para ver todas las restricciones, ir a <a href="https://www.w3schools.com/js/js_strict.asp" target="_blank">JS Strict Mode - W3Schools</a>.</p>
+    <p>Para ver todas las restricciones, ir a <a href="https://www.w3schools.com/js/js_strict.asp" target="_blank">JS
+            Strict Mode - W3Schools</a>.</p>
+
+    <h2>The JavaScript this Keyword</h2>
+
+    <p>In JavaScript, the this keyword refers to an object. <br> Which object depends on how this is being invoked (used
+        or called). <br> The this keyword refers to different objects depending on how it is used:</p>
+
+    <ul>
+        <li>In an object method, this refers to the object.</li>
+        <li>Alone, this refers to the global object.</li>
+        <li>In a function, this refers to the global object.</li>
+        <li>In a function, in strict mode, this is undefined.</li>
+        <li>In an event, this refers to the element that received the event.</li>
+        <li>Methods like call(), apply(), and bind() can refer this to any object.</li>
+    </ul>
+
+    <h3>This Precedence</h3>
+
+    <ol>
+        <li>bind()</li>
+        <li>apply() and call()</li>
+        <li>object method</li>
+        <li>global scope</li>
+    </ol>
+
+    <h3>this in a method</h3>
+
+    <p>In this example, <b>this</b> refers to the <b>person</b> object.</p>
+    <p>Because <b>fullName</b> is a method of the person object.</p>
+
+    <p id="demo4"></p>
+
+    <script>
+        // Create an object:
+        const person4 = {
+            firstName4: "John",
+            lastName4: "Doe",
+            id4: 5566,
+            fullName4: function () {
+                return this.firstName4 + " " + this.lastName4;
+            }
+        };
+
+        // Display data from the object:
+        document.getElementById("demo4").innerHTML = person4.fullName4();
+    </script>
+
+    <h3>this alone</h3>
+
+    <p>In this example, <b>this</b> refers to the window object. Global object, global scope.</p>
+
+    <p id="demo5"></p>
+
+    <script>
+        let x5 = this;
+        document.getElementById("demo5").innerHTML = x5;
+    </script>
+
+    <p>In strict mode, same.</p>
+
+    <p id="demo6"></p>
+
+    <script>
+        "use strict";
+        let x6 = this;
+        document.getElementById("demo6").innerHTML = x6;
+    </script>
+
+    <h3>this in a function (default)</h3>
+
+    <p>In a function, the global object is the default binding for this. <br> In a browser window the global object is
+        [object Window]:</p>
+
+    <p id="demo7"></p>
+
+    <script>
+        document.getElementById("demo7").innerHTML = myFunction7();
+
+        function myFunction7() {
+            return this;
+        }
+    </script>
+
+    <h3>this in a function (strict)</h3>
+
+    <p>JavaScript strict mode does not allow default binding. <br> So, when used in a function, in strict mode, this is
+        undefined.</p>
+
+    <p id="demo8"></p>
+
+    <script>
+        "use strict";
+        document.getElementById("demo8").innerHTML = myFunction8();
+
+        function myFunction8() {
+            return this;
+        }
+    </script>
+
+    <h3>this in event handlers</h3>
+
+    <p>In HTML event handlers, this refers to the HTML element that received the event.</p>
+
+    <button onclick="this.style.display='none'">Click to Remove Me!</button>
+
+    <h3>Object method binding</h3>
+
+    <p>In these examples, this is the person object:</p>
+
+    <p id="demo9"></p>
+
+    <script>
+        // Create an object:
+        const person9 = {
+            firstName9: "John",
+            lastName9: "Doe",
+            id9: 5566,
+            myFunction9: function () {
+                return this;
+            }
+        };
+
+        // Display data from the object:
+        document.getElementById("demo9").innerHTML = person9.myFunction9();
+    </script>
+
+    <p id="demo10"></p>
+
+    <script>
+        // Create an object:
+        const person10 = {
+            firstName10: "John",
+            lastName10: "Doe",
+            id10: 5566,
+            fullName10: function () {
+                return this.firstName10 + " " + this.lastName10;
+            }
+        };
+
+        // Display data from the object:
+        document.getElementById("demo10").innerHTML = person10.fullName10();
+    </script>
+
+    <h3>Explicit function binding</h3>
+
+    <p>The call() and apply() methods are predefined JavaScript methods. <br> They can both be used to call an object
+        method with another object as argument.</p>
+
+    <p>The example below calls person1.fullName with person2 as an argument, this refers to person2, even if fullName is
+        a method of person1:</p>
+
+    <p id="demo11"></p>
+
+    <script>
+        const person1_11 = {
+            fullName11: function () {
+                return this.firstName11 + " " + this.lastName11;
+            }
+        }
+
+        const person2_11 = {
+            firstName11: "John",
+            lastName11: "Doe",
+        }
+
+        let x11 = person1_11.fullName11.call(person2_11);
+        document.getElementById("demo11").innerHTML = x11; 
+    </script>
+
+    <h3>Function Borrowing</h3>
+
+    <p>With the bind() method, an object can borrow a method from another object. <br> This example creates 2 objects
+        (person and member). <br> The member object borrows the fullname method from the person object:</p>
+
+    <p id="demo12"></p>
+
+    <script>
+        const person12 = {
+            firstName12: "John",
+            lastName12: "Doe",
+            fullName12: function () {
+                return this.firstName12 + " " + this.lastName12;
+            }
+        }
+
+        const member12 = {
+            firstName12: "Hege",
+            lastName12: "Nilsen",
+        }
+
+        let fullName12 = person12.fullName12.bind(member12);
+
+        document.getElementById("demo12").innerHTML = fullName12();
+    </script>
+
+    <h2>JavaScript Arrow Function</h2>
+
+    <p>Arrow functions were introduced in ES6. <br> Arrow functions allow us to write shorter function syntax:</p>
+
+    <p>Before</p>
+
+    <code>hello = function() { <br>
+    return "Hello World!"; <br>
+  }</code>
+
+    <p>With Arrow Function:</p>
+
+    <code>hello = () => { <br>
+    return "Hello World!"; <br>
+  }</code>
+
+    <p>It gets shorter! If the function has only one statement, and the statement returns a value, you can remove the
+        brackets and the return keyword. Note: This works only if the function has only one statement.</p>
+
+    <code>hello = () => "Hello World!";</code>
+
+    <p>If you have parameters, you pass them inside the parentheses:</p>
+
+    <p id="demo13"></p>
+
+    <script>
+        var hello13;
+
+        hello13 = (val13) => "Hello " + val13; //si es un  solo parámetro se puede escribir sin paréntesis hello = val => "Hello " + val;
+
+        document.getElementById("demo13").innerHTML = hello13("Universe!");
+    </script>
+
+    <h3>this in arrow functions</h3>
+
+    <p>With arrow functions the this keyword always represents the object that defined the arrow function.</p>
+
+    <p>Both examples call a method twice, first when the page loads, and once again when the user clicks a button. <br>
+        The first example uses a regular function, and the second example uses an arrow function. <br> The result shows
+        that the first example returns two different objects (window and button), and the second example returns the
+        window object twice, because the window object is the "owner" of the function.</p>
+
+    <p>Click the button to execute the "hello" function again, and you will see that this time "this" represents the
+        button object.</p>
+
+    <button id="btn14">Click Me!</button>
+
+    <p id="demo14"></p>
+
+    <script>
+        var hello14;
+
+        hello14 = function () {
+            document.getElementById("demo14").innerHTML += this;
+        }
+
+        //The window object calls the function:
+        window.addEventListener("load", hello14);
+
+        //A button object calls the function:
+        document.getElementById("btn14").addEventListener("click", hello14);
+    </script>
+
+    <p>With an arrow function this represents the owner of the function:</p>
+
+    <p>Click the button to execute the "hello" function again, and you will see that "this" still represents the window
+        object.</p>
+
+    <button id="btn15">Click Me!</button>
+
+    <p id="demo15"></p>
+
+    <script>
+        var hello15;
+
+        hello15 = () => {
+            document.getElementById("demo15").innerHTML += this;
+        }
+
+        //The window object calls the function:
+        window.addEventListener("load", hello15);
+
+        //A button object calls the function:
+        document.getElementById("btn15").addEventListener("click", hello15);
+    </script>
+
+    <h2>JS Classes</h2>
+
+    <p>Use the keyword class to create a class. <br> Always add a method named constructor(). Agregar propiedades.</p>
+
+    <code>class Car { <br>
+    constructor(name, year) { <br>
+      this.name = name; <br>
+      this.year = year; <br>
+    } <br>
+  }</code>
+
+    <p>Usando una clase para crear un objeto.</p>
+
+    <p id="demo16"></p>
+
+    <script>
+        class Car16 {
+            constructor(name16, year16) { //siempre empieza con la palabra constructor y se usa para inicializar propiedades de objetos
+                this.name16 = name16;
+                this.year16 = year16;
+            }
+        }
+
+        const myCar16 = new Car16("Ford", 2014);
+        document.getElementById("demo16").innerHTML =
+            myCar16.name16 + " " + myCar16.year16;
+    </script>
+
+    <h3>Class Methods</h3>
+
+    <p>Class methods are created with the same syntax as object methods. <br> Use the keyword class to create a class.
+        <br> Always add a constructor() method. <br> Then add any number of methods.
+    </p>
+
+    <p id="demo17"></p>
+
+    <script>
+        class Car17 {
+            constructor(name17, year17) {
+                this.name17 = name17;
+                this.year17 = year17;
+
+            }
+            age17() {
+                let date17 = new Date();
+                return date17.getFullYear() - this.year17;
+            }
+        }
+
+        let myCar17 = new Car17("Ford", 2014); //valor a name y valor a year
+        document.getElementById("demo17").innerHTML =
+            "My car is " + myCar17.age17() + " years old.";
+    </script>
+
+    <p>Pass a parameter into the "age()" method.</p>
+
+    <p id="demo18"></p>
+
+    <script>
+        class Car18 {
+            constructor(name18, year18) {
+                this.name18 = name18;
+                this.year18 = year18;
+            }
+            age(x18) {
+                return x18 - this.year18;
+            }
+        }
+
+        let date18 = new Date();
+        let year18 = date18.getFullYear();
+
+        let myCar18 = new Car18("Ford", 2010);
+        document.getElementById("demo18").innerHTML =
+            "My car is " + myCar18.age(year18) + " years old.";
+    </script>
+
+    <h2>JS Modules</h2>
+
+    <p>JavaScript modules allow you to break up your code into separate files. <br> This makes it easier to maintain the
+        code-base. <br> JavaScript modules rely on the import and export statements.</p>
+
+    <h3>Export</h3>
+
+    <p>You can export a function or variable from any file. <br> There are two types of exports: Named and Default.</p>
+
+    <h4>Named export</h4>
+
+    <p>You can create named exports two ways. In-line individually, or all at once at the bottom.</p>
+
+    <p>De un archivo llamado person.js</p>
+
+    <p>In-line individually</p>
+
+    <code>export const name = "Jesse"; <br>
+    export const age = 40;</code>
+
+    <p>All at once at the bottom</p>
+
+    <code>const name = "Jesse"; <br>
+    const age = 40; <br>
+    export {name, age};</code>
+
+    <h4>Default exports</h4>
+
+    <p>De un archivo llamado message.js</p>
+
+    <code>const message = () => { <br>
+        const name = "Jesse"; <br>
+        const age = 40; <br>
+        return name + ' is ' + age + 'years old.'; <br>
+        }; <br>
+        <br>
+        export default message;</code>
+
+    <h3>Import</h3>
+
+    <p>You can import modules into a file in two ways, based on if they are named exports or default exports. <br> Named
+        exports are constructed using curly braces. Default exports are not.</p>
+
+    <p>Import from named exports</p>
+
+    <!--
+
+    <p id="demo"></p>
+
+    <script type="module">
+    import { name, age } from "./person.js";
+
+    let text = "My name is " + name + ", I am " + age + ".";
+
+    document.getElementById("demo").innerHTML = text
+    </script>
+
+    -->
+
+    <p>Import from default exports</p>
+
+    <!--
+        <p id="demo"></p>
+
+    <script type="module">
+    import message from "./message.js";
+
+    document.getElementById("demo").innerHTML = message();
+
+    </script>
+    
+    -->
+
+    <h2>JavaScript JSON</h2>
+
+    <p>JSON is a format for storing and transporting data. <br> JSON is often used when data is sent from a server to a
+        web page.</p>
+
+    <p>JSON significa JS Object Notation. Es un formato liviano para intercambio de datos.</p>
+
+    <h3>JSON Syntax</h3>
+
+    <ul>
+        <li>Data is in name/value pairs</li>
+        <li>Data is separated by commas</li>
+        <li>Curly braces hold objects</li>
+        <li>Square brackets hold arrays</li>
+    </ul>
+
+    <h3>JSON Objects</h3>
+
+    <p>JSON objects are written inside curly braces. <br> Just like in JavaScript, objects can contain multiple
+        name/value pairs:</p>
+
+    <code>{"firstName":"John", "lastName":"Doe"}</code>
+
+    <h3>JSON Arrays</h3>
+
+    <p>JSON arrays are written inside square brackets. <br> Just like in JavaScript, an array can contain objects:</p>
+
+    <code>"employees":[ <br>
+        {"firstName":"John", "lastName":"Doe"}, <br>
+        {"firstName":"Anna", "lastName":"Smith"}, <br>
+        {"firstName":"Peter", "lastName":"Jones"} <br>
+      ]</code>
+
+    <h3>Converting a JSON Text to a JavaScript Object</h3>
+
+    <p>A common use of JSON is to read data from a web server, and display the data in a web page. <br> For simplicity,
+        this can be demonstrated using a string as input. <br> First, create a JavaScript string containing JSON syntax:
+    </p>
+
+    <code>let text = '{ "employees" : [' + <br>
+        '{ "firstName":"John" , "lastName":"Doe" },' + <br>
+        '{ "firstName":"Anna" , "lastName":"Smith" },' + <br>
+        '{ "firstName":"Peter" , "lastName":"Jones" } ]}';</code>
+
+    <p>Then, use the JavaScript built-in function JSON.parse() to convert the string into a JavaScript object:</p>
+
+    <code>const obj = JSON.parse(text);</code>
+
+    <p>Finally, use the new JavaScript object in your page:</p>
+
+    <p id="demo19"></p>
+
+    <script>
+        let text19 = '{"employees":[' +
+            '{"firstName":"John","lastName":"Doe" },' +
+            '{"firstName":"Anna","lastName":"Smith" },' +
+            '{"firstName":"Peter","lastName":"Jones" }]}';
+
+        const obj19 = JSON.parse(text19);
+        document.getElementById("demo19").innerHTML =
+            obj19.employees[1].firstName + " " + obj19.employees[1].lastName;
+    </script>
+
+    <h2>JS Debugging</h2>
+
+    <p>Debugging is the process of testing, finding, and reducing bugs (errors) in computer programs.</p>
+
+    <p>Debugging is not easy. But fortunately, all modern browsers have a built-in JavaScript debugger. <br> Built-in
+        debuggers can be turned on and off, forcing errors to be reported to the user. <br> With a debugger, you can
+        also set breakpoints (places where code execution can be stopped), and examine variables while the code is
+        executing. <br> Normally, otherwise follow the steps at the bottom of this page, you activate debugging in your
+        browser with the F12 key, and select "Console" in the debugger menu.</p>
+
+    <h3>console.log()</h3>
+
+    <p>If your browser supports debugging, you can use console.log() to display JavaScript values in the debugger
+        window:</p>
+
+    <p>Activate debugging in your browser (Chrome, IE, Firefox) with F12, and select "Console" in the debugger menu.</p>
+
+    <script>
+        a = 5;
+        b = 6;
+        c = a + b;
+        console.log(c);
+    </script>
+
+    <h3>Setting Breakpoints</h3>
+
+    <p> In the debugger window, you can set breakpoints in the JavaScript code. <br> At each breakpoint, JavaScript will
+        stop executing, and let you examine JavaScript values. <br> After examining values, you can resume the execution
+        of code (typically with a play button).</p>
+
+    <h3>The debugger keyword</h3>
+
+    <p>The debugger keyword stops the execution of JavaScript, and calls (if available) the debugging function. <br>
+        This has the same function as setting a breakpoint in the debugger.</p>
+
+    <p id="demo20"></p>
+
+    <p>With the debugger turned on, the code below should stop executing before it executes the third line.</p>
+
+    <script>
+        let x20 = 15 * 5;
+        debugger;
+        document.getElementById("demo20").innerHTML = x20;
+    </script>
+
+    <h2>JS Style Guide</h2>
+
+    <h3>JS Coding conventions</h3>
+
+    <h4>Variable names</h4>
+
+    <ul>
+        <li>CamelCase</li>
+        <li>Empezar con una letra</li>
+    </ul>
+
+    <h4>Spaces around operators</h4>
+
+    <p>Usar espacio entre cada operador y después de cada coma.</p>
+
+    <h4>Code indentation</h4>
+
+    <p>Usar dos espacios para indentar bloques de código.</p>
+
+    <code>function toCelsius(fahrenheit) { <br>
+    return (5 / 9) * (fahrenheit - 32); <br>
+  }</code>
+
+    <h4>Statement rules</h4>
+
+    <p>Finalizar cada simple statement con ;</p>
+
+    <code>const cars = ["Volvo", "Saab", "Fiat"]; <br>
+    <br>
+    const person = { <br>
+      firstName: "John", <br>
+      lastName: "Doe", <br>
+      age: 50, <br>
+      eyeColor: "blue" <br>
+    };</code>
+
+    <p>Para complex statements</p>
+
+    <ul>
+        <li>Put the opening bracket at the end of the first line.</li>
+        <li>Use one space before the opening bracket.</li>
+        <li>Put the closing bracket on a new line, without leading spaces.</li>
+        <li>Do not end a complex statement with a semicolon.</li>
+    </ul>
+
+    <p>Functions</p>
+
+    <code>
+        function toCelsius(fahrenheit) { <br>
+            return (5 / 9) * (fahrenheit - 32); <br>
+          }
+    </code>
+
+    <p>Loops</p>
+
+    <code>
+        for (let i = 0; i < 5; i++) { <br>
+            x += i; <br>
+          }
+    </code>
+
+    <p>Conditionals</p>
+
+    <code>
+        if (time < 20) { <br>
+            greeting = "Good day"; <br>
+          } else { <br>
+            greeting = "Good evening"; <br>
+          }
+    </code>
+
+    <h4>Object rules</h4>
+
+    <ul>
+        <li>Place the opening bracket on the same line as the object name.</li>
+        <li>Use colon plus one space between each property and its value.</li>
+        <li>Use quotes around string values, not around numeric values.</li>
+        <li>Do not add a comma after the last property-value pair.</li>
+        <li>Place the closing bracket on a new line, without leading spaces.</li>
+        <li>Always end an object definition with a semicolon.</li>
+    </ul>
+
+    <code>
+        const person = { <br>
+            firstName: "John", <br>
+            lastName: "Doe", <br>
+            age: 50, <br>
+            eyeColor: "blue" <br>
+          };
+    </code>
+
+    <p>Short objects can be written compressed, on one line, using spaces only between properties, like this:</p>
+
+    <code>const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};</code>
+
+    <h4>Line Length < 80</h4>
+
+            <p>For readability, avoid lines longer than 80 characters. <br> If a JavaScript statement does not fit on
+                one line, the best place to break it, is after an operator or a comma.</p>
+
+            <h4>Use Lower Case File Names</h4>
+
+            <h2>JavaScript Best Practices</h2>
+
+            <h3>Avoid Global Variables, Always Declare Local Variables</h3>
+
+            <p>All variables used in a function should be declared as local variables. <br> Local variables must be
+                declared with the var keyword or the let keyword,or the const keyword, otherwise they will become global
+                variables.</p>
+
+            <h3>Declarations on Top</h3>
+
+            <p>It is a good coding practice to put all declarations at the top of each script or function.</p>
+
+            <code>
+                let firstName, lastName, price, discount, fullPrice; <br>
+                firstName = "John"; <br>
+                lastName = "Doe"; <br>
+                <br>
+                price = 19.90; <br>
+                discount = 0.10; <br>
+                <br>
+                fullPrice = price - discount; 
+            </code>
+
+            <p>This also goes for loop variables:</p>
+
+            <code>
+                for (let i = 0; i < 5; i++) {
+            </code>
+
+            <h3>Initialize Variables</h3>
+
+            <p>It is a good coding practice to initialize variables when you declare them. (Declare and initiate at the
+                beginning. </p>
+
+            <code>
+                let firstName = "", <br>
+                let lastName = "", <br>
+                let price = 0, <br>
+                let discount = 0, <br>
+                let fullPrice = 0, <br>
+                const myArray = [], <br>
+                const myObject = {}; <br>
+            </code>
+
+            <h3>Declare Objects with const</h3>
+
+            <p>Declaring objects with const will prevent any accidental change of type:</p>
+
+            <h3>Declare Arrays with const</h3>
+
+            <p>Same</p>
+
+            <h3>Don't Use new Object()</h3>
+
+            <ul>
+                <li>Use "" instead of new String()</li>
+                <li>Use 0 instead of new Number()</li>
+                <li>Use false instead of new Boolean()</li>
+                <li>Use {} instead of new Object()</li>
+                <li>Use [] instead of new Array()</li>
+                <li>Use /()/ instead of new RegExp()</li>
+                <li>Use function (){} instead of new Function()</li>
+            </ul>
+
+            <p>JS Literal constructors</p>
+
+            <p id="demo21"></p>
+
+            <script>
+                let x1a = ""; //new primitive string
+                let x2a = 0; //new primitive number
+                let x3a = false; //new primitive boolean
+                const x4a = {}; //new object
+                const x5a = []; //new array object
+                const x6a = /()/; //new regexp object
+                const x7a = function () { }; //new function object
+
+                document.getElementById("demo21").innerHTML =
+                    "x1: " + typeof x1a + "<br>" +
+                    "x2: " + typeof x2a + "<br>" +
+                    "x3: " + typeof x3a + "<br>" +
+                    "x4: " + typeof x4a + "<br>" +
+                    "x5: " + typeof x5a + "<br>" +
+                    "x6: " + typeof x6a + "<br>" +
+                    "x7: " + typeof x7a + "<br>";
+            </script>
+
+            <h3>Beware of Automatic Type Conversions</h3>
+
+            <p>A variable can contain all data types. <br> A variable can change its data type:</p>
+
+            <code>
+                let x = "Hello";     // typeof x is a string <br>
+                x = 5;               // changes typeof x to a number 
+            </code>
+
+            <p>Beware that numbers can accidentally be converted to strings or NaN (Not a Number). <br> When doing
+                mathematical operations, JavaScript can convert numbers to strings:</p>
+
+            <code>
+                let x = 5 + 7;       // x.valueOf() is 12,  typeof x is a number <br>
+                let x = 5 + "7";     // x.valueOf() is 57,  typeof x is a string <br>
+                let x = "5" + 7;     // x.valueOf() is 57,  typeof x is a string <br>
+                let x = 5 - 7;       // x.valueOf() is -2,  typeof x is a number <br>
+                let x = 5 - "7";     // x.valueOf() is -2,  typeof x is a number <br>
+                let x = "5" - 7;     // x.valueOf() is -2,  typeof x is a number <br>
+                let x = 5 - "x";     // x.valueOf() is NaN, typeof x is a number <br>
+            </code>
+
+            <p>Subtracting a string from a string, does not generate an error but returns NaN (Not a Number):</p>
+
+            <code>
+                "Hello" - "Dolly"    // returns NaN
+            </code>
+
+            <h3>Use === Comparison</h3>
+
+            <p>The == comparison operator always converts (to matching types) before comparison. <br> The === operator
+                forces comparison of values and type:</p>
+
+            <code>
+                0 == "";        // true <br>
+                1 == "1";       // true <br>
+                1 == true;      // true <br>
+                <br>
+                0 === "";       // false <br>
+                1 === "1";      // false <br>
+                1 === true;     // false <br>
+            </code>
+
+            <h3>Use Parameter Defaults</h3>
+
+            <p>If a function is called with a missing argument, the value of the missing argument is set to undefined.
+                <br> Undefined values can break your code. It is a good habit to assign default values to arguments.</p>
+
+            <p>Setting a default value to a function parameter.</p>
+
+            <p id="demo22"></p>
+
+            <script>
+                function myFunction22(x22, y22) {
+                    if (y22 === undefined) {
+                        y22 = 0;
+                    }
+                    return x22 * y22;
+                }
+                document.getElementById("demo22").innerHTML = myFunction22(4);
+            </script>
+
+            <h3>End Your Switches with Defaults</h3>
+
+            <p>Always end your switch statements with a default. Even if you think there is no need for it.</p>
+
+            <code>
+                switch (new Date().getDay()) { <br>
+                    case 0: <br>
+                      day = "Sunday"; <br>
+                      break; <br>
+                    case 1: <br>
+                      day = "Monday"; <br>
+                      break; <br>
+                    case 2: <br>
+                      day = "Tuesday"; <br>
+                      break; <br>
+                    case 3: <br>
+                      day = "Wednesday"; <br>
+                      break; <br>
+                    case 4: <br>
+                      day = "Thursday"; <br>
+                      break; <br>
+                    case 5: <br>
+                      day = "Friday"; <br>
+                      break; <br>
+                    case 6: <br>
+                      day = "Saturday"; <br>
+                      break; <br>
+                    default: <br>
+                      day = "Unknown"; <br>
+                  }
+            </code>
+
+            <h3>Avoid Number, String, and Boolean as Objects</h3>
+
+            <p>Always treat numbers, strings, or booleans as primitive values. Not as objects.</p>
+
+            <code>
+                let x = "John"; <br>            
+                let y = new String("John"); <br>
+                (x === y) // is false because x is a string and y is an object.
+            </code>
+
+            <p>O...</p>
+
+            <code>
+                let x = new String("John"); <br>          
+                let y = new String("John"); <br>
+                (x == y) // is false because you cannot compare objects.
+            </code>
+
+            <h3>Avoid Using eval()</h3>
+
+            <h2>JavaScript Common Mistakes</h2>
+
+            
 
 
 
 
 
-</body>
+
+
+
+
+            <body>
 
 </html>

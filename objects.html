@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS OBJECTS</title>
+</head>
+
+<body>
+
+    <h1>JS Objects</h1>
+
+    <h2>Object definitions</h2>
+
+    <p>In JavaScript, almost "everything" is an object.</p>
+
+    <ul>
+        <li> Booleans can be objects (if defined with the new keyword)</li>
+        <li>Numbers can be objects (if defined with the new keyword)</li>
+        <li>Strings can be objects (if defined with the new keyword)</li>
+        <li>Dates are always objects</li>
+        <li>Maths are always objects</li>
+        <li>Regular expressions are always objects</li>
+        <li>Arrays are always objects</li>
+        <li>Functions are always objects</li>
+        <li>Objects are always objects</li>
+    </ul>
+
+    <p>All JavaScript values, except primitives, are objects.</p>
+
+    <h3>JavaScript Primitives</h3>
+
+    <p>A primitive value is a value that has no properties or methods. <br> 3.14 is a primitive value <br> A primitive
+        data type is data that has a primitive value. <br> JavaScript defines 7 types of primitive data types:</p>
+
+    <ul>
+        <li>String</li>
+        <li>Number</li>
+        <li>Boolean</li>
+        <li>Null</li>
+        <li>Undefined</li>
+        <li>Symbol</li>
+        <li>Bigint</li>
+    </ul>
+
+    <p>Primitive values are immutable (they are hardcoded and cannot be changed). <br> if x = 3.14, you can change the
+        value of x, but you cannot change the value of 3.14.</p>
+
+    <h3>Objects are Variables</h3>
+
+    <p>Objects are variables too. <br> Object values are written as name : value pairs (name and value separated by a
+        colon).</p>
+
+    <code>
+            const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+        </code>
+
+    <p><strong>A JavaScript object is a collection of named values</strong></p>
+
+    <h3>Object Properties</h3>
+
+    <p><strong>The named values, in JavaScript objects, are called properties. <br> Object properties can be both
+            primitive values, other objects, and functions.</strong></p>
+
+    <h3>Object Methods</h3>
+
+    <p>Methods are actions that can be performed on objects. <br> An object method is an object property containing a
+        function definition.</p>
+
+    <h3>Creating a JavaScript Object</h3>
+
+    <p>Using an Object Literal</p>
+
+    <code>
+            const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+        </code>
+
+    <p>This example creates an empty JavaScript object, and then adds 4 properties:</p>
+
+    <code>
+            const person = {}; <br>
+            person.firstName = "John"; <br>
+            person.lastName = "Doe"; <br>
+            person.age = 50; <br>
+            person.eyeColor = "blue"; <br>
+        </code>
+
+    <h2>Object properties</h2>
+
+    <p>Properties are the values associated with a JavaScript object. <br> A JavaScript object is a collection of
+        unordered properties. <br> Properties can usually be changed, added, and deleted, but some are read only.</p>
+
+    <h3>Accessing JavaScript Properties</h3>
+
+    <p>The syntax for accessing the property of an object is:</p>
+
+    <code>
+            objectName.property      // person.age
+        </code>
+
+    <p>Or</p>
+
+    <code>
+            objectName["property"]   // person["age"]
+        </code>
+
+    <p>Or</p>
+
+    <code>
+            objectName[expression]   // x = "age"; person[x]
+        </code>
+
+    <p>Access a property with .property:</p>
+
+    <p id="demo1"></p>
+
+    <script>
+        const person1 = {
+            firstname1: "John",
+            lastname1: "Doe",
+            age1: 50,
+            eyecolor1: "blue"
+        };
+
+        document.getElementById("demo1").innerHTML = person1.firstname1 + " is " + person1.age1 + " years old.";
+    </script>
+
+    <h3>JavaScript for...in Loop</h3>
+
+    <p>The JavaScript for...in statement loops through the properties of an object.</p>
+
+    <p>Syntax:</p>
+
+    <code>
+        for (let variable in object) { <br>
+            // code to be executed <br>
+          }
+    </code>
+
+    <p>The block of code inside of the for...in loop will be executed once for each property. <br> Looping through the properties of an object:</p>
+
+    <p id="demo2"></p>
+
+<script>
+const person2 = {
+  fname2:"John",
+  lname2:"Doe",
+  age2:25
+}; 
+
+let txt2 = "";
+for (let x in person2) {
+  txt2 += person2[x] + " ";
+}
+
+document.getElementById("demo2").innerHTML = txt2;
+</script>
+
+<h3>Adding New Properties</h3>
+
+<p>You can add new properties to an existing object by simply giving it a value. <br> Assume that the person object already exists - you can then give it new properties:</p>
+
+<p id="demo3"></p>
+
+<script>
+const person3 = {
+  firstname3: "John",
+  lastname3: "Doe",
+  age3: 50,
+  eyecolor3: "blue"
+};
+
+person3.nationality3 = "English"; //añadiendo propiedad
+document.getElementById("demo3").innerHTML =
+person3.firstname3 + " is " + person3.nationality3 + ".";
+</script>
+
+<h3>Deleting Properties</h3>
+
+<p>The delete keyword deletes a property from an object:</p>
+
+<p id="demo4"></p>
+
+<script>
+const person4 = {
+  firstname4: "John",
+  lastname4: "Doe",
+  age4: 50,
+  eyecolor4: "blue"
+};
+
+delete person4.age4; //borrando una propiedad
+
+document.getElementById("demo4").innerHTML =
+person4.firstname4 + " is " + person4.age4 + " years old.";
+</script>
+
+<h3>Nested Objects</h3>
+
+<p>Values in an object can be another object:</p>
+
+<p id="demo5"></p>
+
+<script>
+const myObj5 = {
+  name5: "John",
+  age5: 30,
+  cars5: {
+  car1a: "Ford",
+  car1b: "BMW",
+  car1c: "Fiat"
+  }
+}
+document.getElementById("demo5").innerHTML = myObj5.cars5.car1b;
+</script>
+
+<h3>Nested Arrays and Objects</h3>
+
+<p>Values in objects can be arrays, and values in arrays can be objects:</p>
+
+<p>To access arrays inside arrays, use a for-in loop for each array:</p>
+
+<p id="demo6"></p>
+
+<script>
+let x6 = "";
+const myObj6 = { //object array
+  name6: "John",
+  age6: 30,
+  cars6: [ //array dentro de otro array
+    {name6:"Ford", models6:["Fiesta", "Focus", "Mustang"]},
+    {name6:"BMW", models6:["320", "X3", "X5"]},
+    {name6:"Fiat", models6:["500", "Panda"]}
+  ]
+}
+
+for (let i in myObj6.cars6) { //array y array dentro del otro array
+  x6 += "<h2>" + myObj6.cars6[i].name6 + "</h2>"; //mostrar título de la propiedad
+  for (let j in myObj6.cars6[i].models6) { //dentro del segundo array
+    x6 += myObj6.cars6[i].models6[j] + "<br>"; //mostrar modelos
+  }
+}
+
+document.getElementById("demo6").innerHTML = x6; //display en el html
+</script>
+
+<h3>Property attributes</h3>
+
+<p>All properties have a name. In addition they also have a value. <br> The value is one of the property's attributes. <br> Other attributes are: enumerable, configurable, and writable. <br> These attributes define how the property can be accessed (is it readable?, is it writable?) <br> In JavaScript, all attributes can be read, but only the value attribute can be changed (and only if the property is writable).</p>
+
+<h2>JS Object methods</h2>
+
+<p>You access an object method with the following syntax:</p>
+
+<code>
+    objectName.methodName()
+</code>
+
+<p>Creating and using an object method.</p>
+<p>A method is actually a function definition stored as a property value.</p>
+
+<p id="demo7"></p>
+
+<script>
+const person7 = {
+  firstName7: "John",
+  lastName7: "Doe",
+  id7: 5566,
+  fullName7: function() { //creando un método -función-
+    return this.firstName7 + " " + this.lastName7;
+  }
+};
+
+document.getElementById("demo7").innerHTML = person7.fullName7();
+</script>
+
+<h3>Adding a new method to an object</h3>
+
+<p id="demo8"></p>
+
+<script>
+const person8 = {
+  firstName8: "John",
+  lastName8: "Doe",
+  id8: 5566,
+}; //objecto cerrado
+person8.name8 = function() { //añadiendo un método -función-
+  return this.firstName8 + " " + this.lastName8;
+};
+
+document.getElementById("demo8").innerHTML =
+"My father is " + person8.name8(); 
+</script>
+
+<h3>Using Built-In Methods</h3>
+
+<p>This example uses the toUpperCase() method of the String object, to convert a text to uppercase:</p>
+
+<p id="demo9"></p>
+
+<script>
+const person9 = {
+  firstName9: "John",
+  lastName9: "Doe",
+  id9: 5566,
+};
+person9.name9 = function() {
+  return (this.firstName9 + " " + this.lastName9).toUpperCase();
+};
+
+document.getElementById("demo9").innerHTML =
+"My father is " + person9.name9(); 
+</script>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

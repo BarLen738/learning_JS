@@ -314,6 +314,283 @@ document.getElementById("demo9").innerHTML =
 "My father is " + person9.name9(); 
 </script>
 
+<h2>Object Display</h2>
+
+<ul>
+  <li>Displaying the Object Properties by name</li>
+  <li>Displaying the Object Properties in a Loop</li>
+  <li>Displaying the Object Properties in a Loop</li>
+  <li>Displaying the Object using Object.values()</li>
+  <li>Displaying the Object using JSON.stringify()</li>
+</ul>
+
+<h3>Displaying Object Properties as a String</h3>
+
+<p id="demo10"></p>
+
+<script>
+const person10 = {
+  name10: "John",
+  age10: 30,
+  city10: "New York"
+};
+
+document.getElementById("demo10").innerHTML = person10.name10 + ", " + person10.age10 + ", " + person10.city10;
+</script>
+
+<h3>Displaying the Object in a Loop</h3>
+
+<p id="demo11"></p>
+
+<script>
+const person11 = {
+  name11: "John",
+  age11: 30,
+  city11: "New York"
+};
+
+let txt11 = "";
+for (let x in person11) {
+  txt11 += person11[x] + " ";
+};
+
+document.getElementById("demo11").innerHTML = txt11;
+</script>
+
+<h3>Using Object.values()</h3>
+
+<p>Any JavaScript object can be converted to an array using Object.values():</p>
+
+<p id="demo12"></p>
+
+<script>
+const person12 = {
+  name12: "John",
+  age12: 30,
+  city12: "New York"
+};
+
+const myArray12 = Object.values(person12); //conversión en array
+document.getElementById("demo12").innerHTML = myArray12;
+</script>
+
+<h3>Using JSON.stringify()</h3>
+
+<p>Display properties in JSON format:</p>
+
+<p id="demo13"></p>
+
+<script>
+const person13 = {
+  name13: "John",
+  age13: 30,
+  city13: "New York"
+};
+
+let myString13 = JSON.stringify(person13); //convertido a formato JSON -string-
+document.getElementById("demo13").innerHTML = myString13;
+
+</script>
+
+<h3>Stringify Dates</h3>
+
+<p>JSON.stringify will convert dates into strings:</p>
+
+<p id="demo14"></p>
+
+<script>
+var person14 = {
+  name14: "John",
+  today14: new Date()
+};
+
+document.getElementById("demo14").innerHTML = JSON.stringify(person14);
+</script>
+
+<h3>Stringify functions</h3>
+
+<p>JSON.stringify will not stringify functions.</p>
+<p>You have to convert functions to strings first:</p>
+
+<p id="demo15"></p>
+
+<script>
+const person15 = {
+  name15: "John",
+  age15: function () {return 30;}
+};
+person15.age15 = person15.age15.toString();
+
+let myString15 = JSON.stringify(person15);
+document.getElementById("demo15").innerHTML = myString15;
+
+</script>
+
+<h3>Stringify Arrays</h3>
+
+<p>JSON.stringify can stringify arrays:</p>
+
+<p id="demo16"></p>
+
+<script>
+const arr16 = ["John", "Peter", "Sally", "Jane"];
+document.getElementById("demo16").innerHTML = JSON.stringify(arr16);
+</script>
+
+<h2>JS Accessors (Getters and Setters)</h2>
+
+<h3>JavaScript Getter (The get Keyword)</h3>
+
+<p>Getters and setters allow you to get and set object properties via methods.</p>
+
+<p>This example uses a lang property to get the value of the language property:</p>
+
+<p id="demo17"></p>
+
+<script>
+// Create an object:
+const person17 = {
+  firstName17: "John",
+  lastName17: "Doe",
+  language17: "en",
+  get lang17() {
+    return this.language17;
+  }
+};
+
+// Display data from the object using a getter:
+document.getElementById("demo17").innerHTML = person17.lang17;
+</script>
+
+<h3>JavaScript Setter (The set Keyword)</h3>
+
+<p>This example uses a lang property to set the value of the language property.</p>
+
+<p id="demo18"></p>
+
+<script>
+// Create an object:
+const person18 = {
+  firstName18: "John",
+  lastName18: "Doe",
+  language18: "NO",
+  set lang18(value) {
+    this.language18 = value;
+  }
+};
+
+// Set a property using set:
+person18.lang18 = "en";
+
+// Display data from the object:
+document.getElementById("demo18").innerHTML = person18.language18;
+</script>
+
+<p>Object data can be accessed using a getter.</p>
+
+<p id="demo19"></p>
+
+<script>
+// Create an object:
+const person19 = {
+  firstName19: "John",
+  lastName19: "Doe",
+  get fullName19() { //deja una sintaxis más limpia que usando una función
+    return this.firstName19 + " " + this.lastName19;
+  }
+};
+// Display data from the object using a getter:
+document.getElementById("demo19").innerHTML = person19.fullName19;
+</script>
+
+<h3>Data quality</h3>
+
+<p>JavaScript can secure better data quality when using getters and setters.</p>
+
+<p id="demo20"></p>
+
+<script>
+// Create an object:
+const person20 = {
+  firstName20: "John",
+  lastName20: "Doe",
+  language20: "en",
+  get lang20() {
+    return this.language20.toUpperCase(); //lo devuelve en mayúscula de forma simple
+  }
+};
+// Display data from the object using a getter:
+document.getElementById("demo20").innerHTML = person20.lang20;
+</script>
+
+<p>Using the lang property, in this example, stores an upper case value in the language property:</p>
+
+<p id="demo21"></p>
+
+<script>
+// Create an object:
+const person21 = {
+  firstName21: "John",
+  lastName21: "Doe",
+  language21: "",
+  set lang21(lang21) {
+    this.language21 = lang21.toUpperCase();
+  }
+};
+
+// Set a property using set:
+person21.lang21 = "en";
+
+// Display data from the object:
+document.getElementById("demo21").innerHTML = person21.language21;
+</script>
+
+<h3>Object.defineProperty()</h3>
+
+<p>The Object.defineProperty() method can also be used to add Getters and Setters:</p>
+
+<p>Perfect for creating counters:</p>
+
+<p id="demo22"></p>
+
+<script>
+// Define an object
+const obj22 = {counter : 0};
+
+// Define Setters and Getters
+Object.defineProperty(obj22, "reset22", {
+  get : function () {this.counter22 = 0;}
+});
+Object.defineProperty(obj22, "increment22", {
+  get : function () {this.counter22++;}
+});
+Object.defineProperty(obj22, "decrement22", {
+  get : function () {this.counter22--;}
+});
+Object.defineProperty(obj22, "add22", {
+  set : function (value22) {this.counter22 += value22;}
+});
+Object.defineProperty(obj22, "subtract22", {
+  set : function (value22) {this.counter22 -= value22;}
+});
+
+// Play with counter:
+obj22.reset22;
+obj22.add22 = 5;
+obj22.subtract22 = 1;
+obj22.increment22;
+obj22.decrement22;
+document.getElementById("demo22").innerHTML = obj22.counter22;
+</script>
+
+
+
+
+
+
+
+
+
 
 
 

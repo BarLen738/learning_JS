@@ -2,84 +2,84 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS OBJECTS</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS OBJECTS</title>
 </head>
 
 <body>
 
-    <h1>JS Objects</h1>
+  <h1>JS Objects</h1>
 
-    <h2>Object definitions</h2>
+  <h2>Object definitions</h2>
 
-    <p>In JavaScript, almost "everything" is an object.</p>
+  <p>In JavaScript, almost "everything" is an object.</p>
 
-    <ul>
-        <li> Booleans can be objects (if defined with the new keyword)</li>
-        <li>Numbers can be objects (if defined with the new keyword)</li>
-        <li>Strings can be objects (if defined with the new keyword)</li>
-        <li>Dates are always objects</li>
-        <li>Maths are always objects</li>
-        <li>Regular expressions are always objects</li>
-        <li>Arrays are always objects</li>
-        <li>Functions are always objects</li>
-        <li>Objects are always objects</li>
-    </ul>
+  <ul>
+    <li> Booleans can be objects (if defined with the new keyword)</li>
+    <li>Numbers can be objects (if defined with the new keyword)</li>
+    <li>Strings can be objects (if defined with the new keyword)</li>
+    <li>Dates are always objects</li>
+    <li>Maths are always objects</li>
+    <li>Regular expressions are always objects</li>
+    <li>Arrays are always objects</li>
+    <li>Functions are always objects</li>
+    <li>Objects are always objects</li>
+  </ul>
 
-    <p>All JavaScript values, except primitives, are objects.</p>
+  <p>All JavaScript values, except primitives, are objects.</p>
 
-    <h3>JavaScript Primitives</h3>
+  <h3>JavaScript Primitives</h3>
 
-    <p>A primitive value is a value that has no properties or methods. <br> 3.14 is a primitive value <br> A primitive
-        data type is data that has a primitive value. <br> JavaScript defines 7 types of primitive data types:</p>
+  <p>A primitive value is a value that has no properties or methods. <br> 3.14 is a primitive value <br> A primitive
+    data type is data that has a primitive value. <br> JavaScript defines 7 types of primitive data types:</p>
 
-    <ul>
-        <li>String</li>
-        <li>Number</li>
-        <li>Boolean</li>
-        <li>Null</li>
-        <li>Undefined</li>
-        <li>Symbol</li>
-        <li>Bigint</li>
-    </ul>
+  <ul>
+    <li>String</li>
+    <li>Number</li>
+    <li>Boolean</li>
+    <li>Null</li>
+    <li>Undefined</li>
+    <li>Symbol</li>
+    <li>Bigint</li>
+  </ul>
 
-    <p>Primitive values are immutable (they are hardcoded and cannot be changed). <br> if x = 3.14, you can change the
-        value of x, but you cannot change the value of 3.14.</p>
+  <p>Primitive values are immutable (they are hardcoded and cannot be changed). <br> if x = 3.14, you can change the
+    value of x, but you cannot change the value of 3.14.</p>
 
-    <h3>Objects are Variables</h3>
+  <h3>Objects are Variables</h3>
 
-    <p>Objects are variables too. <br> Object values are written as name : value pairs (name and value separated by a
-        colon).</p>
+  <p>Objects are variables too. <br> Object values are written as name : value pairs (name and value separated by a
+    colon).</p>
 
-    <code>
+  <code>
             const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
         </code>
 
-    <p><strong>A JavaScript object is a collection of named values</strong></p>
+  <p><strong>A JavaScript object is a collection of named values</strong></p>
 
-    <h3>Object Properties</h3>
+  <h3>Object Properties</h3>
 
-    <p><strong>The named values, in JavaScript objects, are called properties. <br> Object properties can be both
-            primitive values, other objects, and functions.</strong></p>
+  <p><strong>The named values, in JavaScript objects, are called properties. <br> Object properties can be both
+      primitive values, other objects, and functions.</strong></p>
 
-    <h3>Object Methods</h3>
+  <h3>Object Methods</h3>
 
-    <p>Methods are actions that can be performed on objects. <br> An object method is an object property containing a
-        function definition.</p>
+  <p>Methods are actions that can be performed on objects. <br> An object method is an object property containing a
+    function definition.</p>
 
-    <h3>Creating a JavaScript Object</h3>
+  <h3>Creating a JavaScript Object</h3>
 
-    <p>Using an Object Literal</p>
+  <p>Using an Object Literal</p>
 
-    <code>
+  <code>
             const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
         </code>
 
-    <p>This example creates an empty JavaScript object, and then adds 4 properties:</p>
+  <p>This example creates an empty JavaScript object, and then adds 4 properties:</p>
 
-    <code>
+  <code>
             const person = {}; <br>
             person.firstName = "John"; <br>
             person.lastName = "Doe"; <br>
@@ -87,531 +87,1139 @@
             person.eyeColor = "blue"; <br>
         </code>
 
-    <h2>Object properties</h2>
+  <h2>Object properties</h2>
 
-    <p>Properties are the values associated with a JavaScript object. <br> A JavaScript object is a collection of
-        unordered properties. <br> Properties can usually be changed, added, and deleted, but some are read only.</p>
+  <p>Properties are the values associated with a JavaScript object. <br> A JavaScript object is a collection of
+    unordered properties. <br> Properties can usually be changed, added, and deleted, but some are read only.</p>
 
-    <h3>Accessing JavaScript Properties</h3>
+  <h3>Accessing JavaScript Properties</h3>
 
-    <p>The syntax for accessing the property of an object is:</p>
+  <p>The syntax for accessing the property of an object is:</p>
 
-    <code>
+  <code>
             objectName.property      // person.age
         </code>
 
-    <p>Or</p>
+  <p>Or</p>
 
-    <code>
+  <code>
             objectName["property"]   // person["age"]
         </code>
 
-    <p>Or</p>
+  <p>Or</p>
 
-    <code>
+  <code>
             objectName[expression]   // x = "age"; person[x]
         </code>
 
-    <p>Access a property with .property:</p>
+  <p>Access a property with .property:</p>
 
-    <p id="demo1"></p>
+  <p id="demo1"></p>
 
-    <script>
-        const person1 = {
-            firstname1: "John",
-            lastname1: "Doe",
-            age1: 50,
-            eyecolor1: "blue"
-        };
+  <script>
+    const person1 = {
+      firstname1: "John",
+      lastname1: "Doe",
+      age1: 50,
+      eyecolor1: "blue"
+    };
 
-        document.getElementById("demo1").innerHTML = person1.firstname1 + " is " + person1.age1 + " years old.";
-    </script>
+    document.getElementById("demo1").innerHTML = person1.firstname1 + " is " + person1.age1 + " years old.";
+  </script>
 
-    <h3>JavaScript for...in Loop</h3>
+  <h3>JavaScript for...in Loop</h3>
 
-    <p>The JavaScript for...in statement loops through the properties of an object.</p>
+  <p>The JavaScript for...in statement loops through the properties of an object.</p>
 
-    <p>Syntax:</p>
+  <p>Syntax:</p>
 
-    <code>
+  <code>
         for (let variable in object) { <br>
             // code to be executed <br>
           }
     </code>
 
-    <p>The block of code inside of the for...in loop will be executed once for each property. <br> Looping through the properties of an object:</p>
+  <p>The block of code inside of the for...in loop will be executed once for each property. <br> Looping through the
+    properties of an object:</p>
 
-    <p id="demo2"></p>
+  <p id="demo2"></p>
 
-<script>
-const person2 = {
-  fname2:"John",
-  lname2:"Doe",
-  age2:25
-}; 
+  <script>
+    const person2 = {
+      fname2: "John",
+      lname2: "Doe",
+      age2: 25
+    };
 
-let txt2 = "";
-for (let x in person2) {
-  txt2 += person2[x] + " ";
-}
+    let txt2 = "";
+    for (let x in person2) {
+      txt2 += person2[x] + " ";
+    }
 
-document.getElementById("demo2").innerHTML = txt2;
-</script>
+    document.getElementById("demo2").innerHTML = txt2;
+  </script>
 
-<h3>Adding New Properties</h3>
+  <h3>Adding New Properties</h3>
 
-<p>You can add new properties to an existing object by simply giving it a value. <br> Assume that the person object already exists - you can then give it new properties:</p>
+  <p>You can add new properties to an existing object by simply giving it a value. <br> Assume that the person object
+    already exists - you can then give it new properties:</p>
 
-<p id="demo3"></p>
+  <p id="demo3"></p>
 
-<script>
-const person3 = {
-  firstname3: "John",
-  lastname3: "Doe",
-  age3: 50,
-  eyecolor3: "blue"
-};
+  <script>
+    const person3 = {
+      firstname3: "John",
+      lastname3: "Doe",
+      age3: 50,
+      eyecolor3: "blue"
+    };
 
-person3.nationality3 = "English"; //añadiendo propiedad
-document.getElementById("demo3").innerHTML =
-person3.firstname3 + " is " + person3.nationality3 + ".";
-</script>
+    person3.nationality3 = "English"; //añadiendo propiedad
+    document.getElementById("demo3").innerHTML =
+      person3.firstname3 + " is " + person3.nationality3 + ".";
+  </script>
 
-<h3>Deleting Properties</h3>
+  <h3>Deleting Properties</h3>
 
-<p>The delete keyword deletes a property from an object:</p>
+  <p>The delete keyword deletes a property from an object:</p>
 
-<p id="demo4"></p>
+  <p id="demo4"></p>
 
-<script>
-const person4 = {
-  firstname4: "John",
-  lastname4: "Doe",
-  age4: 50,
-  eyecolor4: "blue"
-};
+  <script>
+    const person4 = {
+      firstname4: "John",
+      lastname4: "Doe",
+      age4: 50,
+      eyecolor4: "blue"
+    };
 
-delete person4.age4; //borrando una propiedad
+    delete person4.age4; //borrando una propiedad
 
-document.getElementById("demo4").innerHTML =
-person4.firstname4 + " is " + person4.age4 + " years old.";
-</script>
+    document.getElementById("demo4").innerHTML =
+      person4.firstname4 + " is " + person4.age4 + " years old.";
+  </script>
 
-<h3>Nested Objects</h3>
+  <h3>Nested Objects</h3>
 
-<p>Values in an object can be another object:</p>
+  <p>Values in an object can be another object:</p>
 
-<p id="demo5"></p>
+  <p id="demo5"></p>
 
-<script>
-const myObj5 = {
-  name5: "John",
-  age5: 30,
-  cars5: {
-  car1a: "Ford",
-  car1b: "BMW",
-  car1c: "Fiat"
-  }
-}
-document.getElementById("demo5").innerHTML = myObj5.cars5.car1b;
-</script>
+  <script>
+    const myObj5 = {
+      name5: "John",
+      age5: 30,
+      cars5: {
+        car1a: "Ford",
+        car1b: "BMW",
+        car1c: "Fiat"
+      }
+    }
+    document.getElementById("demo5").innerHTML = myObj5.cars5.car1b;
+  </script>
 
-<h3>Nested Arrays and Objects</h3>
+  <h3>Nested Arrays and Objects</h3>
 
-<p>Values in objects can be arrays, and values in arrays can be objects:</p>
+  <p>Values in objects can be arrays, and values in arrays can be objects:</p>
 
-<p>To access arrays inside arrays, use a for-in loop for each array:</p>
+  <p>To access arrays inside arrays, use a for-in loop for each array:</p>
 
-<p id="demo6"></p>
+  <p id="demo6"></p>
 
-<script>
-let x6 = "";
-const myObj6 = { //object array
-  name6: "John",
-  age6: 30,
-  cars6: [ //array dentro de otro array
-    {name6:"Ford", models6:["Fiesta", "Focus", "Mustang"]},
-    {name6:"BMW", models6:["320", "X3", "X5"]},
-    {name6:"Fiat", models6:["500", "Panda"]}
-  ]
-}
+  <script>
+    let x6 = "";
+    const myObj6 = { //object array
+      name6: "John",
+      age6: 30,
+      cars6: [ //array dentro de otro array
+        { name6: "Ford", models6: ["Fiesta", "Focus", "Mustang"] },
+        { name6: "BMW", models6: ["320", "X3", "X5"] },
+        { name6: "Fiat", models6: ["500", "Panda"] }
+      ]
+    }
 
-for (let i in myObj6.cars6) { //array y array dentro del otro array
-  x6 += "<h2>" + myObj6.cars6[i].name6 + "</h2>"; //mostrar título de la propiedad
-  for (let j in myObj6.cars6[i].models6) { //dentro del segundo array
-    x6 += myObj6.cars6[i].models6[j] + "<br>"; //mostrar modelos
-  }
-}
+    for (let i in myObj6.cars6) { //array y array dentro del otro array
+      x6 += "<h2>" + myObj6.cars6[i].name6 + "</h2>"; //mostrar título de la propiedad
+      for (let j in myObj6.cars6[i].models6) { //dentro del segundo array
+        x6 += myObj6.cars6[i].models6[j] + "<br>"; //mostrar modelos
+      }
+    }
 
-document.getElementById("demo6").innerHTML = x6; //display en el html
-</script>
+    document.getElementById("demo6").innerHTML = x6; //display en el html
+  </script>
 
-<h3>Property attributes</h3>
+  <h3>Property attributes</h3>
 
-<p>All properties have a name. In addition they also have a value. <br> The value is one of the property's attributes. <br> Other attributes are: enumerable, configurable, and writable. <br> These attributes define how the property can be accessed (is it readable?, is it writable?) <br> In JavaScript, all attributes can be read, but only the value attribute can be changed (and only if the property is writable).</p>
+  <p>All properties have a name. In addition they also have a value. <br> The value is one of the property's attributes.
+    <br> Other attributes are: enumerable, configurable, and writable. <br> These attributes define how the property can
+    be accessed (is it readable?, is it writable?) <br> In JavaScript, all attributes can be read, but only the value
+    attribute can be changed (and only if the property is writable).
+  </p>
 
-<h2>JS Object methods</h2>
+  <h2>JS Object methods</h2>
 
-<p>You access an object method with the following syntax:</p>
+  <p>You access an object method with the following syntax:</p>
 
-<code>
+  <code>
     objectName.methodName()
 </code>
 
-<p>Creating and using an object method.</p>
-<p>A method is actually a function definition stored as a property value.</p>
+  <p>Creating and using an object method.</p>
+  <p>A method is actually a function definition stored as a property value.</p>
 
-<p id="demo7"></p>
+  <p id="demo7"></p>
 
-<script>
-const person7 = {
-  firstName7: "John",
-  lastName7: "Doe",
-  id7: 5566,
-  fullName7: function() { //creando un método -función-
-    return this.firstName7 + " " + this.lastName7;
+  <script>
+    const person7 = {
+      firstName7: "John",
+      lastName7: "Doe",
+      id7: 5566,
+      fullName7: function () { //creando un método -función-
+        return this.firstName7 + " " + this.lastName7;
+      }
+    };
+
+    document.getElementById("demo7").innerHTML = person7.fullName7();
+  </script>
+
+  <h3>Adding a new method to an object</h3>
+
+  <p id="demo8"></p>
+
+  <script>
+    const person8 = {
+      firstName8: "John",
+      lastName8: "Doe",
+      id8: 5566,
+    }; //objecto cerrado
+    person8.name8 = function () { //añadiendo un método -función-
+      return this.firstName8 + " " + this.lastName8;
+    };
+
+    document.getElementById("demo8").innerHTML =
+      "My father is " + person8.name8(); 
+  </script>
+
+  <h3>Using Built-In Methods</h3>
+
+  <p>This example uses the toUpperCase() method of the String object, to convert a text to uppercase:</p>
+
+  <p id="demo9"></p>
+
+  <script>
+    const person9 = {
+      firstName9: "John",
+      lastName9: "Doe",
+      id9: 5566,
+    };
+    person9.name9 = function () {
+      return (this.firstName9 + " " + this.lastName9).toUpperCase();
+    };
+
+    document.getElementById("demo9").innerHTML =
+      "My father is " + person9.name9(); 
+  </script>
+
+  <h2>Object Display</h2>
+
+  <ul>
+    <li>Displaying the Object Properties by name</li>
+    <li>Displaying the Object Properties in a Loop</li>
+    <li>Displaying the Object Properties in a Loop</li>
+    <li>Displaying the Object using Object.values()</li>
+    <li>Displaying the Object using JSON.stringify()</li>
+  </ul>
+
+  <h3>Displaying Object Properties as a String</h3>
+
+  <p id="demo10"></p>
+
+  <script>
+    const person10 = {
+      name10: "John",
+      age10: 30,
+      city10: "New York"
+    };
+
+    document.getElementById("demo10").innerHTML = person10.name10 + ", " + person10.age10 + ", " + person10.city10;
+  </script>
+
+  <h3>Displaying the Object in a Loop</h3>
+
+  <p id="demo11"></p>
+
+  <script>
+    const person11 = {
+      name11: "John",
+      age11: 30,
+      city11: "New York"
+    };
+
+    let txt11 = "";
+    for (let x in person11) {
+      txt11 += person11[x] + " ";
+    };
+
+    document.getElementById("demo11").innerHTML = txt11;
+  </script>
+
+  <h3>Using Object.values()</h3>
+
+  <p>Any JavaScript object can be converted to an array using Object.values():</p>
+
+  <p id="demo12"></p>
+
+  <script>
+    const person12 = {
+      name12: "John",
+      age12: 30,
+      city12: "New York"
+    };
+
+    const myArray12 = Object.values(person12); //conversión en array
+    document.getElementById("demo12").innerHTML = myArray12;
+  </script>
+
+  <h3>Using JSON.stringify()</h3>
+
+  <p>Display properties in JSON format:</p>
+
+  <p id="demo13"></p>
+
+  <script>
+    const person13 = {
+      name13: "John",
+      age13: 30,
+      city13: "New York"
+    };
+
+    let myString13 = JSON.stringify(person13); //convertido a formato JSON -string-
+    document.getElementById("demo13").innerHTML = myString13;
+
+  </script>
+
+  <h3>Stringify Dates</h3>
+
+  <p>JSON.stringify will convert dates into strings:</p>
+
+  <p id="demo14"></p>
+
+  <script>
+    var person14 = {
+      name14: "John",
+      today14: new Date()
+    };
+
+    document.getElementById("demo14").innerHTML = JSON.stringify(person14);
+  </script>
+
+  <h3>Stringify functions</h3>
+
+  <p>JSON.stringify will not stringify functions.</p>
+  <p>You have to convert functions to strings first:</p>
+
+  <p id="demo15"></p>
+
+  <script>
+    const person15 = {
+      name15: "John",
+      age15: function () { return 30; }
+    };
+    person15.age15 = person15.age15.toString();
+
+    let myString15 = JSON.stringify(person15);
+    document.getElementById("demo15").innerHTML = myString15;
+
+  </script>
+
+  <h3>Stringify Arrays</h3>
+
+  <p>JSON.stringify can stringify arrays:</p>
+
+  <p id="demo16"></p>
+
+  <script>
+    const arr16 = ["John", "Peter", "Sally", "Jane"];
+    document.getElementById("demo16").innerHTML = JSON.stringify(arr16);
+  </script>
+
+  <h2>JS Accessors (Getters and Setters)</h2>
+
+  <h3>JavaScript Getter (The get Keyword)</h3>
+
+  <p>Getters and setters allow you to get and set object properties via methods.</p>
+
+  <p>This example uses a lang property to get the value of the language property:</p>
+
+  <p id="demo17"></p>
+
+  <script>
+    // Create an object:
+    const person17 = {
+      firstName17: "John",
+      lastName17: "Doe",
+      language17: "en",
+      get lang17() {
+        return this.language17;
+      }
+    };
+
+    // Display data from the object using a getter:
+    document.getElementById("demo17").innerHTML = person17.lang17;
+  </script>
+
+  <h3>JavaScript Setter (The set Keyword)</h3>
+
+  <p>This example uses a lang property to set the value of the language property.</p>
+
+  <p id="demo18"></p>
+
+  <script>
+    // Create an object:
+    const person18 = {
+      firstName18: "John",
+      lastName18: "Doe",
+      language18: "NO",
+      set lang18(value) {
+        this.language18 = value;
+      }
+    };
+
+    // Set a property using set:
+    person18.lang18 = "en";
+
+    // Display data from the object:
+    document.getElementById("demo18").innerHTML = person18.language18;
+  </script>
+
+  <p>Object data can be accessed using a getter.</p>
+
+  <p id="demo19"></p>
+
+  <script>
+    // Create an object:
+    const person19 = {
+      firstName19: "John",
+      lastName19: "Doe",
+      get fullName19() { //deja una sintaxis más limpia que usando una función
+        return this.firstName19 + " " + this.lastName19;
+      }
+    };
+    // Display data from the object using a getter:
+    document.getElementById("demo19").innerHTML = person19.fullName19;
+  </script>
+
+  <h3>Data quality</h3>
+
+  <p>JavaScript can secure better data quality when using getters and setters.</p>
+
+  <p id="demo20"></p>
+
+  <script>
+    // Create an object:
+    const person20 = {
+      firstName20: "John",
+      lastName20: "Doe",
+      language20: "en",
+      get lang20() {
+        return this.language20.toUpperCase(); //lo devuelve en mayúscula de forma simple
+      }
+    };
+    // Display data from the object using a getter:
+    document.getElementById("demo20").innerHTML = person20.lang20;
+  </script>
+
+  <p>Using the lang property, in this example, stores an upper case value in the language property:</p>
+
+  <p id="demo21"></p>
+
+  <script>
+    // Create an object:
+    const person21 = {
+      firstName21: "John",
+      lastName21: "Doe",
+      language21: "",
+      set lang21(lang21) {
+        this.language21 = lang21.toUpperCase();
+      }
+    };
+
+    // Set a property using set:
+    person21.lang21 = "en";
+
+    // Display data from the object:
+    document.getElementById("demo21").innerHTML = person21.language21;
+  </script>
+
+  <h3>Object.defineProperty()</h3>
+
+  <p>The Object.defineProperty() method can also be used to add Getters and Setters:</p>
+
+  <p>Perfect for creating counters:</p>
+
+  <p id="demo22"></p>
+
+  <script>
+    // Define an object
+    const obj22 = { counter: 0 };
+
+    // Define Setters and Getters
+    Object.defineProperty(obj22, "reset22", {
+      get: function () { this.counter22 = 0; }
+    });
+    Object.defineProperty(obj22, "increment22", {
+      get: function () { this.counter22++; }
+    });
+    Object.defineProperty(obj22, "decrement22", {
+      get: function () { this.counter22--; }
+    });
+    Object.defineProperty(obj22, "add22", {
+      set: function (value22) { this.counter22 += value22; }
+    });
+    Object.defineProperty(obj22, "subtract22", {
+      set: function (value22) { this.counter22 -= value22; }
+    });
+
+    // Play with counter:
+    obj22.reset22;
+    obj22.add22 = 5;
+    obj22.subtract22 = 1;
+    obj22.increment22;
+    obj22.decrement22;
+    document.getElementById("demo22").innerHTML = obj22.counter22;
+  </script>
+
+  <h2>Object constructors</h2>
+
+  <p>Primero se crea una función constructor -modelo- que establece las propiedades y sus parámetros. <br> Después se
+    agregan los objetos siguiendo el modelo -con su correspondiente valor-. </p>
+
+  <p id="demo23"></p>
+
+  <script>
+    // Constructor function for Person objects
+    function Person23(first23, last23, age23, eye23) { //entre paréntesis declaro los parámetros y después cada propiedad con su parámetro con this.
+      this.firstName23 = first23;
+      this.lastName23 = last23;
+      this.age23 = age23;
+      this.eyeColor23 = eye23;
+      this.nationality = "English";
+      this.changeName26 = function (name26) {
+        this.lastName23 = name26;
+      };
+    }
+
+    // Create a Person object, se declaran con new
+    const myFather23 = new Person23("John", "Doe", 50, "blue"); //en los paréntesis los valores correspondientes con las propiedades del constructor
+    const myMother23 = new Person23("Sally", "Rally", 48, "green");
+
+    // Display age
+    document.getElementById("demo23").innerHTML =
+      "My father is " + myFather23.age23 + "."; 
+  </script>
+
+  <h3>Adding a Property to an Object</h3>
+
+  <p>The property will be added to myFather. Not to myMother. (Not to any other person objects).</p>
+
+  <p id="demo24"></p>
+
+  <script>
+    // Add nationality to first object
+    myFather23.nationality24 = "English";
+
+    // Display nationality 
+    document.getElementById("demo24").innerHTML =
+      "My father is " + myFather23.nationality24; 
+  </script>
+
+  <h3>Adding a Method to an Object</h3>
+
+  <p>The method will be added to myFather. Not to myMother. (Not to any other person objects).</p>
+
+  <p id="demo25"></p>
+
+  <script>
+    // Add a name method to first object
+    myFather23.name25 = function () {
+      return this.firstName23 + " " + this.lastName23;
+    };
+
+    // Display full name
+    document.getElementById("demo25").innerHTML =
+      "My father is " + myFather23.name25(); 
+  </script>
+
+  <h3>Adding a Property to a Constructor</h3>
+
+  <p>To add a new property to a constructor, you must add it to the constructor function:</p>
+
+  <p>Por ejemplo</p>
+
+  <code>
+  function Person(first, last, age, eyecolor) { <br>
+    this.firstName = first; <br>
+    this.lastName = last; <br>
+    this.age = age; <br>
+    this.eyeColor = eyecolor; <br>
+    this.nationality = "English"; //agregamos este que va a tener un valor default <br>
   }
-};
+</code>
 
-document.getElementById("demo7").innerHTML = person7.fullName7();
-</script>
+  <h3>Adding a Method to a Constructor</h3>
 
-<h3>Adding a new method to an object</h3>
+  <p>Adding methods to an object constructor must be done inside the constructor function:</p>
 
-<p id="demo8"></p>
-
-<script>
-const person8 = {
-  firstName8: "John",
-  lastName8: "Doe",
-  id8: 5566,
-}; //objecto cerrado
-person8.name8 = function() { //añadiendo un método -función-
-  return this.firstName8 + " " + this.lastName8;
-};
-
-document.getElementById("demo8").innerHTML =
-"My father is " + person8.name8(); 
-</script>
-
-<h3>Using Built-In Methods</h3>
-
-<p>This example uses the toUpperCase() method of the String object, to convert a text to uppercase:</p>
-
-<p id="demo9"></p>
-
-<script>
-const person9 = {
-  firstName9: "John",
-  lastName9: "Doe",
-  id9: 5566,
-};
-person9.name9 = function() {
-  return (this.firstName9 + " " + this.lastName9).toUpperCase();
-};
-
-document.getElementById("demo9").innerHTML =
-"My father is " + person9.name9(); 
-</script>
-
-<h2>Object Display</h2>
-
-<ul>
-  <li>Displaying the Object Properties by name</li>
-  <li>Displaying the Object Properties in a Loop</li>
-  <li>Displaying the Object Properties in a Loop</li>
-  <li>Displaying the Object using Object.values()</li>
-  <li>Displaying the Object using JSON.stringify()</li>
-</ul>
-
-<h3>Displaying Object Properties as a String</h3>
-
-<p id="demo10"></p>
-
-<script>
-const person10 = {
-  name10: "John",
-  age10: 30,
-  city10: "New York"
-};
-
-document.getElementById("demo10").innerHTML = person10.name10 + ", " + person10.age10 + ", " + person10.city10;
-</script>
-
-<h3>Displaying the Object in a Loop</h3>
-
-<p id="demo11"></p>
-
-<script>
-const person11 = {
-  name11: "John",
-  age11: 30,
-  city11: "New York"
-};
-
-let txt11 = "";
-for (let x in person11) {
-  txt11 += person11[x] + " ";
-};
-
-document.getElementById("demo11").innerHTML = txt11;
-</script>
-
-<h3>Using Object.values()</h3>
-
-<p>Any JavaScript object can be converted to an array using Object.values():</p>
-
-<p id="demo12"></p>
-
-<script>
-const person12 = {
-  name12: "John",
-  age12: 30,
-  city12: "New York"
-};
-
-const myArray12 = Object.values(person12); //conversión en array
-document.getElementById("demo12").innerHTML = myArray12;
-</script>
-
-<h3>Using JSON.stringify()</h3>
-
-<p>Display properties in JSON format:</p>
-
-<p id="demo13"></p>
-
-<script>
-const person13 = {
-  name13: "John",
-  age13: 30,
-  city13: "New York"
-};
-
-let myString13 = JSON.stringify(person13); //convertido a formato JSON -string-
-document.getElementById("demo13").innerHTML = myString13;
-
-</script>
-
-<h3>Stringify Dates</h3>
-
-<p>JSON.stringify will convert dates into strings:</p>
-
-<p id="demo14"></p>
-
-<script>
-var person14 = {
-  name14: "John",
-  today14: new Date()
-};
-
-document.getElementById("demo14").innerHTML = JSON.stringify(person14);
-</script>
-
-<h3>Stringify functions</h3>
-
-<p>JSON.stringify will not stringify functions.</p>
-<p>You have to convert functions to strings first:</p>
-
-<p id="demo15"></p>
-
-<script>
-const person15 = {
-  name15: "John",
-  age15: function () {return 30;}
-};
-person15.age15 = person15.age15.toString();
-
-let myString15 = JSON.stringify(person15);
-document.getElementById("demo15").innerHTML = myString15;
-
-</script>
-
-<h3>Stringify Arrays</h3>
-
-<p>JSON.stringify can stringify arrays:</p>
-
-<p id="demo16"></p>
-
-<script>
-const arr16 = ["John", "Peter", "Sally", "Jane"];
-document.getElementById("demo16").innerHTML = JSON.stringify(arr16);
-</script>
-
-<h2>JS Accessors (Getters and Setters)</h2>
-
-<h3>JavaScript Getter (The get Keyword)</h3>
-
-<p>Getters and setters allow you to get and set object properties via methods.</p>
-
-<p>This example uses a lang property to get the value of the language property:</p>
-
-<p id="demo17"></p>
-
-<script>
-// Create an object:
-const person17 = {
-  firstName17: "John",
-  lastName17: "Doe",
-  language17: "en",
-  get lang17() {
-    return this.language17;
+  <code>
+  function Person(firstName, lastName, age, eyeColor) { <br>
+    this.firstName = firstName; <br>
+    this.lastName = lastName; <br>
+    this.age = age; <br>
+    this.eyeColor = eyeColor; <br>
+    <strong> this.changeName = function (name) { <br>
+      this.lastName = name; <br>
+    }</strong>; <br>
   }
-};
+</code>
 
-// Display data from the object using a getter:
-document.getElementById("demo17").innerHTML = person17.lang17;
-</script>
+  <p>The changeName() function assigns the value of name to the person's lastName property.</p>
 
-<h3>JavaScript Setter (The set Keyword)</h3>
+  <p id="demo26"></p>
 
-<p>This example uses a lang property to set the value of the language property.</p>
+  <script>
+    // Change last name
+    myMother23.changeName26("Doe");
 
-<p id="demo18"></p>
+    // Display last name
+    document.getElementById("demo26").innerHTML =
+      "My mother's last name is " + myMother23.lastName23;
+  </script>
 
-<script>
-// Create an object:
-const person18 = {
-  firstName18: "John",
-  lastName18: "Doe",
-  language18: "NO",
-  set lang18(value) {
-    this.language18 = value;
-  }
-};
+  <h3>Built-in JavaScript Constructors</h3>
 
-// Set a property using set:
-person18.lang18 = "en";
+  <p>JavaScript has built-in constructors for native objects:</p>
 
-// Display data from the object:
-document.getElementById("demo18").innerHTML = person18.language18;
-</script>
+  <code>
+    new String()    // A new String object <br>
+    new Number()    // A new Number object <br>
+    new Boolean()   // A new Boolean object <br>
+    new Object()    // A new Object object <br>
+    new Array()     // A new Array object <br>
+    new RegExp()    // A new RegExp object <br>
+    new Function()  // A new Function object <br>
+    new Date()      // A new Date object <br>
+  </code>
 
-<p>Object data can be accessed using a getter.</p>
+  <p>The Math() object is not in the list. Math is a global object. The new keyword cannot be used on Math.</p>
 
-<p id="demo19"></p>
+  <p>En vez de crear nuevos objetos, usar:</p>
 
-<script>
-// Create an object:
-const person19 = {
-  firstName19: "John",
-  lastName19: "Doe",
-  get fullName19() { //deja una sintaxis más limpia que usando una función
-    return this.firstName19 + " " + this.lastName19;
-  }
-};
-// Display data from the object using a getter:
-document.getElementById("demo19").innerHTML = person19.fullName19;
-</script>
+  <code>
+    let x1 = "";             // new primitive string <br>
+    let x2 = 0;              // new primitive number <br>
+    let x3 = false;          // new primitive boolean <br>
+    const x4 = {};           // new Object object <br>
+    const x5 = [];           // new Array object <br>
+    const x6 = /()/          // new RegExp object <br>
+    const x7 = function(){}; // new function <br>
+  </code>
 
-<h3>Data quality</h3>
+  <h2>Object prototypes</h2>
 
-<p>JavaScript can secure better data quality when using getters and setters.</p>
+  <h3>Prototype Inheritance</h3>
 
-<p id="demo20"></p>
+  <p>All JavaScript objects inherit properties and methods from a prototype:</p>
 
-<script>
-// Create an object:
-const person20 = {
-  firstName20: "John",
-  lastName20: "Doe",
-  language20: "en",
-  get lang20() {
-    return this.language20.toUpperCase(); //lo devuelve en mayúscula de forma simple
-  }
-};
-// Display data from the object using a getter:
-document.getElementById("demo20").innerHTML = person20.lang20;
-</script>
+  <ul>
+    <li>Date objects inherit from Date.prototype</li>
+    <li>Array objects inherit from Array.prototype</li>
+    <li>Person objects inherit from Person.prototype</li>
+  </ul>
 
-<p>Using the lang property, in this example, stores an upper case value in the language property:</p>
+  <p>The Object.prototype is on the top of the prototype inheritance chain: <br> Date objects, Array objects, and Person
+    objects inherit from Object.prototype.</p>
 
-<p id="demo21"></p>
+  <h3>Adding Properties and Methods to Objects</h3>
 
-<script>
-// Create an object:
-const person21 = {
-  firstName21: "John",
-  lastName21: "Doe",
-  language21: "",
-  set lang21(lang21) {
-    this.language21 = lang21.toUpperCase();
-  }
-};
+  <p>Puede hacerse como el procedimiento anteror, o usando la propiedad prototype.</p>
 
-// Set a property using set:
-person21.lang21 = "en";
+  <p>The JavaScript prototype property allows you to add new properties to object constructors:</p>
 
-// Display data from the object:
-document.getElementById("demo21").innerHTML = person21.language21;
-</script>
+  <code>
+    function Person(first, last, age, eyecolor) { <br>
+      this.firstName = first; <br>
+      this.lastName = last; <br>
+      this.age = age; <br>
+      this.eyeColor = eyecolor; <br>
+    } <br>
+    <br>
+    <strong> Person.prototype.nationality = "English"; </strong>
+  </code>
 
-<h3>Object.defineProperty()</h3>
+  <p>The JavaScript prototype property also allows you to add new methods to objects constructors:</p>
 
-<p>The Object.defineProperty() method can also be used to add Getters and Setters:</p>
+  <code>
+    function Person(first, last, age, eyecolor) { <br>
+      this.firstName = first; <br>
+      this.lastName = last; <br>
+      this.age = age; <br>
+      this.eyeColor = eyecolor; <br>
+    } <br>
+    <br>
+    <strong> Person.prototype.name = function() { <br>
+      return this.firstName + " " + this.lastName; <br> </strong>
+    };
+  </code>
 
-<p>Perfect for creating counters:</p>
+  <h2>JavaScript Iterators</h2>
 
-<p id="demo22"></p>
+  <p>The iterator protocol defines how to produce a sequence of values from an object. <br> An object becomes an
+    iterator when it implements a <strong> next() </strong> method. <br>The next() method must return an object with two
+    properties:</p>
 
-<script>
-// Define an object
-const obj22 = {counter : 0};
+  <ul>
+    <li>Value (the next value)</li>
+    <li>Done (true or false)</li>
+  </ul>
 
-// Define Setters and Getters
-Object.defineProperty(obj22, "reset22", {
-  get : function () {this.counter22 = 0;}
-});
-Object.defineProperty(obj22, "increment22", {
-  get : function () {this.counter22++;}
-});
-Object.defineProperty(obj22, "decrement22", {
-  get : function () {this.counter22--;}
-});
-Object.defineProperty(obj22, "add22", {
-  set : function (value22) {this.counter22 += value22;}
-});
-Object.defineProperty(obj22, "subtract22", {
-  set : function (value22) {this.counter22 -= value22;}
-});
+  <p>Value, the value returned by the iterator -can be omitted if done is true-. <br> Done, true if the iterator has
+    completed -false if the iterator has produced a new value.</p>
 
-// Play with counter:
-obj22.reset22;
-obj22.add22 = 5;
-obj22.subtract22 = 1;
-obj22.increment22;
-obj22.decrement22;
-document.getElementById("demo22").innerHTML = obj22.counter22;
-</script>
+  <h3>Symbol.iterator</h3>
+
+  <p>A JavaScript iterable is an object that has a Symbol.iterator. <br> The Symbol.iterator is a function that returns
+    a next() function. <br> An iterable can be iterated over with the code: for (const x of iterable) { }</p>
+
+  <p id="demo27"></p>
+
+  <script>
+    // Create an Object
+    myNumbers27 = {};
+
+    // Make it Iterable
+    myNumbers27[Symbol.iterator] = function () {
+      let n = 0;
+      done = false;
+      return {
+        next() {
+          n += 10;
+          if (n == 100) { done = true }
+          return { value: n, done: done };
+        }
+      };
+    }
+
+    //Recorrer con for of
+    let text27 = ""
+    for (const num of myNumbers27) {
+      text27 += num + "<br>"
+    }
+
+    document.getElementById("demo27").innerHTML = text27;
+  </script>
+
+  <p>The Symbol.iterator method is called automatically by for..of. <br> But we can also do it "manually":</p>
+
+  <p id="demo28"></p>
+
+  <script>
+    // Create an Object
+    myNumbers28 = {};
+
+    // Make it Iterable
+    myNumbers28[Symbol.iterator] = function () {
+      let n = 5;
+      done = false;
+      return {
+        next() {
+          n += 5;
+          if (n == 50) { done = true }
+          return { value: n, done: done };
+        }
+      };
+    }
+
+    // Create an Iterator
+    let iterator28 = myNumbers28[Symbol.iterator]();
+
+    let text28 = ""
+    while (true) {
+      const result = iterator28.next();
+      if (result.done) break;
+      text28 += result.value + "<br>";
+    }
+
+    document.getElementById("demo28").innerHTML = text28;
+  </script>
+
+  <h2>JS Sets</h2>
+
+  <p>A JavaScript Set is a collection of unique values. <br> Each value can only occur once in a Set. <br> A Set can
+    hold any value of any data type.</p>
+
+  <h3>How to create a set</h3>
+
+  <ul>
+    <li>Passing an Array to new Set()</li>
+    <li> Create a new Set and use add() to add values</li>
+    <li>Create a new Set and use add() to add variables</li>
+  </ul>
+
+  <h3>The new Set() Method</h3>
+
+  <p id="demo29"></p>
+
+  <script>
+    // Create a Set
+    const letters29 = new Set(["a", "b", "c"]); //creando un set
+
+    // Display set.size, uso de property size
+    document.getElementById("demo29").innerHTML = letters29.size;
+  </script>
+
+  <p>Create a Set and add literal values:</p>
+
+  <p id="demo30"></p>
+
+  <script>
+    // Declaro el set
+    const letters30 = new Set();
+
+    // Add Values to the Set
+    letters30.add("a");
+    letters30.add("b");
+    letters30.add("c");
+    letters30.add("d");
+
+    // Display set.size, property size
+    document.getElementById("demo30").innerHTML = letters30.size;
+  </script>
+
+  <p>Create a Set and add variables:</p>
+
+  <p id="demo31"></p>
+
+  <script>
+    // Create a Set
+    const letters31 = new Set();
+
+    // Create Variables
+    const a31 = "a";
+    const b31 = "b";
+    const c31 = "c";
+    const d31 = "d";
+    const e31 = "e";
+
+    // Add the Variables to the Set
+    letters31.add(a31); //si se añaden dos valores iguales, sólo se reconoce el primero
+    letters31.add(b31);
+    letters31.add(c31);
+    letters31.add(d31);
+    letters31.add(e31);
+
+    // Display set.size
+    document.getElementById("demo31").innerHTML = letters31.size;
+  </script>
+
+  <h3>The forEach() Method</h3>
+
+  <p>The forEach() method invokes a function for each Set element:</p>
+
+  <p id="demo32"></p>
+
+  <script>
+    // Create a Set
+    const letters32 = new Set(["a", "b", "c"]);
+
+    // List all Elements
+    let text32 = "";
+    letters32.forEach(function (value32) {
+      text32 += value32 + "<br>";
+    })
+
+    document.getElementById("demo32").innerHTML = text32;
+  </script>
+
+  <h3>The values() Method</h3>
+
+  <p>Iterating Set values:</p>
+
+  <p id="demo33"></p>
+
+  <script>
+    // Create a Set
+    const letters33 = new Set(["a", "b", "c"]);
+
+    // Create an Iterator
+    const myIterator = letters33.values(); //similar a keys() en Maps
+
+    // List all Elements
+    let text33 = "";
+    for (const x of letters33.values()) {
+      text33 += x + "<br>";
+    }
+
+    document.getElementById("demo33").innerHTML = text33;
+  </script>
+
+  <h3>Sets are Objects</h3>
+
+  <p>The typeof operator returns object:</p>
+
+  <p id="demo34"></p>
+  <p id="demo35"></p>
+
+  <script>
+    // Display typeof
+    document.getElementById("demo34").innerHTML = typeof letters33;
+
+    // Display typeof
+    document.getElementById("demo35").innerHTML = letters33 instanceof Set;
+
+  </script>
+
+  <h2>JavaScript Maps</h2>
+
+  <p>A Map holds key-value pairs where the keys can be any datatype. <br> A Map remembers the original insertion order
+    of the keys. <br> A Map has a property that represents the size of the map.</p>
+
+  <h3>How to Create a Map</h3>
+
+  <ul>
+    <li>Passing an Array to new Map()</li>
+    <li>Create a Map and use Map.set()</li>
+  </ul>
+
+  <h3>new Map()</h3>
+
+  <p>You can create a Map by passing an Array to the new Map() constructor:</p>
+
+  <p id="demo36"></p>
+  <p id="demo38"></p>
 
 
+  <script>
+    // Create a Map
+    const fruits36 = new Map([
+      ["apples", 500],
+      ["bananas", 300],
+      ["oranges", 200]
+    ]);
+
+    fruits36.set("apples", 250); //set puede usarse para cambiar un valor de una key ya declarada
 
 
+    document.getElementById("demo36").innerHTML = fruits36.get("oranges");
 
+    document.getElementById("demo38").innerHTML = fruits36.get("apples");
+  </script>
 
+  <h3>Map.set()</h3>
 
+  <p>You can add elements to a Map with the set() method:</p>
 
+  <p id="demo37"></p>
+  <p id="demo39"></p>
+  <p id="demo43"></p>
+  <p id="demo44"></p>
 
+  <script>
+    // Create a Map
+    const fruits37 = new Map();
 
+    // Set Map Values
+    fruits37.set("apples", 500);
+    fruits37.set("bananas", 300);
+    fruits37.set("oranges", 200);
 
+    document.getElementById("demo37").innerHTML = fruits37.get("bananas"); //get devuelve un valor especificando la key
 
+    document.getElementById("demo39").innerHTML = fruits37.size;
 
+    document.getElementById("demo43").innerHTML = typeof fruits37; //returns object
 
+    document.getElementById("demo44").innerHTML = fruits37 instanceof Map; //returns true
 
+  </script>
 
-</body>
+  <h3>Map.delete() y Map.has()</h3>
 
-</html>
+  <p>Deleting Map elements:</p>
 
+  <p id="demo40"></p>
+  <p id="demo41"></p>
 
+  <script>
+    // Create a Map
+    const fruits40 = new Map([
+      ["apples", 500],
+      ["bananas", 300],
+      ["oranges", 200]
+    ]);
 
+    // Delete an Element
+    fruits40.delete("apples");
 
+    fruits40.has("bananas"); //chequear si una key existe en el mapa, sí devuelve true, no devuelve false
 
+    document.getElementById("demo40").innerHTML = fruits40.size;
 
+    document.getElementById("demo41").innerHTML = fruits40.has("apples");
+  </script>
 
+  <h3>Map.clear()</h3>
 
+  <p>The clear() method removes all the elements from a Map:</p>
 
+  <p id="demo42"></p>
 
+  <script>
+    // Create a Map
+    const fruits42 = new Map([
+      ["apples", 500],
+      ["bananas", 300],
+      ["oranges", 200]
+    ]);
 
+    // Clear the Map
+    fruits42.clear();
+
+    document.getElementById("demo42").innerHTML = fruits42.size;
+  </script>
+
+  <h3>Map.forEach()</h3>
+
+  <p>The forEach() method invokes a callback for each key/value pair in a Map:</p>
+
+  <p id="demo45"></p>
+
+  <script>
+    // Create a Map
+    const fruits45 = new Map([
+      ["apples", 500],
+      ["bananas", 300],
+      ["oranges", 200]
+    ]);
+
+    let text45 = "";
+    fruits45.forEach(function (value, key) {
+      text45 += key + ' = ' + value + "<br>"
+    })
+
+    document.getElementById("demo45").innerHTML = text45;
+  </script>
+
+  <h3>Map.entries()</h3>
+
+  <p>The entries() method returns an iterator object with the [key,values] in a Map:</p>
+
+  <p id="demo46"></p>
+
+  <script>
+    // Create a Map
+    const fruits46 = new Map([
+      ["apples", 500],
+      ["bananas", 300],
+      ["oranges", 200]
+    ]);
+
+    let text46 = "";
+    for (const x of fruits46.entries()) {
+      text46 += x + "<br>";
+    }
+
+    document.getElementById("demo46").innerHTML = text46;
+  </script>
+
+  <h3>Map.keys()</h3>
+
+  <p>The keys() method returns an iterator object with the keys in a Map:</p>
+
+  <p id="demo47"></p>
+
+  <script>
+    // Create a Map
+    const fruits47 = new Map([
+      ["apples", 500],
+      ["bananas", 300],
+      ["oranges", 200]
+    ]);
+
+    let text47 = "";
+    for (const x of fruits47.keys()) {
+      text47 += x + "<br>";
+    }
+
+    document.getElementById("demo47").innerHTML = text47;
+  </script>
+
+  <h3>Map.values()</h3>
+
+  <p>The values() method returns an iterator object with the values in a Map:</p>
+
+  <p id="demo48"></p>
+
+  <script>
+    // Create a Map
+    const fruits48 = new Map([
+      ["apples", 500],
+      ["bananas", 300],
+      ["oranges", 200]
+    ]);
+
+    let text48 = "";
+    for (const x of fruits48.values()) {
+      text48 += x + "<br>";
+    }
+
+    document.getElementById("demo48").innerHTML = text48;
+  </script>
+
+  <p>Using Map.values() to sum the values</p>
+
+  <p id="demo49"></p>
+
+  <script>
+    // Create a Map
+    const fruits49 = new Map([
+      ["apples", 500],
+      ["bananas", 300],
+      ["oranges", 200]
+    ]);
+
+    let total49 = 0;
+    for (const x of fruits49.values()) {
+      total49 += x;
+    }
+
+    document.getElementById("demo49").innerHTML = total49;
+  </script>
+
+  <h3>Objects as keys</h3>
+
+  <p>Being able to use objects as keys is an important Map feature:</p>
+
+  <p id="demo50"></p>
+
+  <script>
+    // Create Objects
+    const apples = { name: 'Apples' };
+    const bananas = { name: 'Bananas' };
+    const oranges = { name: 'Oranges' };
+
+    // Create a Map
+    const fruits50 = new Map();
+
+    // Add the Objects to the Map
+    fruits50.set(apples, 500); //la key sin comillas, de lo contrario sería un string
+    fruits50.set(bananas, 300);
+    fruits50.set(oranges, 200);
+
+    document.getElementById("demo50").innerHTML = fruits50.get(apples);
+  </script>
+
+  <p>Lista completa de Object reference <a href="https://www.w3schools.com/js/js_object_es5.asp" target="_blank">click
+      aquí</a></p>
 
 </body>
 

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS FUNCTIONS</title>
+</head>
+
+<body>
+
+    <h1>JS Functions</h1>
+
+    <h2>Function definitions</h2>
+
+    <p>JavaScript functions are defined with the function keyword. <br> You can use a <strong> function declaration
+        </strong> or a <strong> function expression </strong>.</p>
+
+    <h3>Function Declarations</h3>
+
+    <p>Declared functions are not executed immediately. They are "saved for later use", and will be executed later, when
+        they are invoked (called upon).</p>
+
+    <code>
+        function functionName(parameters) { <br>
+            // code to be executed 
+          }
+    </code>
+
+    <p>Semicolons are used to separate executable JavaScript statements. <br> Since a function declaration is not an
+        executable statement, it is not common to end it with a semicolon.</p>
+
+    <p>This example calls a function which performs a calculation and returns the result:</p>
+
+    <p id="demo1"></p>
+
+    <script>
+        var x1 = myFunction1(4, 3);
+        document.getElementById("demo1").innerHTML = x1;
+
+        function myFunction1(a, b) { //la declara después de usarla
+            return a * b;
+        }
+    </script>
+
+    <h3>Function Expressions</h3>
+
+    <p>A JavaScript function can also be defined using an expression. <br> A function expression can be stored in a
+        variable:</p>
+
+    <p>After a function has been stored in a variable, the variable can be used as a function:</p>
+
+    <p id="demo2"></p>
+
+    <script>
+        const x2 = function (a, b) { return a * b }; //la guarda en una variable a la que la declaramos con const
+        document.getElementById("demo2").innerHTML = x2(4, 3); //accede a la función usando sólo la variable por su nmbre y entre paréntesis los parámetros
+    </script>
+
+    <p>The function above is actually an anonymous function (a function without a name). <br> Functions stored in
+        variables do not need function names. They are always invoked (called) using the variable name. <br> The
+        function above ends with a semicolon because it is a part of an executable statement.</p>
+
+    <h3>Function hoisting</h3>
+
+    <p>JavaScript functions can be called before they are declared. <br> Functions defined using an expression are not
+        hoisted.</p>
+
+    <h3>Self-Invoking Functions</h3>
+
+    <p>Function expressions can be made "self-invoking". <br> A self-invoking expression is invoked (started)
+        automatically, without being called. <br> Function expressions will execute automatically if the expression is
+        followed by (). <br> You cannot self-invoke a function declaration. <br> You have to add parentheses around the
+        function to indicate that it is a function expression:</p>
+
+    <p id="demo3"></p>
+
+    <script>
+        (function () { //los paréntesis tienen que estar por fuera de toda la expresión
+            document.getElementById("demo3").innerHTML = "Hello! I called myself";
+        })();
+    </script>
+
+    <h3>Functions Can Be Used as Values</h3>
+
+    <code>
+    function myFunction(a, b) { <br>
+        return a * b; <br>
+      } <br>
+      <br>
+      let x = myFunction(4, 3);
+</code>
+
+    <p>JavaScript functions can be used in expressions:</p>
+
+    <code>
+    function myFunction(a, b) { <br>
+        return a * b; <br>
+      } <br>
+      <br>
+      let x = myFunction(4, 3) * 2;
+</code>
+
+    <h3>Functions are Objects</h3>
+
+    <p>JavaScript functions have both <strong> properties and methods </strong>. <br> The arguments.length property
+        returns the number of arguments received when the function was invoked:</p>
+
+    <p id="demo4"></p>
+
+    <script>
+        function myFunction4(a, b) {
+            return arguments.length;
+        }
+        document.getElementById("demo4").innerHTML = myFunction4(4, 3);
+    </script>
+
+    <p>The toString() method returns the function as a string:</p>
+
+    <p id="demo5"></p>
+
+    <script>
+        function myFunction5(a, b) {
+            return a * b;
+        }
+        document.getElementById("demo5").innerHTML = myFunction5.toString();
+    </script>
+
+    <h3>Arrow functions</h3>
+
+    <p>Arrow functions allows a short syntax for writing function expressions. <br> You don't need the function keyword,
+        the return keyword, and the curly brackets.</p>
+
+    <code>
+    const x = (x, y) => x * y;
+    </code>
+
+    <p>You can only omit the return keyword and the curly brackets if the function is a single statement. Because of
+        this, it might be a good habit to always keep them:</p>
+
+    <code>
+    const x = (x, y) => { return x * y };
+    </code>
+
+    <h2>Function parameters</h2>
+
+    <code>
+        function functionName(parameter1, parameter2, parameter3) { <br>
+            // code to be executed 
+          }
+    </code>
+
+    <p>Function parameters are the names listed in the function definition. <br> Function arguments are the real values
+        passed to (and received by) the function.</p>
+
+    <h3>Parameter rules</h3>
+
+    <p>JavaScript function definitions do not specify data types for parameters. <br> JavaScript functions do not
+        perform type checking on the passed arguments. <br> JavaScript functions do not check the number of arguments
+        received.</p>
+
+    <h3>Default Parameters</h3>
+
+    <p>If a function is called with <strong> missing arguments </strong> (less than declared), the missing values are
+        set to undefined. <br> Sometimes this is acceptable, but sometimes it is better to assign a default value to the
+        parameter:</p>
+
+    <p>Setting a default value to a function parameter.</p>
+    <p id="demo6"></p>
+
+    <script>
+        function myFunction6(x6, y6) {
+            if (y6 === undefined) {
+                y6 = 2; //toma este valor cuando hace la multiplicación
+            }
+            return x6 * y6;
+        }
+        document.getElementById("demo6").innerHTML = myFunction6(4); //porque acá no le pasé un valor de y
+    </script>
+
+    <p>Setting a default value to a function parameter (y=2).</p>
+    <p id="demo7"></p>
+
+    <script>
+        function myFunction7(x7, y7 = 2) {
+            return x7 * y7;
+        }
+        document.getElementById("demo7").innerHTML = myFunction7(4);
+    </script>
+
+    <h3>The Arguments Object</h3>
+
+    <p>JavaScript functions have a built-in object called the arguments object. <br> The argument object contains an
+        array of the arguments used when the function was called (invoked). <br> This way you can simply use a function
+        to find (for instance) the highest value in a list of numbers:</p>
+
+    <p>Finding the largest number.</p>
+    <p id="demo8"></p>
+
+    <script>
+        function findMax8() { //los parámetros irían dentro de los paréntesis
+            let max8 = -Infinity;
+            for (let i = 0; i < arguments.length; i++) {
+                if (arguments[i] > max8) {
+                    max8 = arguments[i];
+                }
+            }
+            return max8;
+        }
+        document.getElementById("demo8").innerHTML = findMax8(4, 5, 6); //4,5 y 6 son los argumentos que le paso a la función
+    </script>
+
+    <p>Sum of all arguments:</p>
+    <p id="demo9"></p>
+
+    <script>
+        function sumAll9() {
+            let sum9 = 0;
+            for (let i = 0; i < arguments.length; i++) {
+                sum9 += arguments[i];
+            }
+            return sum9;
+        }
+        document.getElementById("demo9").innerHTML = sumAll9(1, 123, 500, 115, 44, 88);
+    </script>
+
+    <h3>Arguments are passed by value</h3>
+
+    <p>The parameters, in a function call, are the function's arguments. <br> JavaScript arguments are passed by value:
+        <br> The function only gets to know the values, not the argument's locations. <br> If a function changes an
+        argument's value, it does not change the parameter's original value. <br> <strong> Changes to arguments are not
+            visible (reflected) outside the function. </strong>
+    </p>
+
+    <h3>Objects are passed by reference</h3>
+
+    <p>In JavaScript, object references are values. <br> Because of this, objects will behave like they are passed by
+        reference: <br> If a function changes an object property, it changes the original value. <br> <strong> Changes
+            to object properties are visible (reflected) outside the function.</strong> </p>
+
+    <h2>Function invocation</h2>
+
+    <p>It is common to use the term "call a function" instead of "invoke a function". <br> It is also common to say
+        "call upon a function", "start a function", or "execute a function". <br> In this tutorial, we will use invoke,
+        because a JavaScript function can be invoked without being called.</p>
+
+    <h3>Invoking a Function as a Function</h3>
+
+    <code>
+        function myFunction(a, b) { <br>
+            return a * b; <br>
+          } <br>
+          myFunction(10, 2);           // Will return 20
+    </code>
+
+    <p>This is a common way to invoke a JavaScript function, but not a very good practice. <br> Global variables,
+        methods, or functions can easily create name conflicts and bugs in the global object.</p>
+
+    <h3>Invoking a Function as a Method</h3>
+
+    <p>In JavaScript you can define functions as object methods. <br> The following example creates an object
+        (myObject), with two properties (firstName and lastName), and a method (fullName):</p>
+
+    <code>
+        const myObject = { <br>
+            firstName:"John", <br>
+            lastName: "Doe", <br>
+            fullName: function () { <br>
+              return this.firstName + " " + this.lastName; <br>
+            } <br>
+          } <br>
+          myObject.fullName();         // Will return "John Doe"
+    </code>
+
+    <p>myObject.fullName() will return John Doe:</p>
+
+    <p id="demo10"></p>
+
+    <script>
+        const myObject10 = {
+            firstName10: "John",
+            lastName10: "Doe",
+            fullName10: function () {
+                return this.firstName10 + " " + this.lastName10;
+            }
+        }
+        document.getElementById("demo10").innerHTML = myObject10.fullName10(); 
+    </script>
+
+    <h3>Invoking a Function with a Function Constructor</h3>
+
+    <code>
+    This is a function constructor: <br>
+    function myFunction(arg1, arg2) { <br>
+    this.firstName = arg1; <br>
+    this.lastName  = arg2; <br>
+    } <br>
+    <br>
+    This creates a new object <br>
+    const myObj = new myFunction("John", "Doe"); <br>
+    <br>
+    This will return "John" <br>
+    myObj.firstName; <br>
+    </code>
+
+    <p>In this example, myFunction is a function constructor:</p>
+
+    <p id="demo11"></p>
+
+    <script>
+        function myFunction11(arg1a, arg2a) {
+            this.firstName11 = arg1a;
+            this.lastName11 = arg2a;
+        }
+
+        const myObj11 = new myFunction11("John", "Doe")
+        document.getElementById("demo11").innerHTML = myObj11.firstName11; 
+    </script>
+
+    <h2>Function call</h2>
+
+    <h3>The JavaScript call() Method</h3>
+
+    <p>The call() method is a predefined JavaScript method.</p>
+
+    <p>With call(), an object can use a method belonging to another object.</p>
+
+    <p>This example calls the fullName method of person, using it on person1:
+    </p>
+
+    <p id="demo12"></p>
+    <p id="demo13"></p>
+
+    <script>
+        const person12 = { //declaro la función objeto
+            fullName12: function () {
+                return this.firstName12 + " " + this.lastName12;
+            }
+        }
+        const person12a = { //agrego variable objeto 1
+            firstName12: "John",
+            lastName12: "Doe"
+        }
+        const person12b = { //agrego variable objeto 2
+            firstName12: "Mary",
+            lastName12: "Doe"
+        }
+        document.getElementById("demo12").innerHTML = person12.fullName12.call(person12a); //llamo la variable objeto 1 para la función
+
+        document.getElementById("demo13").innerHTML = person12.fullName12.call(person12b); //llamo la variable objeto 2 para la función
+
+    </script>
+
+    <h3>The call() Method with Arguments</h3>
+
+    <p>The call() method can accept arguments:</p>
+
+    <p>This example calls the fullName method of person, using it on person1:
+    </p>
+    
+    <p id="demo14"></p>
+    <p id="demo15"></p>
+    
+    <script>
+    const person14 = {
+      fullName14: function(city, country) { //declaro función objeto con 2 parámetros
+        return this.firstName14 + " " + this.lastName14 + "," + city + "," + country;
+      }
+    }
+    
+    const person14a = { //declaro variable objeto número 1
+      firstName14:"John",
+      lastName14: "Doe"
+    }
+    
+    const person14b = { //declaro variable objeto número 2
+      firstName14:"Mary",
+      lastName14: "Doe"
+    }
+    
+    document.getElementById("demo14").innerHTML = person14.fullName14.call(person14a, "Oslo", "Norway"); //llamo a la función objeto para que me devuelva la variable objeto 1 más los parámetros 
+
+    document.getElementById("demo15").innerHTML = person14.fullName14.call(person14b, "CABA", "Argentina"); //llamo a la función objeto para que me devuelva la variable objeto 2 más los parámetros 
+
+    </script>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -358,53 +358,203 @@
 
     <p>This example calls the fullName method of person, using it on person1:
     </p>
-    
+
     <p id="demo14"></p>
     <p id="demo15"></p>
-    
-    <script>
-    const person14 = {
-      fullName14: function(city, country) { //declaro función objeto con 2 parámetros
-        return this.firstName14 + " " + this.lastName14 + "," + city + "," + country;
-      }
-    }
-    
-    const person14a = { //declaro variable objeto número 1
-      firstName14:"John",
-      lastName14: "Doe"
-    }
-    
-    const person14b = { //declaro variable objeto número 2
-      firstName14:"Mary",
-      lastName14: "Doe"
-    }
-    
-    document.getElementById("demo14").innerHTML = person14.fullName14.call(person14a, "Oslo", "Norway"); //llamo a la función objeto para que me devuelva la variable objeto 1 más los parámetros 
 
-    document.getElementById("demo15").innerHTML = person14.fullName14.call(person14b, "CABA", "Argentina"); //llamo a la función objeto para que me devuelva la variable objeto 2 más los parámetros 
+    <script>
+        const person14 = {
+            fullName14: function (city, country) { //declaro función objeto con 2 parámetros
+                return this.firstName14 + " " + this.lastName14 + "," + city + "," + country;
+            }
+        }
+
+        const person14a = { //declaro variable objeto número 1
+            firstName14: "John",
+            lastName14: "Doe"
+        }
+
+        const person14b = { //declaro variable objeto número 2
+            firstName14: "Mary",
+            lastName14: "Doe"
+        }
+
+        document.getElementById("demo14").innerHTML = person14.fullName14.call(person14a, "Oslo", "Norway"); //llamo a la función objeto para que me devuelva la variable objeto 1 más los parámetros 
+
+        document.getElementById("demo15").innerHTML = person14.fullName14.call(person14b, "CABA", "Argentina"); //llamo a la función objeto para que me devuelva la variable objeto 2 más los parámetros 
 
     </script>
 
-    
+    <h2>Function apply</h2>
 
+    <p>The apply() method is similar to the call() method </p>
 
+    <p>The difference is: <br> The call() method takes arguments separately. <br> The apply() method takes arguments as
+        an array.</p>
 
+    <p>The apply() method is very handy if you want to use an array instead of an argument list.</p>
 
+    <h3>The apply() Method with Arguments</h3>
 
+    <p>In this example the fulllName method of person is <b>applied</b> on person1:</p>
 
+    <p id="demo16"></p>
 
+    <script>
+        const person16 = {
+            fullName16: function (city, country) {
+                return this.firstName16 + " " + this.lastName16 + "," + city + "," + country;
+            }
+        }
 
+        const person1_16 = {
+            firstName16: "John",
+            lastName16: "Doe"
+        }
 
+        document.getElementById("demo16").innerHTML = person16.fullName16.apply(person1_16, ["Oslo", "Norway"]); //This will return John Doe,Oslo,Norway
+    </script>
 
+    <h3>Simulate a Max Method on Arrays</h3>
 
+    <p>This example returns the highest number in an array of numbers:</p>
 
+    <p id="demo17"></p>
 
+    <script>
+        document.getElementById("demo17").innerHTML = Math.max.apply(null, [1, 2, 3]); //el primer parámetro en este ejemplo no se usa, por eso se llena con null
+    </script>
 
+    <h3>Apply en strict mode</h3>
 
+    <p>In JavaScript strict mode, if the first argument of the apply() method is not an object, it becomes the owner
+        (object) of the invoked function. In "non-strict" mode, it becomes the global object.</p>
 
+    <h2>Function bind</h2>
 
+    <h3>Function Borrowing</h3>
 
+    <p>With the bind() method, an object can borrow a method from another object.</p>
 
+    <p>This example creates 2 objects (person and member).</p>
+
+    <p>The member object borrows the fullname method from person:</p>
+
+    <p id="demo17"></p>
+
+    <script>
+        const person17 = {
+            firstName17: "John",
+            lastName17: "Doe",
+            fullName17: function () {
+                return this.firstName17 + " " + this.lastName17;
+            }
+        }
+
+        const member17 = {
+            firstName17: "Hege",
+            lastName17: "Nilsen",
+        }
+
+        let fullName17 = person17.fullName17.bind(member17);
+
+        document.getElementById("demo17").innerHTML = fullName17(); //This will return Hege Nilsen, porque el objeto person 17 en el método fullname17 le está pidiendo prestado al objeto member 17 su first/lastname17. Por defecto person 17 tiene como firstname17 John y lastname17 Doe
+    </script>
+
+    <h3>Preserving this</h3>
+
+    <p>Sometimes the bind() method has to be used to prevent loosing this. In the following example, the person object
+        has a display method. In the display method, this refers to the person object:</p>
+
+    <p id="demo18"></p>
+
+    <script>
+        const person18 = {
+            firstName18: "John",
+            lastName18: "Doe",
+            display18: function () {
+                let x = document.getElementById("demo18");
+                x.innerHTML = this.firstName18 + " " + this.lastName18;
+            }
+        }
+
+        person18.display18(); //this will return John Doe
+    </script>
+
+    <p>When a function is used as a callback, this is lost. <br> This example will try to display the person name after
+        3 seconds, but it will display undefined instead:</p>
+
+    <p>This example will try to display a person name after 3 seconds.</p>
+
+    <p id="demo19"></p>
+
+    <script>
+        const person19 = {
+            firstName19: "John",
+            lastName19: "Doe",
+            display19: function () {
+                let x = document.getElementById("demo19");
+                x.innerHTML = this.firstName19 + " " + this.lastName19;
+            }
+        }
+
+        setTimeout(person19.display19, 3000); //this wil return undefined
+    </script>
+
+    <p>Solución! The bind() method solves this problem. <br> In the following example, the bind() method is used to bind
+        person.display to person. <br> This example will display the person name after 3 seconds:</p>
+
+    <p id="demo20"></p>
+
+    <script>
+        const person20 = {
+            firstName20: "John",
+            lastName20: "Doe",
+            display20: function () {
+                let x = document.getElementById("demo20");
+                x.innerHTML = this.firstName20 + " " + this.lastName20;
+            }
+        }
+
+        let display20 = person20.display20.bind(person20); //se crea una variable que trae prestado con bind la función 
+        setTimeout(display20, 3000); //3 segundos después
+    </script>
+
+    <h2>Function closures</h2>
+
+    <p>Una función puede acceder a variables locales -definidas dentro de ella- o globales -definidas fuera de ella-.
+    </p>
+
+    <h3>Global Variables</h3>
+
+    <p>Variables definidas fuera de una función, o declaradas sin las palabras let, const o var. (esto último vale incluso si se declaran así dentro de una función). <br> Las variables globales pueden ser usadas y cambiadas por cualquier script en la página y en la ventana. Si una variable global y una local tienen el mismo nombre, una no afecta a la otra, son independientes entre sí. <br> Estas variables viven hasta que comenzamos a navegar en otra página o cerramos el navegador.</p>
+
+    <h3>Local variables</h3>
+
+    <p>Las variables locales se definen dentro de una función. Pueden ser usadas sólo por dicha función y están ocultas
+        para el resto del scripting. Estas variables duran desde el momento en que son invocadas por la función hasta el
+        momento en que la función termina de ejecutarse. </p>
+
+    <h3>JS Closures</h3>
+
+    <p>Es la forma de hacer privada -o local- una variable global. <br> Se logra con las self-invoking functions.</p>
+
+    <p>Counting with a local variable.</p>
+
+    <button type="button" onclick="myFunction21()">Count!</button>
+
+    <p id="demo21">0</p>
+
+    <script>
+        const add21 = (function () {
+            let counter = 0;
+            return function () { counter += 1; return counter; }
+        })();
+
+        function myFunction21() {
+            document.getElementById("demo21").innerHTML = add21();
+        }
+    </script>
 
 
 </body>

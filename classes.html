@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS CLASSES</title>
+</head>
+
+<body>
+
+    <h1>Classes</h1>
+
+    <h2>Class syntax</h2>
+
+    <p>Use the keyword class to create a class. <br> Always add a method named constructor():</p>
+
+    <code>
+        class ClassName { <b></b>
+            constructor() { ... } <br>
+          }
+    </code>
+
+    <code>
+        class Car { <br>
+            constructor(name, year) { <br>
+              this.name = name; <br>
+              this.year = year; <br>
+            } <br>
+          }
+    </code>
+
+    <p>A JavaScript class is not an object. <br> It is a template for JavaScript objects.</p>
+
+    <h3>Using a class</h3>
+
+    <p>When you have a class, you can use the class to create objects:</p>
+
+    <p id="demo1"></p>
+
+    <script>
+        class Car1 {
+            constructor(name1, year1) {
+                this.name1 = name1;
+                this.year1 = year1;
+            }
+        }
+
+        const myCar1a = new Car1("Ford", 2014);
+        const myCar1b = new Car1("Audi", 2019);
+        document.getElementById("demo1").innerHTML =
+            myCar1.name1 + " " + myCar1.year1;
+    </script>
+
+    <h3>The Constructor Method</h3>
+
+    <p>The constructor method is a special method:</p>
+
+    <ul>
+        <li>It has to have the exact name "constructor"</li>
+        <li>It is executed automatically when a new object is created</li>
+        <li>It is used to initialize object properties</li>
+    </ul>
+
+    <p>If you do not define a constructor method, JavaScript will add an empty constructor method.</p>
+
+    <h3>Class Methods</h3>
+
+    <p>Class methods are created with the same syntax as object methods. <br> Use the keyword class to create a class.
+        <br> Always add a constructor() method. <br> Then add any number of methods.
+    </p>
+
+    <code>
+        class ClassName { <br>
+            constructor() { ... } <br>
+            method_1() { ... } <br>
+            method_2() { ... } <br>
+            method_3() { ... } <br>
+          }
+    </code>
+
+    <p>How to define and use a Class method.</p>
+
+    <p id="demo2"></p>
+
+    <script>
+        class Car2 {
+            constructor(name2, year2) {
+                this.name2 = name2;
+                this.year2 = year2;
+
+            }
+            age2() {
+                let date2 = new Date();
+                return date2.getFullYear() - this.year2;
+            }
+        }
+
+        let myCar2 = new Car2("Ford", 2014);
+        document.getElementById("demo2").innerHTML =
+            "My car is " + myCar2.age2() + " years old.";
+    </script>
+
+    <p>Pass a parameter into the "age()" method.</p>
+
+    <p id="demo3"></p>
+
+    <script>
+        class Car3 {
+            constructor(name3, year3) {
+                this.name3 = name3;
+                this.year3 = year3;
+            }
+            age3(x) {
+                return x - this.year3;
+            }
+        }
+
+        let date3 = new Date();
+        let year3 = date3.getFullYear();
+
+        let myCar3 = new Car3("Ford", 2014);
+        document.getElementById("demo3").innerHTML =
+            "My car is " + myCar3.age3(year3) + " years old.";
+    </script>
+
+    <h3>"use strict"</h3>
+
+    <p>The syntax in classes must be written in "strict mode". <br> In "strict mode" you will get an error if you use a
+        variable without declaring it:</p>
+
+    <code>
+        class Car { <br>
+            constructor(name, year) { <br>
+              this.name = name; <br>
+              this.year = year; <br>
+            } <br>
+            age() { <br>
+              date = new Date();  // This will not work <br>
+              let date = new Date(); // This will work <br>
+              return date.getFullYear() - this.year; <br>
+            } <br>
+          }
+    </code>
+
+    <h2>Class inheritance</h2>
+
+    <p>To create a class inheritance, use the extends keyword. <br> A class created with a class inheritance inherits
+        all the methods from another class:</p>
+
+    <p>Use the "extends" keyword to inherit all methods from another class.</p>
+    <p>Use the "super" method to call the parent's constructor function.</p>
+
+    <p id="demo4"></p>
+
+    <script>
+        class Car4 { //nueva clase
+            constructor(brand4) { //nuevo constructor
+                this.carname4 = brand4;
+            }
+            present4() {
+                return 'I have a ' + this.carname4;
+            }
+        }
+
+        class Model4 extends Car4 { //extends nueva clase
+            constructor(brand4, mod4) { //nuevo constructor
+                super(brand4); //uso super para llamar al constructor padre -brand4-
+                this.model4 = mod4; //agregado
+            }
+            show4() { //se agrega a present 4
+                return this.present4() + ', it is a ' + this.model4;
+            }
+        }
+
+        let myCar4 = new Model4("Ford", "Mustang"); //creo objeto siguiendo al constructor padre e hijo, marca y modelo
+        document.getElementById("demo4").innerHTML = myCar4.show4(); //muestra el rdo de ambos
+    </script>
+
+    <p>The super() method refers to the parent class. <br> By calling the super() method in the constructor method, we
+        call the parent's constructor method and gets access to the parent's properties and methods. <br> Inheritance is
+        useful for code reusability: reuse properties and methods of an existing class when you create a new class.</p>
+
+    <h3>Getters and Setters</h3>
+
+    <p>Classes also allows you to use getters and setters. <br> It can be smart to use getters and setters for your
+        properties, especially if you want to do something special with the value before returning them, or before you
+        set them. <br> To add getters and setters in the class, use the get and set keywords.</p>
+
+    <p>A demonstration of how to add getters and setters in a class, and how to use the getter to get the property
+        value.</p>
+
+    <p>Using an underscore character is common practice when using getters/setters in JavaScript, but not mandatory, you
+        can name them anything you like, but not the same as the property name.</p>
+
+    <p id="demo5"></p>
+
+    <script>
+        class Car5 {
+            constructor(brand5) {
+                this._carname5 = brand5;
+            }
+            get carname5() { // lo traigo con return
+                return this._carname5;
+            }
+            set carname5(x5) { // lo seteo con set
+                this._carname5 = x5;
+            }
+        }
+
+        let myCar5 = new Car5("Ford"); //creo objeto siguiendo al constructor -brand-
+
+        document.getElementById("demo5").innerHTML = myCar5.carname5; //llamo a get sin paréntesis, regresa Ford
+    </script>
+
+    <p>When using a setter to set a property value, you do not use parantheses.</p>
+
+    <p id="demo6"></p>
+
+    <script>
+        class Car6 {
+            constructor(brand6) {
+                this._carname6 = brand6;
+            }
+            set carname6(x6) { //primero seteo
+                this._carname6 = x6;
+            }
+            get carname6() { //después traigo
+                return this._carname6;
+            }
+        }
+
+        let myCar6 = new Car6("Ford"); //declaro objeto
+        myCar6.carname6 = "Volvo"; //seteo el objeto carname6
+        document.getElementById("demo6").innerHTML = myCar6.carname6; //muestro el rdo del seteo, devuelve Volvo
+    </script>
+
+    <h3>Hoisting</h3>
+
+    <p> Class declarations are not hoisted. <br> That means that you must declare a class before you can use it.</p>
+
+    <h3>Class static</h3>
+
+    <p>A static method is created with the "static" keyword, and you can only call the method on the class itself.</p>
+
+<p id="demo7"></p>
+
+<script>
+class Car7 {
+  constructor(name7) {
+    this.name7 = name7;
+  }
+  static hello7() {
+    return "Hello!!";
+  }
+}
+
+let myCar7 = new Car7("Ford");
+
+//You can call 'hello()' on the Car Class:
+document.getElementById("demo7").innerHTML = Car7.hello7(); //llamo al static desde la clase y devuelve Hello!!
+
+// But NOT on  a Car Object:
+// document.getElementById("demo").innerHTML = myCar.hello();
+// this will raise an error.
+</script>
+
+<p>To use the "myCar" object inside the static method, you can send it as parameter.</p>
+
+<p id="demo8"></p>
+
+<script>
+class Car8 {
+  constructor(name8) {
+    this.name8 = name8;
+  }
+  static hello8(x8) {
+    return "Hello " + x8.name8;
+  }
+}
+
+let myCar8 = new Car8("Ford");
+document.getElementById("demo8").innerHTML = Car8.hello8(myCar8);
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

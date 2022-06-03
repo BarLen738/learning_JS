@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS ASYNC</title>
+</head>
+
+<body>
+
+    <h1>JS Async</h1>
+
+    <h2>JS Callbacks</h2>
+
+    <p>A callback is a function passed as an argument to another function. <br> Using a callback, you could call the
+        calculator function (myCalculator) with a callback, and let the calculator function run the callback after the
+        calculation is finished:</p>
+
+    <p>Do a calculation and then display the result.</p>
+
+    <p id="demo1"></p>
+
+    <script>
+        function myCalculator1(num1, num2, myCallback1) {
+            let sum1 = num1 + num2;
+            myCallback1(sum1);
+        }
+
+        function myDisplayer1(something1) { //se crea una función
+            document.getElementById("demo1").innerHTML = something1;
+        }
+
+
+        myCalculator1(5, 5, myDisplayer1); //se la pasa como argumento a otra función
+    </script>
+
+    <p>Where callbacks really shine are in asynchronous functions, where one function has to wait for another function
+        (like waiting for a file to load).</p>
+
+    <h2>Asynchronous JavaScript</h2>
+
+    <p>Functions running in parallel with other functions are called asynchronous <br> A good example is JavaScript
+        setTimeout()</p>
+
+    <h3>Waiting for a Timeout</h3>
+
+    <p>When using the JavaScript function setTimeout(), you can specify a callback function to be executed on time-out:
+    </p>
+
+    <p>Wait 3 seconds (3000 milliseconds) for this page to change.</p>
+
+    <h1 id="demo2"></h1>
+
+    <script>
+        setTimeout(myFunction2, 3000); //función setTimeout() que funciona como callback, no usar paréntesis en myFunction2
+
+        function myFunction2() { //función que toma como argumento la función setTimeout y devuelve un string
+            document.getElementById("demo2").innerHTML = "I love You !!";
+        }
+    </script>
+
+    <p>Instead of passing the name of a function as an argument to another function, you can always pass a whole
+        function instead:</p>
+
+    <p>Wait 3 seconds (3000 milliseconds) for this page to change.</p>
+
+    <h1 id="demo3"></h1>
+
+    <script>
+        setTimeout(function () { myFunction3("I love You more!!!"); }, 3000);
+
+        function myFunction3(value3) {
+            document.getElementById("demo3").innerHTML = value3;
+        }
+    </script>
+
+    <h3>Waiting for Intervals:</h3>
+
+    <p>When using the JavaScript function setInterval(), you can specify a callback function to be executed for each
+        interval:</p>
+
+    <p>Using setInterval() to display the time every second (1000 milliseconds).</p>
+
+    <h1 id="demo4"></h1>
+
+    <script>
+
+        function myFunction4() {
+            let d4 = new Date();
+            document.getElementById("demo4").innerHTML =
+                d4.getHours() + ":" +
+                d4.getMinutes() + ":" +
+                d4.getSeconds();
+        }
+
+        setInterval(myFunction4, 1000); //función setInterval que toma como argumento (callback) la función myFunction4
+
+    </script>
+
+    <h3>Waiting for Files</h3>
+
+    <p>If you create a function to load an external resource (like a script or a file), you cannot use the content
+        before it is fully loaded. <br> <strong> This is the perfect time to use a callback. </strong> <br> This example
+        loads an HTML file (mycar.html), and displays the HTML file in a web page, after the file is fully loaded:</p>
+
+    <p id="demo5"></p>
+
+    <script>
+        function myDisplayer5(some5) {
+            document.getElementById("demo5").innerHTML = some5;
+        }
+
+        function getFile5(myCallback5) {
+            let req = new XMLHttpRequest();
+            req.open('GET', "mycar.html"); //acá iría la ruta al archivo html que quiero insertar en mi página
+            req.onload = function () {
+                if (req.status == 200) {
+                    myCallback5(this.responseText);
+                } else {
+                    myCallback5("Error: " + req.status);
+                }
+            }
+            req.send();
+        }
+
+        getFile(myDisplayer); 
+    </script>
+
+    <h2>JS promises</h2>
+
+    <p>"Producing code" is code that can take some time <br> "Consuming code" is code that must wait for the result <br>
+        A Promise is a JavaScript object that links producing code and consuming code</p>
+
+    <code>
+    let myPromise = new Promise(function(myResolve, myReject) { <br>
+        <strong> // "Producing Code" (May take some time) </strong>
+        <br>
+          myResolve(); // when successful <br>
+          myReject();  // when error <br>
+        }); <br>
+        <br>
+        <strong> // "Consuming Code" (Must wait for a fulfilled Promise) </strong>
+        <br> myPromise.then( <br>
+          function(value) { /* code if successful */ }, <br>
+          function(error) { /* code if some error */ } <br>
+        );
+</code>
+
+    <h3>Promise Object Properties</h3>
+
+    <p>The Promise object supports two properties: state and result. <br> While a Promise object is <strong> "pending"
+        </strong> (working), the result is undefined. <br> When a Promise object is <strong> "fulfilled" </strong>, the
+        result is a value. <br> When a Promise object is <strong> "rejected" </strong>, the result is an error object.
+    </p>
+
+    <p>You cannot access the Promise properties state and result. <br> You must use a Promise method to handle promises.
+    </p>
+
+    <code>
+    myPromise.then( <br>
+  function(value) { /* code if successful */ }, <br>
+  function(error) { /* code if some error */ } <br>
+);
+</code>
+
+    <p>Promise.then() takes two arguments, a callback for success and another for failure. <br> Both are optional, so
+        you can add a callback for success or failure only.</p>
+
+    <p id="demo6"></p>
+
+    <script>
+        function myDisplayer6(some6) {
+            document.getElementById("demo6").innerHTML = some6;
+        }
+
+        let myPromise6 = new Promise(function (myResolve6, myReject6) {
+            let x6 = 0;
+
+            // some code (try to change x to 5)
+
+            if (x6 == 0) {
+                myResolve6("OK");
+            } else {
+                myReject6("Error");
+            }
+        });
+
+        myPromise6.then(
+            function (value6) { myDisplayer6(value6); },
+            function (error6) { myDisplayer6(error6); }
+        );
+    </script>
+
+    <p>Ejemplo anterior the waiting for a timeout usando una promise</p>
+
+    <p>Wait 3 seconds (3000 milliseconds) for this page to change.</p>
+
+    <h1 id="demo7"></h1>
+
+    <script>
+        const myPromise7 = new Promise(function (myResolve7, myReject7) { //crea un objeto promise con ambos parámetros y define únicamente el resultado
+            setTimeout(function () { myResolve7("I love You !!"); }, 3000);
+        });
+
+        myPromise7.then(function (value7) {
+            document.getElementById("demo7").innerHTML = value7; //muestra el resultado
+        });
+    </script>
+
+    <p>Ejemplo anterior de waiting for a file usando una promise</p>
+
+    <p id="demo8"></p>
+
+    <script>
+        function myDisplayer8(some8) {
+            document.getElementById("demo8").innerHTML = some8;
+        }
+
+        let myPromise8 = new Promise(function (myResolve8, myReject8) {
+            let req8 = new XMLHttpRequest();
+            req8.open('GET', "mycar.html");
+            req8.onload = function () {
+                if (req8.status == 200) {
+                    myResolve(req8.response);
+                } else {
+                    myReject8("File not Found");
+                }
+            };
+            req8.send();
+        });
+
+        myPromise8.then(
+            function (value8) { myDisplayer8(value8); },
+            function (error8) { myDisplayer8(error8); }
+        );
+    </script>
+
+    <h2>JS Async/Await</h2>
+
+    <p>"async and await make promises easier to write" <br>async makes a function return a Promise <br> await makes a
+        function wait for a Promise</p>
+
+    <h3>Async Syntax</h3>
+
+    <p>The keyword async before a function makes the function return a promise:</p>
+
+    <p id="demo9"></p>
+
+    <script>
+        function myDisplayer9(some9) {
+            document.getElementById("demo9").innerHTML = some9;
+        }
+
+        async function myFunction9() { return "Hello"; }
+
+        myFunction9().then(
+            function (value9) { myDisplayer9(value9); },
+            function (error9) { myDisplayer9(error9); } //puedo suprimir esto si no necesito un mensaje de error
+        );</script>
+
+    <h3>Await Syntax</h3>
+
+    <p>The keyword await before a function makes the function wait for a promise. <br> The await keyword can only be
+        used inside an async function.</p>
+
+    <h1 id="demo10"></h1>
+
+    <script>
+        async function myDisplay10() {
+            let myPromise10 = new Promise(function (resolve10, reject10) { //puedo suprimir el parámetro reject
+                resolve10("I love You !!");
+            });
+            document.getElementById("demo10").innerHTML = await myPromise10;
+        }
+
+        myDisplay10();
+    </script>
+
+    <p>Wait 3 seconds (3000 milliseconds) for this page to change.</p>
+
+    <h1 id="demo11"></h1>
+
+    <script>
+        async function myDisplay11() {
+            let myPromise11 = new Promise(function (resolve11) {
+                setTimeout(function () { resolve11("You know I love You !!"); }, 3000);
+            });
+            document.getElementById("demo11").innerHTML = await myPromise11;
+        }
+
+        myDisplay11();
+    </script>
+
+    <p>Waiting for a file</p>
+
+    <p id="demo12"></p>
+
+    <script>
+        async function getFile12() {
+            let myPromise12 = new Promise(function (resolve12) {
+                let req12 = new XMLHttpRequest();
+                req12.open('GET', "mycar.html");
+                req12.onload = function () {
+                    if (req12.status12 == 200) {
+                        resolve(req12.response12);
+                    } else {
+                        resolve12("File not Found");
+                    }
+                };
+                req12.send();
+            });
+            document.getElementById("demo12").innerHTML = await myPromise12;
+        }
+
+        getFile12();
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

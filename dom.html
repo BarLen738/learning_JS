@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS HTML DOM</title>
+</head>
+
+<body>
+
+    <h1>JavaScript HTML DOM</h1>
+
+    <p>With the HTML DOM, JavaScript can access and change all the elements of an HTML document. <br> When a web page is
+        loaded, the browser creates a Document Object Model of the page. <br> With the object model, JavaScript gets all
+        the power it needs to create dynamic HTML.</p>
+
+    <ul>
+        <li>JavaScript can change all the HTML elements in the page</li>
+        <li> JavaScript can change all the HTML attributes in the page </li>
+        <li> JavaScript can change all the CSS styles in the page</li>
+        <li> JavaScript can remove existing HTML elements and attributes</li>
+        <li> JavaScript can add new HTML elements and attributes</li>
+        <li> JavaScript can react to all existing HTML events in the page</li>
+        <li> JavaScript can create new HTML events in the page</li>
+    </ul>
+
+    <p>The HTML DOM is a standard object model and programming interface for HTML. It defines. The HTML DOM is a
+        standard for how to get, change, add, or delete HTML elements.</p>
+
+    <ul>
+        <li> The HTML elements as objects</li>
+        <li> The properties of all HTML elements</li>
+        <li> The methods to access all HTML elements</li>
+        <li> The events for all HTML elements</li>
+    </ul>
+
+    <h2>DOM Methods</h2>
+
+    <h3>The DOM Programming Interface</h3>
+
+    <p>The HTML DOM can be accessed with JavaScript (and with other programming languages). <br> In the DOM, all HTML
+        elements are defined as objects. <br> The programming interface is the properties and methods of each object.
+        <br> <strong> A property </strong> is a value that you can get or set (like changing the content of an HTML
+        element). <br> <strong> A method </strong> is an action you can do (like add or deleting an HTML element).
+    </p>
+
+    <h3>The getElementById Method</h3>
+
+    <p>The most common way to access an HTML element is to use the id of the element.</p>
+
+    <h3>The innerHTML Property</h3>
+
+    <p>The easiest way to get the content of an element is by using the innerHTML property. <br> The innerHTML property
+        is useful for getting or replacing the content of HTML elements. <br> <strong> The innerHTML property can be
+            used to get or change any HTML element, including html and body. </strong></p>
+
+    <p>Ejemplo</p>
+
+    <p id="demo1"></p>
+
+    <script>
+        document.getElementById("demo1").innerHTML = "Hello World!";
+    </script>
+
+    <h2>DOM Document</h2>
+
+    <h3>Finding HTML elements</h3>
+
+    <h4>Methods</h4>
+
+    <p> <strong> document.getElementById(id) </strong> Find an element by element id <br>
+        <strong>document.getElementsByTagName(name) </strong> Find elements by tag name <br>
+        <strong>document.getElementsByClassName(name) </strong> Find elements by class name
+    </p>
+
+    <h3>Changing HTML Elements</h3>
+
+    <h4>Properties</h4>
+
+    <p> <strong> element.innerHTML = new html content Change the inner HTML of an element </strong><br> <strong>
+            element.attribute = new value Change the attribute value of an HTML element</strong> <br> <strong>
+            element.style.property = new style Change the style of an HTML element</strong> </p>
+
+    <h4>Methods</h4>
+
+    <p> <strong> element.setAttribute(attribute, value) </strong> Change the attribute value of an HTML element</p>
+
+    <h3>Adding and Deleting Elements</h3>
+
+    <h4>Methods</h4>
+
+    <p> <strong> document.createElement(element) </strong> Create an HTML element <br>
+        <strong> document.removeChild(element) </strong> Remove an HTML element <br> <strong>
+            document.appendChild(element) </strong> Add an HTML element <br> <strong> document.replaceChild(new, old)
+        </strong> Replace an HTML element <br> <strong> document.write(text) </strong> Write into the HTML output stream
+    </p>
+
+    <h3>Adding Events Handlers</h3>
+
+    <h4>Methods</h4>
+
+    <p> <strong> document.getElementById(id).onclick = function(){code} </strong> Adding event handler code to an
+        onclick event</p>
+
+    <h3>Finding HTML elements</h3>
+
+    <p>Complete reference at <a href="https://www.w3schools.com/js/js_htmldom_document.asp" target="_blank">DOM Document
+            - W3Schools</a></p>
+
+    <h2>DOM Elements</h2>
+
+    <h3>Finding HTML Elements</h3>
+
+    <ul>
+        <li>By Id</li>
+        <li>By TagName</li>
+        <li>By ClassName</li>
+        <li>By CSS Selectors</li>
+        <li>By HTML object collections</li>
+    </ul>
+
+    <h3>Finding HTML Element by Id</h3>
+
+    <p>If the element is found, the method will return the element as an object (in element). <br> If the element is not
+        found, element will contain null.</p>
+
+    <p>Ejemplo</p>
+
+    <p id="intro2">Finding HTML Elements by Id</p>
+    <p>This example demonstrates the <b>getElementsById</b> method.</p>
+
+    <p id="demo2"></p>
+
+    <script>
+        const element2 = document.getElementById("intro2");
+
+        document.getElementById("demo2").innerHTML =
+            "The text from the intro paragraph is: " + element2.innerHTML;
+    </script>
+
+    <h3>Finding HTML Elements by Tag Name</h3>
+
+    <code>
+        const element = document.getElementsByTagName("p");
+    </code>
+
+    <p>This example finds the element with id="main", and then finds all elements inside "main":</p>
+
+    <code>
+        const x = document.getElementById("main"); <br>
+        const y = x.getElementsByTagName("p"); <br>
+        <br>
+        document.getElementById("demo").innerHTML = 
+        'The first paragraph (index 0) inside "main" is: ' + y[0].innerHTML; // y[0] refiere al primer elemento p
+    </code>
+
+    <h3>Finding HTML Elements by Class Name</h3>
+
+    <p>If you want to find all HTML elements with the same class name, use getElementsByClassName().</p>
+
+    <code>
+        const x = document.getElementsByClassName("intro"); <br>
+        <br>
+        const x = document.getElementsByClassName("intro");
+        document.getElementById("demo").innerHTML = 'The first paragraph (index 0) with class="intro" is: ' + x[0].innerHTML;
+    </code>
+
+    <h3>Finding HTML Elements by CSS Selectors</h3>
+
+    <p>If you want to find all HTML elements that match a specified CSS selector (id, class names, types, attributes,
+        values of attributes, etc), use the querySelectorAll() method.</p>
+
+    <code>
+        const x = document.querySelectorAll("p.intro"); <br>
+        document.getElementById("demo").innerHTML = 
+        ' The first paragraph (index 0) with class="intro" is: ' + x[0].innerHTML;
+    </code>
+
+    <h3>Finding HTML Elements by HTML Object Collections</h3>
+
+    <p>This example finds the form element with id="frm1", in the forms collection, and displays all element values:</p>
+
+    <p>Finding HTML Elements Using <b>document.forms</b>.</p>
+
+    <form id="frm1" action="/action_page.php">
+        First name: <input type="text" name="fname" value="Donald"><br>
+        Last name: <input type="text" name="lname" value="Duck"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <p>These are the values of each element in the form:</p>
+
+    <p id="demo3"></p>
+
+    <script>
+        const x = document.forms["frm1"];
+        let text = "";
+        for (let i = 0; i < x.length; i++) {
+            text += x.elements[i].value + "<br>";
+        }
+        document.getElementById("demo3").innerHTML = text;
+    </script>
+
+    <h2>DOM HTML</h2>
+
+    <h3>Changing HTML Content</h3>
+
+    <p>The easiest way to modify the content of an HTML element is by using the innerHTML property.</p>
+
+    <p>This example changes the content of an h4 element (byId).</p>
+
+    <h4 id="id01">Old Heading</h1>
+
+        <script>
+            const element4 = document.getElementById("id01");
+            element4.innerHTML = "New Heading";
+        </script>
+
+        <p>JavaScript changed "Old Heading" to "New Heading".</p>
+
+        <h3>Changing the Value of an Attribute</h3>
+
+        <p>To change the value of an HTML attribute, use this syntax:</p>
+
+        <code>
+        document.getElementById(id).attribute = new value
+    </code>
+
+        <p>This example changes the value of the src attribute of an img element:</p>
+
+        <code>
+        document.getElementById("myImage").src = "landscape.jpg"; //uso .src (.attribute)
+    </code>
+
+        <h3>Dynamic HTML content</h3>
+
+        <code>
+        document.getElementById("demo").innerHTML = "Date : " + Date();
+    </code>
+
+        <h3>document.write()</h3>
+
+        <p>In JavaScript, document.write() can be used to write directly to the HTML output stream. <br> Never use
+            document.write() after the document is loaded. It will overwrite the document.</p>
+
+        <h2>DOM Forms</h2>
+
+        <h3>JavaScript Form Validation</h3>
+
+        <p>HTML form validation can be done by JavaScript. <br> If a form field (fname) is empty, this function alerts a
+            message, and returns false, to prevent the form from being submitted:</p>
+
+        <code>
+            function validateForm() { <br>
+                let x = document.forms["myForm"]["fname"].value; //["name del form"] ["name del input"] <br>
+                if (x == "") { <br>
+                  alert("Name must be filled out"); <br>
+                  return false; <br>
+                } <br>
+              }
+        </code>
+
+        <h3>JavaScript Can Validate Numeric Input</h3>
+
+        <p>Please input a number between 1 and 10:</p>
+
+        <input id="numb">
+
+        <button type="button" onclick="myFunction4()">Submit</button>
+
+        <p id="demo4"></p>
+
+        <script>
+            function myFunction4() {
+                // Get the value of the input field with id="numb"
+                let x4 = document.getElementById("numb").value;
+                // If x is Not a Number or less than one or greater than 10
+                let text4;
+                if (isNaN(x4) || x4 < 1 || x4 > 10) {
+                    text4 = "Input not valid";
+                } else {
+                    text4 = "Input OK";
+                }
+                document.getElementById("demo4").innerHTML = text4;
+            }
+        </script>
+
+        <h3>Automatic HTML Form Validation</h3>
+
+        <p>HTML form validation can be performed automatically by the browser: <br> If a form field (fname) is empty,
+            the required attribute prevents this form from being submitted (agregar <strong>requiered</strong> al tag
+            <em> input</em>).
+        </p>
+
+        <h3>Data Validation</h3>
+
+        <p>Data validation is the process of ensuring that user input is clean, correct, and useful. <br> Most often,
+            the purpose of data validation is to ensure correct user input. <br> Validation can be defined by many
+            different methods, and deployed in many different ways. <br> <strong> Server side validation </strong> is
+            performed by a web server, after input has been sent to the server. <br> <strong> Client side validation
+            </strong> is performed by a web browser, before input is sent to a web server.</p>
+
+        <h3>HTML Constraint Validation</h3>
+
+        <p>HTML constraint validation is based on:</p>
+
+        <ul>
+            <li>Constraint validation HTML Input Attributes</li>
+            <li>Constraint validation CSS Pseudo Selectors</li>
+            <li>Constraint validation DOM Properties and Methods</li>
+        </ul>
+
+        <h3>Constraint Validation HTML Input Attributes</h3>
+
+        <p>disabled : Specifies that the input element should be disabled <br> max : Specifies the maximum value of an
+            input element <br> min : Specifies the minimum value of an input element <br> pattern : Specifies the value
+            pattern of an input element <br> required : Specifies that the input field requires an element <br> type :
+            Specifies the type of an input element</p>
+
+        <p>For a full list, go to <a href="https://www.w3schools.com/html/html_form_attributes.asp" target="_blank">
+                HTML Input Attributes </a>.</p>
+
+        <h3>Constraint Validation CSS Pseudo Selectors</h3>
+
+        <p>:disabled : Selects input elements with the "disabled" attribute specified <br> :invalid : Selects input
+            elements with invalid values <br> :optional : Selects input elements with no "required" attribute specified
+            <br> :required : Selects input elements with the "required" attribute specified <br> :valid : Selects input
+            elements with valid values
+        </p>
+
+        <p>For a full list, go to <a href="https://www.w3schools.com/css/css_pseudo_classes.asp" target="_blank"> CSS
+                Pseudo Classes</a>.</p>
+
+        <h2>DOM CSS</h2>
+
+        <p>The HTML DOM allows JavaScript to change the style of HTML elements.</p>
+
+        <h3>Changing HTML Style</h3>
+
+        <code>
+            document.getElementById(id).style.property = new style
+        </code>
+
+        <p>Ejemplo</p>
+
+        <p id="p1">Hello World!</p>
+        <p id="p2">Hello World!</p>
+
+        <script>
+            document.getElementById("p2").style.color = "blue";
+            document.getElementById("p2").style.fontFamily = "Arial";
+            document.getElementById("p2").style.fontSize = "larger";
+        </script>
+
+        <h3>Using Events</h3>
+
+        <p>This example changes the style of the HTML element with id="id1", when the user clicks a button:</p>
+
+        <h4 id="id1">My Heading 1</h4>
+
+        <button type="button" onclick="document.getElementById('id1').style.color = 'red'">
+            Click Me!</button>
+
+        <h3>HTML DOM Style Object Reference</h3>
+
+        <p>For all HTML DOM style properties, look at our complete <a
+                href="https://www.w3schools.com/jsref/dom_obj_style.asp" target="_blank">HTML DOM Style Object
+                Reference</a>.</p>
+
+        <h2>DOM Animations</h2>
+
+        <p><button onclick="myMove5()">Click Me</button></p>
+
+        <div id="container" style="width: 400px; height: 400px; position: relative; background: rgb(255, 255, 155);">
+            <div id="animate" style="width: 80px; height:80px; position:absolute; background-color: rgb(255, 143, 143)">
+            </div>
+        </div>
+
+        <script>
+            function myMove5() {
+                let id5 = null;
+                const elem5 = document.getElementById("animate");
+                let pos5 = 0;
+                clearInterval(id5);
+                id5 = setInterval(frame5, 5);
+                function frame5() {
+                    if (pos5 == 350) {
+                        clearInterval(id5);
+                    } else {
+                        pos5++;
+                        elem5.style.top = pos5 + "px";
+                        elem5.style.left = pos5 + "px";
+                    }
+                }
+            }
+        </script>
+
+        <h2>DOM Events</h2>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

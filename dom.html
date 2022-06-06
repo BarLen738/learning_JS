@@ -6,9 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS HTML DOM</title>
+    <style>
+        #myDiv16a,
+        #myDiv16b {
+            background-color: coral;
+            padding: 50px;
+        }
+
+        #myP16a,
+        #myP16b {
+            background-color: white;
+            font-size: 20px;
+            border: 1px solid;
+            padding: 20px;
+        }
+
+        #myDIV17 {
+            background-color: rgb(166, 131, 248);
+            border: 2px solid;
+            padding: 50px;
+            color: white;
+            font-size: 20px;
+        }
+    </style>
 </head>
 
-<body>
+<body onload="checkCookies()">
 
     <h1>JavaScript HTML DOM</h1>
 
@@ -399,7 +422,806 @@
 
         <h2>DOM Events</h2>
 
-        
+        <h3>Reacting to Events</h3>
+
+        <p>A JavaScript can be executed when an event occurs, like when a user clicks on an HTML element. <br> To
+            execute code when a user clicks on an element, add JavaScript code to an HTML event attribute:</p>
+
+        <code>
+            onclick=JavaScript
+        </code>
+
+        <p>Examples of HTML events:</p>
+
+        <ul>
+            <li> When a user clicks the mouse</li>
+            <li>>When a web page has loaded</li>
+            <li>When an image has been loaded</li>
+            <li>When the mouse moves over an element</li>
+            <li>When an input field is changed</li>
+            <li>When an HTML form is submitted</li>
+            <li>When a user strokes a key</li>
+        </ul>
+
+        <h4 onclick="this.innerHTML='Ooops!'">Click on this text!</h4>
+
+        <p>In this example, a function is called from the event handler:</p>
+
+        <h4 onclick="changeText6(this)">Click on this text!</h4>
+
+        <script>
+            function changeText6(id) {
+                id.innerHTML = "Ooops!";
+            }
+        </script>
+
+        <h3>HTML Event Attributes</h3>
+
+        <p>To assign events to HTML elements you can use event attributes.</p>
+
+        <p>Click the button to display the date.</p>
+
+        <button onclick="displayDate7()">The time is?</button>
+
+        <script>
+            function displayDate7() {
+                document.getElementById("demo7").innerHTML = Date();
+            }
+        </script>
+
+        <p id="demo7"></p>
+
+        <h3>Assign Events Using the HTML DOM</h3>
+
+        <p>The HTML DOM allows you to assign events to HTML elements using JavaScript:</p>
+
+        <p>Click "Try it" to execute the displayDate() function.</p>
+
+        <button id="myBtn8">Try it</button>
+
+        <p id="demo8"></p>
+
+        <script>
+            document.getElementById("myBtn8").onclick = displayDate8;
+
+            function displayDate8() {
+                document.getElementById("demo8").innerHTML = Date();
+            }
+        </script>
+
+        <h3>The onload and onunload Events</h3>
+
+        <p>The onload and onunload events are triggered when the user enters or leaves the page. <br> The onload event
+            can be used to check the visitor's browser type and browser version, and load the proper version of the web
+            page based on the information. <br> The onload and onunload events can be used to deal with cookies.</p>
+
+        <p id="demo9"></p>
+
+        <script>
+            function checkCookies() { //también agregar en el body onload="checkCookies()"
+                var text9 = "";
+                if (navigator.cookieEnabled == true) {
+                    text9 = "Cookies are enabled.";
+                } else {
+                    text9 = "Cookies are not enabled.";
+                }
+                document.getElementById("demo9").innerHTML = text9;
+            }
+        </script>
+
+        <h3>The onchange Event</h3>
+
+        <p>The onchange event is often used in combination with validation of input fields. <br> Below is an example of
+            how to use the onchange. The upperCase() function will be called when a user changes the content of an input
+            field.</p>
+
+        <p>Ejemplo</p>
+
+        Enter your name: <input type="text" id="fname10" onchange="upperCase()">
+        <p>When you leave the input field, a function is triggered which transforms the input text to upper case.</p>
+
+        <script>
+            function upperCase() {
+                const x = document.getElementById("fname10");
+                x.value = x.value.toUpperCase();
+            }
+        </script>
+
+        <h3>The onmouseover and onmouseout Events</h3>
+
+        <p>The onmouseover and onmouseout events can be used to trigger a function when the user mouses over, or out of,
+            an HTML element:</p>
+
+        <div onmouseover="mOver(this)" onmouseout="mOut(this)"
+            style="background-color:#D94A38;width:120px;height:20px;padding:40px;">
+            Mouse Over Me</div>
+
+        <script>
+            function mOver(obj) {
+                obj.innerHTML = "Thank You"
+            }
+
+            function mOut(obj) {
+                obj.innerHTML = "Mouse Over Me"
+            }
+        </script>
+
+        <h3>The onmousedown, onmouseup and onclick Events</h3>
+
+        <p>The onmousedown, onmouseup, and onclick events are all parts of a mouse-click. First when a mouse-button is
+            clicked, the onmousedown event is triggered, then, when the mouse-button is released, the onmouseup event is
+            triggered, finally, when the mouse-click is completed, the onclick event is triggered.</p>
+
+        <div onmousedown="mDown(this)" onmouseup="mUp(this)"
+            style="background-color:#7989e2;width:90px;height:20px;padding:40px;">
+            Click Me</div>
+
+        <script>
+            function mDown(obj) {
+                obj.style.backgroundColor = "#1ec5e5";
+                obj.innerHTML = "Release Me";
+            }
+
+            function mUp(obj) {
+                obj.style.backgroundColor = "#D94A38";
+                obj.innerHTML = "Thank You";
+            }
+        </script>
+
+        <h3>HTML DOM Event Object Reference</h3>
+
+        <p>For a list of all HTML DOM events, look at our complete <a
+                href="https://www.w3schools.com/jsref/dom_obj_event.asp" target="_blank">HTML DOM Event Object
+                Reference</a>.</p>
+
+        <h2>DOM Event Listener</h2>
+
+        <h3>The addEventListener() method</h3>
+
+        <p>The addEventListener() method attaches an event handler to the specified element without overwriting existing
+            event handlers. So, you can add many event handlers to one element. You can add many event handlers of the
+            same type to one element, i.e two "click" events. <br> You can add event listeners to any DOM object not
+            only HTML elements. i.e the window object. <br> When using the addEventListener() method, the JavaScript is
+            separated from the HTML markup, for better readability and allows you to add event listeners even when you
+            do not control the HTML markup.</p>
+
+        <code>
+            element.addEventListener(event, function, useCapture);
+        </code>
+
+        <p>The first parameter is the type of the event (like "click" or "mousedown" or any other HTML DOM Event.) <br>
+            The second parameter is the function we want to call when the event occurs. <br> The third parameter is a
+            boolean value specifying whether to use event bubbling or event capturing. This parameter is optional.</p>
+
+        <h3>Event Bubbling or Event Capturing?</h3>
+
+        <p>There are two ways of event propagation in the HTML DOM, bubbling and capturing. <br> Event propagation is a
+            way of defining the element order when an event occurs. If you have a "p" element inside a "div" element,
+            and the user clicks on the "p" element, which element's "click" event should be handled first? <br> In
+            <strong> bubbling </strong> the inner most element's event is handled first and then the outer: the "p"
+            element's click event is handled first, then the "div" element's click event. (Actúa de adentro hacia
+            fuera). <br> In <strong> capturing </strong> the outer most element's event is handled first and then the
+            inner: the "div" element's click event will be handled first, then the "p" element's click event. (Actúa de
+            afuera hacia dentro). <br> With the addEventListener() method you can specify the propagation type by using
+            the "useCapture" parameter:
+        </p>
+
+        <code>
+            addEventListener(event, function, useCapture);
+        </code>
+
+        <p>The default value is <strong>false</strong>, which will use the bubbling propagation, when the value is set
+            to <strong>true</strong>, the event uses the capturing propagation.</p>
+
+        <h3>Add an Event Handler to an Element</h3>
+
+        <p>This example uses the addEventListener() method to attach a click event to a button.</p>
+
+        <button id="myBtn10">Try it</button>
+
+        <script>
+            document.getElementById("myBtn10").addEventListener("click", function () { //no se usa onclick, sólo click sin el on
+                alert("Hello World!");
+            });
+        </script>
+
+        <p>You can also refer to an external "named" function:</p>
+
+        <p>This example uses the addEventListener() method to execute a function when a user clicks on a button.</p>
+
+        <button id="myBtn11">Try it</button>
+
+        <script>
+            document.getElementById("myBtn11").addEventListener("click", myFunction11);
+
+            function myFunction11() {
+                alert("Hello World!");
+            }
+        </script>
+
+        <h3>Add Many Event Handlers to the Same Element</h3>
+
+        <p>This example uses the addEventListener() method to add two click events to the same button.</p>
+
+        <button id="myBtn12">Try it</button>
+
+        <script>
+            var x12 = document.getElementById("myBtn12");
+            x12.addEventListener("click", myFunction12);
+            x12.addEventListener("click", someOtherFunction12);
+
+            function myFunction12() {
+                alert("Hello World!");
+            }
+
+            function someOtherFunction12() {
+                alert("This function was also executed!");
+            }
+        </script>
+
+        <p>This example uses the addEventListener() method to add many events on the same button.</p>
+
+        <button id="myBtn13">Try it</button>
+
+        <p id="demo13"></p>
+
+        <script>
+            var x13 = document.getElementById("myBtn13");
+            x13.addEventListener("mouseover", myFunction13);
+            x13.addEventListener("click", mySecondFunction13);
+            x13.addEventListener("mouseout", myThirdFunction13);
+
+            function myFunction13() {
+                document.getElementById("demo13").innerHTML += "Moused over!<br>";
+            }
+
+            function mySecondFunction13() {
+                document.getElementById("demo13").innerHTML += "Clicked!<br>";
+            }
+
+            function myThirdFunction13() {
+                document.getElementById("demo13").innerHTML += "Moused out!<br>";
+            }
+        </script>
+
+        <h3>Add an Event Handler to the window Object</h3>
+
+        <p>The addEventListener() method allows you to add event listeners on any HTML DOM object such as HTML elements,
+            the HTML document, the window object, or other objects that support events, like the xmlHttpRequest object.
+        </p>
+
+        <p>This example uses the addEventListener() method on the window object.</p>
+
+        <p>Try resizing this browser window to trigger the "resize" event handler.</p>
+
+        <p id="demo14"></p>
+
+        <script>
+            window.addEventListener("resize", function () {
+                document.getElementById("demo14").innerHTML = Math.random();
+            });
+        </script>
+
+        <h3>Passing Parameters</h3>
+
+        <p>When passing parameter values, use an "anonymous function" that calls the specified function with the
+            parameters:</p>
+
+        <p>This example demonstrates how to pass parameter values when using the addEventListener() method.</p>
+
+        <p>Click the button to perform a calculation.</p>
+
+        <button id="myBtn15">Try it</button>
+
+        <p id="demo15"></p>
+
+        <script>
+            let p1 = 5;
+            let p2 = 7;
+            document.getElementById("myBtn15").addEventListener("click", function () {
+                myFunction15(p1, p2);
+            });
+
+            function myFunction15(a, b) {
+                document.getElementById("demo15").innerHTML = a * b;
+            }
+        </script>
+
+        <h3>Use capture -true or false-</h3>
+
+        <div id="myDiv16a">
+            <h2>Bubbling:</h2>
+            <p id="myP16a">Click me!</p>
+        </div><br>
+
+        <div id="myDiv16b">
+            <h2>Capturing:</h2>
+            <p id="myP16b">Click me!</p>
+        </div>
+
+        <script>
+            document.getElementById("myP16a").addEventListener("click", function () {
+                alert("You clicked the white element!");
+            }, false);
+
+            document.getElementById("myDiv16a").addEventListener("click", function () {
+                alert("You clicked the orange element!");
+            }, false);
+
+            document.getElementById("myP16b").addEventListener("click", function () {
+                alert("You clicked the white element!");
+            }, true);
+
+            document.getElementById("myDiv16b").addEventListener("click", function () {
+                alert("You clicked the orange element!");
+            }, true);
+        </script>
+
+        <h3>The removeEventListener() method</h3>
+
+        <p>The removeEventListener() method removes event handlers that have been attached with the addEventListener()
+            method:</p>
+
+        <div id="myDIV17">
+            <p>This div element has an onmousemove event handler that displays a random number every time you move your
+                mouse inside this orange field.</p>
+            <p>Click the button to remove the div's event handler.</p>
+            <button onclick="removeHandler()" id="myBtn17">Remove</button>
+        </div>
+
+        <p id="demo17"></p>
+
+        <script>
+            document.getElementById("myDIV17").addEventListener("mousemove", myFunction17);
+
+            function myFunction17() {
+                document.getElementById("demo17").innerHTML = Math.random();
+            }
+
+            function removeHandler() {
+                document.getElementById("myDIV17").removeEventListener("mousemove", myFunction17); //exactamente igual que al crearlo, refiriendo al elemento por su id y con removeEventListener elimino la función
+            }
+        </script>
+
+        <h2>DOM Navigation</h2>
+
+        <h3>DOM Nodes</h3>
+
+        <p>Everything in an HTML document is a node.</p>
+
+        <ul>
+            <li>The entire document is a node</li>
+            <li>Every HTML element is an element node</li>
+            <li>The text inside HTML elements are text nodes</li>
+            <li>Every HTML attribute is an attribute node</li>
+            <li>All comments are comment node</li>
+        </ul>
+
+        <h3>Node Relationships</h3>
+
+        <p>Ver <a href="https://www.w3schools.com/js/js_htmldom_navigation.asp" target="_blank">DOM Navigation</a></p>
+
+        <p>The nodes in the node tree have a hierarchical relationship to each other. <br> The terms parent, child, and
+            sibling are used to describe the relationships.</p>
+
+        <ul>
+            <li>In a node tree, the top node is called the root (or root node)</li>
+            <li>Every node has exactly one parent, except the root (which has no parent)
+            </li>
+            <li>A node can have a number of children</li>
+            <li>Siblings (brothers or sisters) are nodes with the same parent</li>
+        </ul>
+
+        <!--
+            <html>
+
+            <head>
+                <title>DOM Tutorial</title>
+            </head>
+
+            <body>
+                <h1>DOM Lesson one</h1>
+                <p>Hello world!</p>
+            </body>
+
+            </html>
+        -->
+
+        <!--
+            From the HTML above you can read:
+
+            <html> is the root node
+            <html> has no parents
+            <html> is the parent of <head> and <body>
+            <head> is the first child of <html>
+            <body> is the last child of <html>
+            and:
+
+            <head> has one child: <title>
+            <title> has one child (a text node): "DOM Tutorial"
+            <body> has two children: <h1> and <p>
+            <h1> has one child: "DOM Lesson one"
+            <p> has one child: "Hello world!"
+            <h1> and <p> are siblings
+
+        -->
+
+        <h3>Navigating Between Nodes</h3>
+
+        <p>You can use the following node properties to navigate between nodes with JavaScript:</p>
+
+        <ul>
+            <li>parentNode</li>
+            <li>childNodes[nodenumber]</li>
+            <li>firstChild</li>
+            <li>lastChild</li>
+            <li>nextSibling</li>
+            <li>previousSibling</li>
+        </ul>
+
+        <h3>Child Nodes and Node Values</h3>
+
+        <p>The element node title. The value of the text node can be accessed by the node's innerHTML property:</p>
+
+        <code>
+            myTitle = document.getElementById("demo").innerHTML;
+        </code>
+
+        <p>Accessing the innerHTML property is the same as accessing the nodeValue of the first child:</p>
+
+        <code>
+            myTitle = document.getElementById("demo").firstChild.nodeValue;
+        </code>
+
+        <p>Accessing the first child can also be done like this:</p>
+
+        <code>
+            myTitle = document.getElementById("demo").childNodes[0].nodeValue;
+        </code>
+
+        <!--
+            Ej 1
+
+            <h1 id="id01">My First Page</h1>
+            <p id="id02"></p>
+
+            <script>
+            document.getElementById("id02").innerHTML = document.getElementById("id01").innerHTML;
+            </script>
+
+            Ej 2
+
+            <h1 id="id01">My First Page</h1>
+            <p id="id02"></p>
+
+            <script>
+            document.getElementById("id02").innerHTML = document.getElementById("id01").firstChild.nodeValue;
+            </script>
+
+            Ej 3
+
+            <h1 id="id01">My First Page</h1>
+            <p id="id02">Hello!</p>
+
+            <script>
+            document.getElementById("id02").innerHTML = document.getElementById("id01").childNodes[0].nodeValue;
+            </script>
+        -->
+
+        <h3>DOM Root Nodes</h3>
+
+        <p>There are two special properties that allow access to the full document:</p>
+
+        <ul>
+            <li>document.body - The body of the document</li>
+            <li>document.documentElement - The full document</li>
+        </ul>
+
+        <!--
+            Ej 1
+
+            <h2>JavaScript HTMLDOM</h2>
+            <p>Displaying document.body</p>
+
+            <p id="demo"></p>
+
+            <script>
+            document.getElementById("demo").innerHTML = document.body.innerHTML;
+            </script>
+
+            Ej 2
+
+            <h2>JavaScript HTMLDOM</h2>
+            <p>Displaying document.documentElement</p>
+
+            <p id="demo"></p>
+
+            <script>
+            document.getElementById("demo").innerHTML = document.documentElement.innerHTML;
+            </script>
+        -->
+
+        <h3>The nodeName Property</h3>
+
+        <p>The nodeName property specifies the name of a node.</p>
+
+        <ul>
+            <li>nodeName is read only</li>
+            <li>nodeName of an element node is the same as the tag name</li>
+            <li>nodeName of an attribute node is the attribute name</li>
+            <li>nodeName of a text node is always #text</li>
+            <li>nodeName of the document node is always #document</li>
+        </ul>
+
+        <p>Ejemplo</p>
+
+        <h4 id="id018a">My First Page</h4>
+        <p id="id018b"></p>
+
+        <script>
+            document.getElementById("id018b").innerHTML = document.getElementById("id018a").nodeName; //nodeName always contains the uppercase tag name of an HTML element
+        </script>
+
+        <h3>The nodeValue Property</h3>
+
+        <p>The nodeValue property specifies the value of a node.</p>
+
+        <ul>
+            <li>nodeValue for element nodes is null</li>
+            <li>nodeValue for text nodes is the text itself</li>
+            <li>nodeValue for attribute nodes is the attribute value</li>
+        </ul>
+
+        <h3>The nodeType Property</h3>
+
+        <p>The nodeType property is read only. It returns the type of a node.</p>
+
+        <h4 id="id019a">My First Page</h1>
+            <p id="id019b"></p>
+
+            <script>
+                document.getElementById("id019b").innerHTML = document.getElementById("id019a").nodeType;
+            </script>
+
+            <p>The most important nodeType properties are:</p>
+
+            <ol>
+                <li>1 - Element node - tags h</li>
+                <li>2 - Attribute node - class</li>
+                <li>3 - Text node - Un texto</li>
+                <li>8 - Comment node - Comentarios</li>
+                <li>9 - Document node - El documento HTML en sí mismo</li>
+                <li>10 - Document type node - Doctype</li>
+            </ol>
+
+            <h2>DOM Nodes</h2>
+
+            <h3>Creating New HTML Elements (Nodes)</h3>
+
+            <p>To add a new element to the HTML DOM, you must create the element (element node) first, and then append
+                it to an existing element.</p>
+
+            <p>Add a new HTML Element with appendChild() lo agrega al final</p>
+
+            <div id="div20">
+                <p id="p20a">This is a paragraph.</p>
+                <p id="p20b">This is another paragraph.</p>
+            </div>
+
+            <script>
+                const para20 = document.createElement("p"); //variable para crear el nuevo elemento p
+                const node20 = document.createTextNode("This is new."); //nodo nuevo para poder agregarle texto
+                para20.appendChild(node20); //asocio nodo y variable -elemento-
+                const element20 = document.getElementById("div20"); // este código encuentra el elemento
+                element20.appendChild(para20); //reflejo nodo nuevo (nuevo elemento) 
+            </script>
+
+            <h3>Creating new HTML Elements - insertBefore()</h3>
+
+            <p>Lo agrega al ppio. </p>
+
+            <p>Add a new HTML Element.</p>
+
+            <div id="div21">
+                <p id="p21a">This is a paragraph.</p>
+                <p id="p21b">This is another paragraph.</p>
+            </div>
+
+            <script>
+                const para21 = document.createElement("p");
+                const node21 = document.createTextNode("This is new.");
+                para21.appendChild(node21);
+
+                const element21 = document.getElementById("div21");
+                const child21 = document.getElementById("p21a"); //se posiciona en el primer párrafo
+                element21.insertBefore(para21, child21);
+            </script>
+
+            <h3>Removing Existing HTML Elements</h3>
+
+            <p>To remove an HTML element, use the remove() method:</p>
+
+            <div>
+                <p id="p22a">This is a paragraph.</p>
+                <p id="p22b">This is another paragraph.</p>
+            </div>
+
+            <button onclick="myFunction22()">Remove Element</button>
+
+            <script>
+                function myFunction22() {
+                    document.getElementById("p22a").remove();
+                }
+            </script>
+
+            <h3>Removing a Child Node</h3>
+
+            <p>For browsers that does not support the remove() method, you have to find the parent node to remove an
+                element:</p>
+
+            <div id="div23">
+                <p id="p23a">This is a paragraph.</p>
+                <p id="p23b">This is another paragraph.</p>
+            </div>
+
+            <script>
+                const parent23 = document.getElementById("div23");
+                const child23 = document.getElementById("p23a");
+                parent23.removeChild(child23);
+            </script>
+
+            <p>Here is a common workaround: Find the child you want to remove, and use its parentNode property to find
+                the parent:</p>
+
+            <code>
+                const child = document.getElementById("p1");
+                child.parentNode.removeChild(child);
+            </code>
+
+            <h3>Replacing HTML Elements</h3>
+
+            <p>To replace an element to the HTML DOM, use the replaceChild() method:</p>
+
+            <div id="div24">
+                <p id="p24a">This is a paragraph.</p>
+                <p id="p24b">This is a paragraph.</p>
+            </div>
+
+            <script>
+                const parent24 = document.getElementById("div24");
+                const child24 = document.getElementById("p24a");
+                const para24 = document.createElement("p");
+                const node24 = document.createTextNode("This is new.");
+                para24.appendChild(node24);
+                parent24.replaceChild(para24, child24);
+            </script>
+
+            <h2>DOM Collections</h2>
+
+            <h3>The HTMLCollection Object</h3>
+
+            <p>The getElementsByTagName() method returns an HTMLCollection object. <br> An HTMLCollection object is an
+                array-like list (collection) of HTML elements. <br> The following code selects all
+            <p> elements in a document:</p>
+
+            <code>
+                const myCollection = document.getElementsByTagName("p");
+            </code>
+
+            <p>The elements in the collection can be accessed by an index number. To access the second p element you can
+                write:</p>
+
+            <code>
+                myCollection[1]
+            </code>
+
+            <h3>HTML HTMLCollection Length</h3>
+
+            <p>The length property defines the number of elements in an HTMLCollection:</p>
+
+            <code>
+                myCollection.length
+            </code>
+
+            <p>The length property is useful when you want to loop through the elements in a collection:</p>
+
+            <p>Ejemplo</p>
+
+            <p>Hello World!</p>
+
+            <p>Hello Norway!</p>
+
+            <p>Click the button to change the color of all p elements.</p>
+
+            <button onclick="myFunction25()">Try it</button>
+
+            <script>
+                function myFunction25() {
+                    const myCollection25 = document.getElementsByTagName("p");
+                    for (let i = 0; i < myCollection25.length; i++) {
+                        myCollection25[i].style.color = "red";
+                    }
+                }
+            </script>
+
+            <h2>DOM Lists</h2>
+
+            <h3>The HTML DOM NodeList Object</h3>
+
+            <p>A NodeList and an HTMLcollection is very much the same thing. <br> Both are array-like collections
+                (lists) of nodes (elements) extracted from a document. The nodes can be accessed by index numbers. The
+                index starts at 0. <br> Both have a length property that returns the number of elements in the list
+                (collection).</p>
+
+            <p>A NodeList object is a list (collection) of nodes extracted from a document. <br> A NodeList object is
+                almost the same as an HTMLCollection object. <br> All browsers return a NodeList object for the property
+                childNodes. <br> Most browsers return a NodeList object for the method querySelectorAll(). <br> The
+                following code selects all p nodes in a document:</p>
+
+            <code>
+                const myNodeList = document.querySelectorAll("p");
+            </code>
+
+            <p>The elements in the NodeList can be accessed by an index number. <br> To access the second
+            <p> node you can write:</p>
+
+            <code>
+                myNodeList[1]
+            </code>
+
+            <h3>HTML DOM Node List Length</h3>
+
+            <p>The length property defines the number of nodes in a node list:</p>
+
+            <code>
+                myNodelist.length
+            </code>
+
+            <p>The length property is useful when you want to loop through the nodes in a node list:</p>
+
+            <p>Hello World!</p>
+
+            <p>Hello Norway!</p>
+
+            <p>Click the button to change the color of all p elements.</p>
+
+            <button onclick="myFunction26()">Try it</button>
+
+            <script>
+                function myFunction26() {
+                    const myNodelist26 = document.querySelectorAll("p");
+                    for (let i = 0; i < myNodelist26.length; i++) {
+                        myNodelist26[i].style.color = "red";
+                    }
+                }
+            </script>
+
+            <h3>The Difference Between an HTMLCollection and a NodeList</h3>
+
+            <p>An HTMLCollection is a collection of document elements. A NodeList is a collection of document nodes (element nodes, attribute nodes, and text nodes). <br> HTMLCollection items can be accessed by their name, id, or index number. NodeList items can only be accessed by their index number. <br> An HTMLCollection is always a live collection. Example: If you add a li element to a list in the DOM, the list in the HTMLCollection will also change. A NodeList is most often a static collection. Example: If you add a li element to a list in the DOM, the list in NodeList will not change. <br> The getElementsByClassName() and getElementsByTagName() methods return a live HTMLCollection. <br> The querySelectorAll() method returns a static NodeList. <br> The childNodes property returns a live NodeList.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

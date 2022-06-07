@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS BOM</title>
+
+</head>
+
+<body>
+
+    <h1>JavaScript Window - The Browser Object Model</h1>
+
+    <h2>The Browser Object Model (BOM)</h2>
+
+    <p>The Browser Object Model (BOM) allows JavaScript to "talk to" the browser. <br> Since modern browsers have
+        implemented (almost) the same methods and properties for JavaScript interactivity, it is often referred to, as
+        methods and properties of the BOM.</p>
+
+    <h3>The Window Object</h3>
+
+    <p>The window object is supported by all browsers. It represents the browser's window. <br> All global JavaScript
+        objects, functions, and variables automatically become members of the window object. <strong> Global variables
+            are properties of the window object</strong>. <strong> Global functions are methods of the window object.
+        </strong>. <br> Even <strong> the document object (of the HTML DOM) is a property of the window object
+        </strong>.</p>
+
+    <code>
+        window.document.getElementById("header");
+    </code>
+
+    <p>is the same as:</p>
+
+    <code>
+        document.getElementById("header");
+    </code>
+
+    <h3>Window Size</h3>
+
+    <p>Two properties can be used to determine the size of the browser window. <br> Both properties return the sizes in
+        pixels:</p>
+
+    <ul>
+        <li>window.innerHeight - the inner height of the browser window (in pixels)</li>
+        <li>window.innerWidth - the inner width of the browser window (in pixels)</li>
+    </ul>
+
+    <p>The browser window (the browser viewport) is NOT including toolbars and scrollbars.</p>
+
+    <code>
+        let w = window.innerWidth; <br>
+        let h = window.innerHeight;
+    </code>
+
+    <p>Ejemplo</p>
+
+    <p id="demo1"></p>
+
+    <script>
+        document.getElementById("demo1").innerHTML =
+            "Browser inner window width: " + window.innerWidth + "px<br>" +
+            "Browser inner window height: " + window.innerHeight + "px";
+    </script>
+
+    <h3>Other Window Methods</h3>
+
+    <ul>
+        <li>window.open () - abre una nueva ventana</li>
+        <li>window.close() - cierra la ventana que se está usando</li>
+        <li>window.moveTo() - mueve la ventana que se está usando</li>
+        <li>window.resizeTo() - redimensiona la ventana que se está usando</li>
+    </ul>
+
+    <h2>JS Screen</h2>
+
+    <p>The window.screen object contains information about the user's screen.</p>
+
+    <h3>Window Screen</h3>
+
+    <p>The window.screen object can be written without the window prefix.</p>
+
+    <p>Properties</p>
+
+    <ul>
+        <li>screen.width</li>
+        <li>screen.height</li>
+        <li>screen.availWidth</li>
+        <li>screen.availHeight</li>
+        <li>screen.colorDepth</li>
+        <li>screen.pixelDepth</li>
+    </ul>
+
+    <h3>Window Screen Width</h3>
+
+    <p>The screen.width property returns the width of the visitor's screen in pixels.</p>
+
+    <code>
+        document.getElementById("demo").innerHTML =
+        "Screen Width: " + screen.width;
+    </code>
+
+    <p id="demo2"></p>
+
+    <script>
+        document.getElementById("demo2").innerHTML =
+            "Screen width is " + screen.width;
+    </script>
+
+    <h3>Window Screen Height</h3>
+
+    <p>The screen.height property returns the height of the visitor's screen in pixels.</p>
+
+    <code>
+        document.getElementById("demo").innerHTML =
+        "Screen Height: " + screen.height;
+    </code>
+
+    <p>Ejemplo</p>
+
+    <p id="demo3"></p>
+
+    <script>
+        document.getElementById("demo3").innerHTML =
+            "Screen height is " + screen.height;
+    </script>
+
+    <h3>Window Screen Available Width</h3>
+
+    <p>The screen.availWidth property returns the width of the visitor's screen, in pixels, minus interface features
+        like the Windows Taskbar.</p>
+
+    <code>
+        document.getElementById("demo").innerHTML =
+"Available Screen Width: " + screen.availWidth;
+    </code>
+
+    <p id="demo4"></p>
+
+    <script>
+        document.getElementById("demo4").innerHTML =
+            "Available screen width is " + screen.availWidth;
+    </script>
+
+    <h3>Window Screen Available Height</h3>
+
+    <p>The screen.availHeight property returns the height of the visitor's screen, in pixels, minus interface features
+        like the Windows Taskbar.</p>
+
+    <code>
+        document.getElementById("demo").innerHTML =
+"Available Screen Height: " + screen.availHeight;
+    </code>
+
+    <p id="demo5"></p>
+
+    <script>
+        document.getElementById("demo5").innerHTML =
+            "Available screen height is " + screen.availHeight;
+    </script>
+
+    <h3>Window Screen Color Depth</h3>
+
+    <p>The screen.colorDepth property returns the number of bits used to display one color. <br> All modern computers
+        use 24 bit or 32 bit hardware for color resolution:</p>
+
+    <ul>
+        <li>24 bits = 16,777,216 different "True Colors"</li>
+        <li>32 bits = 4,294,967,296 different "Deep Colors"</li>
+    </ul>
+
+    <code>
+        document.getElementById("demo").innerHTML =
+        "Screen Color Depth: " + screen.colorDepth;
+    </code>
+
+    <p id="demo6"></p>
+
+    <script>
+        document.getElementById("demo6").innerHTML =
+            "Screen color depth is " + screen.colorDepth;
+    </script>
+
+    <h3>Window Screen Pixel Depth</h3>
+
+    <p>The screen.pixelDepth property returns the pixel depth of the screen.</p>
+
+    <code>
+        document.getElementById("demo").innerHTML =
+        "Screen Pixel Depth: " + screen.pixelDepth;
+    </code>
+
+    <p id="demo7"></p>
+
+    <script>
+        document.getElementById("demo7").innerHTML =
+            "Screen pixel depth is " + screen.pixelDepth;
+    </script>
+
+    <h2>Window location</h2>
+
+    <p>The window.location object can be used to get the current page address (URL) and to redirect the browser to a new
+        page. <br> The window.location object can be written without the window prefix. <br> Some examples:</p>
+
+    <ul>
+        <li>window.location.href returns the href (URL) of the current page</li>
+        <li>window.location.hostname returns the domain name of the web host</li>
+        <li>window.location.pathname returns the path and filename of the current page</li>
+        <li>window.location.protocol returns the web protocol used (http: or https:)</li>
+        <li>window.location.assign() loads a new document</li>
+    </ul>
+
+    <h3>Window Location Href</h3>
+
+    <code>
+        document.getElementById("demo").innerHTML =
+"Page location is " + window.location.href;
+    </code>
+
+    <p id="demo8"></p>
+
+    <script>
+        document.getElementById("demo8").innerHTML =
+            "The full URL of this page is:<br>" + window.location.href;
+    </script>
+
+    <h3>Window Location Hostname</h3>
+
+    <code>
+        document.getElementById("demo").innerHTML =
+"Page hostname is " + window.location.hostname;
+    </code>
+
+    <p id="demo9"></p>
+
+    <script>
+        document.getElementById("demo9").innerHTML =
+            "Page hostname is: " + window.location.hostname;
+    </script>
+
+    <h3>Window Location Pathname</h3>
+
+    <code>
+        document.getElementById("demo").innerHTML =
+"Page path is " + window.location.pathname;
+    </code>
+
+    <p id="demo10"></p>
+
+    <script>
+        document.getElementById("demo10").innerHTML =
+            "Page path is: " + window.location.pathname;
+    </script>
+
+    <h3>Window Location Protocol</h3>
+
+    <code>
+        document.getElementById("demo").innerHTML =
+"Page protocol is " + window.location.protocol;
+    </code>
+
+    <p id="demo11"></p>
+
+    <script>
+        document.getElementById("demo11").innerHTML =
+            "The page protocol is: " + window.location.protocol;
+    </script>
+
+    <h3>Window Location Port</h3>
+
+    <p>document.getElementById("demo").innerHTML =
+        "Port number is " + window.location.port;</p>
+
+    <p>Most browsers will not display default port numbers (80 for http and 443 for https)</p>
+
+    <p id="demo12"></p>
+
+    <p><b>Note: </b>If the port number is default (80 for http and 443 for https), most browsers will display 0 or
+        nothing.</p>
+
+    <script>
+        document.getElementById("demo12").innerHTML =
+            "The URL port number of the current page is: " + window.location.port;
+    </script>
+
+    <h3>Window Location Assign</h3>
+
+    <input type="button" value="Load new document" onclick="newDoc13()">
+    <!--Cargar la función en el botón con onclick-->
+
+    <script>
+        function newDoc13() { //(href) 
+            window.location.assign("https://www.w3schools.com")
+        }
+    </script>
+
+    <h2>Window history</h2>
+
+    <p>The window.history object contains the browsers history. <br>The window.history object can be written without the
+        window prefix. <br> To protect the privacy of the users, there are limitations to how JavaScript can access this
+        object. <br> Some methods:</p>
+
+    <ul>
+        <li>history.back() - same as clicking back in the browser</li>
+        <li>history.forward() - same as clicking forward in the browser</li>
+    </ul>
+
+    <h3>Window History Back</h3>
+
+    <p>Ejemplo</p>
+
+    <!--
+        <html>
+        <head>
+        <script>
+        function goBack() {
+        window.history.back()
+        }
+        </script>
+        </head>
+        <body>
+
+        <input type="button" value="Back" onclick="goBack()">
+
+        </body>
+        </html>
+
+        El output es un botón
+    -->
+
+    <h3>Window History Forward</h3>
+
+    <p>Ejemplo</p>
+
+    <!--
+        <html>
+        <head>
+        <script>
+        function goForward() {
+        window.history.forward()
+        }
+        </script>
+        </head>
+        <body>
+
+        <input type="button" value="Forward" onclick="goForward()">
+
+        </body>
+        </html>
+
+        El output es un botón
+    -->
+
+    <h3>Window Navigator</h3>
+
+    <p>The window.navigator object contains information about the visitor's browser. <br> The window.navigator object
+        can be written without the window prefix. <br> Some examples: </p>
+
+    <ul>
+        <li>navigator.appName</li>
+        <li>navigator.appCodeName</li>
+        <li>navigator.platform</li>
+    </ul>
+
+    <h3>Browser Cookies</h3>
+
+    <p>The cookieEnabled property returns true if cookies are enabled, otherwise false:</p>
+
+    <p>Ejemplo</p>
+
+    <p id="demo14"></p>
+
+    <script>
+        document.getElementById("demo14").innerHTML =
+            "navigator.cookieEnabled is " + navigator.cookieEnabled;
+    </script>
+
+    <h3>Browser Application Name</h3>
+
+    <p>The appName property returns the application name of the browser. <br> Strange enough, "Netscape" is the
+        application name for both IE11, Chrome, Firefox, and Safari.</p>
+
+    <p id="demo15"></p>
+
+    <p>Strange enough, "Netscape" is the application name for IE11, Chrome, Firefox, and Safari.</p>
+
+    <script>
+        document.getElementById("demo15").innerHTML =
+            "navigator.appName is " + navigator.appName;
+    </script>
+
+    <h3>Browser Application Code Name</h3>
+
+    <p>The appCodeName property returns the application code name of the browser.</p>
+
+    <p>Do not rely on it! "Mozilla" is the application code name for Chrome, Firefox, IE, Safari, and Opera.</p>
+
+    <p>Ejemplo</p>
+
+    <p id="demo16"></p>
+
+    <script>
+        document.getElementById("demo16").innerHTML =
+            "navigator.appCodeName is " + navigator.appCodeName;
+    </script>
+
+    <h3>The Browser Engine</h3>
+
+    <p>The product property returns the product name of the browser engine:</p>
+
+    <p>Do not rely on this. Most browsers returns "Gecko" as product name !!</p>
+
+    <p id="demo17"></p>
+
+    <script>
+        document.getElementById("demo17").innerHTML =
+            "navigator.product is " + navigator.product;
+    </script>
+
+    <h3>The Browser Version</h3>
+
+    <p>The appVersion property returns version information about the browser:</p>
+
+    <p id="demo18"></p>
+
+    <script>
+        document.getElementById("demo18").innerHTML = navigator.appVersion;
+    </script>
+
+    <h3>The Browser Agent</h3>
+
+    <p>The userAgent property returns the user-agent header sent by the browser to the server:</p>
+
+    <p id="demo19"></p>
+
+    <script>
+        document.getElementById("demo19").innerHTML =
+            navigator.userAgent;
+    </script>
+
+    <h3>Warning !!!</h3>
+
+    <p>The information from the navigator object can often be misleading, and should not be used to detect browser
+        versions because:</p>
+
+    <ul>
+        <li>Different browsers can use the same name</li>
+        <li>The navigator data can be changed by the browser owner</li>
+        <li>Some browsers misidentify themselves to bypass site tests</li>
+        <li>Browsers cannot report new operating systems, released later than the browser</li>
+    </ul>
+
+    <h3>The Browser Platform</h3>
+
+    <p>The platform property returns the browser platform (operating system):</p>
+
+    <p id="demo20"></p>
+
+    <script>
+        document.getElementById("demo20").innerHTML =
+            "navigator.platform is " + navigator.platform;
+    </script>
+
+    <h3>The Browser Language</h3>
+
+    <p>The language property returns the browser's language:</p>
+
+    <p id="demo21"></p>
+
+    <script>
+        document.getElementById("demo21").innerHTML =
+            "navigator.language is " + navigator.language;
+    </script>
+
+    <h3>Is The Browser Online?</h3>
+
+    <p>The onLine property returns true if the browser is online:</p>
+
+    <p id="demo22"></p>
+
+    <script>
+        document.getElementById("demo22").innerHTML =
+            "navigator.onLine is " + navigator.onLine;
+    </script>
+
+    <h3>Is Java Enabled?</h3>
+
+    <p>The javaEnabled() method returns true if Java is enabled:</p>
+
+    <p id="demo23"></p>
+
+    <script>
+        document.getElementById("demo23").innerHTML =
+            "javaEnabled is " + navigator.javaEnabled();
+    </script>
+
+    <h2>PopUps</h2>
+
+    <p>JavaScript has three kind of popup boxes: Alert box, Confirm box, and Prompt box.</p>
+
+    <h3>Alert Box</h3>
+
+    <p>An alert box is often used if you want to make sure information comes through to the user. <br> When an alert box
+        pops up, the user will have to click "OK" to proceed.</p>
+
+    <code>
+        window.alert("sometext"); //puede escribirse sin el window delante
+    </code>
+
+    <br>
+    <br>
+
+    <button onclick="myFunction24()">Try it</button>
+
+    <script>
+        function myFunction24() {
+            alert("I am an alert box!");
+        }
+    </script>
+
+    <h3>Confirm Box</h3>
+
+    <p>A confirm box is often used if you want the user to verify or accept something. <br> When a confirm box pops up,
+        the user will have to click either "OK" or "Cancel" to proceed. <br> If the user clicks "OK", the box returns
+        true. If the user clicks "Cancel", the box returns false.</p>
+
+    <code>
+        window.confirm("sometext");
+    </code>
+
+    <p>The window.confirm() method can be written without the window prefix.</p>
+
+    <button onclick="myFunction25()">Try it</button>
+
+    <p id="demo25"></p>
+
+    <script>
+        function myFunction25() {
+            var txt25;
+            if (confirm("Press a button!")) {
+                txt25 = "You pressed OK!";
+            } else {
+                txt25 = "You pressed Cancel!";
+            }
+            document.getElementById("demo25").innerHTML = txt25;
+        }
+    </script>
+
+    <h3>Prompt Box</h3>
+
+    <p>A prompt box is often used if you want the user to input a value before entering a page. <br> When a prompt box
+        pops up, the user will have to click either "OK" or "Cancel" to proceed after entering an input value. <br> If
+        the user clicks "OK" the box returns the input value. If the user clicks "Cancel" the box returns null.</p>
+
+    <code>
+        window.prompt("sometext","defaultText");
+    </code>
+
+    <p>The window.prompt() method can be written without the window prefix.</p>
+
+    <p>Ejemplo</p>
+
+    <button onclick="myFunction26()">Try it</button>
+
+    <p id="demo26"></p>
+
+    <script>
+        function myFunction26() {
+            let text26;
+            let person26 = prompt("Please enter your name:", "Harry Potter");
+            if (person26 == null || person26 == "") {
+                text26 = "User cancelled the prompt.";
+            } else {
+                text26 = "Hello " + person26 + "! How are you today?";
+            }
+            document.getElementById("demo26").innerHTML = text26;
+        }
+    </script>
+
+    <h3>Line Breaks</h3>
+
+    <p>To display line breaks inside a popup box, use a back-slash followed by the character n.</p>
+
+    <code>
+        alert("Hello\nHow are you?");
+    </code>
+
+    <br>
+    <br>
+
+    <button onclick="alert('Hello\nHow are you?')">Try it</button>
+
+    <h2>Timing</h2>
+
+    <h3>Timing Events</h3>
+
+    <p>The window object allows execution of code at specified time intervals. <br> These time intervals are called
+        timing events. <br> The two key methods to use with JavaScript are:</p>
+
+    <ul>
+        <li>setTimeout(function, milliseconds)
+            Executes a function, after waiting a specified number of milliseconds.</li>
+        <li>setInterval(function, milliseconds)
+            Same as setTimeout(), but repeats the execution of the function continuously.</li>
+    </ul>
+
+    <p>The setTimeout() and setInterval() are both methods of the HTML DOM Window object.</p>
+
+    <h3>The setTimeout() Method</h3>
+
+    <code>
+        window.setTimeout(function, milliseconds);
+    </code>
+
+    <p>The window.setTimeout() method can be written without the window prefix. <br> The first parameter is a function
+        to be executed. <br> The second parameter indicates the number of milliseconds before execution.</p>
+
+    <p>Click "Try it". Wait 3 seconds, and the page will alert "Hello".</p>
+
+    <button onclick="setTimeout(myFunction27, 3000);">Try it</button>
+
+    <script>
+        function myFunction27() {
+            alert('Hello');
+        }
+    </script>
+
+    <h3>How to Stop the Execution?</h3>
+
+    <p>The clearTimeout() method stops the execution of the function specified in setTimeout().</p>
+
+    <code>
+        window.clearTimeout(timeoutVariable)
+    </code>
+
+    <p>The window.clearTimeout() method can be written without the window prefix. <br> The clearTimeout() method uses
+        the variable returned from setTimeout():</p>
+
+    <code>
+        myVar = setTimeout(function, milliseconds); <br>
+        clearTimeout(myVar);
+    </code>
+
+    <p>If the function has not already been executed, you can stop the execution by calling the clearTimeout() method:
+    </p>
+
+    <p>Click "Try it". Wait 3 seconds. The page will alert "Hello".</p>
+    <p>Click "Stop" to prevent the first function to execute.</p>
+    <p>(You must click "Stop" before the 3 seconds are up.)</p>
+
+    <button onclick="myVar28 = setTimeout(myFunction28, 3000)">Try it</button>
+
+    <button onclick="clearTimeout(myVar28)">Stop it</button>
+
+    <script>
+        function myFunction28() {
+            alert("Hello");
+        }
+    </script>
+
+    <h3>The setInterval() Method</h3>
+
+    <p>The setInterval() method repeats a given function at every given time-interval.</p>
+
+    <code>
+        window.setInterval(function, milliseconds);
+    </code>
+
+    <p>The window.setInterval() method can be written without the window prefix. <br> The first parameter is the
+        function to be executed. <br> The second parameter indicates the length of the time-interval between each
+        execution. <br> This example executes a function called "myTimer" once every second (like a digital watch).</p>
+
+    <p id="demo29"></p>
+
+    <script>
+        setInterval(myTimer29, 1000); //1000 es miliseconds, 1 segundo
+
+        function myTimer29() {
+            const d29 = new Date();
+            document.getElementById("demo29").innerHTML = d29.toLocaleTimeString();
+        }
+    </script>
+
+    <h3>How to Stop the Execution?</h3>
+
+    <p>The clearInterval() method stops the executions of the function specified in the setInterval() method.</p>
+
+    <code>
+        window.clearInterval(timerVariable)
+    </code>
+
+    <p>The window.clearInterval() method can be written without the window prefix. <br> The clearInterval() method uses
+        the variable returned from setInterval():</p>
+
+    <code>
+        let myVar = setInterval(function, milliseconds); <br>
+        clearInterval(myVar);
+    </code>
+
+    <p id="demo30"></p>
+
+    <button onclick="clearInterval(myVar30)">Stop time</button>
+
+    <script>
+        let myVar30 = setInterval(myTimer30, 1000);
+        function myTimer30() {
+            const d30 = new Date();
+            document.getElementById("demo30").innerHTML = d30.toLocaleTimeString();
+        }
+    </script>
+
+    <h2>Cookies</h2>
+
+    <p>Cookies let you store user information in web pages.</p>
+
+    <h3>What are Cookies?</h3>
+
+    <p>Cookies are data, stored in small text files, on your computer. <br> When a web server has sent a web page to a
+        browser, the connection is shut down, and the server forgets everything about the user. Cookies were invented to
+        solve the problem "how to remember information about the user":</p>
+
+    <ul>
+        <li>When a user visits a web page, his/her name can be stored in a cookie.</li>
+        <li> Next time the user visits the page, the cookie "remembers" his/her name.</li>
+    </ul>
+
+    <p>Cookies are saved in name-value pairs like:</p>
+
+    <code>
+        username = John Doe
+    </code>
+
+    <p>When a browser requests a web page from a server, cookies belonging to the page are added to the request. This
+        way the server gets the necessary data to "remember" information about users.</p>
+
+    <h3>Create a Cookie with JavaScript</h3>
+
+    <p>JavaScript can create, read, and delete cookies with the document.cookie property. <br> With JavaScript, a cookie
+        can be created like this:</p>
+
+    <code>
+        document.cookie = "username=John Doe";
+    </code>
+
+    <p>You can also add an expiry date (in UTC time). By default, the cookie is deleted when the browser is closed:</p>
+
+    <code>
+        document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC";
+    </code>
+
+    <p>With a path parameter, you can tell the browser what path the cookie belongs to. By default, the cookie belongs
+        to the current page.</p>
+
+    <code>
+        document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+    </code>
+
+    <h3>Read a Cookie with JavaScript</h3>
+
+    <p>document.cookie will return all cookies in one string much like: cookie1=value; cookie2=value; cookie3=value;</p>
+
+    <code>
+        let x = document.cookie;
+    </code>
+
+    <h3>Change a Cookie with JavaScript</h3>
+
+    <p>With JavaScript, you can change a cookie the same way as you create it and the old cookie is overwritten.</p>
+
+    <code>
+        document.cookie = "username=John Smith; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+    </code>
+
+    <h3>Delete a Cookie with JavaScript</h3>
+
+    <p>Deleting a cookie is very simple. You don't have to specify a cookie value when you delete a cookie. Just set the
+        expires parameter to a past date:</p>
+
+    <code>
+        document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    </code>
+
+    <p>You should define the cookie path to ensure that you delete the right cookie. <br> Some browsers will not let you
+        delete a cookie if you don't specify the path.</p>
+
+    <h3>The Cookie String</h3>
+
+    <p>The document.cookie property looks like a normal text string. But it is not. Even if you write a whole cookie
+        string to document.cookie, when you read it out again, you can only see the name-value pair of it. <br> If you
+        set a new cookie, older cookies are not overwritten. The new cookie is added to document.cookie, so if you read
+        document.cookie again you will get something like: <br> cookie1 = value; cookie2 = value;</p>
+
+    <p>If you want to find the value of one specified cookie, you must write a JavaScript function that searches for the
+        cookie value in the cookie string.</p>
+
+    <h3>JavaScript Cookie Example</h3>
+
+    <p>In the example to follow, we will create a cookie that stores the name of a visitor. <br> The first time a
+        visitor arrives to the web page, he/she will be asked to fill in his/her name. The name is then stored in a
+        cookie. <br> The next time the visitor arrives at the same page, he/she will get a welcome message. <br> For the
+        example we will create 3 JavaScript functions:</p>
+
+    <ol>
+        <li>A function to set a cookie value</li>
+        <li>A function to get a cookie value</li>
+        <li>A function to check a cookie value</li>
+    </ol>
+
+    <h3>A Function to Set a Cookie</h3>
+
+    <!--
+        <head>
+        <script>
+        function setCookie(cname, cvalue, exdays) { //la cookie se setea con 3 parámetros: nombre, valor, fecha de expiración
+            const d31 = new Date(); //se crea una variable con la fecha 
+            d31.setTime(d31.getTime() + (exdays * 24 * 60 * 60 * 1000)); //expira en un año
+            let expires31 = "expires=" + d31.toUTCString(); //convierte la variable anterior a UTC
+            document.cookie = cname + "=" + cvalue + ";" + expires31 + ";path=/"; //en fecha de expiración va la variable anterior
+        }
+
+        function getCookie(cname) { //función getCookie
+            let name31 = cname + "="; //variable nombre
+            let decodedCookie = decodeURIComponent(document.cookie); //parámetro decode para tratar con cookies que incluyan caracteres especiales $$
+            let ca31 = decodedCookie.split(';'); //se divide la cookie 
+            for (let i = 0; i < ca31.length; i++) { //loop para leer caracter
+                let c = ca31[i];
+                while (c31.charAt(0) == ' ') {
+                    c31 = c31.substring(1);
+                }
+                if (c31.indexOf(name31) == 0) { //si encuentra la cookie retorna el valor
+                    return c31.substring(name31.length, c31.length);
+                }
+            }
+            return ""; //si no la encuentra retorna vacío
+        }
+
+        function checkCookie() { //función para chequear si existe la cookie
+            let user31 = getCookie("username"); 
+            if (user31 != "") { //si la encuentra devuelve un mensaje de bienvenida
+                alert("Welcome again " + user31);
+            } else { //si no la encuentra devuelve un prompt donde se introduce el nombre y lo guarda por 365 días -llama a la función setCookie
+                user31 = prompt("Please enter your name:", "");
+                if (user31 != "" && user31 != null) {
+                    setCookie("username", user31, 30);
+                }
+            }
+        }
+    </script>
+
+    </head>
+
+    <body onload="checkCookie()"></body>
+    
+    -->
+
+</body>
+
+</html>

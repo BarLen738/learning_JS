@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Web APIs</title>
+</head>
+
+<body>
+
+    <h1>Web APIs - Introduction</h1>
+
+    <ul>
+        <li>It can extend the functionality of the browser</li>
+        <li>It can greatly simplify complex functions</li>
+        <li>It can provide easy syntax to complex code</li>
+    </ul>
+
+    <h2>What is Web API?</h2>
+
+    <p>API stands for Application Programming Interface. <br> A Browser API can extend the functionality of a web
+        browser. <br> A Server API can extend the functionality of a web server.</p>
+
+    <h2>Browser APIs</h2>
+
+    <p>All browsers have a set of built-in Web APIs to support complex operations, and to help accessing data. <br> For
+        example, the Geolocation API can return the coordinates of where the browser is located.</p>
+
+    <p>Get the latitude and longitude of the user's position:</p>
+
+    <p>Click the button to get your coordinates.</p>
+
+    <button onclick="getLocation1()">Try It</button>
+
+    <p id="demo1"></p>
+
+    <script>
+        const x1 = document.getElementById("demo1");
+
+        function getLocation1() {
+            try {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } catch {
+                x1.innerHTML = err;
+            }
+        }
+
+        function showPosition(position) {
+            x1.innerHTML = "Latitude: " + position.coords.latitude +
+                "<br>Longitude: " + position.coords.longitude;
+        }
+    </script>
+
+    <h3>Third Party APIs</h3>
+
+    <p>Third party APIs are not built into your browser. <br> To use these APIs, you will have to download the code from
+        the Web. <br> Examples:</p>
+
+    <ul>
+        <li>YouTube API - Allows you to display videos on a web site.</li>
+        <li>Twitter API - Allows you to display Tweets on a web site.</li>
+        <li>Facebook API - Allows you to display Facebook info on a web site.</li>
+    </ul>
+
+    <h2>JavaScript Validation API</h2>
+
+    <h3>Constraint Validation DOM Methods</h3>
+
+    <p>Propiedad y descripción</p>
+
+    <ul>
+        <li>checkvalidity() - Returns true if an input element contains valid data.</li>
+        <li>setCustomValidity() - Sets the validationMessage property of an input element.</li>
+    </ul>
+
+    <h4>The checkValidity() Method</h4>
+
+    <p>If an input field contains invalid data, display a message:</p>
+
+    <p>Enter a number and click OK:</p>
+
+    <input id="id2" type="number" min="100" max="300" required>
+    <button onclick="myFunction2()">OK</button>
+
+    <p>If the number is less than 100 or greater than 300, an error message will be displayed.</p>
+
+    <p id="demo2"></p>
+
+    <script>
+        function myFunction2() { //automatiza la creación del msj de validación según los rangos min - max especificados en el input
+            const inpObj2 = document.getElementById("id2");
+            if (!inpObj2.checkValidity()) {
+                document.getElementById("demo2").innerHTML = inpObj2.validationMessage;
+            } else {
+                document.getElementById("demo2").innerHTML = "Input OK";
+            }
+        } 
+    </script>
+
+    <h3>Constraint Validation DOM Properties</h3>
+
+    <p>Propiedad y descripción</p>
+
+    <ul>
+        <li>validity - Contains boolean properties related to the validity of an input element.</li>
+        <li>validationMessage - Contains the message a browser will display when the validity is false.</li>
+        <li>willValidate - Indicates if an input element will be validated.</li>
+    </ul>
+
+    <h3>Validity properties</h3>
+
+    <p>The validity property of an input element contains a number of properties related to the validity of data:</p>
+
+    <p>Propiedad y descripción</p>
+
+    <ul>
+        <li>customError - Set to true, if a custom validity message is set.</li>
+        <li>patternMismatch - Set to true, if an element's value does not match its pattern attribute.</li>
+        <li>rangeOverflow - Set to true, if an element's value is greater than its max attribute.</li>
+        <li>rangeUnderflow - Set to true, if an element's value is less than its min attribute.</li>
+        <li>stepMismatch - Set to true, if an element's value is invalid per its step attribute.</li>
+        <li>tooLong - Set to true, if an element's value exceeds its maxLength attribute.</li>
+        <li>typeMismatch - Set to true, if an element's value is invalid per its type attribute.</li>
+        <li>valueMissing - Set to true, if an element (with a required attribute) has no value.</li>
+        <li>valid - Set to true, if an element's value is valid.</li>
+    </ul>
+
+    <h3>Ejemplos</h3>
+
+    <h4>The rangeOverflow Property</h4>
+
+    <p>If the number in an input field is greater than 100 (the input's max attribute), display a message:</p>
+
+    <p>Enter a number and click OK:</p>
+
+    <input id="id3" type="number" max="100">
+    <button onclick="myFunction3()">OK</button>
+
+    <p>If the number is greater than 100 (the input's max attribute), an error message will be displayed.</p>
+
+    <p id="demo3"></p>
+
+    <script>
+        function myFunction3() {
+            let text3;
+            if (document.getElementById("id3").validity.rangeOverflow) { //si es mayor que el max especificado devuelve un msj de error, sino devuelve ok
+                text3 = "Value too large";
+            } else {
+                text3 = "Input OK";
+            }
+            document.getElementById("demo3").innerHTML = text3;
+        }
+    </script>
+
+    <h4>The rangeUnderflow Property</h4>
+
+    <p>If the number in an input field is less than 100 (the input's min attribute), display a message:</p>
+
+    <p>Enter a number and click OK:</p>
+
+    <input id="id4" type="number" min="100">
+    <button onclick="myFunction4()">OK</button>
+
+    <p>If the number is less than 100 (the input's min attribute), an error message will be displayed.</p>
+
+    <p id="demo4"></p>
+
+    <script>
+        function myFunction4() {
+            let text4;
+            if (document.getElementById("id4").validity.rangeUnderflow) { //si es menor que el min especificado devuelve un msj de error, sino devuelve ok
+                text4 = "Value too small";
+            } else {
+                text4 = "Input OK";
+            }
+            document.getElementById("demo4").innerHTML = text4;
+        }
+    </script>
+
+    <h2>Web History API</h2>
+
+    <p>The Web History API provides easy methods to access the windows.history object. <br> The window.history object
+        contains the URLs (Web Sites) visited by the user.</p>
+
+    <h3>The History back() Method</h3>
+
+    <p>The back() method loads the previous URL in the windows.history list. <br> It is the same as clicking the "back
+        arrow" in your browser.</p>
+
+    <button onclick="myFunction5()">Go Back</button>
+
+    <script>
+        function myFunction5() {
+            window.history.back();
+        }
+    </script>
+
+    <h3>The History go() Method</h3>
+
+    <p>The go() method loads a specific URL from the history list:</p>
+
+    <button onclick="myFunction6()">Go Back 2 Pages</button>
+
+    <script>
+        function myFunction6() {
+            window.history.go(-2); //dos páginas atrás
+        }
+    </script>
+
+    <h3>History Object Properties</h3>
+
+    <ul>
+        <li>property <strong>length</strong>, Returns the number of URLs in the history list</li>
+    </ul>
+
+    <h3>History Object Methods</h3>
+
+    <p>Method and description</p>
+
+    <ul>
+        <li>back() - Loads the previous URL in the history list</li>
+        <li>forward() - Loads the next URL in the history list</li>
+        <li>go() - Loads a specific URL from the history list</li>
+    </ul>
+
+    <h2>Web Storage API</h2>
+
+    <p>The Web Storage API is a simple syntax for storing and retrieving data in the browser. It is very easy to use:
+    </p>
+
+    <p>Ejemplo</p>
+
+    <p id="demo7"></p>
+
+    <script>
+        localStorage.setItem("name", "John Doe");
+        document.getElementById("demo7").innerHTML = localStorage.getItem("name");
+    </script>
+
+    <h3>The localStorage Object</h3>
+
+    <p>The localStorage object provides access to a local storage for a particular Web Site. It allows you to store,
+        read, add, modify, and delete data items for that domain. <br> The data is stored with no expiration date, and
+        will not be deleted when the browser is closed. <br> The data will be available for days, weeks, and years.</p>
+
+    <h4>The setItem() Method</h4>
+
+    <p>The localStorage.setItem() method stores a data item in a storage. <br> It takes a name and a value as
+        parameters:</p>
+
+    <code>
+        localStorage.setItem("name", "John Doe");
+    </code>
+
+    <h4>The getItem() Method</h4>
+
+    <p>The localStorage.getItem() method retrieves a data item from the storage. <br> It takes a name as parameter:</p>
+
+    <code>
+        localStorage.getItem("name");
+    </code>
+
+    <h3>The sessionStorage Object</h3>
+
+    <p>The sessionStorage object is identical to the localStorage object. <br> The difference is that the sessionStorage
+        object stores data for one session. <br> The data is deleted when the browser is closed.</p>
+
+    <p>Ejemplo</p>
+
+    <p id="demo8"></p>
+
+    <script>
+        sessionStorage.setItem("name", "John Doe");
+        document.getElementById("demo8").innerHTML = sessionStorage.getItem("name");
+    </script>
+
+    <h4>The setItem() Method</h4>
+
+    <p>The sessionStorage.setItem() method stores a data item in a storage. <br> It takes a name and a value as
+        parameters:</p>
+
+    <code>
+        sessionStorage.setItem("name", "John Doe");
+    </code>
+
+    <h4>The getItem() Method</h4>
+
+    <p>The sessionStorage.getItem() method retrieves a data item from the storage. <br> It takes a name as parameter:
+    </p>
+
+    <code>
+        sessionStorage.getItem("name");
+    </code>
+
+    <h3>Storage Object Properties and Methods</h3>
+
+    <ul>
+        <li>key(n) - Returns the name of the nth key in the storage</li>
+        <li>length - Returns the number of data items stored in the Storage object</li>
+        <li>getItem(keyname) - Returns the value of the specified key name</li>
+        <li>setItem (keyname, value) - Adds that key to the storage, or update that key's value if it already exists
+        </li>
+        <li>removeItem(keyname) - Removes that key from the storage</li>
+        <li>clear() - Empty all key out of the storage</li>
+    </ul>
+
+    <h3>Related Pages for Web Storage API</h3>
+
+    <p>Propiedad y descripción</p>
+
+    <ul>
+        <li>window.localStorage - Allows to save key/value pairs in a web browser. Stores the data with no expiration
+            date</li>
+        <li>window.sessionStorage - Allows to save key/value pairs in a web browser. Stores the data for one session
+        </li>
+    </ul>
+
+    <h2>Web Workers API</h2>
+
+    <p>A web worker is a JavaScript running in the background, without affecting the performance of the page.</p>
+
+    <h3>What is a Web Worker?</h3>
+
+    <p>When executing scripts in an HTML page, the page becomes unresponsive until the script is finished. <br> A web
+        worker is a JavaScript that runs in the background, independently of other scripts, without affecting the
+        performance of the page. You can continue to do whatever you want: clicking, selecting things, etc., while the
+        web worker runs in the background.</p>
+
+    <h4>Web Workers Example</h4>
+
+    <p>The example below creates a simple web worker that count numbers in the background:</p>
+
+    <p>Count numbers: <output id="result9"></output></p>
+    <button onclick="startWorker()">Start Worker</button>
+    <!--se recibe el msj y se ejecuta la función-->
+    <button onclick="stopWorker()">Stop Worker</button>
+
+    <script>
+        let w;
+
+        function startWorker() {
+            if (typeof (w) == "undefined") { //este if chequea si el worker existe, sino crea un nuevo object y ejecuta el código del archivo demo_workers.js
+                w = new Worker("demo_workers.js");
+            }
+            w.onmessage = function (event) { //esta línea envía un msj según el resultado del web worker
+                document.getElementById("result9").innerHTML = event.data; //la data del web worker se guarda en event9.data
+            };
+        }
+
+        function stopWorker() {
+            w.terminate(); //método para finalizar un web worker webWorker.terminate()
+            w = undefined; //si se agrega esta línea permite que el web worker se pueda reutilizar
+        }
+    </script>
+
+    <h3>Check Web Worker Support</h3>
+
+    <p>Before creating a web worker, check whether the user's browser supports it:</p>
+
+    <code>
+        if (typeof(Worker) !== "undefined") { <br>
+            // Yes! Web worker support! 
+            // Some code..... 
+          } else { <br>
+            // Sorry! No Web Worker support.. 
+          }
+    </code>
+
+    <h3>Create a Web Worker File</h3>
+
+    <p>Now, let's create our web worker in an external JavaScript. <br> Here, we create a script that counts. The script
+        is stored in the "demo_workers.js" file.</p>
+
+    <h3>Web Workers and the DOM</h3>
+
+    <p>Since web workers are in external files, they do not have access to the following JavaScript objects:</p>
+
+    <ul>
+        <li> The window object</li>
+        <li> The document object</li>
+        <li> The parent object</li>
+    </ul>
+
+    <h2>JavaScript Fetch API</h2>
+
+    <p>The Fetch API interface allows web browser to make HTTP requests to web servers.</p>
+
+    <h3>A Fetch API Example</h3>
+
+    <code>
+        getText("fetch_info.txt"); <br>
+        <br>
+        async function getText(file) { <br>
+        let myObject = await fetch(file); <br>
+        let myText = await myObject.text(); <br>
+        document.getElementById("demo").innerHTML = myText; <br>
+        }
+    </code>
+
+    <h2>Web Geolocation API</h2>
+
+    <h3>Locate the User's Position</h3>
+
+    <p>The HTML Geolocation API is used to get the geographical position of a user. <br>Since this can compromise
+        privacy, the position is not available unless the user approves it.</p>
+
+    <p>Note: Geolocation is most accurate for devices with GPS, like smartphone.</p>
+
+    <p>Note: As of Chrome 50, the Geolocation API will only work on secure contexts such as HTTPS. If your site is
+        hosted on an non-secure origin (such as HTTP) the requests to get the users location will no longer function.
+    </p>
+
+    <h3>Using the Geolocation API</h3>
+
+    <p>The getCurrentPosition() method is used to return the user's position. <br> The example below returns the
+        latitude and longitude of the user's position:</p>
+
+    <p>Click the button to get your coordinates.</p>
+
+    <button onclick="getLocation10()">Try It</button>
+
+    <p id="demo10"></p>
+
+    <script>
+        const x10 = document.getElementById("demo10");
+
+        function getLocation10() { //usa como parámetro la function showPosition y showError 
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition10, showError10);
+            } else {
+                x10.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition10(position) { //definimos showPosition
+            x10.innerHTML = "Latitude: " + position.coords.latitude +
+                "<br>Longitude: " + position.coords.longitude;
+        }
+
+        function showError10(error) { //function para manejar errores
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    x10.innerHTML = "User denied the request for Geolocation."
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    x10.innerHTML = "Location information is unavailable."
+                    break;
+                case error.TIMEOUT:
+                    x10.innerHTML = "The request to get user location timed out."
+                    break;
+                case error.UNKNOWN_ERROR:
+                    x10.innerHTML = "An unknown error occurred."
+                    break;
+            }
+        }
+    </script>
+
+    <h3>Displaying the Result in a Map</h3>
+
+    <p>To display the result in a map, you need access to a map service, like Google Maps. <br> In the example below,
+        the returned latitude and longitude is used to show the location in a Google Map (using a static image):</p>
+
+    <code>
+            function showPosition(position) { <br>
+                let latlon = position.coords.latitude + "," + position.coords.longitude;
+              <br>
+                let img_url = "https://maps.googleapis.com/maps/api/staticmap?center=
+                "+latlon+"&zoom=14&size=400x300&sensor=false&key=YOUR_KEY";
+              <br>
+                document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
+              }
+        </code>
+
+    <h3>Location-specific Information</h3>
+
+    <p>Geolocation is also very useful for location-specific information, like:</p>
+
+    <ul>
+        <li>Up-to-date local information</li>
+        <li>Showing Points-of-interest near the user</li>
+        <li>Turn-by-turn navigation (GPS)</li>
+    </ul>
+
+    <h3>The getCurrentPosition() Method - Return Data</h3>
+
+    <p>The getCurrentPosition() method returns an object on success. The latitude, longitude and accuracy properties are
+        always returned. The other properties are returned if available:</p>
+
+    <ul>
+        <li>coords.latitude - The latitude as a decimal number (always returned)</li>
+        <li>coords.longitude - The longitude as a decimal number (always returned)</li>
+        <li>coords.accuracy - The accuracy of position (always returned)</li>
+        <li>coords.altitude - The altitude in meters above the mean sea level (returned if available)</li>
+        <li>coords.altitude.accuracy - The altitude accuracy of position (returned if available)</li>
+        <li>coords.heading - The heading as degrees clockwise from North (returned if available)</li>
+        <li>coords.speed - The speed in meters per second (returned if available)</li>
+        <li>timestamp - The date/time of the response (returned if available)</li>
+    </ul>
+
+    <h3>Geolocation Object - Other interesting Methods</h3>
+
+    <p>The Geolocation object also has other interesting methods:</p>
+
+    <ul>
+        <li>watchPosition() - Returns the current position of the user and continues to return updated position as the
+            user moves (like the GPS in a car).</li>
+        <li>clearWatch() - Stops the watchPosition() method.</li>
+    </ul>
+
+    <p>Ejemplo</p>
+
+    <p>Click the button to get your coordinates.</p>
+
+    <button onclick="getLocation11()">Try It</button>
+
+    <p id="demo11"></p>
+
+    <script>
+        const x11 = document.getElementById("demo11");
+
+        function getLocation11() {
+            if (navigator.geolocation) {
+                navigator.geolocation.watchPosition(showPosition11);
+            } else {
+                x11.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition11(position) {
+            x11.innerHTML = "Latitude: " + position.coords.latitude +
+                "<br>Longitude: " + position.coords.longitude;
+        }
+    </script>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS AJAX</title>
+</head>
+
+<body>
+
+    <h1>AJAX</h1>
+
+    <ul>
+        <li> Read data from a web server - after the page has loaded</li>
+        <li> Update a web page without reloading the page </li>
+        <li> Send data to a web server - in the background</li>
+    </ul>
+
+    <p>AJAX is not a programming language. <br> AJAX is a technique for accessing web servers from a web page. <br> AJAX
+        stands for Asynchronous JavaScript And XML. AJAX applications might use XML to transport data, but it is equally
+        common to transport data as plain text or JSON text.</p>
+
+    <p>AJAX just uses a combination of: </p>
+
+    <ul>
+        <li>A browser built-in XMLHttpRequest object (to request data from a web server)</li>
+        <li>JavaScript and HTML DOM (to display or use the data)</li>
+    </ul>
+
+    <p>AJAX allows web pages to be updated asynchronously by exchanging data with a web server behind the scenes. This
+        means that it is possible to update parts of a web page, without reloading the whole page.</p>
+
+    <ol>
+        <li>An event occurs in a web page (the page is loaded, a button is clicked)</li>
+        <li>An XMLHttpRequest object is created by JavaScript</li>
+        <li>The XMLHttpRequest object sends a request to a web server</li>
+        <li>The server processes the request</li>
+        <li>The server sends a response back to the web page</li>
+        <li>The response is read by JavaScript</li>
+        <li>Proper action (like page update) is performed by JavaScript
+        </li>
+    </ol>
+
+    <h3>Modern Browsers (Fetch API)</h3>
+
+    <p>Modern Browsers can use Fetch API instead of the XMLHttpRequest Object. <br> The Fetch API interface allows web
+        browser to make HTTP requests to web servers. <br> If you use the XMLHttpRequest Object, Fetch can do the same
+        in a simpler way.</p>
+
+    <p>Ejemplo</p>
+
+    <!--<div id="demo">
+    <h2>Let AJAX change this text</h2>
+    <button type="button" onclick="loadDoc()">Change Content</button>
+    </div>-->
+
+    <code>
+        function loadDoc() { <br>
+            const xhttp = new XMLHttpRequest(); <br>
+            xhttp.onload = function() { <br>
+              document.getElementById("demo").innerHTML = this.responseText; <br>
+              } <br>
+            xhttp.open("GET", "ajax_info.txt", true); <br>
+            xhttp.send(); <br>
+          }
+    </code>
+
+    <h2>The XMLHttpRequest Object</h2>
+
+    <ol>
+        <li>Create an XMLHttpRequest object</li>
+        <li>Define a callback function</li>
+        <li>Open the XMLHttpRequest object</li>
+        <li>Send a Request to a server</li>
+    </ol>
+
+    <p>Syntax for creating an XMLHttpRequest object:</p>
+
+    <code>
+        variable = new XMLHttpRequest();
+    </code>
+
+    <h3>Define a Callback Function</h3>
+
+    <p>A callback function is a function passed as a parameter to another function. <br> In this case, the callback
+        function should contain the code to execute when the response is ready.</p>
+
+    <code>
+        xhttp.onload = function() { <br>
+            // What to do when the response is ready
+          }
+    </code>
+
+    <h3>Send a Request</h3>
+
+    <p>To send a request to a server, you can use the open() and send() methods of the XMLHttpRequest object:</p>
+
+    <code>
+        xhttp.open("GET", "ajax_info.txt"); <br>
+        xhttp.send();
+    </code>
+
+    <p>Ejemplo</p>
+
+    <div id="demo1">
+        <p>Let AJAX change this text.</p>
+        <button type="button" onclick="loadDoc1()">Change Content</button>
+    </div>
+
+    <script>
+        function loadDoc1() {
+            const xhttp1 = new XMLHttpRequest();
+            xhttp1.onload = function () {
+                document.getElementById("demo1").innerHTML = this.responseText;
+            }
+            xhttp1.open("GET", "ajax_info.txt");
+            xhttp1.send();
+        }
+    </script>
+
+    <h3>Access Across Domains</h3>
+
+    <p>For security reasons, modern browsers do not allow access across domains. <br> This means that both the web page
+        and the XML file it tries to load, must be located on the same server. <br> The examples on W3Schools all open
+        XML files located on the W3Schools domain. <br> If you want to use the example above on one of your own web
+        pages, the XML files you load must be located on your own server.</p>
+
+    <h3>XMLHttpRequest Object Methods</h3>
+
+    <p>Method & Description</p>
+
+    <ul>
+        <li>new XMLHttpRequest() - Creates a new XMLHttpRequest object</li>
+        <li>abort() - Cancels the current request</li>
+        <li>getAllResponseHeaders() - Returns header information</li>
+        <li>getResponseHeader() - Returns specific header information</li>
+        <li>open(method, url, async, user, psw) - Specifies the request: <em>method</em> the request type GET or POST,
+            <em>url</em> the file location, <em>async</em> true (asynchronous) oo false (synchronous), <em>user</em>
+            optional user name, <em>psw</em> optional password
+        </li>
+        <li>send() - Sends the request to the server, used for GET requests</li>
+        <li>send(string) - Sends the request to the server, used for POST requests</li>
+        <li>setRequestHeader() - Adds a label/value pair to the header to be sent</li>
+    </ul>
+
+    <h3>XMLHttpRequest Object Properties</h3>
+
+    <p>Property and description</p>
+
+    <ul>
+        <li>onload - Defines a function to be called when the request is received (loaded)</li>
+        <li>onreadystatechange - Defines a function to be called when the readyState property changes</li>
+        <li>readyState - Holds the status of the XMLHttpRequest. 0, request not initialized. 1, server connection
+            established. 2, request recived. 3, processing request. 4, request finished and response is ready</li>
+        <li>responseText Returns the response data as a string</li>
+        <li>responseXML Returns the response data as XML data</li>
+        <li>status - Returns the status-number of a request. 200, OK. 403, Forbidden. 404, Not Found. Complete list <a
+                href="https://www.w3schools.com/tags/ref_httpmessages.asp" target="_blank"></a>Http Messages references
+        </li>
+        <li>statusText - Returns the status-text (e.g. "OK" or "Not Found")</li>
+    </ul>
+
+    <h3>The onload Property</h3>
+
+    <p>With the XMLHttpRequest object you can define a callback function to be executed when the request receives an
+        answer. <br> The function is defined in the onload property of the XMLHttpRequest object:</p>
+
+    <code>
+        xhttp.onload = function() { <br>
+            document.getElementById("demo").innerHTML = this.responseText; <br>
+          } <br>
+          xhttp.open("GET", "ajax_info.txt"); <br>
+          xhttp.send();
+    </code>
+
+    <h3>Multiple Callback Functions</h3>
+
+    <p>If you have more than one AJAX task in a website, you should create one function for executing the XMLHttpRequest
+        object, and one callback function for each AJAX task. <br> The function call should contain the URL and what
+        function to call when the response is ready.</p>
+
+    <code>
+        loadDoc("url-1", myFunction1); <br>
+        <br>
+        loadDoc("url-2", myFunction2); <br>
+        <br>
+        function loadDoc(url, cFunction) { <br>
+        const xhttp = new XMLHttpRequest(); <br>
+        xhttp.onload = function() cFunction(this); <br>
+        xhttp.open("GET", url); <br>
+        xhttp.send(); <br>
+        } <br>
+        <br>
+        function myFunction1(xhttp) { <br>
+        // action goes here
+        } <br>
+        function myFunction2(xhttp) { <br>
+        // action goes here
+        } <br>
+    </code>
+
+    <h3>The onreadystatechange Property</h3>
+
+    <p>The readyState property holds the status of the XMLHttpRequest. <br> The onreadystatechange property defines a
+        callback function to be executed when the readyState changes. <br> The status property and the statusText
+        properties hold the status of the XMLHttpRequest object.</p>
+
+    <p>The onreadystatechange function is called every time the readyState changes. <br> When readyState is 4 and status
+        is 200, the response is ready. <br> The onreadystatechange event is triggered four times (1-4), one time for
+        each change in the readyState.</p>
+
+    <code>
+        function loadDoc() { <br>
+            const xhttp = new XMLHttpRequest(); <br>
+            xhttp.onreadystatechange = function() { <br>
+              if (this.readyState == 4 && this.status == 200) { <br>
+                document.getElementById("demo").innerHTML =
+                this.responseText; <br>
+              } <br>
+            }; <br>
+            xhttp.open("GET", "ajax_info.txt"); <br>
+            xhttp.send(); <br>
+          }
+    </code>
+
+    <h2>XMLHttpRequest</h2>
+
+    <h3>Send a Request To a Server</h3>
+
+    <p>To send a request to a server, we use the open() and send() methods of the XMLHttpRequest object:</p>
+
+    <code>
+        xhttp.open("GET", "ajax_info.txt", true); <br>
+        xhttp.send();
+    </code>
+
+    <h3>The url - A File On a Server</h3>
+
+    <p>The url parameter of the open() method, is an address to a file on a server. <br> The file can be any kind of
+        file, like .txt and .xml, or server scripting files like .asp and .php (which can perform actions on the server
+        before sending the response back).</p>
+
+    <code>
+        xhttp.open("GET", "ajax_test.asp", true);
+    </code>
+
+    <h3>Asynchronous - True or False?</h3>
+
+    <p>Server requests should be sent asynchronously. <br> The async parameter of the open() method should be set to
+        true. <br> By sending asynchronously, the JavaScript does not have to wait for the server response, but can
+        instead:</p>
+
+    <ul>
+        <li>execute other scripts while waiting for server response</li>
+        <li>deal with the response after the response is ready</li>
+    </ul>
+
+    <p>The default value for the async parameter is async = true. You can safely remove the third parameter from your
+        code. <br> Synchronous XMLHttpRequest (async = false) is not recommended because the JavaScript will stop
+        executing until the server response is ready. If the server is busy or slow, the application will hang or stop.
+    </p>
+
+    <h3>GET or POST?</h3>
+
+    <p>GET is simpler and faster than POST, and can be used in most cases. <br> However, always use POST requests when:
+    </p>
+
+    <ul>
+        <li>A cached file is not an option (update a file or database on the server).</li>
+        <li>Sending a large amount of data to the server (POST has no size limitations).</li>
+        <li>Sending user input (which can contain unknown characters), POST is more robust and secure than GET.</li>
+    </ul>
+
+    <h3>GET Requests</h3>
+
+    <code>
+        xhttp.open("GET", "demo_get.asp?t=" + Math.random()); <br> 
+        //se agrega ?t=" + Math.random()); para no traer un rdo de cache
+        <br> xhttp.send(); <br>
+    </code>
+
+    <p>If you want to send information with the GET method, add the information to the URL:</p>
+
+    <code>
+        xhttp.open("GET", "demo_get2.asp?fname=Henry&lname=Ford"); <br>
+        xhttp.send();
+    </code>
+
+    <h3>POST Requests</h3>
+
+    <code>
+        xhttp.open("POST", "demo_post.asp"); <br>
+        xhttp.send();
+    </code>
+
+    <p>To POST data like an HTML form, add an HTTP header with setRequestHeader(). Specify the data you want to send in
+        the send() method.</p>
+
+    <code>
+        xhttp.open("POST", "ajax_test.asp"); <br>
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); <br>
+        xhttp.send("fname=Henry&lname=Ford"); 
+    </code>
+
+    <p>Method and description</p>
+
+    <ul>
+        <li>setRequestHeader(header, value) - Adds HTTP headers to the request; <em>header</em> specifies the header
+            name, <em>value</em> specifies the header value</li>
+    </ul>
+
+    <h3>Adds HTTP headers to the request</h3>
+
+    <p>To execute a synchronous request, change the third parameter in the open() method to false:</p>
+
+    <code>
+        xhttp.open("GET", "ajax_info.txt", false);
+    </code>
+
+    <p>Sometimes async = false are used for quick testing. You will also find synchronous requests in older JavaScript
+        code. <br> Since the code will wait for server completion, there is no need for an onreadystatechange function:
+    </p>
+
+    <code>
+        xhttp.open("GET", "ajax_info.txt", false);
+        xhttp.send();
+        document.getElementById("demo").innerHTML = <strong>xhttp.responseText;</strong>
+    </code>
+
+    <h2>Server Response</h2>
+
+    <h3>The responseText Property</h3>
+
+    <code>
+        document.getElementById("demo").innerHTML = <strong>xhttp.responseText</strong>; 
+    </code>
+
+    <h3>The responseXML Property</h3>
+
+    <p>The XMLHttpRequest object has an in-built XML parser. <br> The responseXML property returns the server response
+        as an XML DOM object. <br> Using this property you can parse the response as an XML DOM object:</p>
+
+    <code>
+        const xmlDoc = <strong>xhttp.responseXML</strong>; <br>
+        const x = xmlDoc.getElementsByTagName("ARTIST"); <br>
+        <br>
+        let txt = ""; <br>
+        for (let i = 0; i < x.length; i++) { <br>
+        txt += x[i].childNodes[0].nodeValue + "br"; <br>
+        } <br>
+        document.getElementById("demo").innerHTML = txt;
+        <br>
+        xhttp.open("GET", "cd_catalog.xml"); <br>
+        xhttp.send(); <br>
+    </code>
+
+    <h3>The getAllResponseHeaders() Method</h3>
+
+    <code>
+        const xhttp = new XMLHttpRequest(); <br>
+        xhttp.onload = function() { <br>
+            document.getElementById("demo").innerHTML =
+            <strong>this.getAllResponseHeaders()</strong>; <br>
+        } <br>
+        xhttp.open("GET", "ajax_info.txt"); <br>
+        xhttp.send();
+    </code>
+
+    <h3>The getResponseHeader() Method</h3>
+
+    <code>
+        const xhttp = new XMLHttpRequest(); <br>
+        xhttp.onload = function() { <br>
+            document.getElementById("demo").innerHTML =
+            <strong>this.getResponseHeader("Last-Modified")</strong>; <br>
+        } <br>
+        xhttp.open("GET", "ajax_info.txt"); <br>
+        xhttp.send(); 
+    </code>
+
+    <h2>XML Example</h2>
+
+    <!--function loadDoc() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {myFunction(this);}
+        xhttp.open("GET", "cd_catalog.xml");
+        xhttp.send();
+        }
+        function myFunction(xml) {
+        const xmlDoc = xml.responseXML;
+        const x = xmlDoc.getElementsByTagName("CD");
+        let table="<tr><th>Artist</th><th>Title</th></tr>";
+        for (let i = 0; i <x.length; i++) {
+            table += "<tr><td>" +
+            x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+            "</td><td>" +
+            x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+            "</td></tr>";
+        }
+        document.getElementById("demo").innerHTML = table;
+        }
+    -->
+
+    <!--
+        Example Explained
+        When a user clicks on the "Get CD info" button above, the loadDoc() function is executed.
+
+        The loadDoc() function creates an XMLHttpRequest object, adds the function to be executed when the server response is ready, and sends the request off to the server.
+
+        When the server response is ready, an HTML table is built, nodes (elements) are extracted from the XML file, and it finally updates the element "demo" with the HTML table filled with XML data.
+    -->
+
+    <h2>PHP Example</h2>
+
+    <!--
+        <p>Start typing a name in the input field below:</p>
+        <p>First name: <input type="text" id="txt1" onkeyup="showHint(this.value)"></p>
+
+        <script>
+        function showHint(str) {
+        if (str.length == 0) { 
+            document.getElementById("txtHint").innerHTML = "";
+            return;
+        }
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+            document.getElementById("txtHint").innerHTML =
+            this.responseText;
+        }
+        xhttp.open("GET", "gethint.php?q="+str);
+        xhttp.send();   
+        }
+        </script>
+
+    -->
+
+    <!--
+        Code explanation:
+
+        First, check if the input field is empty (str.length == 0). If it is, clear the content of the txtHint placeholder and exit the function.
+
+        However, if the input field is not empty, do the following:
+
+        Create an XMLHttpRequest object
+        Create the function to be executed when the server response is ready
+        Send the request off to a PHP file (gethint.php) on the server
+        Notice that q parameter is added gethint.php?q="+str
+        The str variable holds the content of the input field
+
+    -->
+
+    <h3>ASP Example</h3>
+
+    <!--
+        In the example above, when a user types a character in the input field, a function called showHint() is executed.
+
+        The function is triggered by the onkeyup event.
+
+        First, check if the input field is empty (str.length == 0). If it is, clear the content of the txtHint placeholder and exit the function.
+
+        However, if the input field is not empty, do the following:
+
+        Create an XMLHttpRequest object
+        Create the function to be executed when the server response is ready
+        Send the request off to an ASP file (gethint.asp) on the server
+        Notice that q parameter is added gethint.asp?q="+str
+        The str variable holds the content of the input field
+    -->
+
+    <!--<p>Start typing a name in the input field below:</p>
+    <p>Suggestions: <span id="txtHint"></span></p> 
+    <p>First name: <input type="text" id="txt1" onkeyup="showHint(this.value)"></p>
+
+    <script>
+    function showHint(str) {
+    if (str.length == 0) { 
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+    }
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        document.getElementById("txtHint").innerHTML =
+        this.responseText;
+    }
+    xhttp.open("GET", "gethint.asp?q="+str);
+    xhttp.send();
+    }
+    </script>
+-->
+
+<h3>DB Example</h3>
+
+<!--
+    When a user selects a customer in the dropdown list above, a function called showCustomer() is executed. The function is triggered by the onchange event:
+
+    The showCustomer() function does the following:
+
+    Check if a customer is selected
+    Create an XMLHttpRequest object
+    Create the function to be executed when the server response is ready
+    Send the request off to a file on the server
+    Notice that a parameter (q) is added to the URL (with the content of the dropdown list)
+
+-->
+
+<!--
+
+    function showCustomer(str) {
+    if (str == "") {
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+    }
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        document.getElementById("txtHint").innerHTML = this.responseText;
+    }
+    xhttp.open("GET", "getcustomer.php?q="+str);
+    xhttp.send();
+}
+
+-->
+
+
+
+
+
+</body>
+
+</html>

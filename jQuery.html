@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>JQuery</title>
+</head>
+
+<body>
+
+    <h1>JQuery</h1>
+
+    <p>jQuery was created in 2006 by John Resig. It was designed to handle Browser Incompatibilities and to simplify
+        HTML DOM Manipulation, Event Handling, Animations, and Ajax. <br> For more than 10 years, jQuery has been the
+        most popular JavaScript library in the world. <br> However, after JavaScript Version 5 (2009), most of the
+        jQuery utilities can be solved with a few lines of standard JavaScript:</p>
+
+    <h3>Finding HTML Element by Id</h3>
+
+    <p>Return the element with id="id01":</p>
+
+    <p>JQuery</p>
+
+    <code>
+        myElement = $("#id01");
+    </code>
+
+    <p id="id01">Hello World!</p>
+    <p id="id02">Hello Sweden!</p>
+    <p id="id03">Hello Japan!</p>
+
+    <p id="demo1"></p>
+
+    <script>
+        $(document).ready(function () {
+            var myElements1 = $("#id01");
+            $("#demo1").text("The text from the id01 paragraph is: " + myElements1[0].innerHTML);
+        });
+    </script>
+
+    <p>JavaScript</p>
+
+    <code>
+        myElement = document.getElementById("id01");
+    </code>
+
+    <p id="id01a">Hello World!</p>
+    <p id="id02a">Hello Sweden!</p>
+    <p id="id03a">Hello Japan!</p>
+
+    <p id="demo2"></p>
+
+    <script>
+        const myElement2 = document.getElementById("id01a");
+        document.getElementById("demo2").innerHTML = "The text from the id01a paragraph is: " + myElement2.innerHTML;
+    </script>
+
+    <h3>Finding HTML Elements by Tag Name</h3>
+
+    <p>Return all <em>p</em> elements:</p>
+
+    <p>JQuery, Finding HTML Elements by Tag Name</p>
+
+    <p id="demo3"></p>
+
+    <script>
+        $(document).ready(function () {
+            var myElements3 = $("p");
+            $("#demo3").text("The text in the first paragraph is: " + myElements3[0].innerHTML);
+        });
+    </script>
+
+    <p>JavaScript, Finding HTML Elements by Tag Name</p>
+
+    <p id="demo4"></p>
+
+    <script>
+        const myElements4 = document.getElementsByTagName("p");
+        document.getElementById("demo4").innerHTML = "The text in the first paragraph is: " + myElements4[0].innerHTML;
+    </script>
+
+    <h3>Finding HTML Elements by Class Name</h3>
+
+    <p>Return all elements with class="intro"</p>
+
+    <p>Con JQuery</p>
+
+    <p class="intro">Hello World!</p>
+    <p class="intro">Hello Sweden!</p>
+    <p class="intro">Hello Japan!</p>
+
+    <p id="demo5"></p>
+
+    <script>
+        $(document).ready(function () {
+            var myElements5 = $(".intro");
+            $("#demo5").text("The first paragraph with class='intro' is: " + myElements5[0].innerHTML);
+        });
+    </script>
+
+    <p>Con JavaScript</p>
+
+    <p id="demo6"></p>
+
+    <script>
+        const myElements6 = document.getElementsByClassName("intro");
+        document.getElementById("demo6").innerHTML = "The first paragraph with class='intro' is: " + myElements6[0].innerHTML;
+    </script>
+
+    <h3>Finding HTML Elements by CSS Selectors</h3>
+
+    <p>Return a list of all <em>p</em> elements with class="Intro".</p>
+
+    <p>Con JQuery</p>
+
+    <p class="Intro">Hello World!</p>
+    <p class="Intro">Hello Sweden!</p>
+    <p class="Intro">Hello Japan!</p>
+
+    <p id="demo7"></p>
+
+    <script>
+        $(document).ready(function () {
+            var myElements7 = $("p.Intro");
+            $("#demo7").text("The first paragraph with class='Intro' is: " + myElements7[0].innerHTML);
+        });
+    </script>
+
+    <p>Con JavaScript</p>
+
+    <p id="demo8"></p>
+
+    <script>
+        const myElements8 = document.querySelectorAll("p.Intro");
+        document.getElementById("demo8").innerHTML =
+            "The first paragraph with class='Intro' is: " + myElements8[0].innerHTML;
+    </script>
+
+    <h3>Set Text Content</h3>
+
+    <p>Set the inner text of an HTML element (cambiar el texto que aparece en el HTML por otro que defino con JQuery o
+        JS)</p>
+
+    <p>Con Jquery</p>
+
+    <p id="01">Hello World!</p>
+    <p id="02">Hello Sweden!</p>
+
+    <script>
+        $(document).ready(function () {
+            var myElement9 = $("#01");
+            myElement9.text("Hello Sweden!");
+        });
+    </script>
+
+    <p>Con JavaScript</p>
+
+    <p id="01a">Hello World!</p>
+    <p id="02a">Hello Sweden!</p>
+
+    <script>
+        const myElement10 = document.getElementById("01a"); //me paro en el id 01a
+        myElement10.textContent = "Hello Sweden!"; //escribo Hello Sweden!
+    </script>
+
+    <h3>Get Text Content</h3>
+
+    <p>Get the inner text of an HTML element:</p>
+
+    <p>Con JQuery</p>
+
+    <p id="01b">Hello World!</p>
+    <p id="02b">Hello Sweden!</p>
+    <p id="03b">Hello Japan!</p>
+
+    <p id="demo11"></p>
+
+    <script>
+        $(document).ready(function () {
+            var myText11 = $("#02b").text();
+            $("#demo11").text(myText11);
+        });
+    </script>
+
+    <p>Con JavaScript</p>
+
+    <p id="01c">Hello World!</p>
+    <p id="02c">Hello Sweden!</p>
+    <p id="03c">Hello Japan!</p>
+
+    <p id="demo12"></p>
+
+    <script>
+        const myText12 = document.getElementById("02c").textContent; //me traigo el texto del id 02c
+        document.getElementById("demo12").innerHTML = myText12;  //escribo ese texto en el demo12
+    </script>
+
+    <h3>Set HTML Content</h3>
+
+    <p>Set the HTML content of an element:</p>
+
+    <p>Con JQuery</p>
+
+    <div id="01d">
+        <p>Hello World!</p>
+    </div>
+    <div id="02d">
+        <p>Hello Sweden!</p>
+    </div>
+
+    <p id="demo13"></p>
+
+    <script>
+        $(document).ready(function () {
+            $("#02d").html("<p>Hello World!</p>");
+        });
+    </script>
+
+    <p>Con JavaScript</p>
+
+    <div id="01e">
+        <p>Hello World!</p>
+    </div>
+    <div id="02e">
+        <p>Hello Sweden!</p>
+    </div>
+
+    <p id="demo14"></p>
+
+    <script>
+        document.getElementById("02e").innerHTML = "<p>Hello World!</p>"; //me paro en el id o2e y escribo Hello World
+    </script>
+
+    <h3>Get HTML Content</h3>
+
+    <p>Get the HTML content of an element</p>
+
+    <p>Con JQuery</p>
+
+    <div id="01f">
+        <p>Hello World!</p>
+    </div>
+    <div id="02f">
+        <p>Hello Sweden!</p>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            var content15 = $("#02f").html();
+            $("#01f").html(content15);
+        });
+    </script>
+
+    <p>Con JavaScript</p>
+
+    <div id="01g">
+        <p>Hello World!</p>
+    </div>
+    <div id="02g">
+        <p>Hello Sweden!</p>
+    </div>
+
+    <script>
+        const content16 = document.getElementById("02g").innerHTML; //me paro en el id 02g
+        document.getElementById("01g").innerHTML = content16; //se lo escribo al id o1g
+    </script>
+
+    <h3>Hiding HTML Elements</h3>
+
+    <p>Hide an HTML Element:</p>
+
+    <p>Con JQuery</p>
+
+    <p id="01h">Hello World!</p>
+    <p id="02h">Hello Sweden!</p>
+    <p id="03h">Hello Japan!</p>
+
+    <p id="demo17"></p>
+
+    <script>
+        $(document).ready(function () {
+            $("#02h").hide();
+        });
+    </script>
+
+    <p>Con JavaScript</p>
+
+    <p id="01i">Hello World!</p>
+    <p id="02i">Hello Sweden!</p>
+    <p id="03i">Hello Japan!</p>
+
+    <script>
+        document.getElementById("03i").style.display = "none";
+    </script>
+
+    <h3>Showing HTML Elements</h3>
+
+    <p>Show an HTML Element:</p>
+
+    <p>Con JQuery</p>
+
+    <p id="01j" style="display:none">Hello World!</p>
+    <p id="02j" style="display:none">Hello Sweden!</p>
+    <p id="03j" style="display:none">Hello Japan!</p>
+
+    <script>
+        $(document).ready(function () {
+            $("#02j").show();
+        });
+    </script>
+
+    <p>Con JavaScript</p>
+
+    <p id="01k" style="display:none">Hello World!</p>
+    <p id="02k" style="display:none">Hello Sweden!</p>
+    <p id="03k" style="display:none">Hello Japan!</p>
+
+    <script>
+        document.getElementById("01k").style.display = "";
+    </script>
+
+    <h3>Styling HTML Elements</h3>
+
+    <p>Change the font size of an HTML element:</p>
+
+    <p>Con jQuery</p>
+
+    <p id="demo18">Change the style of an HTML element.</p>
+
+    <script>
+        $(document).ready(function () {
+            $("#demo18").css("font-size", "35px");
+        });
+    </script>
+
+    <p>Con JavaScript</p>
+
+    <p id="demo19">Change the style of an HTML element.</p>
+
+    <script>
+        document.getElementById("demo19").style.fontSize = "35px";
+    </script>
+
+    <h3>Removing HTML Elements</h3>
+
+    <p>Remove an HTML element</p>
+
+    <p>Con JQuery</p>
+
+    <h2>Remove an HTML Element</h2>
+    <p id="id01l">Hello World!</p>
+    <p id="id02l">Hello Sweden!</p>
+
+    <script>
+        $(document).ready(function () {
+            $("#id02l").remove();
+        });
+    </script>
+
+    <p>Con JavaScript</p>
+
+    <p id="id01m">Hello World!</p>
+    <p id="id02m">Hello Sweden!</p>
+
+    <script>
+        document.getElementById("id01m").remove();
+    </script>
+
+    <h3>Get Parent Element</h3>
+
+    <p>Return the parent of an HTML element</p>
+
+    <p>Con JQuery</p>
+
+    <p id="01n">Hello World!</p>
+    <p id="02n">Hello Sweden!</p>
+
+    <p id="demo20"></p>
+
+    <script>
+        $(document).ready(function () {
+            $("#demo20").text($("#02n").parent().prop("nodeName"));
+        });
+    </script>
+
+    <p>Con JavaScript</p>
+
+    <p id="01o">Hello World!</p>
+    <p id="02o">Hello Sweden!</p>
+
+    <p id="demo21"></p>
+
+    <script>
+        document.getElementById("demo21").innerHTML = document.getElementById("02o").parentNode.nodeName;
+    </script>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

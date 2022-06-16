@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/d3.v4.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Graphics</title>
+</head>
+
+<body>
+
+    <h1>JS Graphics</h1>
+
+    <h2>Graphic Libraries</h2>
+
+    <p>JavaScript libraries to use for both Artificial Intelligence graphs and other charts:</p>
+
+    <ul>
+        <li>Plotly.js</li>
+        <li>Chart.js</li>
+        <li>Google Chart</li>
+    </ul>
+
+    <h3>Plotly.js</h3>
+
+    <p>Plotly.js is a charting library that comes with over 40 chart types, 3D charts, statistical graphs, and SVG maps.
+    </p>
+
+    <h3>Chart.js</h3>
+
+    <p>Chart.js comes with many built-in chart types:</p>
+
+    <ul>
+        <li>Scatter Plot</li>
+        <li>Line Chart</li>
+        <li>Bar Chart</li>
+        <li>Radar Chart</li>
+        <li>Pie and Donut Chart</li>
+        <li>Polar Area</li>
+        <li>Bubble Chart</li>
+        <li>Area Chart</li>
+        <li>Mixed Chart</li>
+    </ul>
+
+    <h3>Google Chart</h3>
+
+    <p>From simple line charts to complex tree maps, Google Chart provides a number of built-in chart types:</p>
+
+    <ul>
+        <li>Scatter Chart</li>
+        <li>Line Chart</li>
+        <li>Bar/Column Chart</li>
+        <li>Area Chart</li>
+        <li>Pie Chart</li>
+        <li>Donut Chart</li>
+        <li>Org Chart</li>
+        <li>Map/Geo Chart</li>
+    </ul>
+
+    <h2>HTML Canvas</h2>
+
+    <p>HTML Canvas is perfect for Scatter Plots <br> HTML Canvas is perfect for Line Graphs <br> HTML Canvas is perfect
+        for combining Scatter and Lines</p>
+
+    <h3>Scatter Plots</h3>
+
+    <canvas id="myCanvas1" width="400" height="400" style="border:1px solid grey"></canvas>
+
+    <script>
+        const canvas1 = document.getElementById("myCanvas1");
+        const ctx1 = canvas1.getContext("2d");
+        canvas1.height = canvas1.width;
+        ctx1.transform(1, 0, 0, -1, 0, canvas1.height)
+
+        const xArray1 = [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150];
+        const yArray1 = [7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15];
+
+        ctx1.fillStyle = "red";
+        for (let i = 0; i < xArray1.length - 1; i++) {
+            let x1 = xArray1[i] * 400 / 150;
+            let y1 = yArray1[i] * 400 / 15;
+            ctx1.beginPath();
+            ctx1.ellipse(x1, y1, 3, 3, 0, 0, Math.PI * 2);
+            ctx1.fill();
+        }
+    </script>
+
+    <h3>Line Graphs</h3>
+
+    <canvas id="myCanvas2" width="400" height="400" style="border:1px solid grey"></canvas>
+
+    <script>
+        const canvas2 = document.getElementById("myCanvas2");
+        const ctx2 = canvas2.getContext("2d");
+        ctx2.fillStyle = "#FF0000";
+        canvas2.height = canvas2.width;
+        ctx2.transform(1, 0, 0, -1, 0, canvas2.height)
+
+        let xMax2 = canvas2.height;
+        let slope2 = 1.2;
+        let intercept2 = 70;
+
+        ctx2.moveTo(0, intercept2);
+        ctx2.lineTo(xMax2, f(xMax2));
+        ctx2.strokeStyle = "black";
+        ctx2.stroke();
+
+        function f(x2) {
+            return x2 * slope2 + intercept2;
+        }
+    </script>
+
+    <h3>Combined</h3>
+
+    <canvas id="myCanvas3" width="400" height="400" style="border:1px solid grey"></canvas>
+
+    <script>
+        const canvas3 = document.getElementById("myCanvas3");
+        const ctx3 = canvas3.getContext("2d");
+        ctx3.fillStyle = "#FF0000";
+        canvas3.height = canvas3.width;
+        ctx3.transform(1, 0, 0, -1, 0, canvas3.height)
+
+        let xMax3 = canvas3.height;
+        let yMax3 = canvas3.width;
+        let slope3 = 1.2;
+        let intercept3 = 70;
+
+        const xArray3 = [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150];
+        const yArray3 = [7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15];
+
+        // Plot Scatter
+        ctx3.fillStyle = "red";
+        for (let i = 0; i < xArray3.length - 1; i++) {
+            let x3 = xArray3[i] * xMax3 / 150;
+            let y3 = yArray3[i] * yMax3 / 15;
+            ctx3.beginPath();
+            ctx3.ellipse(x3, y3, 3, 3, 0, 0, Math.PI * 2);
+            ctx3.fill();
+        }
+
+        // Plot Line
+        ctx3.moveTo(0, intercept3);
+        ctx3.lineTo(xMax3, f(xMax3));
+        ctx3.strokeStyle = "black";
+        ctx3.stroke();
+
+        // Line Function<br>
+        function f(x3) {
+            return x3 * slope3 + intercept3;
+        }
+    </script>
+
+    <h2>Plotly.js</h2>
+
+    <p>Plotly.js is a charting library that comes with over 40 chart types, 3D charts, statistical graphs, and SVG maps.
+    </p>
+
+    <h3>Scatter Plots</h3>
+
+    <div id="myPlot4" style="width:100%;max-width:700px"></div>
+
+    <script>
+        var xArray4 = [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150];
+        var yArray4 = [7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15];
+
+        // Define Data
+        var data4 = [{
+            x: xArray4,
+            y: yArray4,
+            mode: "markers"
+        }];
+
+        // Define Layout
+        var layout4 = {
+            xaxis: { range: [40, 160], title: "Square Meters" },
+            yaxis: { range: [5, 16], title: "Price in Millions" },
+            title: "House Prices vs. Size"
+        };
+
+        // Display using Plotly
+        Plotly.newPlot("myPlot4", data4, layout4);
+    </script>
+
+    <h3>Line Graphs</h3>
+
+    <div id="myPlot5" style="width:100%;max-width:700px"></div>
+
+    <script>
+        var xArray5 = [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150];
+        var yArray5 = [7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15];
+
+        // Define Data
+        var data5 = [{
+            x: xArray5,
+            y: yArray5,
+            mode: "lines"
+        }];
+
+        // Define Layout
+        var layout5 = {
+            xaxis: { range: [40, 160], title: "Square Meters" },
+            yaxis: { range: [5, 16], title: "Price in Millions" },
+            title: "House Prices vs. Size"
+        };
+
+        // Display using Plotly
+        Plotly.newPlot("myPlot5", data5, layout5);
+    </script>
+
+    <h3>Linear Graphs</h3>
+
+    <div id="myPlot6" style="width:100%;max-width:700px"></div>
+
+    <script>
+        var exp6 = "x + 17";
+
+        // Generate values
+        var xValues6 = [];
+        var yValues6 = [];
+        for (var x = 0; x <= 10; x += 1) {
+            xValues6.push(x);
+            yValues6.push(eval(exp6));
+        }
+
+        // Define Data
+        var data6 = [{
+            x: xValues6,
+            y: yValues6,
+            mode: "lines"
+        }];
+
+        // Define Layout
+        var layout6 = { title: "y = " + exp6 };
+
+        // Display using Plotly
+        Plotly.newPlot("myPlot6", data6, layout6);
+    </script>
+
+    <h3>Multiple Lines</h3>
+
+    <div id="myPlot7" style="width:100%;max-width:700px"></div>
+
+    <script>
+        var exp17 = "x";
+        var exp27 = "1.5*x";
+        var exp37 = "1.5*x + 7";
+        // Generate values
+
+        var x1Values7 = [];
+        var x2Values7 = [];
+        var x3Values7 = [];
+        var y1Values7 = [];
+        var y2Values7 = [];
+        var y3Values7 = [];
+
+        for (var x = 0; x <= 10; x += 1) {
+            x1Values7.push(x);
+            x2Values7.push(x);
+            x3Values7.push(x);
+            y1Values7.push(eval(exp17));
+            y2Values7.push(eval(exp27));
+            y3Values7.push(eval(exp37));
+        }
+
+        // Define Data
+        var data7 = [
+            { x: x1Values7, y: y1Values7, mode: "lines" },
+            { x: x2Values7, y: y2Values7, mode: "lines" },
+            { x: x3Values7, y: y3Values7, mode: "lines" }
+        ];
+
+        //Define Layout
+        var layout7 = { title: "[y=" + exp17 + "]  [y=" + exp27 + "]  [y=" + exp37 + "]" };
+
+        // Display using Plotly
+        Plotly.newPlot("myPlot7", data7, layout7);
+    </script>
+
+    <h3>Bar Charts</h3>
+
+    <div id="myPlot8" style="width:100%;max-width:700px"></div>
+
+    <script>
+        var xArray8 = ["Italy", "France", "Spain", "USA", "Argentina"];
+        var yArray8 = [55, 49, 44, 24, 15];
+
+        var data8 = [{
+            x: xArray8,
+            y: yArray8,
+            type: "bar"
+        }];
+
+        var layout8 = { title: "World Wide Wine Production" };
+
+        Plotly.newPlot("myPlot8", data8, layout8);
+    </script>
+
+    <h3>Horizontal Bar Charts</h3>
+
+    <div id="myPlot9" style="width:100%;max-width:700px"></div>
+
+    <script>
+        var xArray9 = [55, 49, 44, 24, 15];
+        var yArray9 = ["Italy ", "France ", "Spain ", "USA ", "Argentina "];
+
+        var data9 = [{
+            x: xArray9,
+            y: yArray9,
+            type: "bar",
+            orientation: "h",
+            marker: { color: "rgba(255,0,0,0.6)" }
+        }];
+
+        var layout9 = { title: "World Wide Wine Production" };
+
+        Plotly.newPlot("myPlot9", data9, layout9);
+    </script>
+
+    <h3>Pie Charts</h3>
+
+    <div id="myPlot10" style="width:100%;max-width:700px"></div>
+
+    <script>
+        var xArray10 = ["Italy", "France", "Spain", "USA", "Argentina"];
+        var yArray10 = [55, 49, 44, 24, 15];
+
+        var layout10 = { title: "World Wide Wine Production" };
+
+        var data10 = [{ labels: xArray10, values: yArray10, type: "pie" }];
+
+        Plotly.newPlot("myPlot10", data10, layout10);
+    </script>
+
+    <h3>Donut Charts</h3>
+
+    <div id="myPlot11" style="width:100%;max-width:700px"></div>
+
+    <script>
+        var xArray11 = ["Italy", "France", "Spain", "USA", "Argentina"];
+        var yArray11 = [55, 49, 44, 24, 15];
+
+        var layout11 = { title: "World Wide Wine Production" };
+
+        var data11 = [{ labels: xArray11, values: yArray11, hole: .4, type: "pie" }];
+
+        Plotly.newPlot("myPlot11", data11, layout11);
+    </script>
+
+    <h3>Plotting equations</h3>
+
+    <div id="myPlot12" style="width:100%;max-width:700px"></div>
+
+    <script>
+        var exp12 = "Math.sin(x)";
+
+        // Generate values
+        var xValues12 = [];
+        var yValues12 = [];
+        for (var x = 0; x <= 10; x += 0.1) {
+            xValues12.push(x);
+            yValues12.push(eval(exp12));
+        }
+
+        // Display using Plotly
+        var data12 = [{ x: xValues12, y: yValues12, mode: "lines" }];
+        var layout12 = { title: "y = " + exp12 };
+        Plotly.newPlot("myPlot12", data12, layout12);
+    </script>
+
+    <div id="myPlot13" style="width:100%;max-width:700px"></div>
+
+    <script>
+        var exp13 = "Math.cos(x)";
+
+        // Generate values
+        var xValues13 = [];
+        var yValues13 = [];
+        for (var x = 0; x <= 10; x += 0.2) {
+            yValues13.push(eval(exp13));
+            xValues13.push(x);
+        }
+
+        // Display using Plotly
+        var data13 = [{ x: xValues13, y: yValues13, mode: "markers" }];
+        var layout13 = { title: "y = " + exp13 };
+        Plotly.newPlot("myPlot13", data13, layout13);
+    </script>
+
+    <h2>Chart.js</h2>
+
+    <p>Chart.js is an free JavaScript library for making HTML-based charts. It is one of the simplest visualization
+        libraries for JavaScript</p>
+
+    <h3>How to Use Chart.js?</h3>
+
+    <p>First, add a link to the providing CDN (Content Delivery Network)</p>
+
+    <p>Then, add a canvas to where you want to draw the chart, The canvas element must have a unique id.</p>
+
+    <canvas id="myChart14" style="width:100%;max-width:700px"></canvas>
+
+    <script>
+        var xyValues14 = [
+            { x: 50, y: 7 },
+            { x: 60, y: 8 },
+            { x: 70, y: 8 },
+            { x: 80, y: 9 },
+            { x: 90, y: 9 },
+            { x: 100, y: 9 },
+            { x: 110, y: 10 },
+            { x: 120, y: 11 },
+            { x: 130, y: 14 },
+            { x: 140, y: 14 },
+            { x: 150, y: 15 }
+        ];
+
+        new Chart("myChart14", {
+            type: "scatter",
+            data: {
+                datasets: [{
+                    pointRadius: 4,
+                    pointBackgroundColor: "rgb(0,0,255)",
+                    data: xyValues14
+                }]
+            },
+            options: {
+                legend: { display: false },
+                scales: {
+                    xAxes: [{ ticks: { min: 40, max: 160 } }],
+                    yAxes: [{ ticks: { min: 6, max: 16 } }],
+                }
+            }
+        });
+    </script>
+
+    <h3>Line Graphs</h3>
+
+    <canvas id="myChart15" style="width:100%;max-width:600px"></canvas>
+
+    <script>
+        var xValues15 = [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150];
+        var yValues15 = [7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15];
+
+        new Chart("myChart15", {
+            type: "line",
+            data: {
+                labels: xValues15,
+                datasets: [{
+                    fill: false,
+                    lineTension: 0,
+                    backgroundColor: "rgba(0,0,255,1.0)",
+                    borderColor: "rgba(0,0,255,0.2)",
+                    data: yValues15
+                }]
+            },
+            options: {
+                legend: { display: false },
+                scales: {
+                    yAxes: [{ ticks: { min: 6, max: 16 } }],
+                }
+            }
+        });
+    </script>
+
+    <h3>Multiple Lines</h3>
+
+    <canvas id="myChart16" style="width:100%;max-width:600px"></canvas>
+
+    <script>
+        var xValues16 = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+
+        new Chart("myChart16", {
+            type: "line",
+            data: {
+                labels: xValues16,
+                datasets: [{
+                    data: [860, 1140, 1060, 1060, 1070, 1110, 1330, 2210, 7830, 2478],
+                    borderColor: "red",
+                    fill: false
+                }, {
+                    data: [1600, 1700, 1700, 1900, 2000, 2700, 4000, 5000, 6000, 7000],
+                    borderColor: "green",
+                    fill: false
+                }, {
+                    data: [300, 700, 2000, 5000, 6000, 4000, 2000, 1000, 200, 100],
+                    borderColor: "blue",
+                    fill: false
+                }]
+            },
+            options: {
+                legend: { display: false }
+            }
+        });
+    </script>
+
+    <h3>Linear Graphs</h3>
+
+    <canvas id="myChart17" style="width:100%;max-width:600px"></canvas>
+
+    <script>
+        var xValues17 = [];
+        var yValues17 = [];
+        generateData("x * 2 + 7", 0, 10, 0.5);
+
+        new Chart("myChart17", {
+            type: "line",
+            data: {
+                labels: xValues17,
+                datasets: [{
+                    fill: false,
+                    pointRadius: 1,
+                    borderColor: "rgba(255,0,0,0.5)",
+                    data: yValues17
+                }]
+            },
+            options: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: "y = x * 2 + 7",
+                    fontSize: 16
+                }
+            }
+        });
+        function generateData(value, i1, i2, step = 1) {
+            for (let x = i1; x <= i2; x += step) {
+                yValues17.push(eval(value));
+                xValues17.push(x);
+            }
+        }
+    </script>
+
+    <h3>Function Graphs</h3>
+
+    <p>Same as Linear Graph. Just change the generateData parameter(s):</p>
+
+    <code>
+        generateData("Math.sin(x)", 0, 10, 0.5);
+    </code>
+
+    <h3>Bar Charts</h3>
+
+    <canvas id="myChart18" style="width:100%;max-width:600px"></canvas>
+
+    <script>
+        var xValues18 = ["Italy", "France", "Spain", "USA", "Argentina"];
+        var yValues18 = [55, 49, 44, 24, 15];
+        var barColors18 = ["red", "green", "blue", "orange", "brown"]; //para colorear una barra sola var barColors = ["blue"]; para colorear todas las barras del mismo color var barColors ="red";
+
+        /*
+        Color shades
+        var barColors = [
+        "rgba(0,0,255,1.0)",
+        "rgba(0,0,255,0.8)",
+        "rgba(0,0,255,0.6)",
+        "rgba(0,0,255,0.4)",
+        "rgba(0,0,255,0.2)",
+        ];*/
+
+        new Chart("myChart18", {
+            type: "bar", //para barras horizontales type: "horizontalBar",
+            data: {
+                labels: xValues18,
+                datasets: [{
+                    backgroundColor: barColors18,
+                    data: yValues18
+                }]
+            },
+            options: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: "World Wine Production 2018"
+                }
+            }
+        });
+    </script>
+
+    <h3>Pie Charts</h3>
+
+    <canvas id="myChart19" style="width:100%;max-width:600px"></canvas>
+
+    <script>
+        var xValues19 = ["Italy", "France", "Spain", "USA", "Argentina"];
+        var yValues19 = [55, 49, 44, 24, 15];
+        var barColors19 = [
+            "#b91d47",
+            "#00aba9",
+            "#2b5797",
+            "#e8c3b9",
+            "#1e7145"
+        ];
+
+        new Chart("myChart19", {
+            type: "pie", //para donut type type: "doughnut";
+            data: {
+                labels: xValues19,
+                datasets: [{
+                    backgroundColor: barColors19,
+                    data: yValues19
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: "World Wide Wine Production 2018"
+                }
+            }
+        });
+    </script>
+
+    <h2>Google Chart</h2>
+
+    <h3>How to Use Google Chart?</h3>
+
+    <p>To use Google Chart in your web page, add a link to the charts loader:</p>
+
+    <!--
+
+        <script
+        src="https://www.gstatic.com/charts/loader.js">
+        </script>
+
+    -->
+
+    <p>Just add a div element to display the chart. The div element must have a unique id.</p>
+
+    <p>Then load the Google Graph API:</p>
+
+    <ol>
+        <li>Load the Visualization API and the corechart package</li>
+        <li>Set a callback function to call when the API is loaded</li>
+    </ol>
+
+    <!--
+        1 google.charts.load('current',{packages:['corechart']});
+
+        2 google.charts.setOnLoadCallback(drawChart);
+    -->
+
+    <h3>Line Graph</h3>
+
+    <div id="myChart20" style="width:100%; max-width:600px; height:500px;"></div>
+
+    <script>
+        google.charts.load('current', { packages: ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            // Set Data
+            var data20 = google.visualization.arrayToDataTable([
+                ['Price', 'Size'],
+                [50, 7], [60, 8], [70, 8], [80, 9], [90, 9],
+                [100, 9], [110, 10], [120, 11],
+                [130, 14], [140, 14], [150, 15]
+            ]);
+            // Set Options
+            var options20 = {
+                title: 'House Prices vs. Size',
+                hAxis: { title: 'Square Meters' },
+                vAxis: { title: 'Price in Millions' },
+                legend: 'none'
+            };
+            // Draw
+            var chart20 = new google.visualization.LineChart(document.getElementById('myChart20')); //para un scatter plot var chart = new google.visualization.ScatterChart(document.getElementById('myChart'));
+            chart20.draw(data20, options20);
+        }
+    </script>
+
+    <h3>Bar Charts</h3>
+
+    <div id="myChart21" style="width:100%; max-width:600px; height:500px;"></div>
+
+    <script>
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data21 = google.visualization.arrayToDataTable([
+                ['Contry', 'Mhl'],
+                ['Italy', 55],
+                ['France', 49],
+                ['Spain', 44],
+                ['USA', 24],
+                ['Argentina', 15]
+            ]);
+
+            var options21 = {
+                title: 'World Wide Wine Production'
+                //is3D: true si lo queremos en 3D
+            };
+
+            var chart21 = new google.visualization.BarChart(document.getElementById('myChart21')); // para hacer un pie chart var chart = new google.visualization.PieChart(document.getElementById('myChart'));
+            chart21.draw(data21, options21);
+        }
+    </script>
+
+    <h2>D3.js</h2>
+
+    <p>D3.js is a JavaScript library for manipulating HTML data.</p>
+
+    <h3>How to Use D3.js?</h3>
+
+    <p>To use D3.js in your web page, add a link to the library:</p>
+
+    <!--
+        <script src="//d3js.org/d3.v3.min.js"></script>
+    -->
+
+    <p>This script selects the body element and appends a paragraph with the text "Hello World!":</p>
+
+    <script>
+        d3.select("body").append("p").text("Hello World!");
+    </script>
+
+    <svg id="myPlot22" style="width:500px;height:500px"></svg>
+
+    <script>
+        // Set Dimensions
+        const xSize22 = 500;
+        const ySize22 = 500;
+        const margin22 = 40;
+        const xMax22 = xSize22 - margin22 * 2;
+        const yMax22 = ySize22 - margin22 * 2;
+
+        // Create Random Points
+        const numPoints22 = 100;
+        const data22 = [];
+        for (let i = 0; i < numPoints22; i++) {
+            data22.push([Math.random() * xMax22, Math.random() * yMax22]);
+        }
+
+        // Append SVG Object to the Page
+        const svg22 = d3.select("#myPlot22")
+            .append("svg")
+            .append("g")
+            .attr("transform", "translate(" + margin22 + "," + margin22 + ")");
+
+        // X Axis
+        const x22 = d3.scaleLinear()
+            .domain([0, 500])
+            .range([0, xMax22]);
+
+        svg22.append("g")
+            .attr("transform", "translate(0," + yMax22 + ")")
+            .call(d3.axisBottom(x22));
+
+        // Y Axis
+        const y22 = d3.scaleLinear()
+            .domain([0, 500])
+            .range([yMax22, 0]);
+
+        svg22.append("g")
+            .call(d3.axisLeft(y22));
+
+        // Dots
+        svg22.append('g')
+            .selectAll("dot")
+            .data(data22).enter()
+            .append("circle")
+            .attr("cx", function (d22) { return d22[0] })
+            .attr("cy", function (d22) { return d22[1] })
+            .attr("r", 3)
+            .style("fill", "Red");
+    </script>
+
+    
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
